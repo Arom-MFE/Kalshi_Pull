@@ -1,0 +1,53 @@
+{
+  "series": "KXFEDMEET",
+  "events": [
+    {
+      "event_ticker": "FEDMEET-24",
+      "title": "Will the Fed have an emergency meeting?"
+    },
+    {
+      "event_ticker": "KXFEDMEET-25",
+      "title": "Will the Fed have an emergency meeting in 2025?"
+    },
+    {
+      "event_ticker": "KXFEDMEET-27",
+      "title": "Will the Fed have an emergency meeting in 2026?"
+    }
+  ],
+  "markets": [
+    {
+      "event_ticker": "FEDMEET-24",
+      "market_ticker": "FEDMEET-24-25JAN01",
+      "title": "Will the Fed have an emergency meeting before Jan 1, 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FEDMEET-24",
+      "market_ticker": "FEDMEET-24-SEP17",
+      "title": "Will the Fed have an emergency meeting before Sep 17, 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXFEDMEET-25",
+      "market_ticker": "KXFEDMEET-25-JAN01",
+      "title": "Will the Fed have an emergency meeting before Jan 1, 2026?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXFEDMEET-27",
+      "market_ticker": "KXFEDMEET-27-JAN01",
+      "title": "Will the Fed have an emergency meeting before Jan 1, 2027?",
+      "status": "active",
+      "source": "live_event"
+    }
+  ],
+  "tickers": [
+    "FEDMEET-24-25JAN01",
+    "FEDMEET-24-SEP17",
+    "KXFEDMEET-25-JAN01",
+    "KXFEDMEET-27-JAN01"
+  ]
+}

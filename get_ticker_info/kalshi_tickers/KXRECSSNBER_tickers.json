@@ -1,0 +1,69 @@
+{
+  "series": "KXRECSSNBER",
+  "events": [
+    {
+      "event_ticker": "KXRECSSNBER-26",
+      "title": "Recession this year?"
+    },
+    {
+      "event_ticker": "RECSSNBER-22",
+      "title": "Recession in 2022?"
+    },
+    {
+      "event_ticker": "RECSSNBER-23",
+      "title": "Recession in 2023?"
+    },
+    {
+      "event_ticker": "RECSSNBER-24",
+      "title": "Recession in 2024?"
+    },
+    {
+      "event_ticker": "RECSSNBER-25",
+      "title": "Recession in 2025?"
+    }
+  ],
+  "markets": [
+    {
+      "event_ticker": "KXRECSSNBER-26",
+      "market_ticker": "KXRECSSNBER-26",
+      "title": "Will there be a recession in 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "RECSSNBER-22",
+      "market_ticker": "RECSSNBER-22",
+      "title": "Will there be a recession in 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "RECSSNBER-23",
+      "market_ticker": "RECSSNBER-23",
+      "title": "Will there be a recession in 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "RECSSNBER-24",
+      "market_ticker": "RECSSNBER-24",
+      "title": "Will there be a recession by the end of 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "RECSSNBER-25",
+      "market_ticker": "RECSSNBER-25",
+      "title": "Will there be a recession in 2025?",
+      "status": "finalized",
+      "source": "live_event"
+    }
+  ],
+  "tickers": [
+    "KXRECSSNBER-26",
+    "RECSSNBER-22",
+    "RECSSNBER-23",
+    "RECSSNBER-24",
+    "RECSSNBER-25"
+  ]
+}

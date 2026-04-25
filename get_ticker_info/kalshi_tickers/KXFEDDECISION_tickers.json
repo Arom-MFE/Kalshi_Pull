@@ -1,0 +1,1605 @@
+{
+  "series": "KXFEDDECISION",
+  "events": [
+    {
+      "event_ticker": "FEDDECISION-23DEC",
+      "title": "Fed meeting in Dec 2023?"
+    },
+    {
+      "event_ticker": "FEDDECISION-23JUL",
+      "title": "Fed meeting in Jul 2023?"
+    },
+    {
+      "event_ticker": "FEDDECISION-23JUN",
+      "title": "Fed meeting in Jun 2023?"
+    },
+    {
+      "event_ticker": "FEDDECISION-23MAY",
+      "title": "Fed meeting in May 2023?"
+    },
+    {
+      "event_ticker": "FEDDECISION-23NOV",
+      "title": "Fed meeting in Nov 2023?"
+    },
+    {
+      "event_ticker": "FEDDECISION-23SEP",
+      "title": "Fed meeting in Sep 2023?"
+    },
+    {
+      "event_ticker": "FEDDECISION-24JAN31",
+      "title": "Fed meeting in Jan 2024?"
+    },
+    {
+      "event_ticker": "FEDDECISION-24JUL",
+      "title": "Fed meeting in July?"
+    },
+    {
+      "event_ticker": "FEDDECISION-24JUN",
+      "title": "Fed meeting in June?"
+    },
+    {
+      "event_ticker": "FEDDECISION-24MAR20",
+      "title": "Fed meeting in Mar 2024?"
+    },
+    {
+      "event_ticker": "FEDDECISION-24MAY",
+      "title": "Fed meeting in May 2024?"
+    },
+    {
+      "event_ticker": "FEDDECISION-24NOV",
+      "title": "Fed decision on Nov 7th meeting?"
+    },
+    {
+      "event_ticker": "FEDDECISION-24SEP",
+      "title": "Fed decision in Sep 2024?"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-24DEC",
+      "title": "Fed decision in Dec 2024?"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-25DEC",
+      "title": "Fed decision in Dec 2025?"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-25JAN",
+      "title": "Fed decision in Jan 2025?"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-25JUL",
+      "title": "Fed decision in Jul 2025?"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-25JUN",
+      "title": "Fed decision in Jun 2025?"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-25MAR",
+      "title": "Fed decision in Mar 2025?"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-25MAY",
+      "title": "Fed decision in May 2025?"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-25OCT",
+      "title": "Fed decision in Oct 2025?"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-25SEP",
+      "title": "Fed decision in Sep 2025?"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-26APR",
+      "title": "Fed decision in Apr 2026?"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-26DEC",
+      "title": "Fed decision in Dec 2026?"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-26JAN",
+      "title": "Fed decision in Jan 2026?"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-26JUL",
+      "title": "Fed decision in Jul 2026?"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-26JUN",
+      "title": "Fed decision in Jun 2026?"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-26MAR",
+      "title": "Fed decision in Mar 2026?"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-26OCT",
+      "title": "Fed decision in Oct 2026?"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-26SEP",
+      "title": "Fed decision in Sep 2026?"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-27APR",
+      "title": "Fed decision in Apr 2027?"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-27DEC",
+      "title": "Fed decision in Dec 2027?"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-27JAN",
+      "title": "Fed decision in Jan 2027?"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-27JUL",
+      "title": "Fed decision in Jul 2027?"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-27JUN",
+      "title": "Fed decision in Jun 2027?"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-27MAR",
+      "title": "Fed decision in Mar 2027?"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-27OCT",
+      "title": "Fed decision in Oct 2027?"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-27SEP",
+      "title": "Fed decision in Sep 2027?"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-28JAN",
+      "title": "Fed decision in Jan 2028?"
+    }
+  ],
+  "markets": [
+    {
+      "event_ticker": "FEDDECISION-23JUL",
+      "market_ticker": "FEDDECISION-23JUL-H>25",
+      "title": "Will the Federal Reserve Hike rates by >25bps at their July 2023 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FEDDECISION-23JUL",
+      "market_ticker": "FEDDECISION-23JUL-H25",
+      "title": "Will the Federal Reserve Hike rates by 25bps at their July 2023 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FEDDECISION-23JUL",
+      "market_ticker": "FEDDECISION-23JUL-H0",
+      "title": "Will the Federal Reserve Hike rates by 0bps at their July 2023 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FEDDECISION-23JUL",
+      "market_ticker": "FEDDECISION-23JUL-C>25",
+      "title": "Will the Federal Reserve Cut rates by >25bps at their July 2023 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FEDDECISION-23JUL",
+      "market_ticker": "FEDDECISION-23JUL-C25",
+      "title": "Will the Federal Reserve Cut rates by 25bps at their July 2023 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FEDDECISION-23JUN",
+      "market_ticker": "FEDDECISION-23JUN-H>25",
+      "title": "Will the Federal Reserve Hike rates by >25bps at their June 2023 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FEDDECISION-23JUN",
+      "market_ticker": "FEDDECISION-23JUN-H25",
+      "title": "Will the Federal Reserve Hike rates by 25bps at their June 2023 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FEDDECISION-23JUN",
+      "market_ticker": "FEDDECISION-23JUN-H0",
+      "title": "Will the Federal Reserve Hike rates by 0bps at their June 2023 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FEDDECISION-23JUN",
+      "market_ticker": "FEDDECISION-23JUN-C25",
+      "title": "Will the Federal Reserve Cut rates by 25bps at their June 2023 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FEDDECISION-23JUN",
+      "market_ticker": "FEDDECISION-23JUN-C>25",
+      "title": "Will the Federal Reserve Cut rates by >25bps at their June 2023 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FEDDECISION-23MAY",
+      "market_ticker": "FEDDECISION-23MAY-TH50",
+      "title": "Will the Federal Reserve Hike rates by >50 at their May 2023 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FEDDECISION-23MAY",
+      "market_ticker": "FEDDECISION-23MAY-H50",
+      "title": "Will the Federal Reserve Hike rates by 50 at their May 2023 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FEDDECISION-23MAY",
+      "market_ticker": "FEDDECISION-23MAY-H25",
+      "title": "Will the Federal Reserve Hike rates by 25 at their May 2023 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FEDDECISION-23MAY",
+      "market_ticker": "FEDDECISION-23MAY-H0",
+      "title": "Will the Federal Reserve Hike rates by 0 at their May 2023 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FEDDECISION-23MAY",
+      "market_ticker": "FEDDECISION-23MAY-TC25",
+      "title": "Will the Federal Reserve Cut rates by >25bps at their May 2023 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FEDDECISION-23MAY",
+      "market_ticker": "FEDDECISION-23MAY-C25",
+      "title": "Will the Federal Reserve Cut rates by 25 at their May 2023 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FEDDECISION-23SEP",
+      "market_ticker": "FEDDECISION-23SEP-H>25",
+      "title": "Will the Federal Reserve Hike rates by >25bps at their September 2023 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FEDDECISION-23SEP",
+      "market_ticker": "FEDDECISION-23SEP-H25",
+      "title": "Will the Federal Reserve Hike rates by 25bps at their September 2023 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FEDDECISION-23SEP",
+      "market_ticker": "FEDDECISION-23SEP-H0",
+      "title": "Will the Federal Reserve Hike rates by 0bps at their September 2023 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FEDDECISION-23SEP",
+      "market_ticker": "FEDDECISION-23SEP-C>25",
+      "title": "Will the Federal Reserve Cut rates by >25bps at their September 2023 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FEDDECISION-23SEP",
+      "market_ticker": "FEDDECISION-23SEP-C25",
+      "title": "Will the Federal Reserve Cut rates by 25bps at their September 2023 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FEDDECISION-24JAN31",
+      "market_ticker": "FEDDECISION-24JAN31-H26",
+      "title": "Will the Federal Reserve Hike rates by >25bps at their January 2024 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FEDDECISION-24JAN31",
+      "market_ticker": "FEDDECISION-24JAN31-H25",
+      "title": "Will the Federal Reserve Hike rates by 25bps at their January 2024 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FEDDECISION-24JAN31",
+      "market_ticker": "FEDDECISION-24JAN31-H0",
+      "title": "Will the Federal Reserve Hike rates by 0bps at their January 2024 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FEDDECISION-24JAN31",
+      "market_ticker": "FEDDECISION-24JAN31-C25",
+      "title": "Will the Federal Reserve Cut rates by 25bps at their January 2024 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FEDDECISION-24JAN31",
+      "market_ticker": "FEDDECISION-24JAN31-C26",
+      "title": "Will the Federal Reserve Cut rates by >25bps at their January 2024 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FEDDECISION-24JUL",
+      "market_ticker": "FEDDECISION-24JUL-H26",
+      "title": "Will the Federal Reserve Hike rates by >25bps at their July 2024 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FEDDECISION-24JUL",
+      "market_ticker": "FEDDECISION-24JUL-H25",
+      "title": "Will the Federal Reserve Hike rates by 25bps at their July 2024 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FEDDECISION-24JUL",
+      "market_ticker": "FEDDECISION-24JUL-H0",
+      "title": "Will the Federal Reserve Hike rates by 0bps at their July 2024 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FEDDECISION-24JUL",
+      "market_ticker": "FEDDECISION-24JUL-C25",
+      "title": "Will the Federal Reserve Cut rates by 25bps at their July 2024 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FEDDECISION-24JUL",
+      "market_ticker": "FEDDECISION-24JUL-C26",
+      "title": "Will the Federal Reserve Cut rates by >25bps at their July 2024 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FEDDECISION-24JUN",
+      "market_ticker": "FEDDECISION-24JUN-H25",
+      "title": "Will the Federal Reserve Hike rates by 25bps at their June 2024 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FEDDECISION-24JUN",
+      "market_ticker": "FEDDECISION-24JUN-H0",
+      "title": "Will the Federal Reserve Hike rates by 0bps at their June 2024 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FEDDECISION-24JUN",
+      "market_ticker": "FEDDECISION-24JUN-C25",
+      "title": "Will the Federal Reserve Cut rates by 25bps at their June 2024 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FEDDECISION-24JUN",
+      "market_ticker": "FEDDECISION-24JUN-C26",
+      "title": "Will the Federal Reserve Cut rates by >25bps at their June 2024 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FEDDECISION-24MAR20",
+      "market_ticker": "FEDDECISION-24MAR20-H26",
+      "title": "Will the Federal Reserve Hike rates by >25bps at their March 2024 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FEDDECISION-24MAR20",
+      "market_ticker": "FEDDECISION-24MAR20-H25",
+      "title": "Will the Federal Reserve Hike rates by 25bps at their March 2024 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FEDDECISION-24MAR20",
+      "market_ticker": "FEDDECISION-24MAR20-H0",
+      "title": "Will the Federal Reserve Hike rates by 0bps at their March 2024 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FEDDECISION-24MAR20",
+      "market_ticker": "FEDDECISION-24MAR20-C25",
+      "title": "Will the Federal Reserve Cut rates by 25bps at their March 2024 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FEDDECISION-24MAR20",
+      "market_ticker": "FEDDECISION-24MAR20-C26",
+      "title": "Will the Federal Reserve Cut rates by >25bps at their March 2024 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FEDDECISION-24MAY",
+      "market_ticker": "FEDDECISION-24MAY-H26",
+      "title": "Will the Federal Reserve Hike rates by >25bps at their May 2024 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FEDDECISION-24MAY",
+      "market_ticker": "FEDDECISION-24MAY-H25",
+      "title": "Will the Federal Reserve Hike rates by 25bps at their May 2024 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FEDDECISION-24MAY",
+      "market_ticker": "FEDDECISION-24MAY-H0",
+      "title": "Will the Federal Reserve Hike rates by 0bps at their May 2024 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FEDDECISION-24MAY",
+      "market_ticker": "FEDDECISION-24MAY-C25",
+      "title": "Will the Federal Reserve Cut rates by 25bps at their May 2024 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FEDDECISION-24MAY",
+      "market_ticker": "FEDDECISION-24MAY-C26",
+      "title": "Will the Federal Reserve Cut rates by >25bps at their May 2024 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FEDDECISION-24NOV",
+      "market_ticker": "FEDDECISION-24NOV-H26",
+      "title": "Will the Federal Reserve Hike rates by >25bps at their November 2024 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FEDDECISION-24NOV",
+      "market_ticker": "FEDDECISION-24NOV-H25",
+      "title": "Will the Federal Reserve Hike rates by 25bps at their November 2024 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FEDDECISION-24NOV",
+      "market_ticker": "FEDDECISION-24NOV-H0",
+      "title": "Will the Federal Reserve Hike rates by 0bps at their November 2024 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FEDDECISION-24NOV",
+      "market_ticker": "FEDDECISION-24NOV-C26",
+      "title": "Will the Federal Reserve Cut rates by >25bps at their November 2024 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FEDDECISION-24NOV",
+      "market_ticker": "FEDDECISION-24NOV-C25",
+      "title": "Will the Federal Reserve Cut rates by 25bps at their November 2024 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FEDDECISION-24SEP",
+      "market_ticker": "FEDDECISION-24SEP-H26",
+      "title": "Will the Federal Reserve Hike rates by >25bps at their September 2024 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FEDDECISION-24SEP",
+      "market_ticker": "FEDDECISION-24SEP-H25",
+      "title": "Will the Federal Reserve Hike rates by 25bps at their September 2024 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FEDDECISION-24SEP",
+      "market_ticker": "FEDDECISION-24SEP-H0",
+      "title": "Will the Federal Reserve Hike rates by 0bps at their September 2024 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FEDDECISION-24SEP",
+      "market_ticker": "FEDDECISION-24SEP-C26",
+      "title": "Will the Federal Reserve Cut rates by >25bps at their September 2024 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FEDDECISION-24SEP",
+      "market_ticker": "FEDDECISION-24SEP-C25",
+      "title": "Will the Federal Reserve Cut rates by 25bps at their September 2024 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-24DEC",
+      "market_ticker": "KXFEDDECISION-24DEC-H26",
+      "title": "Will the Federal Reserve Hike rates by >25bps at their December 2024 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-24DEC",
+      "market_ticker": "KXFEDDECISION-24DEC-H25",
+      "title": "Will the Federal Reserve Hike rates by 25bps at their December 2024 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-24DEC",
+      "market_ticker": "KXFEDDECISION-24DEC-H0",
+      "title": "Will the Federal Reserve Hike rates by 0bps at their December 2024 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-24DEC",
+      "market_ticker": "KXFEDDECISION-24DEC-C25",
+      "title": "Will the Federal Reserve Cut rates by 25bps at their December 2024 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-24DEC",
+      "market_ticker": "KXFEDDECISION-24DEC-C26",
+      "title": "Will the Federal Reserve Cut rates by >25bps at their December 2024 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-25DEC",
+      "market_ticker": "KXFEDDECISION-25DEC-H26",
+      "title": "Will the Federal Reserve Hike rates by >25bps at their December 2025 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-25DEC",
+      "market_ticker": "KXFEDDECISION-25DEC-H25",
+      "title": "Will the Federal Reserve Hike rates by 25bps at their December 2025 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-25DEC",
+      "market_ticker": "KXFEDDECISION-25DEC-H0",
+      "title": "Will the Federal Reserve Hike rates by 0bps at their December 2025 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-25DEC",
+      "market_ticker": "KXFEDDECISION-25DEC-C25",
+      "title": "Will the Federal Reserve Cut rates by 25bps at their December 2025 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-25DEC",
+      "market_ticker": "KXFEDDECISION-25DEC-C26",
+      "title": "Will the Federal Reserve Cut rates by >25bps at their December 2025 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-25JUL",
+      "market_ticker": "KXFEDDECISION-25JUL-H26",
+      "title": "Will the Federal Reserve Hike rates by >25bps at their July 2025 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-25JUL",
+      "market_ticker": "KXFEDDECISION-25JUL-H25",
+      "title": "Will the Federal Reserve Hike rates by 25bps at their July 2025 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-25JUL",
+      "market_ticker": "KXFEDDECISION-25JUL-H0",
+      "title": "Will the Federal Reserve Hike rates by 0bps at their July 2025 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-25JUL",
+      "market_ticker": "KXFEDDECISION-25JUL-C26",
+      "title": "Will the Federal Reserve Cut rates by >25bps at their July 2025 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-25JUL",
+      "market_ticker": "KXFEDDECISION-25JUL-C25",
+      "title": "Will the Federal Reserve Cut rates by 25bps at their July 2025 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-25JUN",
+      "market_ticker": "KXFEDDECISION-25JUN-H26",
+      "title": "Will the Federal Reserve Hike rates by >25bps at their June 2025 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-25JUN",
+      "market_ticker": "KXFEDDECISION-25JUN-H25",
+      "title": "Will the Federal Reserve Hike rates by 25bps at their June 2025 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-25JUN",
+      "market_ticker": "KXFEDDECISION-25JUN-H0",
+      "title": "Will the Federal Reserve Hike rates by 0bps at their June 2025 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-25JUN",
+      "market_ticker": "KXFEDDECISION-25JUN-C26",
+      "title": "Will the Federal Reserve Cut rates by >25bps at their June 2025 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-25JUN",
+      "market_ticker": "KXFEDDECISION-25JUN-C25",
+      "title": "Will the Federal Reserve Cut rates by 25bps at their June 2025 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-25MAR",
+      "market_ticker": "KXFEDDECISION-25MAR-H26",
+      "title": "Will the Federal Reserve Hike rates by >25bps at their March 2025 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-25MAR",
+      "market_ticker": "KXFEDDECISION-25MAR-H25",
+      "title": "Will the Federal Reserve Hike rates by 25bps at their March 2025 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-25MAR",
+      "market_ticker": "KXFEDDECISION-25MAR-H0",
+      "title": "Will the Federal Reserve Hike rates by 0bps at their March 2025 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-25MAR",
+      "market_ticker": "KXFEDDECISION-25MAR-C25",
+      "title": "Will the Federal Reserve Cut rates by 25bps at their March 2025 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-25MAR",
+      "market_ticker": "KXFEDDECISION-25MAR-C26",
+      "title": "Will the Federal Reserve Cut rates by >25bps at their March 2025 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-25MAY",
+      "market_ticker": "KXFEDDECISION-25MAY-H26",
+      "title": "Will the Federal Reserve Hike rates by >25bps at their May 2025 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-25MAY",
+      "market_ticker": "KXFEDDECISION-25MAY-H25",
+      "title": "Will the Federal Reserve Hike rates by 25bps at their May 2025 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-25MAY",
+      "market_ticker": "KXFEDDECISION-25MAY-H0",
+      "title": "Will the Federal Reserve Hike rates by 0bps at their May 2025 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-25MAY",
+      "market_ticker": "KXFEDDECISION-25MAY-C26",
+      "title": "Will the Federal Reserve Cut rates by >25bps at their May 2025 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-25MAY",
+      "market_ticker": "KXFEDDECISION-25MAY-C25",
+      "title": "Will the Federal Reserve Cut rates by 25bps at their May 2025 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-25OCT",
+      "market_ticker": "KXFEDDECISION-25OCT-H26",
+      "title": "Will the Federal Reserve Hike rates by >25bps at their October 2025 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-25OCT",
+      "market_ticker": "KXFEDDECISION-25OCT-H25",
+      "title": "Will the Federal Reserve Hike rates by 25bps at their October 2025 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-25OCT",
+      "market_ticker": "KXFEDDECISION-25OCT-H0",
+      "title": "Will the Federal Reserve Hike rates by 0bps at their October 2025 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-25OCT",
+      "market_ticker": "KXFEDDECISION-25OCT-C26",
+      "title": "Will the Federal Reserve Cut rates by >25bps at their October 2025 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-25OCT",
+      "market_ticker": "KXFEDDECISION-25OCT-C25",
+      "title": "Will the Federal Reserve Cut rates by 25bps at their October 2025 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-25SEP",
+      "market_ticker": "KXFEDDECISION-25SEP-H26",
+      "title": "Will the Federal Reserve Hike rates by >25bps at their September 2025 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-25SEP",
+      "market_ticker": "KXFEDDECISION-25SEP-H25",
+      "title": "Will the Federal Reserve Hike rates by 25bps at their September 2025 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-25SEP",
+      "market_ticker": "KXFEDDECISION-25SEP-H0",
+      "title": "Will the Federal Reserve Hike rates by 0bps at their September 2025 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-25SEP",
+      "market_ticker": "KXFEDDECISION-25SEP-C26",
+      "title": "Will the Federal Reserve Cut rates by >25bps at their September 2025 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-25SEP",
+      "market_ticker": "KXFEDDECISION-25SEP-C25",
+      "title": "Will the Federal Reserve Cut rates by 25bps at their September 2025 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-26APR",
+      "market_ticker": "KXFEDDECISION-26APR-C26",
+      "title": "Will the Federal Reserve Cut rates by >25bps at their April 2026 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-26APR",
+      "market_ticker": "KXFEDDECISION-26APR-C25",
+      "title": "Will the Federal Reserve Cut rates by 25bps at their April 2026 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-26APR",
+      "market_ticker": "KXFEDDECISION-26APR-H0",
+      "title": "Will the Federal Reserve Hike rates by 0bps at their April 2026 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-26APR",
+      "market_ticker": "KXFEDDECISION-26APR-H25",
+      "title": "Will the Federal Reserve Hike rates by 25bps at their April 2026 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-26APR",
+      "market_ticker": "KXFEDDECISION-26APR-H26",
+      "title": "Will the Federal Reserve Hike rates by >25bps at their April 2026 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-26DEC",
+      "market_ticker": "KXFEDDECISION-26DEC-C26",
+      "title": "Will the Federal Reserve Cut rates by >25bps at their December 2026 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-26DEC",
+      "market_ticker": "KXFEDDECISION-26DEC-C25",
+      "title": "Will the Federal Reserve Cut rates by 25bps at their December 2026 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-26DEC",
+      "market_ticker": "KXFEDDECISION-26DEC-H0",
+      "title": "Will the Federal Reserve Hike rates by 0bps at their December 2026 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-26DEC",
+      "market_ticker": "KXFEDDECISION-26DEC-H25",
+      "title": "Will the Federal Reserve Hike rates by 25bps at their December 2026 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-26DEC",
+      "market_ticker": "KXFEDDECISION-26DEC-H26",
+      "title": "Will the Federal Reserve Hike rates by >25bps at their December 2026 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-26JAN",
+      "market_ticker": "KXFEDDECISION-26JAN-H26",
+      "title": "Will the Federal Reserve Hike rates by >25bps at their January 2026 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-26JAN",
+      "market_ticker": "KXFEDDECISION-26JAN-H25",
+      "title": "Will the Federal Reserve Hike rates by 25bps at their January 2026 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-26JAN",
+      "market_ticker": "KXFEDDECISION-26JAN-H0",
+      "title": "Will the Federal Reserve Hike rates by 0bps at their January 2026 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-26JAN",
+      "market_ticker": "KXFEDDECISION-26JAN-C26",
+      "title": "Will the Federal Reserve Cut rates by >25bps at their January 2026 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-26JAN",
+      "market_ticker": "KXFEDDECISION-26JAN-C25",
+      "title": "Will the Federal Reserve Cut rates by 25bps at their January 2026 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-26JUL",
+      "market_ticker": "KXFEDDECISION-26JUL-C26",
+      "title": "Will the Federal Reserve Cut rates by >25bps at their July 2026 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-26JUL",
+      "market_ticker": "KXFEDDECISION-26JUL-C25",
+      "title": "Will the Federal Reserve Cut rates by 25bps at their July 2026 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-26JUL",
+      "market_ticker": "KXFEDDECISION-26JUL-H0",
+      "title": "Will the Federal Reserve Hike rates by 0bps at their July 2026 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-26JUL",
+      "market_ticker": "KXFEDDECISION-26JUL-H25",
+      "title": "Will the Federal Reserve Hike rates by 25bps at their July 2026 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-26JUL",
+      "market_ticker": "KXFEDDECISION-26JUL-H26",
+      "title": "Will the Federal Reserve Hike rates by >25bps at their July 2026 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-26JUN",
+      "market_ticker": "KXFEDDECISION-26JUN-C26",
+      "title": "Will the Federal Reserve Cut rates by >25bps at their June 2026 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-26JUN",
+      "market_ticker": "KXFEDDECISION-26JUN-C25",
+      "title": "Will the Federal Reserve Cut rates by 25bps at their June 2026 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-26JUN",
+      "market_ticker": "KXFEDDECISION-26JUN-H0",
+      "title": "Will the Federal Reserve Hike rates by 0bps at their June 2026 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-26JUN",
+      "market_ticker": "KXFEDDECISION-26JUN-H25",
+      "title": "Will the Federal Reserve Hike rates by 25bps at their June 2026 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-26JUN",
+      "market_ticker": "KXFEDDECISION-26JUN-H26",
+      "title": "Will the Federal Reserve Hike rates by >25bps at their June 2026 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-26MAR",
+      "market_ticker": "KXFEDDECISION-26MAR-C26",
+      "title": "Will the Federal Reserve Cut rates by >25bps at their March 2026 meeting?",
+      "status": "finalized",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-26MAR",
+      "market_ticker": "KXFEDDECISION-26MAR-C25",
+      "title": "Will the Federal Reserve Cut rates by 25bps at their March 2026 meeting?",
+      "status": "finalized",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-26MAR",
+      "market_ticker": "KXFEDDECISION-26MAR-H0",
+      "title": "Will the Federal Reserve Hike rates by 0bps at their March 2026 meeting?",
+      "status": "finalized",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-26MAR",
+      "market_ticker": "KXFEDDECISION-26MAR-H25",
+      "title": "Will the Federal Reserve Hike rates by 25bps at their March 2026 meeting?",
+      "status": "finalized",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-26MAR",
+      "market_ticker": "KXFEDDECISION-26MAR-H26",
+      "title": "Will the Federal Reserve Hike rates by >25bps at their March 2026 meeting?",
+      "status": "finalized",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-26OCT",
+      "market_ticker": "KXFEDDECISION-26OCT-C26",
+      "title": "Will the Federal Reserve Cut rates by >25bps at their October 2026 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-26OCT",
+      "market_ticker": "KXFEDDECISION-26OCT-C25",
+      "title": "Will the Federal Reserve Cut rates by 25bps at their October 2026 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-26OCT",
+      "market_ticker": "KXFEDDECISION-26OCT-H0",
+      "title": "Will the Federal Reserve Hike rates by 0bps at their October 2026 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-26OCT",
+      "market_ticker": "KXFEDDECISION-26OCT-H25",
+      "title": "Will the Federal Reserve Hike rates by 25bps at their October 2026 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-26OCT",
+      "market_ticker": "KXFEDDECISION-26OCT-H26",
+      "title": "Will the Federal Reserve Hike rates by >25bps at their October 2026 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-26SEP",
+      "market_ticker": "KXFEDDECISION-26SEP-C26",
+      "title": "Will the Federal Reserve Cut rates by >25bps at their September 2026 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-26SEP",
+      "market_ticker": "KXFEDDECISION-26SEP-C25",
+      "title": "Will the Federal Reserve Cut rates by 25bps at their September 2026 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-26SEP",
+      "market_ticker": "KXFEDDECISION-26SEP-H0",
+      "title": "Will the Federal Reserve Hike rates by 0bps at their September 2026 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-26SEP",
+      "market_ticker": "KXFEDDECISION-26SEP-H25",
+      "title": "Will the Federal Reserve Hike rates by 25bps at their September 2026 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-26SEP",
+      "market_ticker": "KXFEDDECISION-26SEP-H26",
+      "title": "Will the Federal Reserve Hike rates by >25bps at their September 2026 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-27APR",
+      "market_ticker": "KXFEDDECISION-27APR-C26",
+      "title": "Will the Federal Reserve Cut rates by >25bps at their April 2027 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-27APR",
+      "market_ticker": "KXFEDDECISION-27APR-C25",
+      "title": "Will the Federal Reserve Cut rates by 25bps at their April 2027 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-27APR",
+      "market_ticker": "KXFEDDECISION-27APR-H0",
+      "title": "Will the Federal Reserve Hike rates by 0bps at their April 2027 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-27APR",
+      "market_ticker": "KXFEDDECISION-27APR-H25",
+      "title": "Will the Federal Reserve Hike rates by 25bps at their April 2027 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-27APR",
+      "market_ticker": "KXFEDDECISION-27APR-H26",
+      "title": "Will the Federal Reserve Hike rates by >25bps at their April 2027 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-27DEC",
+      "market_ticker": "KXFEDDECISION-27DEC-C26",
+      "title": "Will the Federal Reserve Cut rates by >25bps at their December 2027 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-27DEC",
+      "market_ticker": "KXFEDDECISION-27DEC-C25",
+      "title": "Will the Federal Reserve Cut rates by 25bps at their December 2027 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-27DEC",
+      "market_ticker": "KXFEDDECISION-27DEC-H0",
+      "title": "Will the Federal Reserve Hike rates by 0bps at their December 2027 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-27DEC",
+      "market_ticker": "KXFEDDECISION-27DEC-H25",
+      "title": "Will the Federal Reserve Hike rates by 25bps at their December 2027 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-27DEC",
+      "market_ticker": "KXFEDDECISION-27DEC-H26",
+      "title": "Will the Federal Reserve Hike rates by >25bps at their December 2027 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-27JAN",
+      "market_ticker": "KXFEDDECISION-27JAN-C26",
+      "title": "Will the Federal Reserve Cut rates by >25bps at their January 2027 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-27JAN",
+      "market_ticker": "KXFEDDECISION-27JAN-C25",
+      "title": "Will the Federal Reserve Cut rates by 25bps at their January 2027 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-27JAN",
+      "market_ticker": "KXFEDDECISION-27JAN-H0",
+      "title": "Will the Federal Reserve Hike rates by 0bps at their January 2027 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-27JAN",
+      "market_ticker": "KXFEDDECISION-27JAN-H25",
+      "title": "Will the Federal Reserve Hike rates by 25bps at their January 2027 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-27JAN",
+      "market_ticker": "KXFEDDECISION-27JAN-H26",
+      "title": "Will the Federal Reserve Hike rates by >25bps at their January 2027 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-27JUL",
+      "market_ticker": "KXFEDDECISION-27JUL-C26",
+      "title": "Will the Federal Reserve Cut rates by >25bps at their July 2027 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-27JUL",
+      "market_ticker": "KXFEDDECISION-27JUL-C25",
+      "title": "Will the Federal Reserve Cut rates by 25bps at their July 2027 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-27JUL",
+      "market_ticker": "KXFEDDECISION-27JUL-H0",
+      "title": "Will the Federal Reserve Hike rates by 0bps at their July 2027 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-27JUL",
+      "market_ticker": "KXFEDDECISION-27JUL-H25",
+      "title": "Will the Federal Reserve Hike rates by 25bps at their July 2027 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-27JUL",
+      "market_ticker": "KXFEDDECISION-27JUL-H26",
+      "title": "Will the Federal Reserve Hike rates by >25bps at their July 2027 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-27JUN",
+      "market_ticker": "KXFEDDECISION-27JUN-C26",
+      "title": "Will the Federal Reserve Cut rates by >25bps at their June 2027 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-27JUN",
+      "market_ticker": "KXFEDDECISION-27JUN-C25",
+      "title": "Will the Federal Reserve Cut rates by 25bps at their June 2027 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-27JUN",
+      "market_ticker": "KXFEDDECISION-27JUN-H0",
+      "title": "Will the Federal Reserve Hike rates by 0bps at their June 2027 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-27JUN",
+      "market_ticker": "KXFEDDECISION-27JUN-H25",
+      "title": "Will the Federal Reserve Hike rates by 25bps at their June 2027 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-27JUN",
+      "market_ticker": "KXFEDDECISION-27JUN-H26",
+      "title": "Will the Federal Reserve Hike rates by >25bps at their June 2027 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-27MAR",
+      "market_ticker": "KXFEDDECISION-27MAR-C26",
+      "title": "Will the Federal Reserve Cut rates by >25bps at their March 2027 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-27MAR",
+      "market_ticker": "KXFEDDECISION-27MAR-C25",
+      "title": "Will the Federal Reserve Cut rates by 25bps at their March 2027 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-27MAR",
+      "market_ticker": "KXFEDDECISION-27MAR-H0",
+      "title": "Will the Federal Reserve Hike rates by 0bps at their March 2027 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-27MAR",
+      "market_ticker": "KXFEDDECISION-27MAR-H25",
+      "title": "Will the Federal Reserve Hike rates by 25bps at their March 2027 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-27MAR",
+      "market_ticker": "KXFEDDECISION-27MAR-H26",
+      "title": "Will the Federal Reserve Hike rates by >25bps at their March 2027 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-27OCT",
+      "market_ticker": "KXFEDDECISION-27OCT-C26",
+      "title": "Will the Federal Reserve Cut rates by >25bps at their October 2027 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-27OCT",
+      "market_ticker": "KXFEDDECISION-27OCT-C25",
+      "title": "Will the Federal Reserve Cut rates by 25bps at their October 2027 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-27OCT",
+      "market_ticker": "KXFEDDECISION-27OCT-H0",
+      "title": "Will the Federal Reserve Hike rates by 0bps at their October 2027 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-27OCT",
+      "market_ticker": "KXFEDDECISION-27OCT-H25",
+      "title": "Will the Federal Reserve Hike rates by 25bps at their October 2027 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-27OCT",
+      "market_ticker": "KXFEDDECISION-27OCT-H26",
+      "title": "Will the Federal Reserve Hike rates by >25bps at their October 2027 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-27SEP",
+      "market_ticker": "KXFEDDECISION-27SEP-C26",
+      "title": "Will the Federal Reserve Cut rates by >25bps at their September 2027 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-27SEP",
+      "market_ticker": "KXFEDDECISION-27SEP-C25",
+      "title": "Will the Federal Reserve Cut rates by 25bps at their September 2027 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-27SEP",
+      "market_ticker": "KXFEDDECISION-27SEP-H0",
+      "title": "Will the Federal Reserve Hike rates by 0bps at their September 2027 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-27SEP",
+      "market_ticker": "KXFEDDECISION-27SEP-H25",
+      "title": "Will the Federal Reserve Hike rates by 25bps at their September 2027 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-27SEP",
+      "market_ticker": "KXFEDDECISION-27SEP-H26",
+      "title": "Will the Federal Reserve Hike rates by >25bps at their September 2027 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-28JAN",
+      "market_ticker": "KXFEDDECISION-28JAN-C26",
+      "title": "Will the Federal Reserve Cut rates by >25bps at their January 2028 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-28JAN",
+      "market_ticker": "KXFEDDECISION-28JAN-C25",
+      "title": "Will the Federal Reserve Cut rates by 25bps at their January 2028 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-28JAN",
+      "market_ticker": "KXFEDDECISION-28JAN-H0",
+      "title": "Will the Federal Reserve Hike rates by 0bps at their January 2028 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-28JAN",
+      "market_ticker": "KXFEDDECISION-28JAN-H25",
+      "title": "Will the Federal Reserve Hike rates by 25bps at their January 2028 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFEDDECISION-28JAN",
+      "market_ticker": "KXFEDDECISION-28JAN-H26",
+      "title": "Will the Federal Reserve Hike rates by >25bps at their January 2028 meeting?",
+      "status": "active",
+      "source": "live_event"
+    }
+  ],
+  "tickers": [
+    "FEDDECISION-23JUL-C25",
+    "FEDDECISION-23JUL-C>25",
+    "FEDDECISION-23JUL-H0",
+    "FEDDECISION-23JUL-H25",
+    "FEDDECISION-23JUL-H>25",
+    "FEDDECISION-23JUN-C25",
+    "FEDDECISION-23JUN-C>25",
+    "FEDDECISION-23JUN-H0",
+    "FEDDECISION-23JUN-H25",
+    "FEDDECISION-23JUN-H>25",
+    "FEDDECISION-23MAY-C25",
+    "FEDDECISION-23MAY-H0",
+    "FEDDECISION-23MAY-H25",
+    "FEDDECISION-23MAY-H50",
+    "FEDDECISION-23MAY-TC25",
+    "FEDDECISION-23MAY-TH50",
+    "FEDDECISION-23SEP-C25",
+    "FEDDECISION-23SEP-C>25",
+    "FEDDECISION-23SEP-H0",
+    "FEDDECISION-23SEP-H25",
+    "FEDDECISION-23SEP-H>25",
+    "FEDDECISION-24JAN31-C25",
+    "FEDDECISION-24JAN31-C26",
+    "FEDDECISION-24JAN31-H0",
+    "FEDDECISION-24JAN31-H25",
+    "FEDDECISION-24JAN31-H26",
+    "FEDDECISION-24JUL-C25",
+    "FEDDECISION-24JUL-C26",
+    "FEDDECISION-24JUL-H0",
+    "FEDDECISION-24JUL-H25",
+    "FEDDECISION-24JUL-H26",
+    "FEDDECISION-24JUN-C25",
+    "FEDDECISION-24JUN-C26",
+    "FEDDECISION-24JUN-H0",
+    "FEDDECISION-24JUN-H25",
+    "FEDDECISION-24MAR20-C25",
+    "FEDDECISION-24MAR20-C26",
+    "FEDDECISION-24MAR20-H0",
+    "FEDDECISION-24MAR20-H25",
+    "FEDDECISION-24MAR20-H26",
+    "FEDDECISION-24MAY-C25",
+    "FEDDECISION-24MAY-C26",
+    "FEDDECISION-24MAY-H0",
+    "FEDDECISION-24MAY-H25",
+    "FEDDECISION-24MAY-H26",
+    "FEDDECISION-24NOV-C25",
+    "FEDDECISION-24NOV-C26",
+    "FEDDECISION-24NOV-H0",
+    "FEDDECISION-24NOV-H25",
+    "FEDDECISION-24NOV-H26",
+    "FEDDECISION-24SEP-C25",
+    "FEDDECISION-24SEP-C26",
+    "FEDDECISION-24SEP-H0",
+    "FEDDECISION-24SEP-H25",
+    "FEDDECISION-24SEP-H26",
+    "KXFEDDECISION-24DEC-C25",
+    "KXFEDDECISION-24DEC-C26",
+    "KXFEDDECISION-24DEC-H0",
+    "KXFEDDECISION-24DEC-H25",
+    "KXFEDDECISION-24DEC-H26",
+    "KXFEDDECISION-25DEC-C25",
+    "KXFEDDECISION-25DEC-C26",
+    "KXFEDDECISION-25DEC-H0",
+    "KXFEDDECISION-25DEC-H25",
+    "KXFEDDECISION-25DEC-H26",
+    "KXFEDDECISION-25JUL-C25",
+    "KXFEDDECISION-25JUL-C26",
+    "KXFEDDECISION-25JUL-H0",
+    "KXFEDDECISION-25JUL-H25",
+    "KXFEDDECISION-25JUL-H26",
+    "KXFEDDECISION-25JUN-C25",
+    "KXFEDDECISION-25JUN-C26",
+    "KXFEDDECISION-25JUN-H0",
+    "KXFEDDECISION-25JUN-H25",
+    "KXFEDDECISION-25JUN-H26",
+    "KXFEDDECISION-25MAR-C25",
+    "KXFEDDECISION-25MAR-C26",
+    "KXFEDDECISION-25MAR-H0",
+    "KXFEDDECISION-25MAR-H25",
+    "KXFEDDECISION-25MAR-H26",
+    "KXFEDDECISION-25MAY-C25",
+    "KXFEDDECISION-25MAY-C26",
+    "KXFEDDECISION-25MAY-H0",
+    "KXFEDDECISION-25MAY-H25",
+    "KXFEDDECISION-25MAY-H26",
+    "KXFEDDECISION-25OCT-C25",
+    "KXFEDDECISION-25OCT-C26",
+    "KXFEDDECISION-25OCT-H0",
+    "KXFEDDECISION-25OCT-H25",
+    "KXFEDDECISION-25OCT-H26",
+    "KXFEDDECISION-25SEP-C25",
+    "KXFEDDECISION-25SEP-C26",
+    "KXFEDDECISION-25SEP-H0",
+    "KXFEDDECISION-25SEP-H25",
+    "KXFEDDECISION-25SEP-H26",
+    "KXFEDDECISION-26APR-C25",
+    "KXFEDDECISION-26APR-C26",
+    "KXFEDDECISION-26APR-H0",
+    "KXFEDDECISION-26APR-H25",
+    "KXFEDDECISION-26APR-H26",
+    "KXFEDDECISION-26DEC-C25",
+    "KXFEDDECISION-26DEC-C26",
+    "KXFEDDECISION-26DEC-H0",
+    "KXFEDDECISION-26DEC-H25",
+    "KXFEDDECISION-26DEC-H26",
+    "KXFEDDECISION-26JAN-C25",
+    "KXFEDDECISION-26JAN-C26",
+    "KXFEDDECISION-26JAN-H0",
+    "KXFEDDECISION-26JAN-H25",
+    "KXFEDDECISION-26JAN-H26",
+    "KXFEDDECISION-26JUL-C25",
+    "KXFEDDECISION-26JUL-C26",
+    "KXFEDDECISION-26JUL-H0",
+    "KXFEDDECISION-26JUL-H25",
+    "KXFEDDECISION-26JUL-H26",
+    "KXFEDDECISION-26JUN-C25",
+    "KXFEDDECISION-26JUN-C26",
+    "KXFEDDECISION-26JUN-H0",
+    "KXFEDDECISION-26JUN-H25",
+    "KXFEDDECISION-26JUN-H26",
+    "KXFEDDECISION-26MAR-C25",
+    "KXFEDDECISION-26MAR-C26",
+    "KXFEDDECISION-26MAR-H0",
+    "KXFEDDECISION-26MAR-H25",
+    "KXFEDDECISION-26MAR-H26",
+    "KXFEDDECISION-26OCT-C25",
+    "KXFEDDECISION-26OCT-C26",
+    "KXFEDDECISION-26OCT-H0",
+    "KXFEDDECISION-26OCT-H25",
+    "KXFEDDECISION-26OCT-H26",
+    "KXFEDDECISION-26SEP-C25",
+    "KXFEDDECISION-26SEP-C26",
+    "KXFEDDECISION-26SEP-H0",
+    "KXFEDDECISION-26SEP-H25",
+    "KXFEDDECISION-26SEP-H26",
+    "KXFEDDECISION-27APR-C25",
+    "KXFEDDECISION-27APR-C26",
+    "KXFEDDECISION-27APR-H0",
+    "KXFEDDECISION-27APR-H25",
+    "KXFEDDECISION-27APR-H26",
+    "KXFEDDECISION-27DEC-C25",
+    "KXFEDDECISION-27DEC-C26",
+    "KXFEDDECISION-27DEC-H0",
+    "KXFEDDECISION-27DEC-H25",
+    "KXFEDDECISION-27DEC-H26",
+    "KXFEDDECISION-27JAN-C25",
+    "KXFEDDECISION-27JAN-C26",
+    "KXFEDDECISION-27JAN-H0",
+    "KXFEDDECISION-27JAN-H25",
+    "KXFEDDECISION-27JAN-H26",
+    "KXFEDDECISION-27JUL-C25",
+    "KXFEDDECISION-27JUL-C26",
+    "KXFEDDECISION-27JUL-H0",
+    "KXFEDDECISION-27JUL-H25",
+    "KXFEDDECISION-27JUL-H26",
+    "KXFEDDECISION-27JUN-C25",
+    "KXFEDDECISION-27JUN-C26",
+    "KXFEDDECISION-27JUN-H0",
+    "KXFEDDECISION-27JUN-H25",
+    "KXFEDDECISION-27JUN-H26",
+    "KXFEDDECISION-27MAR-C25",
+    "KXFEDDECISION-27MAR-C26",
+    "KXFEDDECISION-27MAR-H0",
+    "KXFEDDECISION-27MAR-H25",
+    "KXFEDDECISION-27MAR-H26",
+    "KXFEDDECISION-27OCT-C25",
+    "KXFEDDECISION-27OCT-C26",
+    "KXFEDDECISION-27OCT-H0",
+    "KXFEDDECISION-27OCT-H25",
+    "KXFEDDECISION-27OCT-H26",
+    "KXFEDDECISION-27SEP-C25",
+    "KXFEDDECISION-27SEP-C26",
+    "KXFEDDECISION-27SEP-H0",
+    "KXFEDDECISION-27SEP-H25",
+    "KXFEDDECISION-27SEP-H26",
+    "KXFEDDECISION-28JAN-C25",
+    "KXFEDDECISION-28JAN-C26",
+    "KXFEDDECISION-28JAN-H0",
+    "KXFEDDECISION-28JAN-H25",
+    "KXFEDDECISION-28JAN-H26"
+  ]
+}

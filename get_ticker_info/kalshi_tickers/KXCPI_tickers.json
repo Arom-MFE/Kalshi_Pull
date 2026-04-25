@@ -1,0 +1,4401 @@
+{
+  "series": "KXCPI",
+  "events": [
+    {
+      "event_ticker": "CPI-21AUG",
+      "title": "CPI in August 2021?"
+    },
+    {
+      "event_ticker": "CPI-21DEC",
+      "title": "CPI in December 2021?"
+    },
+    {
+      "event_ticker": "CPI-21JUL",
+      "title": "CPI in July 2021?"
+    },
+    {
+      "event_ticker": "CPI-21JUN",
+      "title": "CPI in June 2021?"
+    },
+    {
+      "event_ticker": "CPI-21NOV",
+      "title": "CPI in November 2021?"
+    },
+    {
+      "event_ticker": "CPI-21OCT",
+      "title": "CPI in October 2021?"
+    },
+    {
+      "event_ticker": "CPI-21SEP",
+      "title": "CPI in September 2021?"
+    },
+    {
+      "event_ticker": "CPI-22APR",
+      "title": "CPI in April 2022?"
+    },
+    {
+      "event_ticker": "CPI-22AUG",
+      "title": "CPI in August 2022?"
+    },
+    {
+      "event_ticker": "CPI-22DEC",
+      "title": "CPI in December 2022?"
+    },
+    {
+      "event_ticker": "CPI-22FEB",
+      "title": "CPI in February 2022?"
+    },
+    {
+      "event_ticker": "CPI-22JAN",
+      "title": "CPI in January 2022?"
+    },
+    {
+      "event_ticker": "CPI-22JUL",
+      "title": "CPI in July 2022?"
+    },
+    {
+      "event_ticker": "CPI-22JUN",
+      "title": "CPI in June 2022?"
+    },
+    {
+      "event_ticker": "CPI-22MAR",
+      "title": "CPI in March 2022?"
+    },
+    {
+      "event_ticker": "CPI-22MAY",
+      "title": "CPI in May 2022?"
+    },
+    {
+      "event_ticker": "CPI-22NOV",
+      "title": "CPI in November 2022?"
+    },
+    {
+      "event_ticker": "CPI-22OCT",
+      "title": "CPI in October 2022?"
+    },
+    {
+      "event_ticker": "CPI-22SEP",
+      "title": "CPI in September 2022?"
+    },
+    {
+      "event_ticker": "CPI-23APR",
+      "title": "CPI in Apr 2023?"
+    },
+    {
+      "event_ticker": "CPI-23AUG",
+      "title": "CPI in Aug 2023?"
+    },
+    {
+      "event_ticker": "CPI-23DEC",
+      "title": "CPI in Dec 2023?"
+    },
+    {
+      "event_ticker": "CPI-23FEB",
+      "title": "CPI in Feb 2023?"
+    },
+    {
+      "event_ticker": "CPI-23JAN",
+      "title": "CPI in Jan 2023?"
+    },
+    {
+      "event_ticker": "CPI-23JUL",
+      "title": "CPI in Jul 2023?"
+    },
+    {
+      "event_ticker": "CPI-23JUN",
+      "title": "CPI in Jun 2023?"
+    },
+    {
+      "event_ticker": "CPI-23MAR",
+      "title": "CPI in Mar 2023?"
+    },
+    {
+      "event_ticker": "CPI-23MAY",
+      "title": "CPI in May 2023?"
+    },
+    {
+      "event_ticker": "CPI-23NOV",
+      "title": "CPI in Nov 2023?"
+    },
+    {
+      "event_ticker": "CPI-23OCT",
+      "title": "CPI in Oct 2023?"
+    },
+    {
+      "event_ticker": "CPI-23SEP",
+      "title": "CPI in Sep 2023?"
+    },
+    {
+      "event_ticker": "CPI-24APR",
+      "title": "CPI in Apr 2024?"
+    },
+    {
+      "event_ticker": "CPI-24AUG",
+      "title": "CPI in Aug 2024?"
+    },
+    {
+      "event_ticker": "CPI-24FEB",
+      "title": "CPI in Feb 2024?"
+    },
+    {
+      "event_ticker": "CPI-24JAN",
+      "title": "CPI in Jan 2024?"
+    },
+    {
+      "event_ticker": "CPI-24JUL",
+      "title": "CPI in Jul 2024?"
+    },
+    {
+      "event_ticker": "CPI-24JUN",
+      "title": "CPI in Jun 2024?"
+    },
+    {
+      "event_ticker": "CPI-24MAR",
+      "title": "CPI in Mar 2024?"
+    },
+    {
+      "event_ticker": "CPI-24MAY",
+      "title": "CPI in May 2024?"
+    },
+    {
+      "event_ticker": "CPI-24OCT",
+      "title": "CPI in Oct 2024?"
+    },
+    {
+      "event_ticker": "CPI-24SEP",
+      "title": "CPI in Sep 2024?"
+    },
+    {
+      "event_ticker": "KXCPI-24DEC",
+      "title": "CPI in Dec 2024?"
+    },
+    {
+      "event_ticker": "KXCPI-24NOV",
+      "title": "CPI in Nov 2024?"
+    },
+    {
+      "event_ticker": "KXCPI-25APR",
+      "title": "CPI in Apr 2025?"
+    },
+    {
+      "event_ticker": "KXCPI-25AUG",
+      "title": "CPI in Aug 2025?"
+    },
+    {
+      "event_ticker": "KXCPI-25DEC",
+      "title": "CPI in Dec 2025?"
+    },
+    {
+      "event_ticker": "KXCPI-25FEB",
+      "title": "CPI in Feb 2025?"
+    },
+    {
+      "event_ticker": "KXCPI-25JAN",
+      "title": "CPI in Jan 2025?"
+    },
+    {
+      "event_ticker": "KXCPI-25JUL",
+      "title": "CPI in Jul 2025?"
+    },
+    {
+      "event_ticker": "KXCPI-25JUN",
+      "title": "CPI in Jun 2025?"
+    },
+    {
+      "event_ticker": "KXCPI-25MAR",
+      "title": "CPI in Mar 2025?"
+    },
+    {
+      "event_ticker": "KXCPI-25MAY",
+      "title": "CPI in May 2025?"
+    },
+    {
+      "event_ticker": "KXCPI-25NOV",
+      "title": "CPI in Nov 2025?"
+    },
+    {
+      "event_ticker": "KXCPI-25OCT",
+      "title": "CPI in Oct 2025?"
+    },
+    {
+      "event_ticker": "KXCPI-25SEP",
+      "title": "CPI in Sep 2025?"
+    },
+    {
+      "event_ticker": "KXCPI-26APR",
+      "title": "CPI in April"
+    },
+    {
+      "event_ticker": "KXCPI-26AUG",
+      "title": "CPI in August"
+    },
+    {
+      "event_ticker": "KXCPI-26FEB",
+      "title": "CPI in Feb 2026?"
+    },
+    {
+      "event_ticker": "KXCPI-26JAN",
+      "title": "CPI in Jan 2026?"
+    },
+    {
+      "event_ticker": "KXCPI-26JUL",
+      "title": "CPI in July"
+    },
+    {
+      "event_ticker": "KXCPI-26JUN",
+      "title": "CPI in June"
+    },
+    {
+      "event_ticker": "KXCPI-26MAR",
+      "title": "CPI in Mar 2026"
+    },
+    {
+      "event_ticker": "KXCPI-26MAY",
+      "title": "CPI in May"
+    },
+    {
+      "event_ticker": "KXCPI-26NOV",
+      "title": "CPI in November"
+    },
+    {
+      "event_ticker": "KXCPI-26OCT",
+      "title": "CPI in October"
+    },
+    {
+      "event_ticker": "KXCPI-26SEP",
+      "title": "CPI in September"
+    }
+  ],
+  "markets": [
+    {
+      "event_ticker": "CPI-21AUG",
+      "market_ticker": "CPI-21AUG-T0.4",
+      "title": "Will the Consumer Price Index (CPI) increase more than 0.4% in August?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-21DEC",
+      "market_ticker": "CPI-21DEC-T0.8",
+      "title": "Will **inflation** rise more than 0.8% in December 2021?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-21DEC",
+      "market_ticker": "CPI-21DEC-T0.7",
+      "title": "Will **inflation** rise more than 0.7% in December 2021?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-21DEC",
+      "market_ticker": "CPI-21DEC-T0.6",
+      "title": "Will **inflation** rise more than 0.6% in December 2021?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-21DEC",
+      "market_ticker": "CPI-21DEC-T0.5",
+      "title": "Will **inflation** rise more than 0.5% in December 2021?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-21JUL",
+      "market_ticker": "CPI-21JUL-T0.7",
+      "title": "Will the Consumer Price Index (CPI) increase by more than 0.7% in July?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-21JUN",
+      "market_ticker": "CPI-21JUN-T0.6",
+      "title": "Will the Consumer Price Index (CPI) increase more than 0.6%?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-21NOV",
+      "market_ticker": "CPI-21NOV-T0.8",
+      "title": "Will the **Consumer Price Index** rise more than 0.8% in November 2021?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-21NOV",
+      "market_ticker": "CPI-21NOV-T0.6",
+      "title": "Will the **Consumer Price Index** rise more than 0.6% in November 2021?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-21NOV",
+      "market_ticker": "CPI-21NOV-T0.3",
+      "title": "Will the **Consumer Price Index** rise more than 0.3% in November 2021?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-21OCT",
+      "market_ticker": "CPI-21OCT-T0.4",
+      "title": "Will the Consumer Price Index rise more than 0.4% in October 2021?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-21OCT",
+      "market_ticker": "CPI-21OCT-T0.3",
+      "title": "Will the Consumer Price Index rise more than 0.3% in October 2021?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-21OCT",
+      "market_ticker": "CPI-21OCT-T0.5",
+      "title": "Will the Consumer Price Index rise more than 0.5% in October?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-21SEP",
+      "market_ticker": "CPI-21SEP-T0.2",
+      "title": "Will the Consumer Price Index rise more than 0.2% in September?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22APR",
+      "market_ticker": "CPI-22APR-T0.1",
+      "title": "Will inflation rise more than 0.1% in April?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22APR",
+      "market_ticker": "CPI-22APR-T0.2",
+      "title": "Will inflation rise more than 0.2% in April?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22APR",
+      "market_ticker": "CPI-22APR-T0.3",
+      "title": "Will inflation rise more than 0.3% in April?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22APR",
+      "market_ticker": "CPI-22APR-T0.4",
+      "title": "Will inflation rise more than 0.4% in April?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22APR",
+      "market_ticker": "CPI-22APR-T0.5",
+      "title": "Will inflation be above 0.5% in April?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22APR",
+      "market_ticker": "CPI-22APR-T1.2",
+      "title": "Will **inflation** rise more than 1.2% in April?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22APR",
+      "market_ticker": "CPI-22APR-T1.1",
+      "title": "Will **inflation** rise more than 1.1% in April?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22APR",
+      "market_ticker": "CPI-22APR-T1.0",
+      "title": "Will **inflation** rise more than 1.0% in April?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22APR",
+      "market_ticker": "CPI-22APR-T0.9",
+      "title": "Will **inflation** rise more than 0.9% in April?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22APR",
+      "market_ticker": "CPI-22APR-T0.8",
+      "title": "Will **inflation** rise more than 0.8% in April?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22APR",
+      "market_ticker": "CPI-22APR-T0.7",
+      "title": "Will **inflation** rise more than 0.7% in April?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22APR",
+      "market_ticker": "CPI-22APR-T0.6",
+      "title": "Will **inflation** rise more than 0.6% in April?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22AUG",
+      "market_ticker": "CPI-22AUG-TN0.4",
+      "title": "Will inflation rise more than -0.4% in August?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22AUG",
+      "market_ticker": "CPI-22AUG-TN0.3",
+      "title": "Will inflation rise more than -0.3% in August?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22AUG",
+      "market_ticker": "CPI-22AUG-TN0.2",
+      "title": "Will inflation rise more than -0.2% in August?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22AUG",
+      "market_ticker": "CPI-22AUG-TN0.1",
+      "title": "Will inflation rise more than -0.1% in August?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22AUG",
+      "market_ticker": "CPI-22AUG-T0.0",
+      "title": "Will inflation rise more than 0.0% in August?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22AUG",
+      "market_ticker": "CPI-22AUG-T0.1",
+      "title": "Will inflation rise more than 0.1% in August?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22AUG",
+      "market_ticker": "CPI-22AUG-T0.2",
+      "title": "Will inflation rise more than 0.2% in August?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22AUG",
+      "market_ticker": "CPI-22AUG-T1.0",
+      "title": "Will **inflation** rise more than 1.0% in August?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22AUG",
+      "market_ticker": "CPI-22AUG-T0.9",
+      "title": "Will **inflation** rise more than 0.9% in August?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22AUG",
+      "market_ticker": "CPI-22AUG-T0.8",
+      "title": "Will **inflation** rise more than 0.8% in August?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22AUG",
+      "market_ticker": "CPI-22AUG-T0.7",
+      "title": "Will **inflation** rise more than 0.7% in August?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22AUG",
+      "market_ticker": "CPI-22AUG-T0.6",
+      "title": "Will **inflation** rise more than 0.6% in August?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22AUG",
+      "market_ticker": "CPI-22AUG-T0.5",
+      "title": "Will **inflation** rise more than 0.5% in August?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22AUG",
+      "market_ticker": "CPI-22AUG-T0.4",
+      "title": "Will **inflation** rise more than 0.4% in August?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22AUG",
+      "market_ticker": "CPI-22AUG-T0.3",
+      "title": "Will **inflation** rise more than 0.3% in August?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22DEC",
+      "market_ticker": "CPI-22DEC-TN0.3",
+      "title": "Will CPI rise more than -0.3% in December 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22DEC",
+      "market_ticker": "CPI-22DEC-TN0.2",
+      "title": "Will CPI rise more than -0.2% in December 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22DEC",
+      "market_ticker": "CPI-22DEC-TN0.1",
+      "title": "Will CPI rise more than -0.1% in December 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22DEC",
+      "market_ticker": "CPI-22DEC-T0.8",
+      "title": "Will **CPI** rise more than 0.8% in December 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22DEC",
+      "market_ticker": "CPI-22DEC-T0.7",
+      "title": "Will **CPI** rise more than 0.7% in December 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22DEC",
+      "market_ticker": "CPI-22DEC-T0.6",
+      "title": "Will **CPI** rise more than 0.6% in December 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22DEC",
+      "market_ticker": "CPI-22DEC-T0.5",
+      "title": "Will **CPI** rise more than 0.5% in December 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22DEC",
+      "market_ticker": "CPI-22DEC-T0.4",
+      "title": "Will **CPI** rise more than 0.4% in December 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22DEC",
+      "market_ticker": "CPI-22DEC-T0.3",
+      "title": "Will **CPI** rise more than 0.3% in December 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22DEC",
+      "market_ticker": "CPI-22DEC-T0.2",
+      "title": "Will **CPI** rise more than 0.2% in December 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22DEC",
+      "market_ticker": "CPI-22DEC-T0.1",
+      "title": "Will **CPI** rise more than 0.1% in December 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22DEC",
+      "market_ticker": "CPI-22DEC-T0.0",
+      "title": "Will **CPI** rise more than 0.0% in December 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22FEB",
+      "market_ticker": "CPI-22FEB-T0.7",
+      "title": "Will **inflation** rise more than 0.7% in February 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22FEB",
+      "market_ticker": "CPI-22FEB-T0.6",
+      "title": "Will **inflation** rise more than 0.6% in February 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22FEB",
+      "market_ticker": "CPI-22FEB-T0.5",
+      "title": "Will **inflation** rise more than 0.5% in February 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22FEB",
+      "market_ticker": "CPI-22FEB-T0.4",
+      "title": "Will **inflation** rise more than 0.4% in February 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22JAN",
+      "market_ticker": "CPI-22JAN-T0.7",
+      "title": "Will **inflation** rise more than 0.7% in January 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22JAN",
+      "market_ticker": "CPI-22JAN-T0.6",
+      "title": "Will **inflation** rise more than 0.6% in January 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22JAN",
+      "market_ticker": "CPI-22JAN-T0.5",
+      "title": "Will **inflation** rise more than 0.5% in January 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22JAN",
+      "market_ticker": "CPI-22JAN-T0.4",
+      "title": "Will **inflation** rise more than 0.4% in January 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22JUL",
+      "market_ticker": "CPI-22JUL-T0.1",
+      "title": "Will CPI rise more than 0.1% in July?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22JUL",
+      "market_ticker": "CPI-22JUL-T0.2",
+      "title": "Will CPI rise more than 0.2% in July?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22JUL",
+      "market_ticker": "CPI-22JUL-T0.3",
+      "title": "Will CPI rise more than 0.3% in July?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22JUL",
+      "market_ticker": "CPI-22JUL-T1.1",
+      "title": "Will CPI rise more than 1.1% in July?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22JUL",
+      "market_ticker": "CPI-22JUL-T1.0",
+      "title": "Will CPI rise more than 1.0% in July?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22JUL",
+      "market_ticker": "CPI-22JUL-T0.9",
+      "title": "Will CPI rise more than 0.9% in July?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22JUL",
+      "market_ticker": "CPI-22JUL-T0.8",
+      "title": "Will CPI rise more than 0.8% in July?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22JUL",
+      "market_ticker": "CPI-22JUL-T0.7",
+      "title": "Will CPI rise more than 0.7% in July?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22JUL",
+      "market_ticker": "CPI-22JUL-T0.6",
+      "title": "Will CPI rise more than 0.6% in July?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22JUL",
+      "market_ticker": "CPI-22JUL-T0.5",
+      "title": "Will CPI rise more than 0.5% in July?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22JUL",
+      "market_ticker": "CPI-22JUL-T0.4",
+      "title": "Will CPI rise more than 0.4% in July?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22JUN",
+      "market_ticker": "CPI-22JUN-T1.3",
+      "title": "Will inflation rise more than 1.3% in June?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22JUN",
+      "market_ticker": "CPI-22JUN-T1.2",
+      "title": "Will inflation rise more than 1.2% in June?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22JUN",
+      "market_ticker": "CPI-22JUN-T0.1",
+      "title": "Will **inflation** rise more than 0.1% in June?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22JUN",
+      "market_ticker": "CPI-22JUN-T0.2",
+      "title": "Will **inflation** rise more than 0.2% in June?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22JUN",
+      "market_ticker": "CPI-22JUN-T0.3",
+      "title": "Will **inflation** rise more than 0.3% in June?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22JUN",
+      "market_ticker": "CPI-22JUN-T1.1",
+      "title": "Will **inflation** rise more than 1.1% in June?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22JUN",
+      "market_ticker": "CPI-22JUN-T1.0",
+      "title": "Will **inflation** rise more than 1.0% in June?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22JUN",
+      "market_ticker": "CPI-22JUN-T0.9",
+      "title": "Will **inflation** rise more than 0.9% in June?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22JUN",
+      "market_ticker": "CPI-22JUN-T0.8",
+      "title": "Will **inflation** rise more than 0.8% in June?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22JUN",
+      "market_ticker": "CPI-22JUN-T0.7",
+      "title": "Will **inflation** rise more than 0.7% in June?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22JUN",
+      "market_ticker": "CPI-22JUN-T0.6",
+      "title": "Will **inflation** rise more than 0.6% in June?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22JUN",
+      "market_ticker": "CPI-22JUN-T0.5",
+      "title": "Will **inflation** rise more than 0.5% in June?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22JUN",
+      "market_ticker": "CPI-22JUN-T0.4",
+      "title": "Will **inflation** rise more than 0.4% in June?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22MAR",
+      "market_ticker": "CPI-22MAR-T1.1",
+      "title": "Will **inflation** rise more than 1.1% in March 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22MAR",
+      "market_ticker": "CPI-22MAR-T1.0",
+      "title": "Will **inflation** rise more than 1.0% in March 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22MAR",
+      "market_ticker": "CPI-22MAR-T0.9",
+      "title": "Will **inflation** rise more than 0.9% in March 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22MAR",
+      "market_ticker": "CPI-22MAR-T0.8",
+      "title": "Will **inflation** rise more than 0.8% in March 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22MAR",
+      "market_ticker": "CPI-22MAR-T0.7",
+      "title": "Will **inflation** rise more than 0.7% in March 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22MAR",
+      "market_ticker": "CPI-22MAR-T0.6",
+      "title": "Will **inflation** rise more than 0.6% in March 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22MAR",
+      "market_ticker": "CPI-22MAR-T0.5",
+      "title": "Will **inflation** rise more than 0.5% in March 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22MAY",
+      "market_ticker": "CPI-22MAY-T0.1",
+      "title": "Will **inflation** rise more than 0.1% in May?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22MAY",
+      "market_ticker": "CPI-22MAY-T0.2",
+      "title": "Will **inflation** rise more than 0.2% in May?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22MAY",
+      "market_ticker": "CPI-22MAY-T0.3",
+      "title": "Will **inflation** rise more than 0.3% in May?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22MAY",
+      "market_ticker": "CPI-22MAY-T0.4",
+      "title": "Will **inflation** rise more than 0.4% in May?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22MAY",
+      "market_ticker": "CPI-22MAY-T1.2",
+      "title": "Will **inflation** rise more than 1.2% in May?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22MAY",
+      "market_ticker": "CPI-22MAY-T1.1",
+      "title": "Will **inflation** rise more than 1.1% in May?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22MAY",
+      "market_ticker": "CPI-22MAY-T1.0",
+      "title": "Will **inflation** rise more than 1.0% in May?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22MAY",
+      "market_ticker": "CPI-22MAY-T0.9",
+      "title": "Will **inflation** rise more than 0.9% in May?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22MAY",
+      "market_ticker": "CPI-22MAY-T0.8",
+      "title": "Will **inflation** rise more than 0.8% in May?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22MAY",
+      "market_ticker": "CPI-22MAY-T0.7",
+      "title": "Will **inflation** rise more than 0.7% in May?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22MAY",
+      "market_ticker": "CPI-22MAY-T0.6",
+      "title": "Will **inflation** rise more than 0.6% in May?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22MAY",
+      "market_ticker": "CPI-22MAY-T0.5",
+      "title": "Will **inflation** rise more than 0.5% in May?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22NOV",
+      "market_ticker": "CPI-22NOV-T0.0",
+      "title": "Will inflation rise more than 0.0% in November?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22NOV",
+      "market_ticker": "CPI-22NOV-T0.1",
+      "title": "Will inflation rise more than 0.1% in November?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22NOV",
+      "market_ticker": "CPI-22NOV-T0.9",
+      "title": "Will **inflation** rise more than 0.9% in November?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22NOV",
+      "market_ticker": "CPI-22NOV-T0.8",
+      "title": "Will **inflation** rise more than 0.8% in November?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22NOV",
+      "market_ticker": "CPI-22NOV-T0.7",
+      "title": "Will **inflation** rise more than 0.7% in November?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22NOV",
+      "market_ticker": "CPI-22NOV-T0.6",
+      "title": "Will **inflation** rise more than 0.6% in November?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22NOV",
+      "market_ticker": "CPI-22NOV-T0.5",
+      "title": "Will **inflation** rise more than 0.5% in November?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22NOV",
+      "market_ticker": "CPI-22NOV-T0.4",
+      "title": "Will **inflation** rise more than 0.4% in November?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22NOV",
+      "market_ticker": "CPI-22NOV-T0.3",
+      "title": "Will **inflation** rise more than 0.3% in November?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22NOV",
+      "market_ticker": "CPI-22NOV-T0.2",
+      "title": "Will **inflation** rise more than 0.2% in November?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22OCT",
+      "market_ticker": "CPI-22OCT-T0.9",
+      "title": "Will **inflation** rise more than 0.9% in October?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22OCT",
+      "market_ticker": "CPI-22OCT-T0.8",
+      "title": "Will **inflation** rise more than 0.8% in October?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22OCT",
+      "market_ticker": "CPI-22OCT-T0.7",
+      "title": "Will **inflation** rise more than 0.7% in October?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22OCT",
+      "market_ticker": "CPI-22OCT-T0.6",
+      "title": "Will **inflation** rise more than 0.6% in October?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22OCT",
+      "market_ticker": "CPI-22OCT-T0.5",
+      "title": "Will **inflation** rise more than 0.5% in October?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22OCT",
+      "market_ticker": "CPI-22OCT-T0.4",
+      "title": "Will **inflation** rise more than 0.4% in October?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22OCT",
+      "market_ticker": "CPI-22OCT-T0.3",
+      "title": "Will **inflation** rise more than 0.3% in October?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22OCT",
+      "market_ticker": "CPI-22OCT-T0.2",
+      "title": "Will **inflation** rise more than 0.2% in October?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22SEP",
+      "market_ticker": "CPI-22SEP-T0.0",
+      "title": "Will CPI rise more than 0.0% in September?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22SEP",
+      "market_ticker": "CPI-22SEP-T0.1",
+      "title": "Will CPI rise more than 0.1% in September?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22SEP",
+      "market_ticker": "CPI-22SEP-T0.2",
+      "title": "Will CPI rise more than 0.2% in September?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22SEP",
+      "market_ticker": "CPI-22SEP-T1.0",
+      "title": "Will **inflation** rise more than 1.0% in September?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22SEP",
+      "market_ticker": "CPI-22SEP-T0.9",
+      "title": "Will **inflation** rise more than 0.9% in September?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22SEP",
+      "market_ticker": "CPI-22SEP-T0.8",
+      "title": "Will **inflation** rise more than 0.8% in September?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22SEP",
+      "market_ticker": "CPI-22SEP-T0.7",
+      "title": "Will **inflation** rise more than 0.7% in September?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22SEP",
+      "market_ticker": "CPI-22SEP-T0.6",
+      "title": "Will **inflation** rise more than 0.6% in September?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22SEP",
+      "market_ticker": "CPI-22SEP-T0.5",
+      "title": "Will **inflation** rise more than 0.5% in September?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22SEP",
+      "market_ticker": "CPI-22SEP-T0.4",
+      "title": "Will **inflation** rise more than 0.4% in September?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-22SEP",
+      "market_ticker": "CPI-22SEP-T0.3",
+      "title": "Will **inflation** rise more than 0.3% in September?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23APR",
+      "market_ticker": "CPI-23APR-T0.8",
+      "title": "Will CPI rise more than 0.8% in April 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23APR",
+      "market_ticker": "CPI-23APR-T0.7",
+      "title": "Will CPI rise more than 0.7% in April 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23APR",
+      "market_ticker": "CPI-23APR-T0.6",
+      "title": "Will CPI rise more than 0.6% in April 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23APR",
+      "market_ticker": "CPI-23APR-T0.5",
+      "title": "Will CPI rise more than 0.5% in April 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23APR",
+      "market_ticker": "CPI-23APR-T0.4",
+      "title": "Will CPI rise more than 0.4% in April 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23APR",
+      "market_ticker": "CPI-23APR-T0.3",
+      "title": "Will CPI rise more than 0.3% in April 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23APR",
+      "market_ticker": "CPI-23APR-T0.2",
+      "title": "Will CPI rise more than 0.2% in April 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23APR",
+      "market_ticker": "CPI-23APR-T0.1",
+      "title": "Will CPI rise more than 0.1% in April 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23APR",
+      "market_ticker": "CPI-23APR-T0.0",
+      "title": "Will CPI rise more than 0.0% in April 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23AUG",
+      "market_ticker": "CPI-23AUG-T0.8",
+      "title": "Will CPI rise more than 0.8% in August 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23AUG",
+      "market_ticker": "CPI-23AUG-T0.7",
+      "title": "Will CPI rise more than 0.7% in August 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23AUG",
+      "market_ticker": "CPI-23AUG-T0.6",
+      "title": "Will CPI rise more than 0.6% in August 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23AUG",
+      "market_ticker": "CPI-23AUG-T0.5",
+      "title": "Will CPI rise more than 0.5% in August 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23AUG",
+      "market_ticker": "CPI-23AUG-T0.4",
+      "title": "Will CPI rise more than 0.4% in August 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23AUG",
+      "market_ticker": "CPI-23AUG-T0.3",
+      "title": "Will CPI rise more than 0.3% in August 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23AUG",
+      "market_ticker": "CPI-23AUG-T0.2",
+      "title": "Will CPI rise more than 0.2% in August 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23AUG",
+      "market_ticker": "CPI-23AUG-T0.1",
+      "title": "Will CPI rise more than 0.1% in August 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23AUG",
+      "market_ticker": "CPI-23AUG-T0.0",
+      "title": "Will CPI rise more than 0.0% in August 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23DEC",
+      "market_ticker": "CPI-23DEC-T0.4",
+      "title": "Will CPI rise more than 0.4% in December 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23DEC",
+      "market_ticker": "CPI-23DEC-T0.3",
+      "title": "Will CPI rise more than 0.3% in December 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23DEC",
+      "market_ticker": "CPI-23DEC-T0.2",
+      "title": "Will CPI rise more than 0.2% in December 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23DEC",
+      "market_ticker": "CPI-23DEC-T0.1",
+      "title": "Will CPI rise more than 0.1% in December 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23DEC",
+      "market_ticker": "CPI-23DEC-T-0.1",
+      "title": "Will CPI rise more than -0.1% in December 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23DEC",
+      "market_ticker": "CPI-23DEC-T0.0",
+      "title": "Will CPI rise more than 0.0% in December 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23DEC",
+      "market_ticker": "CPI-23DEC-T-0.2",
+      "title": "Will CPI rise more than -0.2% in December 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23FEB",
+      "market_ticker": "CPI-23FEB-T0.8",
+      "title": "Will CPI rise more than 0.8% in February 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23FEB",
+      "market_ticker": "CPI-23FEB-T0.7",
+      "title": "Will CPI rise more than 0.7% in February 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23FEB",
+      "market_ticker": "CPI-23FEB-T0.6",
+      "title": "Will CPI rise more than 0.6% in February 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23FEB",
+      "market_ticker": "CPI-23FEB-T0.5",
+      "title": "Will CPI rise more than 0.5% in February 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23FEB",
+      "market_ticker": "CPI-23FEB-T0.4",
+      "title": "Will CPI rise more than 0.4% in February 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23FEB",
+      "market_ticker": "CPI-23FEB-T0.3",
+      "title": "Will CPI rise more than 0.3% in February 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23FEB",
+      "market_ticker": "CPI-23FEB-T0.2",
+      "title": "Will CPI rise more than 0.2% in February 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23FEB",
+      "market_ticker": "CPI-23FEB-T0.1",
+      "title": "Will CPI rise more than 0.1% in February 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23FEB",
+      "market_ticker": "CPI-23FEB-T0.0",
+      "title": "Will CPI rise more than 0.0% in February 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23JAN",
+      "market_ticker": "CPI-23JAN-T0.8",
+      "title": "Will CPI rise more than 0.8% in January 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23JAN",
+      "market_ticker": "CPI-23JAN-T0.7",
+      "title": "Will CPI rise more than 0.7% in January 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23JAN",
+      "market_ticker": "CPI-23JAN-T0.6",
+      "title": "Will CPI rise more than 0.6% in January 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23JAN",
+      "market_ticker": "CPI-23JAN-T0.5",
+      "title": "Will CPI rise more than 0.5% in January 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23JAN",
+      "market_ticker": "CPI-23JAN-T0.4",
+      "title": "Will CPI rise more than 0.4% in January 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23JAN",
+      "market_ticker": "CPI-23JAN-T0.3",
+      "title": "Will CPI rise more than 0.3% in January 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23JAN",
+      "market_ticker": "CPI-23JAN-T0.2",
+      "title": "Will CPI rise more than 0.2% in January 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23JAN",
+      "market_ticker": "CPI-23JAN-T0.1",
+      "title": "Will CPI rise more than 0.1% in January 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23JAN",
+      "market_ticker": "CPI-23JAN-T0.0",
+      "title": "Will CPI rise more than 0.0% in January 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23JUL",
+      "market_ticker": "CPI-23JUL-T-0.3",
+      "title": "Will CPI rise more than -0.3% in July 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23JUL",
+      "market_ticker": "CPI-23JUL-T-0.2",
+      "title": "Will CPI rise more than -0.2% in July 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23JUL",
+      "market_ticker": "CPI-23JUL-T0.9",
+      "title": "Will CPI rise more than 0.9% in July 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23JUL",
+      "market_ticker": "CPI-23JUL-T-0.1",
+      "title": "Will CPI rise more than -0.1% in July 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23JUL",
+      "market_ticker": "CPI-23JUL-T0.8",
+      "title": "Will CPI rise more than 0.8% in July 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23JUL",
+      "market_ticker": "CPI-23JUL-T0.7",
+      "title": "Will CPI rise more than 0.7% in July 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23JUL",
+      "market_ticker": "CPI-23JUL-T0.6",
+      "title": "Will CPI rise more than 0.6% in July 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23JUL",
+      "market_ticker": "CPI-23JUL-T0.5",
+      "title": "Will CPI rise more than 0.5% in July 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23JUL",
+      "market_ticker": "CPI-23JUL-T0.4",
+      "title": "Will CPI rise more than 0.4% in July 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23JUL",
+      "market_ticker": "CPI-23JUL-T0.3",
+      "title": "Will CPI rise more than 0.3% in July 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23JUL",
+      "market_ticker": "CPI-23JUL-T0.2",
+      "title": "Will CPI rise more than 0.2% in July 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23JUL",
+      "market_ticker": "CPI-23JUL-T0.1",
+      "title": "Will CPI rise more than 0.1% in July 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23JUL",
+      "market_ticker": "CPI-23JUL-T0.0",
+      "title": "Will CPI rise more than 0.0% in July 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23JUN",
+      "market_ticker": "CPI-23JUN-T0.8",
+      "title": "Will CPI rise more than 0.8% in June 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23JUN",
+      "market_ticker": "CPI-23JUN-T0.7",
+      "title": "Will CPI rise more than 0.7% in June 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23JUN",
+      "market_ticker": "CPI-23JUN-T0.6",
+      "title": "Will CPI rise more than 0.6% in June 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23JUN",
+      "market_ticker": "CPI-23JUN-T0.5",
+      "title": "Will CPI rise more than 0.5% in June 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23JUN",
+      "market_ticker": "CPI-23JUN-T0.4",
+      "title": "Will CPI rise more than 0.4% in June 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23JUN",
+      "market_ticker": "CPI-23JUN-T0.3",
+      "title": "Will CPI rise more than 0.3% in June 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23JUN",
+      "market_ticker": "CPI-23JUN-T0.2",
+      "title": "Will CPI rise more than 0.2% in June 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23JUN",
+      "market_ticker": "CPI-23JUN-T0.1",
+      "title": "Will CPI rise more than 0.1% in June 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23JUN",
+      "market_ticker": "CPI-23JUN-T0.0",
+      "title": "Will CPI rise more than 0.0% in June 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23MAR",
+      "market_ticker": "CPI-23MAR-T0.8",
+      "title": "Will CPI rise more than 0.8% in March 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23MAR",
+      "market_ticker": "CPI-23MAR-T0.7",
+      "title": "Will CPI rise more than 0.7% in March 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23MAR",
+      "market_ticker": "CPI-23MAR-T0.6",
+      "title": "Will CPI rise more than 0.6% in March 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23MAR",
+      "market_ticker": "CPI-23MAR-T0.5",
+      "title": "Will CPI rise more than 0.5% in March 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23MAR",
+      "market_ticker": "CPI-23MAR-T0.4",
+      "title": "Will CPI rise more than 0.4% in March 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23MAR",
+      "market_ticker": "CPI-23MAR-T0.3",
+      "title": "Will CPI rise more than 0.3% in March 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23MAR",
+      "market_ticker": "CPI-23MAR-T0.2",
+      "title": "Will CPI rise more than 0.2% in March 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23MAR",
+      "market_ticker": "CPI-23MAR-T0.1",
+      "title": "Will CPI rise more than 0.1% in March 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23MAR",
+      "market_ticker": "CPI-23MAR-T0.0",
+      "title": "Will CPI rise more than 0.0% in March 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23MAY",
+      "market_ticker": "CPI-23MAY-T-0.2",
+      "title": "Will CPI rise more than -0.2% in May 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23MAY",
+      "market_ticker": "CPI-23MAY-T-0.1",
+      "title": "Will CPI rise more than -0.1% in May 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23MAY",
+      "market_ticker": "CPI-23MAY-T0.8",
+      "title": "Will CPI rise more than 0.8% in May 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23MAY",
+      "market_ticker": "CPI-23MAY-T0.7",
+      "title": "Will CPI rise more than 0.7% in May 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23MAY",
+      "market_ticker": "CPI-23MAY-T0.6",
+      "title": "Will CPI rise more than 0.6% in May 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23MAY",
+      "market_ticker": "CPI-23MAY-T0.5",
+      "title": "Will CPI rise more than 0.5% in May 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23MAY",
+      "market_ticker": "CPI-23MAY-T0.4",
+      "title": "Will CPI rise more than 0.4% in May 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23MAY",
+      "market_ticker": "CPI-23MAY-T0.3",
+      "title": "Will CPI rise more than 0.3% in May 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23MAY",
+      "market_ticker": "CPI-23MAY-T0.2",
+      "title": "Will CPI rise more than 0.2% in May 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23MAY",
+      "market_ticker": "CPI-23MAY-T0.1",
+      "title": "Will CPI rise more than 0.1% in May 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23MAY",
+      "market_ticker": "CPI-23MAY-T0.0",
+      "title": "Will CPI rise more than 0.0% in May 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23NOV",
+      "market_ticker": "CPI-23NOV-T-0.2",
+      "title": "Will CPI rise more than -0.2% in November 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23NOV",
+      "market_ticker": "CPI-23NOV-T-0.1",
+      "title": "Will CPI rise more than -0.1% in November 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23NOV",
+      "market_ticker": "CPI-23NOV-T0.8",
+      "title": "Will CPI rise more than 0.8% in November 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23NOV",
+      "market_ticker": "CPI-23NOV-T0.7",
+      "title": "Will CPI rise more than 0.7% in November 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23NOV",
+      "market_ticker": "CPI-23NOV-T0.6",
+      "title": "Will CPI rise more than 0.6% in November 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23NOV",
+      "market_ticker": "CPI-23NOV-T0.5",
+      "title": "Will CPI rise more than 0.5% in November 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23NOV",
+      "market_ticker": "CPI-23NOV-T0.4",
+      "title": "Will CPI rise more than 0.4% in November 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23NOV",
+      "market_ticker": "CPI-23NOV-T0.3",
+      "title": "Will CPI rise more than 0.3% in November 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23NOV",
+      "market_ticker": "CPI-23NOV-T0.2",
+      "title": "Will CPI rise more than 0.2% in November 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23NOV",
+      "market_ticker": "CPI-23NOV-T0.1",
+      "title": "Will CPI rise more than 0.1% in November 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23NOV",
+      "market_ticker": "CPI-23NOV-T0.0",
+      "title": "Will CPI rise more than 0.0% in November 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23OCT",
+      "market_ticker": "CPI-23OCT-T-0.3",
+      "title": "Will CPI rise more than -0.3% in October 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23OCT",
+      "market_ticker": "CPI-23OCT-T-0.2",
+      "title": "Will CPI rise more than -0.2% in October 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23OCT",
+      "market_ticker": "CPI-23OCT-T-0.1",
+      "title": "Will CPI rise more than -0.1% in October 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23OCT",
+      "market_ticker": "CPI-23OCT-T0.8",
+      "title": "Will CPI rise more than 0.8% in October 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23OCT",
+      "market_ticker": "CPI-23OCT-T0.7",
+      "title": "Will CPI rise more than 0.7% in October 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23OCT",
+      "market_ticker": "CPI-23OCT-T0.6",
+      "title": "Will CPI rise more than 0.6% in October 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23OCT",
+      "market_ticker": "CPI-23OCT-T0.5",
+      "title": "Will CPI rise more than 0.5% in October 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23OCT",
+      "market_ticker": "CPI-23OCT-T0.4",
+      "title": "Will CPI rise more than 0.4% in October 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23OCT",
+      "market_ticker": "CPI-23OCT-T0.3",
+      "title": "Will CPI rise more than 0.3% in October 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23OCT",
+      "market_ticker": "CPI-23OCT-T0.2",
+      "title": "Will CPI rise more than 0.2% in October 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23OCT",
+      "market_ticker": "CPI-23OCT-T0.1",
+      "title": "Will CPI rise more than 0.1% in October 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23OCT",
+      "market_ticker": "CPI-23OCT-T0.0",
+      "title": "Will CPI rise more than 0.0% in October 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23SEP",
+      "market_ticker": "CPI-23SEP-T-0.3",
+      "title": "Will CPI rise more than -0.3% in September 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23SEP",
+      "market_ticker": "CPI-23SEP-T-0.2",
+      "title": "Will CPI rise more than -0.2% in September 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23SEP",
+      "market_ticker": "CPI-23SEP-T-0.1",
+      "title": "Will CPI rise more than -0.1% in September 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23SEP",
+      "market_ticker": "CPI-23SEP-T0.8",
+      "title": "Will CPI rise more than 0.8% in September 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23SEP",
+      "market_ticker": "CPI-23SEP-T0.7",
+      "title": "Will CPI rise more than 0.7% in September 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23SEP",
+      "market_ticker": "CPI-23SEP-T0.6",
+      "title": "Will CPI rise more than 0.6% in September 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23SEP",
+      "market_ticker": "CPI-23SEP-T0.5",
+      "title": "Will CPI rise more than 0.5% in September 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23SEP",
+      "market_ticker": "CPI-23SEP-T0.4",
+      "title": "Will CPI rise more than 0.4% in September 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23SEP",
+      "market_ticker": "CPI-23SEP-T0.3",
+      "title": "Will CPI rise more than 0.3% in September 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23SEP",
+      "market_ticker": "CPI-23SEP-T0.2",
+      "title": "Will CPI rise more than 0.2% in September 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23SEP",
+      "market_ticker": "CPI-23SEP-T0.1",
+      "title": "Will CPI rise more than 0.1% in September 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-23SEP",
+      "market_ticker": "CPI-23SEP-T0.0",
+      "title": "Will CPI rise more than 0.0% in September 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-24APR",
+      "market_ticker": "CPI-24APR-T0.6",
+      "title": "Will CPI rise more than 0.6% in April 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-24APR",
+      "market_ticker": "CPI-24APR-T0.5",
+      "title": "Will CPI rise more than 0.5% in April 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-24APR",
+      "market_ticker": "CPI-24APR-T0.4",
+      "title": "Will CPI rise more than 0.4% in April 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-24APR",
+      "market_ticker": "CPI-24APR-T0.3",
+      "title": "Will CPI rise more than 0.3% in April 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-24APR",
+      "market_ticker": "CPI-24APR-T0.2",
+      "title": "Will CPI rise more than 0.2% in April 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-24APR",
+      "market_ticker": "CPI-24APR-T0.1",
+      "title": "Will CPI rise more than 0.1% in April 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-24APR",
+      "market_ticker": "CPI-24APR-T-0.1",
+      "title": "Will CPI rise more than -0.1% in April 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-24APR",
+      "market_ticker": "CPI-24APR-T0.0",
+      "title": "Will CPI rise more than 0.0% in April 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-24AUG",
+      "market_ticker": "CPI-24AUG-T0.6",
+      "title": "Will CPI rise more than 0.6% in August 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-24AUG",
+      "market_ticker": "CPI-24AUG-T0.5",
+      "title": "Will CPI rise more than 0.5% in August 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-24AUG",
+      "market_ticker": "CPI-24AUG-T0.4",
+      "title": "Will CPI rise more than 0.4% in August 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-24AUG",
+      "market_ticker": "CPI-24AUG-T0.3",
+      "title": "Will CPI rise more than 0.3% in August 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-24AUG",
+      "market_ticker": "CPI-24AUG-T0.2",
+      "title": "Will CPI rise more than 0.2% in August 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-24AUG",
+      "market_ticker": "CPI-24AUG-T0.1",
+      "title": "Will CPI rise more than 0.1% in August 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-24AUG",
+      "market_ticker": "CPI-24AUG-T-0.1",
+      "title": "Will CPI rise more than -0.1% in August 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-24AUG",
+      "market_ticker": "CPI-24AUG-T0.0",
+      "title": "Will CPI rise more than 0.0% in August 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-24FEB",
+      "market_ticker": "CPI-24FEB-T-0.1",
+      "title": "Will CPI rise more than -0.1% in February 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-24FEB",
+      "market_ticker": "CPI-24FEB-T0.6",
+      "title": "Will CPI rise more than 0.6% in February 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-24FEB",
+      "market_ticker": "CPI-24FEB-T0.5",
+      "title": "Will CPI rise more than 0.5% in February 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-24FEB",
+      "market_ticker": "CPI-24FEB-T0.4",
+      "title": "Will CPI rise more than 0.4% in February 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-24FEB",
+      "market_ticker": "CPI-24FEB-T0.3",
+      "title": "Will CPI rise more than 0.3% in February 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-24FEB",
+      "market_ticker": "CPI-24FEB-T0.2",
+      "title": "Will CPI rise more than 0.2% in February 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-24FEB",
+      "market_ticker": "CPI-24FEB-T0.1",
+      "title": "Will CPI rise more than 0.1% in February 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-24FEB",
+      "market_ticker": "CPI-24FEB-T0.0",
+      "title": "Will CPI rise more than 0.0% in February 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-24JAN",
+      "market_ticker": "CPI-24JAN-T0.3",
+      "title": "Will CPI rise more than 0.3% in January 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-24JAN",
+      "market_ticker": "CPI-24JAN-T0.2",
+      "title": "Will CPI rise more than 0.2% in January 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-24JAN",
+      "market_ticker": "CPI-24JAN-T0.1",
+      "title": "Will CPI rise more than 0.1% in January 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-24JAN",
+      "market_ticker": "CPI-24JAN-T-0.1",
+      "title": "Will CPI rise more than -0.1% in January 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-24JAN",
+      "market_ticker": "CPI-24JAN-T0.0",
+      "title": "Will CPI rise more than 0.0% in January 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-24JAN",
+      "market_ticker": "CPI-24JAN-T-0.2",
+      "title": "Will CPI rise more than -0.2% in January 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-24JUL",
+      "market_ticker": "CPI-24JUL-T0.6",
+      "title": "Will CPI rise more than 0.6% in July 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-24JUL",
+      "market_ticker": "CPI-24JUL-T0.5",
+      "title": "Will CPI rise more than 0.5% in July 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-24JUL",
+      "market_ticker": "CPI-24JUL-T0.4",
+      "title": "Will CPI rise more than 0.4% in July 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-24JUL",
+      "market_ticker": "CPI-24JUL-T0.3",
+      "title": "Will CPI rise more than 0.3% in July 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-24JUL",
+      "market_ticker": "CPI-24JUL-T0.2",
+      "title": "Will CPI rise more than 0.2% in July 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-24JUL",
+      "market_ticker": "CPI-24JUL-T0.1",
+      "title": "Will CPI rise more than 0.1% in July 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-24JUL",
+      "market_ticker": "CPI-24JUL-T0.0",
+      "title": "Will CPI rise more than 0.0% in July 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-24JUL",
+      "market_ticker": "CPI-24JUL-T-0.1",
+      "title": "Will CPI rise more than -0.1% in July 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-24JUN",
+      "market_ticker": "CPI-24JUN-T0.6",
+      "title": "Will CPI rise more than 0.6% in June 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-24JUN",
+      "market_ticker": "CPI-24JUN-T0.5",
+      "title": "Will CPI rise more than 0.5% in June 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-24JUN",
+      "market_ticker": "CPI-24JUN-T0.4",
+      "title": "Will CPI rise more than 0.4% in June 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-24JUN",
+      "market_ticker": "CPI-24JUN-T0.3",
+      "title": "Will CPI rise more than 0.3% in June 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-24JUN",
+      "market_ticker": "CPI-24JUN-T0.2",
+      "title": "Will CPI rise more than 0.2% in June 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-24JUN",
+      "market_ticker": "CPI-24JUN-T0.1",
+      "title": "Will CPI rise more than 0.1% in June 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-24JUN",
+      "market_ticker": "CPI-24JUN-T0.0",
+      "title": "Will CPI rise more than 0.0% in June 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-24JUN",
+      "market_ticker": "CPI-24JUN-T-0.1",
+      "title": "Will CPI rise more than -0.1% in June 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-24MAR",
+      "market_ticker": "CPI-24MAR-T0.5",
+      "title": "Will CPI rise more than 0.5% in March 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-24MAR",
+      "market_ticker": "CPI-24MAR-T0.4",
+      "title": "Will CPI rise more than 0.4% in March 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-24MAR",
+      "market_ticker": "CPI-24MAR-T0.3",
+      "title": "Will CPI rise more than 0.3% in March 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-24MAR",
+      "market_ticker": "CPI-24MAR-T0.2",
+      "title": "Will CPI rise more than 0.2% in March 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-24MAR",
+      "market_ticker": "CPI-24MAR-T0.1",
+      "title": "Will CPI rise more than 0.1% in March 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-24MAR",
+      "market_ticker": "CPI-24MAR-T-0.1",
+      "title": "Will CPI rise more than -0.1% in March 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-24MAR",
+      "market_ticker": "CPI-24MAR-T0.0",
+      "title": "Will CPI rise more than 0.0% in March 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-24MAY",
+      "market_ticker": "CPI-24MAY-T0.6",
+      "title": "Will CPI rise more than 0.6% in May 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-24MAY",
+      "market_ticker": "CPI-24MAY-T0.5",
+      "title": "Will CPI rise more than 0.5% in May 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-24MAY",
+      "market_ticker": "CPI-24MAY-T0.4",
+      "title": "Will CPI rise more than 0.4% in May 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-24MAY",
+      "market_ticker": "CPI-24MAY-T0.3",
+      "title": "Will CPI rise more than 0.3% in May 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-24MAY",
+      "market_ticker": "CPI-24MAY-T0.2",
+      "title": "Will CPI rise more than 0.2% in May 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-24MAY",
+      "market_ticker": "CPI-24MAY-T0.1",
+      "title": "Will CPI rise more than 0.1% in May 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-24MAY",
+      "market_ticker": "CPI-24MAY-T0.0",
+      "title": "Will CPI rise more than 0.0% in May 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-24MAY",
+      "market_ticker": "CPI-24MAY-T-0.1",
+      "title": "Will CPI rise more than -0.1% in May 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-24OCT",
+      "market_ticker": "CPI-24OCT-T0.6",
+      "title": "Will CPI rise more than 0.6% in October 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-24OCT",
+      "market_ticker": "CPI-24OCT-T0.5",
+      "title": "Will CPI rise more than 0.5% in October 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-24OCT",
+      "market_ticker": "CPI-24OCT-T0.4",
+      "title": "Will CPI rise more than 0.4% in October 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-24OCT",
+      "market_ticker": "CPI-24OCT-T0.3",
+      "title": "Will CPI rise more than 0.3% in October 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-24OCT",
+      "market_ticker": "CPI-24OCT-T0.2",
+      "title": "Will CPI rise more than 0.2% in October 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-24OCT",
+      "market_ticker": "CPI-24OCT-T0.1",
+      "title": "Will CPI rise more than 0.1% in October 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-24OCT",
+      "market_ticker": "CPI-24OCT-T0.0",
+      "title": "Will CPI rise more than 0.0% in October 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-24OCT",
+      "market_ticker": "CPI-24OCT-T-0.1",
+      "title": "Will CPI rise more than -0.1% in October 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-24SEP",
+      "market_ticker": "CPI-24SEP-T0.6",
+      "title": "Will CPI rise more than 0.6% in September 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-24SEP",
+      "market_ticker": "CPI-24SEP-T0.5",
+      "title": "Will CPI rise more than 0.5% in September 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-24SEP",
+      "market_ticker": "CPI-24SEP-T0.4",
+      "title": "Will CPI rise more than 0.4% in September 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-24SEP",
+      "market_ticker": "CPI-24SEP-T0.3",
+      "title": "Will CPI rise more than 0.3% in September 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-24SEP",
+      "market_ticker": "CPI-24SEP-T0.2",
+      "title": "Will CPI rise more than 0.2% in September 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-24SEP",
+      "market_ticker": "CPI-24SEP-T0.1",
+      "title": "Will CPI rise more than 0.1% in September 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-24SEP",
+      "market_ticker": "CPI-24SEP-T-0.1",
+      "title": "Will CPI rise more than -0.1% in September 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPI-24SEP",
+      "market_ticker": "CPI-24SEP-T0.0",
+      "title": "Will CPI rise more than 0.0% in September 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPI-24DEC",
+      "market_ticker": "KXCPI-24DEC-T0.5",
+      "title": "Will CPI rise more than 0.5% in December 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPI-24DEC",
+      "market_ticker": "KXCPI-24DEC-T0.4",
+      "title": "Will CPI rise more than 0.4% in December 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPI-24DEC",
+      "market_ticker": "KXCPI-24DEC-T0.3",
+      "title": "Will CPI rise more than 0.3% in December 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPI-24DEC",
+      "market_ticker": "KXCPI-24DEC-T0.2",
+      "title": "Will CPI rise more than 0.2% in December 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPI-24DEC",
+      "market_ticker": "KXCPI-24DEC-T0.1",
+      "title": "Will CPI rise more than 0.1% in December 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPI-24DEC",
+      "market_ticker": "KXCPI-24DEC-T0.0",
+      "title": "Will CPI rise more than 0.0% in December 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPI-24DEC",
+      "market_ticker": "KXCPI-24DEC-T-0.1",
+      "title": "Will CPI rise more than -0.1% in December 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPI-24NOV",
+      "market_ticker": "KXCPI-24NOV-T0.6",
+      "title": "Will CPI rise more than 0.6% in November 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPI-24NOV",
+      "market_ticker": "KXCPI-24NOV-T0.5",
+      "title": "Will CPI rise more than 0.5% in November 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPI-24NOV",
+      "market_ticker": "KXCPI-24NOV-T0.4",
+      "title": "Will CPI rise more than 0.4% in November 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPI-24NOV",
+      "market_ticker": "KXCPI-24NOV-T0.3",
+      "title": "Will CPI rise more than 0.3% in November 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPI-24NOV",
+      "market_ticker": "KXCPI-24NOV-T0.2",
+      "title": "Will CPI rise more than 0.2% in November 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPI-24NOV",
+      "market_ticker": "KXCPI-24NOV-T0.1",
+      "title": "Will CPI rise more than 0.1% in November 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPI-24NOV",
+      "market_ticker": "KXCPI-24NOV-T-0.1",
+      "title": "Will CPI rise more than -0.1% in November 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPI-24NOV",
+      "market_ticker": "KXCPI-24NOV-T0.0",
+      "title": "Will CPI rise more than 0.0% in November 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPI-25APR",
+      "market_ticker": "KXCPI-25APR-T0.5",
+      "title": "Will CPI rise more than 0.5% in April 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPI-25APR",
+      "market_ticker": "KXCPI-25APR-T0.4",
+      "title": "Will CPI rise more than 0.4% in April 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPI-25APR",
+      "market_ticker": "KXCPI-25APR-T0.3",
+      "title": "Will CPI rise more than 0.3% in April 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPI-25APR",
+      "market_ticker": "KXCPI-25APR-T0.2",
+      "title": "Will CPI rise more than 0.2% in April 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPI-25APR",
+      "market_ticker": "KXCPI-25APR-T0.1",
+      "title": "Will CPI rise more than 0.1% in April 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPI-25APR",
+      "market_ticker": "KXCPI-25APR-T0.0",
+      "title": "Will CPI rise more than 0.0% in April 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPI-25APR",
+      "market_ticker": "KXCPI-25APR-T-0.1",
+      "title": "Will CPI rise more than -0.1% in April 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPI-25AUG",
+      "market_ticker": "KXCPI-25AUG-T0.4",
+      "title": "Will CPI rise more than 0.4% in August 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPI-25AUG",
+      "market_ticker": "KXCPI-25AUG-T0.3",
+      "title": "Will CPI rise more than 0.3% in August 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPI-25AUG",
+      "market_ticker": "KXCPI-25AUG-T0.2",
+      "title": "Will CPI rise more than 0.2% in August 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPI-25AUG",
+      "market_ticker": "KXCPI-25AUG-T0.1",
+      "title": "Will CPI rise more than 0.1% in August 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPI-25AUG",
+      "market_ticker": "KXCPI-25AUG-T-0.1",
+      "title": "Will CPI rise more than -0.1% in August 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPI-25AUG",
+      "market_ticker": "KXCPI-25AUG-T0.0",
+      "title": "Will CPI rise more than 0.0% in August 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPI-25DEC",
+      "market_ticker": "KXCPI-25DEC-T0.4",
+      "title": "Will CPI rise more than 0.4% in December 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPI-25DEC",
+      "market_ticker": "KXCPI-25DEC-T0.3",
+      "title": "Will CPI rise more than 0.3% in December 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPI-25DEC",
+      "market_ticker": "KXCPI-25DEC-T0.2",
+      "title": "Will CPI rise more than 0.2% in December 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPI-25DEC",
+      "market_ticker": "KXCPI-25DEC-T0.1",
+      "title": "Will CPI rise more than 0.1% in December 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPI-25DEC",
+      "market_ticker": "KXCPI-25DEC-T-0.1",
+      "title": "Will CPI rise more than -0.1% in December 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPI-25DEC",
+      "market_ticker": "KXCPI-25DEC-T0.0",
+      "title": "Will CPI rise more than 0.0% in December 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPI-25FEB",
+      "market_ticker": "KXCPI-25FEB-T0.5",
+      "title": "Will CPI rise more than 0.5% in February 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPI-25FEB",
+      "market_ticker": "KXCPI-25FEB-T0.4",
+      "title": "Will CPI rise more than 0.4% in February 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPI-25FEB",
+      "market_ticker": "KXCPI-25FEB-T0.3",
+      "title": "Will CPI rise more than 0.3% in February 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPI-25FEB",
+      "market_ticker": "KXCPI-25FEB-T0.2",
+      "title": "Will CPI rise more than 0.2% in February 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPI-25FEB",
+      "market_ticker": "KXCPI-25FEB-T0.1",
+      "title": "Will CPI rise more than 0.1% in February 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPI-25FEB",
+      "market_ticker": "KXCPI-25FEB-T-0.1",
+      "title": "Will CPI rise more than -0.1% in February 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPI-25FEB",
+      "market_ticker": "KXCPI-25FEB-T0.0",
+      "title": "Will CPI rise more than 0.0% in February 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPI-25JAN",
+      "market_ticker": "KXCPI-25JAN-T0.5",
+      "title": "Will CPI rise more than 0.5% in January 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPI-25JAN",
+      "market_ticker": "KXCPI-25JAN-T0.4",
+      "title": "Will CPI rise more than 0.4% in January 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPI-25JAN",
+      "market_ticker": "KXCPI-25JAN-T0.3",
+      "title": "Will CPI rise more than 0.3% in January 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPI-25JAN",
+      "market_ticker": "KXCPI-25JAN-T0.2",
+      "title": "Will CPI rise more than 0.2% in January 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPI-25JAN",
+      "market_ticker": "KXCPI-25JAN-T0.1",
+      "title": "Will CPI rise more than 0.1% in January 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPI-25JAN",
+      "market_ticker": "KXCPI-25JAN-T-0.1",
+      "title": "Will CPI rise more than -0.1% in January 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPI-25JAN",
+      "market_ticker": "KXCPI-25JAN-T0.0",
+      "title": "Will CPI rise more than 0.0% in January 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPI-25JUL",
+      "market_ticker": "KXCPI-25JUL-T0.4",
+      "title": "Will CPI rise more than 0.4% in July 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPI-25JUL",
+      "market_ticker": "KXCPI-25JUL-T0.3",
+      "title": "Will CPI rise more than 0.3% in July 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPI-25JUL",
+      "market_ticker": "KXCPI-25JUL-T0.2",
+      "title": "Will CPI rise more than 0.2% in July 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPI-25JUL",
+      "market_ticker": "KXCPI-25JUL-T0.1",
+      "title": "Will CPI rise more than 0.1% in July 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPI-25JUL",
+      "market_ticker": "KXCPI-25JUL-T-0.1",
+      "title": "Will CPI rise more than -0.1% in July 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPI-25JUL",
+      "market_ticker": "KXCPI-25JUL-T0.0",
+      "title": "Will CPI rise more than 0.0% in July 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPI-25JUN",
+      "market_ticker": "KXCPI-25JUN-T0.6",
+      "title": "Will CPI rise more than 0.6% in June 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPI-25JUN",
+      "market_ticker": "KXCPI-25JUN-T0.5",
+      "title": "Will CPI rise more than 0.5% in June 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPI-25JUN",
+      "market_ticker": "KXCPI-25JUN-T0.4",
+      "title": "Will CPI rise more than 0.4% in June 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPI-25JUN",
+      "market_ticker": "KXCPI-25JUN-T0.3",
+      "title": "Will CPI rise more than 0.3% in June 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPI-25JUN",
+      "market_ticker": "KXCPI-25JUN-T0.2",
+      "title": "Will CPI rise more than 0.2% in June 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPI-25JUN",
+      "market_ticker": "KXCPI-25JUN-T0.1",
+      "title": "Will CPI rise more than 0.1% in June 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPI-25JUN",
+      "market_ticker": "KXCPI-25JUN-T-0.1",
+      "title": "Will CPI rise more than -0.1% in June 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPI-25JUN",
+      "market_ticker": "KXCPI-25JUN-T0.0",
+      "title": "Will CPI rise more than 0.0% in June 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPI-25MAR",
+      "market_ticker": "KXCPI-25MAR-T0.3",
+      "title": "Will CPI rise more than 0.3% in March 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPI-25MAR",
+      "market_ticker": "KXCPI-25MAR-T0.2",
+      "title": "Will CPI rise more than 0.2% in March 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPI-25MAR",
+      "market_ticker": "KXCPI-25MAR-T0.1",
+      "title": "Will CPI rise more than 0.1% in March 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPI-25MAR",
+      "market_ticker": "KXCPI-25MAR-T-0.1",
+      "title": "Will CPI rise more than -0.1% in March 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPI-25MAR",
+      "market_ticker": "KXCPI-25MAR-T0.0",
+      "title": "Will CPI rise more than 0.0% in March 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPI-25MAY",
+      "market_ticker": "KXCPI-25MAY-T0.5",
+      "title": "Will CPI rise more than 0.5% in May 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPI-25MAY",
+      "market_ticker": "KXCPI-25MAY-T0.4",
+      "title": "Will CPI rise more than 0.4% in May 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPI-25MAY",
+      "market_ticker": "KXCPI-25MAY-T0.3",
+      "title": "Will CPI rise more than 0.3% in May 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPI-25MAY",
+      "market_ticker": "KXCPI-25MAY-T0.2",
+      "title": "Will CPI rise more than 0.2% in May 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPI-25MAY",
+      "market_ticker": "KXCPI-25MAY-T0.1",
+      "title": "Will CPI rise more than 0.1% in May 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPI-25MAY",
+      "market_ticker": "KXCPI-25MAY-T0.0",
+      "title": "Will CPI rise more than 0.0% in May 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPI-25MAY",
+      "market_ticker": "KXCPI-25MAY-T-0.1",
+      "title": "Will CPI rise more than -0.1% in May 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPI-25NOV",
+      "market_ticker": "KXCPI-25NOV-T0.3",
+      "title": "Will CPI rise more than 0.3% in November 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPI-25NOV",
+      "market_ticker": "KXCPI-25NOV-T0.2",
+      "title": "Will CPI rise more than 0.2% in November 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPI-25NOV",
+      "market_ticker": "KXCPI-25NOV-T0.1",
+      "title": "Will CPI rise more than 0.1% in November 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPI-25NOV",
+      "market_ticker": "KXCPI-25NOV-T-0.1",
+      "title": "Will CPI rise more than -0.1% in November 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPI-25NOV",
+      "market_ticker": "KXCPI-25NOV-T0.0",
+      "title": "Will CPI rise more than 0.0% in November 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPI-25OCT",
+      "market_ticker": "KXCPI-25OCT-T0.4",
+      "title": "Will CPI rise more than 0.4% in October 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPI-25OCT",
+      "market_ticker": "KXCPI-25OCT-T0.3",
+      "title": "Will CPI rise more than 0.3% in October 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPI-25OCT",
+      "market_ticker": "KXCPI-25OCT-T0.2",
+      "title": "Will CPI rise more than 0.2% in October 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPI-25OCT",
+      "market_ticker": "KXCPI-25OCT-T0.1",
+      "title": "Will CPI rise more than 0.1% in October 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPI-25OCT",
+      "market_ticker": "KXCPI-25OCT-T-0.1",
+      "title": "Will CPI rise more than -0.1% in October 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPI-25OCT",
+      "market_ticker": "KXCPI-25OCT-T0.0",
+      "title": "Will CPI rise more than 0.0% in October 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPI-25SEP",
+      "market_ticker": "KXCPI-25SEP-T0.4",
+      "title": "Will CPI rise more than 0.4% in September 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPI-25SEP",
+      "market_ticker": "KXCPI-25SEP-T0.3",
+      "title": "Will CPI rise more than 0.3% in September 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPI-25SEP",
+      "market_ticker": "KXCPI-25SEP-T0.2",
+      "title": "Will CPI rise more than 0.2% in September 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPI-25SEP",
+      "market_ticker": "KXCPI-25SEP-T0.1",
+      "title": "Will CPI rise more than 0.1% in September 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPI-25SEP",
+      "market_ticker": "KXCPI-25SEP-T-0.1",
+      "title": "Will CPI rise more than -0.1% in September 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPI-25SEP",
+      "market_ticker": "KXCPI-25SEP-T0.0",
+      "title": "Will CPI rise more than 0.0% in September 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPI-26APR",
+      "market_ticker": "KXCPI-26APR-T-0.1",
+      "title": "Will CPI rise more than -0.1% in April 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPI-26APR",
+      "market_ticker": "KXCPI-26APR-T0.0",
+      "title": "Will CPI rise more than 0.0% in April 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPI-26APR",
+      "market_ticker": "KXCPI-26APR-T0.1",
+      "title": "Will CPI rise more than 0.1% in April 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPI-26APR",
+      "market_ticker": "KXCPI-26APR-T0.2",
+      "title": "Will CPI rise more than 0.2% in April 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPI-26APR",
+      "market_ticker": "KXCPI-26APR-T0.3",
+      "title": "Will CPI rise more than 0.3% in April 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPI-26APR",
+      "market_ticker": "KXCPI-26APR-T0.4",
+      "title": "Will CPI rise more than 0.4% in April 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPI-26APR",
+      "market_ticker": "KXCPI-26APR-T0.5",
+      "title": "Will CPI rise more than 0.5% in April 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPI-26APR",
+      "market_ticker": "KXCPI-26APR-T0.6",
+      "title": "Will CPI rise more than 0.6% in April 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPI-26APR",
+      "market_ticker": "KXCPI-26APR-T0.7",
+      "title": "Will CPI rise more than 0.7% in April 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPI-26APR",
+      "market_ticker": "KXCPI-26APR-T0.8",
+      "title": "Will CPI rise more than 0.8% in April 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPI-26APR",
+      "market_ticker": "KXCPI-26APR-T0.9",
+      "title": "Will CPI rise more than 0.9% in April 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPI-26APR",
+      "market_ticker": "KXCPI-26APR-T1.0",
+      "title": "Will CPI rise more than 1.0% in April 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPI-26AUG",
+      "market_ticker": "KXCPI-26AUG-T-0.1",
+      "title": "Will CPI rise more than -0.1% in August 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPI-26AUG",
+      "market_ticker": "KXCPI-26AUG-T0.0",
+      "title": "Will CPI rise more than 0.0% in August 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPI-26AUG",
+      "market_ticker": "KXCPI-26AUG-T0.1",
+      "title": "Will CPI rise more than 0.1% in August 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPI-26AUG",
+      "market_ticker": "KXCPI-26AUG-T0.2",
+      "title": "Will CPI rise more than 0.2% in August 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPI-26AUG",
+      "market_ticker": "KXCPI-26AUG-T0.3",
+      "title": "Will CPI rise more than 0.3% in August 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPI-26AUG",
+      "market_ticker": "KXCPI-26AUG-T0.4",
+      "title": "Will CPI rise more than 0.4% in August 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPI-26AUG",
+      "market_ticker": "KXCPI-26AUG-T0.5",
+      "title": "Will CPI rise more than 0.5% in August 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPI-26FEB",
+      "market_ticker": "KXCPI-26FEB-T-0.1",
+      "title": "Will CPI rise more than -0.1% in February 2026?",
+      "status": "finalized",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPI-26FEB",
+      "market_ticker": "KXCPI-26FEB-T0.0",
+      "title": "Will CPI rise more than 0.0% in February 2026?",
+      "status": "finalized",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPI-26FEB",
+      "market_ticker": "KXCPI-26FEB-T0.1",
+      "title": "Will CPI rise more than 0.1% in February 2026?",
+      "status": "finalized",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPI-26FEB",
+      "market_ticker": "KXCPI-26FEB-T0.2",
+      "title": "Will CPI rise more than 0.2% in February 2026?",
+      "status": "finalized",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPI-26FEB",
+      "market_ticker": "KXCPI-26FEB-T0.3",
+      "title": "Will CPI rise more than 0.3% in February 2026?",
+      "status": "finalized",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPI-26FEB",
+      "market_ticker": "KXCPI-26FEB-T0.4",
+      "title": "Will CPI rise more than 0.4% in February 2026?",
+      "status": "finalized",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPI-26JAN",
+      "market_ticker": "KXCPI-26JAN-T0.4",
+      "title": "Will CPI rise more than 0.4% in January 2026?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPI-26JAN",
+      "market_ticker": "KXCPI-26JAN-T0.3",
+      "title": "Will CPI rise more than 0.3% in January 2026?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPI-26JAN",
+      "market_ticker": "KXCPI-26JAN-T0.2",
+      "title": "Will CPI rise more than 0.2% in January 2026?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPI-26JAN",
+      "market_ticker": "KXCPI-26JAN-T0.1",
+      "title": "Will CPI rise more than 0.1% in January 2026?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPI-26JAN",
+      "market_ticker": "KXCPI-26JAN-T-0.1",
+      "title": "Will CPI rise more than -0.1% in January 2026?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPI-26JAN",
+      "market_ticker": "KXCPI-26JAN-T0.0",
+      "title": "Will CPI rise more than 0.0% in January 2026?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPI-26JUL",
+      "market_ticker": "KXCPI-26JUL-T-0.1",
+      "title": "Will CPI rise more than -0.1% in July 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPI-26JUL",
+      "market_ticker": "KXCPI-26JUL-T0.0",
+      "title": "Will CPI rise more than 0.0% in July 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPI-26JUL",
+      "market_ticker": "KXCPI-26JUL-T0.1",
+      "title": "Will CPI rise more than 0.1% in July 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPI-26JUL",
+      "market_ticker": "KXCPI-26JUL-T0.2",
+      "title": "Will CPI rise more than 0.2% in July 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPI-26JUL",
+      "market_ticker": "KXCPI-26JUL-T0.3",
+      "title": "Will CPI rise more than 0.3% in July 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPI-26JUL",
+      "market_ticker": "KXCPI-26JUL-T0.4",
+      "title": "Will CPI rise more than 0.4% in July 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPI-26JUL",
+      "market_ticker": "KXCPI-26JUL-T0.5",
+      "title": "Will CPI rise more than 0.5% in July 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPI-26JUN",
+      "market_ticker": "KXCPI-26JUN-T-0.1",
+      "title": "Will CPI rise more than -0.1% in June 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPI-26JUN",
+      "market_ticker": "KXCPI-26JUN-T0.0",
+      "title": "Will CPI rise more than 0.0% in June 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPI-26JUN",
+      "market_ticker": "KXCPI-26JUN-T0.1",
+      "title": "Will CPI rise more than 0.1% in June 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPI-26JUN",
+      "market_ticker": "KXCPI-26JUN-T0.2",
+      "title": "Will CPI rise more than 0.2% in June 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPI-26JUN",
+      "market_ticker": "KXCPI-26JUN-T0.3",
+      "title": "Will CPI rise more than 0.3% in June 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPI-26JUN",
+      "market_ticker": "KXCPI-26JUN-T0.4",
+      "title": "Will CPI rise more than 0.4% in June 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPI-26JUN",
+      "market_ticker": "KXCPI-26JUN-T0.5",
+      "title": "Will CPI rise more than 0.5% in June 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPI-26MAR",
+      "market_ticker": "KXCPI-26MAR-T-0.1",
+      "title": "Will CPI rise more than -0.1% in March 2026?",
+      "status": "finalized",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPI-26MAR",
+      "market_ticker": "KXCPI-26MAR-T0.0",
+      "title": "Will CPI rise more than 0.0% in March 2026?",
+      "status": "finalized",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPI-26MAR",
+      "market_ticker": "KXCPI-26MAR-T0.1",
+      "title": "Will CPI rise more than 0.1% in March 2026?",
+      "status": "finalized",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPI-26MAR",
+      "market_ticker": "KXCPI-26MAR-T0.2",
+      "title": "Will CPI rise more than 0.2% in March 2026?",
+      "status": "finalized",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPI-26MAR",
+      "market_ticker": "KXCPI-26MAR-T0.3",
+      "title": "Will CPI rise more than 0.3% in March 2026?",
+      "status": "finalized",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPI-26MAR",
+      "market_ticker": "KXCPI-26MAR-T0.4",
+      "title": "Will CPI rise more than 0.4% in March 2026?",
+      "status": "finalized",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPI-26MAR",
+      "market_ticker": "KXCPI-26MAR-T0.5",
+      "title": "Will CPI rise more than 0.5% in March 2026?",
+      "status": "finalized",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPI-26MAR",
+      "market_ticker": "KXCPI-26MAR-T0.6",
+      "title": "Will CPI rise more than 0.6% in March 2026?",
+      "status": "finalized",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPI-26MAR",
+      "market_ticker": "KXCPI-26MAR-T0.7",
+      "title": "Will CPI rise more than 0.7% in March 2026?",
+      "status": "finalized",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPI-26MAR",
+      "market_ticker": "KXCPI-26MAR-T0.8",
+      "title": "Will CPI rise more than 0.8% in March 2026?",
+      "status": "finalized",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPI-26MAR",
+      "market_ticker": "KXCPI-26MAR-T0.9",
+      "title": "Will CPI rise more than 0.9% in March 2026?",
+      "status": "finalized",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPI-26MAR",
+      "market_ticker": "KXCPI-26MAR-T1.0",
+      "title": "Will CPI rise more than 1.0% in March 2026?",
+      "status": "finalized",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPI-26MAR",
+      "market_ticker": "KXCPI-26MAR-T1.1",
+      "title": "Will CPI rise more than 1.1% in March 2026?",
+      "status": "finalized",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPI-26MAR",
+      "market_ticker": "KXCPI-26MAR-T1.2",
+      "title": "Will CPI rise more than 1.2% in March 2026?",
+      "status": "finalized",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPI-26MAR",
+      "market_ticker": "KXCPI-26MAR-T1.3",
+      "title": "Will CPI rise more than 1.3% in March 2026?",
+      "status": "finalized",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPI-26MAY",
+      "market_ticker": "KXCPI-26MAY-T-0.3",
+      "title": "Will CPI rise more than -0.3% in May 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPI-26MAY",
+      "market_ticker": "KXCPI-26MAY-T-0.2",
+      "title": "Will CPI rise more than -0.2% in May 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPI-26MAY",
+      "market_ticker": "KXCPI-26MAY-T-0.1",
+      "title": "Will CPI rise more than -0.1% in May 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPI-26MAY",
+      "market_ticker": "KXCPI-26MAY-T0.0",
+      "title": "Will CPI rise more than 0.0% in May 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPI-26MAY",
+      "market_ticker": "KXCPI-26MAY-T0.1",
+      "title": "Will CPI rise more than 0.1% in May 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPI-26MAY",
+      "market_ticker": "KXCPI-26MAY-T0.2",
+      "title": "Will CPI rise more than 0.2% in May 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPI-26MAY",
+      "market_ticker": "KXCPI-26MAY-T0.3",
+      "title": "Will CPI rise more than 0.3% in May 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPI-26MAY",
+      "market_ticker": "KXCPI-26MAY-T0.4",
+      "title": "Will CPI rise more than 0.4% in May 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPI-26MAY",
+      "market_ticker": "KXCPI-26MAY-T0.5",
+      "title": "Will CPI rise more than 0.5% in May 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPI-26MAY",
+      "market_ticker": "KXCPI-26MAY-T0.6",
+      "title": "Will CPI rise more than 0.6% in May 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPI-26MAY",
+      "market_ticker": "KXCPI-26MAY-T0.7",
+      "title": "Will CPI rise more than 0.7% in May 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPI-26MAY",
+      "market_ticker": "KXCPI-26MAY-T0.8",
+      "title": "Will CPI rise more than 0.8% in May 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPI-26MAY",
+      "market_ticker": "KXCPI-26MAY-T0.9",
+      "title": "Will CPI rise more than 0.9% in May 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPI-26MAY",
+      "market_ticker": "KXCPI-26MAY-T1.0",
+      "title": "Will CPI rise more than 1.0% in May 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPI-26NOV",
+      "market_ticker": "KXCPI-26NOV-T-0.1",
+      "title": "Will CPI rise more than -0.1% in November 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPI-26NOV",
+      "market_ticker": "KXCPI-26NOV-T0.0",
+      "title": "Will CPI rise more than 0.0% in November 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPI-26NOV",
+      "market_ticker": "KXCPI-26NOV-T0.1",
+      "title": "Will CPI rise more than 0.1% in November 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPI-26NOV",
+      "market_ticker": "KXCPI-26NOV-T0.2",
+      "title": "Will CPI rise more than 0.2% in November 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPI-26NOV",
+      "market_ticker": "KXCPI-26NOV-T0.3",
+      "title": "Will CPI rise more than 0.3% in November 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPI-26NOV",
+      "market_ticker": "KXCPI-26NOV-T0.4",
+      "title": "Will CPI rise more than 0.4% in November 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPI-26NOV",
+      "market_ticker": "KXCPI-26NOV-T0.5",
+      "title": "Will CPI rise more than 0.5% in November 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPI-26OCT",
+      "market_ticker": "KXCPI-26OCT-T-0.1",
+      "title": "Will CPI rise more than -0.1% in October 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPI-26OCT",
+      "market_ticker": "KXCPI-26OCT-T0.0",
+      "title": "Will CPI rise more than 0.0% in October 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPI-26OCT",
+      "market_ticker": "KXCPI-26OCT-T0.1",
+      "title": "Will CPI rise more than 0.1% in October 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPI-26OCT",
+      "market_ticker": "KXCPI-26OCT-T0.2",
+      "title": "Will CPI rise more than 0.2% in October 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPI-26OCT",
+      "market_ticker": "KXCPI-26OCT-T0.3",
+      "title": "Will CPI rise more than 0.3% in October 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPI-26OCT",
+      "market_ticker": "KXCPI-26OCT-T0.4",
+      "title": "Will CPI rise more than 0.4% in October 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPI-26OCT",
+      "market_ticker": "KXCPI-26OCT-T0.5",
+      "title": "Will CPI rise more than 0.5% in October 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPI-26SEP",
+      "market_ticker": "KXCPI-26SEP-T-0.1",
+      "title": "Will CPI rise more than -0.1% in September 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPI-26SEP",
+      "market_ticker": "KXCPI-26SEP-T0.0",
+      "title": "Will CPI rise more than 0.0% in September 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPI-26SEP",
+      "market_ticker": "KXCPI-26SEP-T0.1",
+      "title": "Will CPI rise more than 0.1% in September 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPI-26SEP",
+      "market_ticker": "KXCPI-26SEP-T0.2",
+      "title": "Will CPI rise more than 0.2% in September 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPI-26SEP",
+      "market_ticker": "KXCPI-26SEP-T0.3",
+      "title": "Will CPI rise more than 0.3% in September 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPI-26SEP",
+      "market_ticker": "KXCPI-26SEP-T0.4",
+      "title": "Will CPI rise more than 0.4% in September 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPI-26SEP",
+      "market_ticker": "KXCPI-26SEP-T0.5",
+      "title": "Will CPI rise more than 0.5% in September 2026?",
+      "status": "active",
+      "source": "live_event"
+    }
+  ],
+  "tickers": [
+    "CPI-21AUG-T0.4",
+    "CPI-21DEC-T0.5",
+    "CPI-21DEC-T0.6",
+    "CPI-21DEC-T0.7",
+    "CPI-21DEC-T0.8",
+    "CPI-21JUL-T0.7",
+    "CPI-21JUN-T0.6",
+    "CPI-21NOV-T0.3",
+    "CPI-21NOV-T0.6",
+    "CPI-21NOV-T0.8",
+    "CPI-21OCT-T0.3",
+    "CPI-21OCT-T0.4",
+    "CPI-21OCT-T0.5",
+    "CPI-21SEP-T0.2",
+    "CPI-22APR-T0.1",
+    "CPI-22APR-T0.2",
+    "CPI-22APR-T0.3",
+    "CPI-22APR-T0.4",
+    "CPI-22APR-T0.5",
+    "CPI-22APR-T0.6",
+    "CPI-22APR-T0.7",
+    "CPI-22APR-T0.8",
+    "CPI-22APR-T0.9",
+    "CPI-22APR-T1.0",
+    "CPI-22APR-T1.1",
+    "CPI-22APR-T1.2",
+    "CPI-22AUG-T0.0",
+    "CPI-22AUG-T0.1",
+    "CPI-22AUG-T0.2",
+    "CPI-22AUG-T0.3",
+    "CPI-22AUG-T0.4",
+    "CPI-22AUG-T0.5",
+    "CPI-22AUG-T0.6",
+    "CPI-22AUG-T0.7",
+    "CPI-22AUG-T0.8",
+    "CPI-22AUG-T0.9",
+    "CPI-22AUG-T1.0",
+    "CPI-22AUG-TN0.1",
+    "CPI-22AUG-TN0.2",
+    "CPI-22AUG-TN0.3",
+    "CPI-22AUG-TN0.4",
+    "CPI-22DEC-T0.0",
+    "CPI-22DEC-T0.1",
+    "CPI-22DEC-T0.2",
+    "CPI-22DEC-T0.3",
+    "CPI-22DEC-T0.4",
+    "CPI-22DEC-T0.5",
+    "CPI-22DEC-T0.6",
+    "CPI-22DEC-T0.7",
+    "CPI-22DEC-T0.8",
+    "CPI-22DEC-TN0.1",
+    "CPI-22DEC-TN0.2",
+    "CPI-22DEC-TN0.3",
+    "CPI-22FEB-T0.4",
+    "CPI-22FEB-T0.5",
+    "CPI-22FEB-T0.6",
+    "CPI-22FEB-T0.7",
+    "CPI-22JAN-T0.4",
+    "CPI-22JAN-T0.5",
+    "CPI-22JAN-T0.6",
+    "CPI-22JAN-T0.7",
+    "CPI-22JUL-T0.1",
+    "CPI-22JUL-T0.2",
+    "CPI-22JUL-T0.3",
+    "CPI-22JUL-T0.4",
+    "CPI-22JUL-T0.5",
+    "CPI-22JUL-T0.6",
+    "CPI-22JUL-T0.7",
+    "CPI-22JUL-T0.8",
+    "CPI-22JUL-T0.9",
+    "CPI-22JUL-T1.0",
+    "CPI-22JUL-T1.1",
+    "CPI-22JUN-T0.1",
+    "CPI-22JUN-T0.2",
+    "CPI-22JUN-T0.3",
+    "CPI-22JUN-T0.4",
+    "CPI-22JUN-T0.5",
+    "CPI-22JUN-T0.6",
+    "CPI-22JUN-T0.7",
+    "CPI-22JUN-T0.8",
+    "CPI-22JUN-T0.9",
+    "CPI-22JUN-T1.0",
+    "CPI-22JUN-T1.1",
+    "CPI-22JUN-T1.2",
+    "CPI-22JUN-T1.3",
+    "CPI-22MAR-T0.5",
+    "CPI-22MAR-T0.6",
+    "CPI-22MAR-T0.7",
+    "CPI-22MAR-T0.8",
+    "CPI-22MAR-T0.9",
+    "CPI-22MAR-T1.0",
+    "CPI-22MAR-T1.1",
+    "CPI-22MAY-T0.1",
+    "CPI-22MAY-T0.2",
+    "CPI-22MAY-T0.3",
+    "CPI-22MAY-T0.4",
+    "CPI-22MAY-T0.5",
+    "CPI-22MAY-T0.6",
+    "CPI-22MAY-T0.7",
+    "CPI-22MAY-T0.8",
+    "CPI-22MAY-T0.9",
+    "CPI-22MAY-T1.0",
+    "CPI-22MAY-T1.1",
+    "CPI-22MAY-T1.2",
+    "CPI-22NOV-T0.0",
+    "CPI-22NOV-T0.1",
+    "CPI-22NOV-T0.2",
+    "CPI-22NOV-T0.3",
+    "CPI-22NOV-T0.4",
+    "CPI-22NOV-T0.5",
+    "CPI-22NOV-T0.6",
+    "CPI-22NOV-T0.7",
+    "CPI-22NOV-T0.8",
+    "CPI-22NOV-T0.9",
+    "CPI-22OCT-T0.2",
+    "CPI-22OCT-T0.3",
+    "CPI-22OCT-T0.4",
+    "CPI-22OCT-T0.5",
+    "CPI-22OCT-T0.6",
+    "CPI-22OCT-T0.7",
+    "CPI-22OCT-T0.8",
+    "CPI-22OCT-T0.9",
+    "CPI-22SEP-T0.0",
+    "CPI-22SEP-T0.1",
+    "CPI-22SEP-T0.2",
+    "CPI-22SEP-T0.3",
+    "CPI-22SEP-T0.4",
+    "CPI-22SEP-T0.5",
+    "CPI-22SEP-T0.6",
+    "CPI-22SEP-T0.7",
+    "CPI-22SEP-T0.8",
+    "CPI-22SEP-T0.9",
+    "CPI-22SEP-T1.0",
+    "CPI-23APR-T0.0",
+    "CPI-23APR-T0.1",
+    "CPI-23APR-T0.2",
+    "CPI-23APR-T0.3",
+    "CPI-23APR-T0.4",
+    "CPI-23APR-T0.5",
+    "CPI-23APR-T0.6",
+    "CPI-23APR-T0.7",
+    "CPI-23APR-T0.8",
+    "CPI-23AUG-T0.0",
+    "CPI-23AUG-T0.1",
+    "CPI-23AUG-T0.2",
+    "CPI-23AUG-T0.3",
+    "CPI-23AUG-T0.4",
+    "CPI-23AUG-T0.5",
+    "CPI-23AUG-T0.6",
+    "CPI-23AUG-T0.7",
+    "CPI-23AUG-T0.8",
+    "CPI-23DEC-T-0.1",
+    "CPI-23DEC-T-0.2",
+    "CPI-23DEC-T0.0",
+    "CPI-23DEC-T0.1",
+    "CPI-23DEC-T0.2",
+    "CPI-23DEC-T0.3",
+    "CPI-23DEC-T0.4",
+    "CPI-23FEB-T0.0",
+    "CPI-23FEB-T0.1",
+    "CPI-23FEB-T0.2",
+    "CPI-23FEB-T0.3",
+    "CPI-23FEB-T0.4",
+    "CPI-23FEB-T0.5",
+    "CPI-23FEB-T0.6",
+    "CPI-23FEB-T0.7",
+    "CPI-23FEB-T0.8",
+    "CPI-23JAN-T0.0",
+    "CPI-23JAN-T0.1",
+    "CPI-23JAN-T0.2",
+    "CPI-23JAN-T0.3",
+    "CPI-23JAN-T0.4",
+    "CPI-23JAN-T0.5",
+    "CPI-23JAN-T0.6",
+    "CPI-23JAN-T0.7",
+    "CPI-23JAN-T0.8",
+    "CPI-23JUL-T-0.1",
+    "CPI-23JUL-T-0.2",
+    "CPI-23JUL-T-0.3",
+    "CPI-23JUL-T0.0",
+    "CPI-23JUL-T0.1",
+    "CPI-23JUL-T0.2",
+    "CPI-23JUL-T0.3",
+    "CPI-23JUL-T0.4",
+    "CPI-23JUL-T0.5",
+    "CPI-23JUL-T0.6",
+    "CPI-23JUL-T0.7",
+    "CPI-23JUL-T0.8",
+    "CPI-23JUL-T0.9",
+    "CPI-23JUN-T0.0",
+    "CPI-23JUN-T0.1",
+    "CPI-23JUN-T0.2",
+    "CPI-23JUN-T0.3",
+    "CPI-23JUN-T0.4",
+    "CPI-23JUN-T0.5",
+    "CPI-23JUN-T0.6",
+    "CPI-23JUN-T0.7",
+    "CPI-23JUN-T0.8",
+    "CPI-23MAR-T0.0",
+    "CPI-23MAR-T0.1",
+    "CPI-23MAR-T0.2",
+    "CPI-23MAR-T0.3",
+    "CPI-23MAR-T0.4",
+    "CPI-23MAR-T0.5",
+    "CPI-23MAR-T0.6",
+    "CPI-23MAR-T0.7",
+    "CPI-23MAR-T0.8",
+    "CPI-23MAY-T-0.1",
+    "CPI-23MAY-T-0.2",
+    "CPI-23MAY-T0.0",
+    "CPI-23MAY-T0.1",
+    "CPI-23MAY-T0.2",
+    "CPI-23MAY-T0.3",
+    "CPI-23MAY-T0.4",
+    "CPI-23MAY-T0.5",
+    "CPI-23MAY-T0.6",
+    "CPI-23MAY-T0.7",
+    "CPI-23MAY-T0.8",
+    "CPI-23NOV-T-0.1",
+    "CPI-23NOV-T-0.2",
+    "CPI-23NOV-T0.0",
+    "CPI-23NOV-T0.1",
+    "CPI-23NOV-T0.2",
+    "CPI-23NOV-T0.3",
+    "CPI-23NOV-T0.4",
+    "CPI-23NOV-T0.5",
+    "CPI-23NOV-T0.6",
+    "CPI-23NOV-T0.7",
+    "CPI-23NOV-T0.8",
+    "CPI-23OCT-T-0.1",
+    "CPI-23OCT-T-0.2",
+    "CPI-23OCT-T-0.3",
+    "CPI-23OCT-T0.0",
+    "CPI-23OCT-T0.1",
+    "CPI-23OCT-T0.2",
+    "CPI-23OCT-T0.3",
+    "CPI-23OCT-T0.4",
+    "CPI-23OCT-T0.5",
+    "CPI-23OCT-T0.6",
+    "CPI-23OCT-T0.7",
+    "CPI-23OCT-T0.8",
+    "CPI-23SEP-T-0.1",
+    "CPI-23SEP-T-0.2",
+    "CPI-23SEP-T-0.3",
+    "CPI-23SEP-T0.0",
+    "CPI-23SEP-T0.1",
+    "CPI-23SEP-T0.2",
+    "CPI-23SEP-T0.3",
+    "CPI-23SEP-T0.4",
+    "CPI-23SEP-T0.5",
+    "CPI-23SEP-T0.6",
+    "CPI-23SEP-T0.7",
+    "CPI-23SEP-T0.8",
+    "CPI-24APR-T-0.1",
+    "CPI-24APR-T0.0",
+    "CPI-24APR-T0.1",
+    "CPI-24APR-T0.2",
+    "CPI-24APR-T0.3",
+    "CPI-24APR-T0.4",
+    "CPI-24APR-T0.5",
+    "CPI-24APR-T0.6",
+    "CPI-24AUG-T-0.1",
+    "CPI-24AUG-T0.0",
+    "CPI-24AUG-T0.1",
+    "CPI-24AUG-T0.2",
+    "CPI-24AUG-T0.3",
+    "CPI-24AUG-T0.4",
+    "CPI-24AUG-T0.5",
+    "CPI-24AUG-T0.6",
+    "CPI-24FEB-T-0.1",
+    "CPI-24FEB-T0.0",
+    "CPI-24FEB-T0.1",
+    "CPI-24FEB-T0.2",
+    "CPI-24FEB-T0.3",
+    "CPI-24FEB-T0.4",
+    "CPI-24FEB-T0.5",
+    "CPI-24FEB-T0.6",
+    "CPI-24JAN-T-0.1",
+    "CPI-24JAN-T-0.2",
+    "CPI-24JAN-T0.0",
+    "CPI-24JAN-T0.1",
+    "CPI-24JAN-T0.2",
+    "CPI-24JAN-T0.3",
+    "CPI-24JUL-T-0.1",
+    "CPI-24JUL-T0.0",
+    "CPI-24JUL-T0.1",
+    "CPI-24JUL-T0.2",
+    "CPI-24JUL-T0.3",
+    "CPI-24JUL-T0.4",
+    "CPI-24JUL-T0.5",
+    "CPI-24JUL-T0.6",
+    "CPI-24JUN-T-0.1",
+    "CPI-24JUN-T0.0",
+    "CPI-24JUN-T0.1",
+    "CPI-24JUN-T0.2",
+    "CPI-24JUN-T0.3",
+    "CPI-24JUN-T0.4",
+    "CPI-24JUN-T0.5",
+    "CPI-24JUN-T0.6",
+    "CPI-24MAR-T-0.1",
+    "CPI-24MAR-T0.0",
+    "CPI-24MAR-T0.1",
+    "CPI-24MAR-T0.2",
+    "CPI-24MAR-T0.3",
+    "CPI-24MAR-T0.4",
+    "CPI-24MAR-T0.5",
+    "CPI-24MAY-T-0.1",
+    "CPI-24MAY-T0.0",
+    "CPI-24MAY-T0.1",
+    "CPI-24MAY-T0.2",
+    "CPI-24MAY-T0.3",
+    "CPI-24MAY-T0.4",
+    "CPI-24MAY-T0.5",
+    "CPI-24MAY-T0.6",
+    "CPI-24OCT-T-0.1",
+    "CPI-24OCT-T0.0",
+    "CPI-24OCT-T0.1",
+    "CPI-24OCT-T0.2",
+    "CPI-24OCT-T0.3",
+    "CPI-24OCT-T0.4",
+    "CPI-24OCT-T0.5",
+    "CPI-24OCT-T0.6",
+    "CPI-24SEP-T-0.1",
+    "CPI-24SEP-T0.0",
+    "CPI-24SEP-T0.1",
+    "CPI-24SEP-T0.2",
+    "CPI-24SEP-T0.3",
+    "CPI-24SEP-T0.4",
+    "CPI-24SEP-T0.5",
+    "CPI-24SEP-T0.6",
+    "KXCPI-24DEC-T-0.1",
+    "KXCPI-24DEC-T0.0",
+    "KXCPI-24DEC-T0.1",
+    "KXCPI-24DEC-T0.2",
+    "KXCPI-24DEC-T0.3",
+    "KXCPI-24DEC-T0.4",
+    "KXCPI-24DEC-T0.5",
+    "KXCPI-24NOV-T-0.1",
+    "KXCPI-24NOV-T0.0",
+    "KXCPI-24NOV-T0.1",
+    "KXCPI-24NOV-T0.2",
+    "KXCPI-24NOV-T0.3",
+    "KXCPI-24NOV-T0.4",
+    "KXCPI-24NOV-T0.5",
+    "KXCPI-24NOV-T0.6",
+    "KXCPI-25APR-T-0.1",
+    "KXCPI-25APR-T0.0",
+    "KXCPI-25APR-T0.1",
+    "KXCPI-25APR-T0.2",
+    "KXCPI-25APR-T0.3",
+    "KXCPI-25APR-T0.4",
+    "KXCPI-25APR-T0.5",
+    "KXCPI-25AUG-T-0.1",
+    "KXCPI-25AUG-T0.0",
+    "KXCPI-25AUG-T0.1",
+    "KXCPI-25AUG-T0.2",
+    "KXCPI-25AUG-T0.3",
+    "KXCPI-25AUG-T0.4",
+    "KXCPI-25DEC-T-0.1",
+    "KXCPI-25DEC-T0.0",
+    "KXCPI-25DEC-T0.1",
+    "KXCPI-25DEC-T0.2",
+    "KXCPI-25DEC-T0.3",
+    "KXCPI-25DEC-T0.4",
+    "KXCPI-25FEB-T-0.1",
+    "KXCPI-25FEB-T0.0",
+    "KXCPI-25FEB-T0.1",
+    "KXCPI-25FEB-T0.2",
+    "KXCPI-25FEB-T0.3",
+    "KXCPI-25FEB-T0.4",
+    "KXCPI-25FEB-T0.5",
+    "KXCPI-25JAN-T-0.1",
+    "KXCPI-25JAN-T0.0",
+    "KXCPI-25JAN-T0.1",
+    "KXCPI-25JAN-T0.2",
+    "KXCPI-25JAN-T0.3",
+    "KXCPI-25JAN-T0.4",
+    "KXCPI-25JAN-T0.5",
+    "KXCPI-25JUL-T-0.1",
+    "KXCPI-25JUL-T0.0",
+    "KXCPI-25JUL-T0.1",
+    "KXCPI-25JUL-T0.2",
+    "KXCPI-25JUL-T0.3",
+    "KXCPI-25JUL-T0.4",
+    "KXCPI-25JUN-T-0.1",
+    "KXCPI-25JUN-T0.0",
+    "KXCPI-25JUN-T0.1",
+    "KXCPI-25JUN-T0.2",
+    "KXCPI-25JUN-T0.3",
+    "KXCPI-25JUN-T0.4",
+    "KXCPI-25JUN-T0.5",
+    "KXCPI-25JUN-T0.6",
+    "KXCPI-25MAR-T-0.1",
+    "KXCPI-25MAR-T0.0",
+    "KXCPI-25MAR-T0.1",
+    "KXCPI-25MAR-T0.2",
+    "KXCPI-25MAR-T0.3",
+    "KXCPI-25MAY-T-0.1",
+    "KXCPI-25MAY-T0.0",
+    "KXCPI-25MAY-T0.1",
+    "KXCPI-25MAY-T0.2",
+    "KXCPI-25MAY-T0.3",
+    "KXCPI-25MAY-T0.4",
+    "KXCPI-25MAY-T0.5",
+    "KXCPI-25NOV-T-0.1",
+    "KXCPI-25NOV-T0.0",
+    "KXCPI-25NOV-T0.1",
+    "KXCPI-25NOV-T0.2",
+    "KXCPI-25NOV-T0.3",
+    "KXCPI-25OCT-T-0.1",
+    "KXCPI-25OCT-T0.0",
+    "KXCPI-25OCT-T0.1",
+    "KXCPI-25OCT-T0.2",
+    "KXCPI-25OCT-T0.3",
+    "KXCPI-25OCT-T0.4",
+    "KXCPI-25SEP-T-0.1",
+    "KXCPI-25SEP-T0.0",
+    "KXCPI-25SEP-T0.1",
+    "KXCPI-25SEP-T0.2",
+    "KXCPI-25SEP-T0.3",
+    "KXCPI-25SEP-T0.4",
+    "KXCPI-26APR-T-0.1",
+    "KXCPI-26APR-T0.0",
+    "KXCPI-26APR-T0.1",
+    "KXCPI-26APR-T0.2",
+    "KXCPI-26APR-T0.3",
+    "KXCPI-26APR-T0.4",
+    "KXCPI-26APR-T0.5",
+    "KXCPI-26APR-T0.6",
+    "KXCPI-26APR-T0.7",
+    "KXCPI-26APR-T0.8",
+    "KXCPI-26APR-T0.9",
+    "KXCPI-26APR-T1.0",
+    "KXCPI-26AUG-T-0.1",
+    "KXCPI-26AUG-T0.0",
+    "KXCPI-26AUG-T0.1",
+    "KXCPI-26AUG-T0.2",
+    "KXCPI-26AUG-T0.3",
+    "KXCPI-26AUG-T0.4",
+    "KXCPI-26AUG-T0.5",
+    "KXCPI-26FEB-T-0.1",
+    "KXCPI-26FEB-T0.0",
+    "KXCPI-26FEB-T0.1",
+    "KXCPI-26FEB-T0.2",
+    "KXCPI-26FEB-T0.3",
+    "KXCPI-26FEB-T0.4",
+    "KXCPI-26JAN-T-0.1",
+    "KXCPI-26JAN-T0.0",
+    "KXCPI-26JAN-T0.1",
+    "KXCPI-26JAN-T0.2",
+    "KXCPI-26JAN-T0.3",
+    "KXCPI-26JAN-T0.4",
+    "KXCPI-26JUL-T-0.1",
+    "KXCPI-26JUL-T0.0",
+    "KXCPI-26JUL-T0.1",
+    "KXCPI-26JUL-T0.2",
+    "KXCPI-26JUL-T0.3",
+    "KXCPI-26JUL-T0.4",
+    "KXCPI-26JUL-T0.5",
+    "KXCPI-26JUN-T-0.1",
+    "KXCPI-26JUN-T0.0",
+    "KXCPI-26JUN-T0.1",
+    "KXCPI-26JUN-T0.2",
+    "KXCPI-26JUN-T0.3",
+    "KXCPI-26JUN-T0.4",
+    "KXCPI-26JUN-T0.5",
+    "KXCPI-26MAR-T-0.1",
+    "KXCPI-26MAR-T0.0",
+    "KXCPI-26MAR-T0.1",
+    "KXCPI-26MAR-T0.2",
+    "KXCPI-26MAR-T0.3",
+    "KXCPI-26MAR-T0.4",
+    "KXCPI-26MAR-T0.5",
+    "KXCPI-26MAR-T0.6",
+    "KXCPI-26MAR-T0.7",
+    "KXCPI-26MAR-T0.8",
+    "KXCPI-26MAR-T0.9",
+    "KXCPI-26MAR-T1.0",
+    "KXCPI-26MAR-T1.1",
+    "KXCPI-26MAR-T1.2",
+    "KXCPI-26MAR-T1.3",
+    "KXCPI-26MAY-T-0.1",
+    "KXCPI-26MAY-T-0.2",
+    "KXCPI-26MAY-T-0.3",
+    "KXCPI-26MAY-T0.0",
+    "KXCPI-26MAY-T0.1",
+    "KXCPI-26MAY-T0.2",
+    "KXCPI-26MAY-T0.3",
+    "KXCPI-26MAY-T0.4",
+    "KXCPI-26MAY-T0.5",
+    "KXCPI-26MAY-T0.6",
+    "KXCPI-26MAY-T0.7",
+    "KXCPI-26MAY-T0.8",
+    "KXCPI-26MAY-T0.9",
+    "KXCPI-26MAY-T1.0",
+    "KXCPI-26NOV-T-0.1",
+    "KXCPI-26NOV-T0.0",
+    "KXCPI-26NOV-T0.1",
+    "KXCPI-26NOV-T0.2",
+    "KXCPI-26NOV-T0.3",
+    "KXCPI-26NOV-T0.4",
+    "KXCPI-26NOV-T0.5",
+    "KXCPI-26OCT-T-0.1",
+    "KXCPI-26OCT-T0.0",
+    "KXCPI-26OCT-T0.1",
+    "KXCPI-26OCT-T0.2",
+    "KXCPI-26OCT-T0.3",
+    "KXCPI-26OCT-T0.4",
+    "KXCPI-26OCT-T0.5",
+    "KXCPI-26SEP-T-0.1",
+    "KXCPI-26SEP-T0.0",
+    "KXCPI-26SEP-T0.1",
+    "KXCPI-26SEP-T0.2",
+    "KXCPI-26SEP-T0.3",
+    "KXCPI-26SEP-T0.4",
+    "KXCPI-26SEP-T0.5"
+  ]
+}

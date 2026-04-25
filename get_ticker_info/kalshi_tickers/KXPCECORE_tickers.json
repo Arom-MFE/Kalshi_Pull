@@ -1,0 +1,1209 @@
+{
+  "series": "KXPCECORE",
+  "events": [
+    {
+      "event_ticker": "KXPCECORE-24DEC",
+      "title": "What will the rate of core PCE inflation be in December 2024?"
+    },
+    {
+      "event_ticker": "KXPCECORE-24NOV",
+      "title": "What will the rate of core PCE inflation be in November 2024?"
+    },
+    {
+      "event_ticker": "KXPCECORE-25APR",
+      "title": "How much will core PCE increase in April 2025?"
+    },
+    {
+      "event_ticker": "KXPCECORE-25AUG",
+      "title": "How much will core PCE increase in August 2025?"
+    },
+    {
+      "event_ticker": "KXPCECORE-25DEC",
+      "title": "How much will core PCE increase in Dec 2025?"
+    },
+    {
+      "event_ticker": "KXPCECORE-25FEB",
+      "title": "What will the rate of core PCE inflation be in February 2025?"
+    },
+    {
+      "event_ticker": "KXPCECORE-25JAN",
+      "title": "What will the rate of core PCE inflation be in January 2025?"
+    },
+    {
+      "event_ticker": "KXPCECORE-25JUL",
+      "title": "How much will core PCE increase in July 2025?"
+    },
+    {
+      "event_ticker": "KXPCECORE-25JUN",
+      "title": "How much will core PCE increase in June 2025?"
+    },
+    {
+      "event_ticker": "KXPCECORE-25MAR",
+      "title": "How much will core PCE increase in March 2025?"
+    },
+    {
+      "event_ticker": "KXPCECORE-25MAY",
+      "title": "How much will core PCE increase in May 2025?"
+    },
+    {
+      "event_ticker": "KXPCECORE-25NOV",
+      "title": "How much will core PCE increase in November 2025?"
+    },
+    {
+      "event_ticker": "KXPCECORE-25OCT",
+      "title": "How much will core PCE increase in October 2025?"
+    },
+    {
+      "event_ticker": "KXPCECORE-25SEP",
+      "title": "How much will core PCE increase in September 2025?"
+    },
+    {
+      "event_ticker": "KXPCECORE-26APR",
+      "title": "How much will core PCE increase in Apr 2026?"
+    },
+    {
+      "event_ticker": "KXPCECORE-26AUG",
+      "title": "How much will core PCE increase in Aug 2026?"
+    },
+    {
+      "event_ticker": "KXPCECORE-26FEB",
+      "title": "How much will core PCE increase in Feb 2026?"
+    },
+    {
+      "event_ticker": "KXPCECORE-26JAN",
+      "title": "How much will core PCE increase in Jan 2026?"
+    },
+    {
+      "event_ticker": "KXPCECORE-26JUL",
+      "title": "How much will core PCE increase in Jul 2026?"
+    },
+    {
+      "event_ticker": "KXPCECORE-26JUN",
+      "title": "How much will core PCE increase in Jun 2026?"
+    },
+    {
+      "event_ticker": "KXPCECORE-26MAR",
+      "title": "How much will core PCE increase in Mar 2026?"
+    },
+    {
+      "event_ticker": "KXPCECORE-26MAY",
+      "title": "How much will core PCE increase in May 2026?"
+    },
+    {
+      "event_ticker": "KXPCECORE-26NOV",
+      "title": "How much will core PCE increase in Nov 2026?"
+    },
+    {
+      "event_ticker": "KXPCECORE-26OCT",
+      "title": "How much will core PCE increase in Oct 2026?"
+    },
+    {
+      "event_ticker": "KXPCECORE-26SEP",
+      "title": "How much will core PCE increase in Sep 2026?"
+    },
+    {
+      "event_ticker": "PCECORE-22DEC",
+      "title": "US Core PCE inflation in Dec 2022?"
+    },
+    {
+      "event_ticker": "PCECORE-22NOV",
+      "title": "US Core PCE inflation in Nov 2022?"
+    },
+    {
+      "event_ticker": "PCECORE-23SEP",
+      "title": "US Core PCE inflation in Sep 2023?"
+    }
+  ],
+  "markets": [
+    {
+      "event_ticker": "KXPCECORE-24DEC",
+      "market_ticker": "KXPCECORE-24DEC-T0.3",
+      "title": "Will the rate of core PCE inflation be above 0.3% in December 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXPCECORE-24DEC",
+      "market_ticker": "KXPCECORE-24DEC-T0.2",
+      "title": "Will the rate of core PCE inflation be above 0.2% in December 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXPCECORE-24DEC",
+      "market_ticker": "KXPCECORE-24DEC-T0.1",
+      "title": "Will the rate of core PCE inflation be above 0.1% in December 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXPCECORE-24DEC",
+      "market_ticker": "KXPCECORE-24DEC-T0.0",
+      "title": "Will the rate of core PCE inflation be above 0.0% in December 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXPCECORE-24NOV",
+      "market_ticker": "KXPCECORE-24NOV-T0.3",
+      "title": "Will the rate of core PCE inflation be above 0.3% in November 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXPCECORE-24NOV",
+      "market_ticker": "KXPCECORE-24NOV-T0.2",
+      "title": "Will the rate of core PCE inflation be above 0.2% in November 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXPCECORE-24NOV",
+      "market_ticker": "KXPCECORE-24NOV-T0.1",
+      "title": "Will the rate of core PCE inflation be above 0.1% in November 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXPCECORE-24NOV",
+      "market_ticker": "KXPCECORE-24NOV-T0.0",
+      "title": "Will the rate of core PCE inflation be above 0.0% in November 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXPCECORE-25APR",
+      "market_ticker": "KXPCECORE-25APR-T0.4",
+      "title": "Will the rate of core PCE inflation be above 0.4% in April 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXPCECORE-25APR",
+      "market_ticker": "KXPCECORE-25APR-T0.3",
+      "title": "Will the rate of core PCE inflation be above 0.3% in April 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXPCECORE-25APR",
+      "market_ticker": "KXPCECORE-25APR-T0.2",
+      "title": "Will the rate of core PCE inflation be above 0.2% in April 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXPCECORE-25APR",
+      "market_ticker": "KXPCECORE-25APR-T0.1",
+      "title": "Will the rate of core PCE inflation be above 0.1% in April 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXPCECORE-25APR",
+      "market_ticker": "KXPCECORE-25APR-T0.0",
+      "title": "Will the rate of core PCE inflation be above 0.0% in April 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXPCECORE-25DEC",
+      "market_ticker": "KXPCECORE-25DEC-T0.0",
+      "title": "Will the rate of core PCE inflation be above 0.0% in December 2025?",
+      "status": "finalized",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXPCECORE-25DEC",
+      "market_ticker": "KXPCECORE-25DEC-T0.1",
+      "title": "Will the rate of core PCE inflation be above 0.1% in December 2025?",
+      "status": "finalized",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXPCECORE-25DEC",
+      "market_ticker": "KXPCECORE-25DEC-T0.2",
+      "title": "Will the rate of core PCE inflation be above 0.2% in December 2025?",
+      "status": "finalized",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXPCECORE-25DEC",
+      "market_ticker": "KXPCECORE-25DEC-T0.3",
+      "title": "Will the rate of core PCE inflation be above 0.3% in December 2025?",
+      "status": "finalized",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXPCECORE-25DEC",
+      "market_ticker": "KXPCECORE-25DEC-T0.4",
+      "title": "Will the rate of core PCE inflation be above 0.4% in December 2025?",
+      "status": "finalized",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXPCECORE-25FEB",
+      "market_ticker": "KXPCECORE-25FEB-T0.3",
+      "title": "Will the rate of core PCE inflation be above 0.3% in February 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXPCECORE-25FEB",
+      "market_ticker": "KXPCECORE-25FEB-T0.2",
+      "title": "Will the rate of core PCE inflation be above 0.2% in February 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXPCECORE-25FEB",
+      "market_ticker": "KXPCECORE-25FEB-T0.1",
+      "title": "Will the rate of core PCE inflation be above 0.1% in February 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXPCECORE-25FEB",
+      "market_ticker": "KXPCECORE-25FEB-T0.0",
+      "title": "Will the rate of core PCE inflation be above 0.0% in February 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXPCECORE-25JAN",
+      "market_ticker": "KXPCECORE-25JAN-T0.3",
+      "title": "Will the rate of core PCE inflation be above 0.3% in January 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXPCECORE-25JAN",
+      "market_ticker": "KXPCECORE-25JAN-T0.2",
+      "title": "Will the rate of core PCE inflation be above 0.2% in January 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXPCECORE-25JAN",
+      "market_ticker": "KXPCECORE-25JAN-T0.1",
+      "title": "Will the rate of core PCE inflation be above 0.1% in January 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXPCECORE-25JAN",
+      "market_ticker": "KXPCECORE-25JAN-T0.0",
+      "title": "Will the rate of core PCE inflation be above 0.0% in January 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXPCECORE-25JUL",
+      "market_ticker": "KXPCECORE-25JUL-T0.4",
+      "title": "Will the rate of core PCE inflation be above 0.4% in July 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXPCECORE-25JUL",
+      "market_ticker": "KXPCECORE-25JUL-T0.3",
+      "title": "Will the rate of core PCE inflation be above 0.3% in July 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXPCECORE-25JUL",
+      "market_ticker": "KXPCECORE-25JUL-T0.2",
+      "title": "Will the rate of core PCE inflation be above 0.2% in July 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXPCECORE-25JUL",
+      "market_ticker": "KXPCECORE-25JUL-T0.1",
+      "title": "Will the rate of core PCE inflation be above 0.1% in July 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXPCECORE-25JUL",
+      "market_ticker": "KXPCECORE-25JUL-T0.0",
+      "title": "Will the rate of core PCE inflation be above 0.0% in July 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXPCECORE-25MAR",
+      "market_ticker": "KXPCECORE-25MAR-T0.4",
+      "title": "Will the rate of core PCE inflation be above 0.4% in March 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXPCECORE-25MAR",
+      "market_ticker": "KXPCECORE-25MAR-T0.3",
+      "title": "Will the rate of core PCE inflation be above 0.3% in March 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXPCECORE-25MAR",
+      "market_ticker": "KXPCECORE-25MAR-T0.2",
+      "title": "Will the rate of core PCE inflation be above 0.2% in March 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXPCECORE-25MAR",
+      "market_ticker": "KXPCECORE-25MAR-T0.1",
+      "title": "Will the rate of core PCE inflation be above 0.1% in March 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXPCECORE-25MAR",
+      "market_ticker": "KXPCECORE-25MAR-T0.0",
+      "title": "Will the rate of core PCE inflation be above 0.0% in March 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXPCECORE-25MAY",
+      "market_ticker": "KXPCECORE-25MAY-T0.4",
+      "title": "Will the rate of core PCE inflation be above 0.4% in May 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXPCECORE-25MAY",
+      "market_ticker": "KXPCECORE-25MAY-T0.3",
+      "title": "Will the rate of core PCE inflation be above 0.3% in May 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXPCECORE-25MAY",
+      "market_ticker": "KXPCECORE-25MAY-T0.2",
+      "title": "Will the rate of core PCE inflation be above 0.2% in May 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXPCECORE-25MAY",
+      "market_ticker": "KXPCECORE-25MAY-T0.1",
+      "title": "Will the rate of core PCE inflation be above 0.1% in May 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXPCECORE-25MAY",
+      "market_ticker": "KXPCECORE-25MAY-T0.0",
+      "title": "Will the rate of core PCE inflation be above 0.0% in May 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXPCECORE-25NOV",
+      "market_ticker": "KXPCECORE-25NOV-T0.4",
+      "title": "Will the rate of core PCE inflation be above 0.4% in November 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXPCECORE-25NOV",
+      "market_ticker": "KXPCECORE-25NOV-T0.3",
+      "title": "Will the rate of core PCE inflation be above 0.3% in November 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXPCECORE-25NOV",
+      "market_ticker": "KXPCECORE-25NOV-T0.2",
+      "title": "Will the rate of core PCE inflation be above 0.2% in November 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXPCECORE-25NOV",
+      "market_ticker": "KXPCECORE-25NOV-T0.1",
+      "title": "Will the rate of core PCE inflation be above 0.1% in November 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXPCECORE-25NOV",
+      "market_ticker": "KXPCECORE-25NOV-T0.0",
+      "title": "Will the rate of core PCE inflation be above 0.0% in November 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXPCECORE-25OCT",
+      "market_ticker": "KXPCECORE-25OCT-T0.4",
+      "title": "Will the rate of core PCE inflation be above 0.4% in October 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXPCECORE-25OCT",
+      "market_ticker": "KXPCECORE-25OCT-T0.3",
+      "title": "Will the rate of core PCE inflation be above 0.3% in October 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXPCECORE-25OCT",
+      "market_ticker": "KXPCECORE-25OCT-T0.2",
+      "title": "Will the rate of core PCE inflation be above 0.2% in October 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXPCECORE-25OCT",
+      "market_ticker": "KXPCECORE-25OCT-T0.1",
+      "title": "Will the rate of core PCE inflation be above 0.1% in October 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXPCECORE-25OCT",
+      "market_ticker": "KXPCECORE-25OCT-T0.0",
+      "title": "Will the rate of core PCE inflation be above 0.0% in October 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXPCECORE-25SEP",
+      "market_ticker": "KXPCECORE-25SEP-T0.4",
+      "title": "Will the rate of core PCE inflation be above 0.4% in September 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXPCECORE-25SEP",
+      "market_ticker": "KXPCECORE-25SEP-T0.3",
+      "title": "Will the rate of core PCE inflation be above 0.3% in September 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXPCECORE-25SEP",
+      "market_ticker": "KXPCECORE-25SEP-T0.2",
+      "title": "Will the rate of core PCE inflation be above 0.2% in September 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXPCECORE-25SEP",
+      "market_ticker": "KXPCECORE-25SEP-T0.1",
+      "title": "Will the rate of core PCE inflation be above 0.1% in September 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXPCECORE-25SEP",
+      "market_ticker": "KXPCECORE-25SEP-T0.0",
+      "title": "Will the rate of core PCE inflation be above 0.0% in September 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXPCECORE-26APR",
+      "market_ticker": "KXPCECORE-26APR-T0.0",
+      "title": "Will the rate of core PCE inflation be above 0.0% in April 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXPCECORE-26APR",
+      "market_ticker": "KXPCECORE-26APR-T0.1",
+      "title": "Will the rate of core PCE inflation be above 0.1% in April 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXPCECORE-26APR",
+      "market_ticker": "KXPCECORE-26APR-T0.2",
+      "title": "Will the rate of core PCE inflation be above 0.2% in April 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXPCECORE-26APR",
+      "market_ticker": "KXPCECORE-26APR-T0.3",
+      "title": "Will the rate of core PCE inflation be above 0.3% in April 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXPCECORE-26APR",
+      "market_ticker": "KXPCECORE-26APR-T0.4",
+      "title": "Will the rate of core PCE inflation be above 0.4% in April 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXPCECORE-26AUG",
+      "market_ticker": "KXPCECORE-26AUG-T0.0",
+      "title": "Will the rate of core PCE inflation be above 0.0% in August 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXPCECORE-26AUG",
+      "market_ticker": "KXPCECORE-26AUG-T0.1",
+      "title": "Will the rate of core PCE inflation be above 0.1% in August 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXPCECORE-26AUG",
+      "market_ticker": "KXPCECORE-26AUG-T0.2",
+      "title": "Will the rate of core PCE inflation be above 0.2% in August 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXPCECORE-26AUG",
+      "market_ticker": "KXPCECORE-26AUG-T0.3",
+      "title": "Will the rate of core PCE inflation be above 0.3% in August 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXPCECORE-26AUG",
+      "market_ticker": "KXPCECORE-26AUG-T0.4",
+      "title": "Will the rate of core PCE inflation be above 0.4% in August 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXPCECORE-26FEB",
+      "market_ticker": "KXPCECORE-26FEB-T0.0",
+      "title": "Will the rate of core PCE inflation be above 0.0% in February 2026?",
+      "status": "finalized",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXPCECORE-26FEB",
+      "market_ticker": "KXPCECORE-26FEB-T0.1",
+      "title": "Will the rate of core PCE inflation be above 0.1% in February 2026?",
+      "status": "finalized",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXPCECORE-26FEB",
+      "market_ticker": "KXPCECORE-26FEB-T0.2",
+      "title": "Will the rate of core PCE inflation be above 0.2% in February 2026?",
+      "status": "finalized",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXPCECORE-26FEB",
+      "market_ticker": "KXPCECORE-26FEB-T0.3",
+      "title": "Will the rate of core PCE inflation be above 0.3% in February 2026?",
+      "status": "finalized",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXPCECORE-26FEB",
+      "market_ticker": "KXPCECORE-26FEB-T0.4",
+      "title": "Will the rate of core PCE inflation be above 0.4% in February 2026?",
+      "status": "finalized",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXPCECORE-26FEB",
+      "market_ticker": "KXPCECORE-26FEB-T0.5",
+      "title": "Will the rate of core PCE inflation be above 0.5% in February 2026?",
+      "status": "finalized",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXPCECORE-26JAN",
+      "market_ticker": "KXPCECORE-26JAN-T0.0",
+      "title": "Will the rate of core PCE inflation be above 0.0% in January 2026?",
+      "status": "finalized",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXPCECORE-26JAN",
+      "market_ticker": "KXPCECORE-26JAN-T0.1",
+      "title": "Will the rate of core PCE inflation be above 0.1% in January 2026?",
+      "status": "finalized",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXPCECORE-26JAN",
+      "market_ticker": "KXPCECORE-26JAN-T0.2",
+      "title": "Will the rate of core PCE inflation be above 0.2% in January 2026?",
+      "status": "finalized",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXPCECORE-26JAN",
+      "market_ticker": "KXPCECORE-26JAN-T0.3",
+      "title": "Will the rate of core PCE inflation be above 0.3% in January 2026?",
+      "status": "finalized",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXPCECORE-26JAN",
+      "market_ticker": "KXPCECORE-26JAN-T0.4",
+      "title": "Will the rate of core PCE inflation be above 0.4% in January 2026?",
+      "status": "finalized",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXPCECORE-26JUL",
+      "market_ticker": "KXPCECORE-26JUL-T0.0",
+      "title": "Will the rate of core PCE inflation be above 0.0% in July 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXPCECORE-26JUL",
+      "market_ticker": "KXPCECORE-26JUL-T0.1",
+      "title": "Will the rate of core PCE inflation be above 0.1% in July 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXPCECORE-26JUL",
+      "market_ticker": "KXPCECORE-26JUL-T0.2",
+      "title": "Will the rate of core PCE inflation be above 0.2% in July 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXPCECORE-26JUL",
+      "market_ticker": "KXPCECORE-26JUL-T0.3",
+      "title": "Will the rate of core PCE inflation be above 0.3% in July 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXPCECORE-26JUL",
+      "market_ticker": "KXPCECORE-26JUL-T0.4",
+      "title": "Will the rate of core PCE inflation be above 0.4% in July 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXPCECORE-26JUN",
+      "market_ticker": "KXPCECORE-26JUN-T0.0",
+      "title": "Will the rate of core PCE inflation be above 0.0% in June 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXPCECORE-26JUN",
+      "market_ticker": "KXPCECORE-26JUN-T0.1",
+      "title": "Will the rate of core PCE inflation be above 0.1% in June 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXPCECORE-26JUN",
+      "market_ticker": "KXPCECORE-26JUN-T0.2",
+      "title": "Will the rate of core PCE inflation be above 0.2% in June 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXPCECORE-26JUN",
+      "market_ticker": "KXPCECORE-26JUN-T0.3",
+      "title": "Will the rate of core PCE inflation be above 0.3% in June 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXPCECORE-26JUN",
+      "market_ticker": "KXPCECORE-26JUN-T0.4",
+      "title": "Will the rate of core PCE inflation be above 0.4% in June 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXPCECORE-26MAR",
+      "market_ticker": "KXPCECORE-26MAR-T0.0",
+      "title": "Will the rate of core PCE inflation be above 0.0% in March 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXPCECORE-26MAR",
+      "market_ticker": "KXPCECORE-26MAR-T0.1",
+      "title": "Will the rate of core PCE inflation be above 0.1% in March 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXPCECORE-26MAR",
+      "market_ticker": "KXPCECORE-26MAR-T0.2",
+      "title": "Will the rate of core PCE inflation be above 0.2% in March 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXPCECORE-26MAR",
+      "market_ticker": "KXPCECORE-26MAR-T0.3",
+      "title": "Will the rate of core PCE inflation be above 0.3% in March 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXPCECORE-26MAR",
+      "market_ticker": "KXPCECORE-26MAR-T0.4",
+      "title": "Will the rate of core PCE inflation be above 0.4% in March 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXPCECORE-26MAY",
+      "market_ticker": "KXPCECORE-26MAY-T0.0",
+      "title": "Will the rate of core PCE inflation be above 0.0% in May 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXPCECORE-26MAY",
+      "market_ticker": "KXPCECORE-26MAY-T0.1",
+      "title": "Will the rate of core PCE inflation be above 0.1% in May 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXPCECORE-26MAY",
+      "market_ticker": "KXPCECORE-26MAY-T0.2",
+      "title": "Will the rate of core PCE inflation be above 0.2% in May 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXPCECORE-26MAY",
+      "market_ticker": "KXPCECORE-26MAY-T0.3",
+      "title": "Will the rate of core PCE inflation be above 0.3% in May 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXPCECORE-26MAY",
+      "market_ticker": "KXPCECORE-26MAY-T0.4",
+      "title": "Will the rate of core PCE inflation be above 0.4% in May 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXPCECORE-26NOV",
+      "market_ticker": "KXPCECORE-26NOV-T0.0",
+      "title": "Will the rate of core PCE inflation be above 0.0% in November 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXPCECORE-26NOV",
+      "market_ticker": "KXPCECORE-26NOV-T0.1",
+      "title": "Will the rate of core PCE inflation be above 0.1% in November 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXPCECORE-26NOV",
+      "market_ticker": "KXPCECORE-26NOV-T0.2",
+      "title": "Will the rate of core PCE inflation be above 0.2% in November 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXPCECORE-26NOV",
+      "market_ticker": "KXPCECORE-26NOV-T0.3",
+      "title": "Will the rate of core PCE inflation be above 0.3% in November 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXPCECORE-26NOV",
+      "market_ticker": "KXPCECORE-26NOV-T0.4",
+      "title": "Will the rate of core PCE inflation be above 0.4% in November 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXPCECORE-26OCT",
+      "market_ticker": "KXPCECORE-26OCT-T0.0",
+      "title": "Will the rate of core PCE inflation be above 0.0% in October 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXPCECORE-26OCT",
+      "market_ticker": "KXPCECORE-26OCT-T0.1",
+      "title": "Will the rate of core PCE inflation be above 0.1% in October 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXPCECORE-26OCT",
+      "market_ticker": "KXPCECORE-26OCT-T0.2",
+      "title": "Will the rate of core PCE inflation be above 0.2% in October 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXPCECORE-26OCT",
+      "market_ticker": "KXPCECORE-26OCT-T0.3",
+      "title": "Will the rate of core PCE inflation be above 0.3% in October 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXPCECORE-26OCT",
+      "market_ticker": "KXPCECORE-26OCT-T0.4",
+      "title": "Will the rate of core PCE inflation be above 0.4% in October 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXPCECORE-26SEP",
+      "market_ticker": "KXPCECORE-26SEP-T0.0",
+      "title": "Will the rate of core PCE inflation be above 0.0% in September 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXPCECORE-26SEP",
+      "market_ticker": "KXPCECORE-26SEP-T0.1",
+      "title": "Will the rate of core PCE inflation be above 0.1% in September 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXPCECORE-26SEP",
+      "market_ticker": "KXPCECORE-26SEP-T0.2",
+      "title": "Will the rate of core PCE inflation be above 0.2% in September 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXPCECORE-26SEP",
+      "market_ticker": "KXPCECORE-26SEP-T0.3",
+      "title": "Will the rate of core PCE inflation be above 0.3% in September 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXPCECORE-26SEP",
+      "market_ticker": "KXPCECORE-26SEP-T0.4",
+      "title": "Will the rate of core PCE inflation be above 0.4% in September 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "PCECORE-22DEC",
+      "market_ticker": "PCECORE-22DEC-TN0.1",
+      "title": "Will the rate of core PCE inflation be above -0.1% in December 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "PCECORE-22DEC",
+      "market_ticker": "PCECORE-22DEC-T0.7",
+      "title": "Will the rate of core PCE inflation be above 0.7% in December 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "PCECORE-22DEC",
+      "market_ticker": "PCECORE-22DEC-T0.6",
+      "title": "Will the rate of core PCE inflation be above 0.6% in December 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "PCECORE-22DEC",
+      "market_ticker": "PCECORE-22DEC-T0.5",
+      "title": "Will the rate of core PCE inflation be above 0.5% in December 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "PCECORE-22DEC",
+      "market_ticker": "PCECORE-22DEC-T0.4",
+      "title": "Will the rate of core PCE inflation be above 0.4% in December 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "PCECORE-22DEC",
+      "market_ticker": "PCECORE-22DEC-T0.3",
+      "title": "Will the rate of core PCE inflation be above 0.3% in December 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "PCECORE-22DEC",
+      "market_ticker": "PCECORE-22DEC-T0.2",
+      "title": "Will the rate of core PCE inflation be above 0.2% in December 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "PCECORE-22DEC",
+      "market_ticker": "PCECORE-22DEC-T0.1",
+      "title": "Will the rate of core PCE inflation be above 0.1% in December 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "PCECORE-22DEC",
+      "market_ticker": "PCECORE-22DEC-T0.0",
+      "title": "Will the rate of core PCE inflation be above 0.0% in December 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "PCECORE-22NOV",
+      "market_ticker": "PCECORE-22NOV-TN0.1",
+      "title": "Will the rate of core PCE inflation be above -0.1%  in November 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "PCECORE-22NOV",
+      "market_ticker": "PCECORE-22NOV-T0.8",
+      "title": "Will the rate of core PCE inflation be above 0.8% in November 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "PCECORE-22NOV",
+      "market_ticker": "PCECORE-22NOV-T0.7",
+      "title": "Will the rate of core PCE inflation be above 0.7% in November 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "PCECORE-22NOV",
+      "market_ticker": "PCECORE-22NOV-T0.6",
+      "title": "Will the rate of core PCE inflation be above 0.6% in November 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "PCECORE-22NOV",
+      "market_ticker": "PCECORE-22NOV-T0.5",
+      "title": "Will the rate of core PCE inflation be above 0.5% in November 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "PCECORE-22NOV",
+      "market_ticker": "PCECORE-22NOV-T0.4",
+      "title": "Will the rate of core PCE inflation be above 0.4% in November 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "PCECORE-22NOV",
+      "market_ticker": "PCECORE-22NOV-T0.3",
+      "title": "Will the rate of core PCE inflation be above 0.3% in November 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "PCECORE-22NOV",
+      "market_ticker": "PCECORE-22NOV-T0.2",
+      "title": "Will the rate of core PCE inflation be above 0.2% in November 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "PCECORE-22NOV",
+      "market_ticker": "PCECORE-22NOV-T0.1",
+      "title": "Will the rate of core PCE inflation be above 0.1% in November 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "PCECORE-22NOV",
+      "market_ticker": "PCECORE-22NOV-T0.0",
+      "title": "Will the rate of core PCE inflation be above 0.0% in November 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "PCECORE-23SEP",
+      "market_ticker": "PCECORE-23SEP-T0.5",
+      "title": "Will the rate of core PCE inflation be above 0.5% in September 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "PCECORE-23SEP",
+      "market_ticker": "PCECORE-23SEP-T0.4",
+      "title": "Will the rate of core PCE inflation be above 0.4% in September 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "PCECORE-23SEP",
+      "market_ticker": "PCECORE-23SEP-T0.3",
+      "title": "Will the rate of core PCE inflation be above 0.3% in September 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "PCECORE-23SEP",
+      "market_ticker": "PCECORE-23SEP-T0.2",
+      "title": "Will the rate of core PCE inflation be above 0.2% in September 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "PCECORE-23SEP",
+      "market_ticker": "PCECORE-23SEP-T0.1",
+      "title": "Will the rate of core PCE inflation be above 0.1% in September 2023?",
+      "status": "finalized",
+      "source": "historical"
+    }
+  ],
+  "tickers": [
+    "KXPCECORE-24DEC-T0.0",
+    "KXPCECORE-24DEC-T0.1",
+    "KXPCECORE-24DEC-T0.2",
+    "KXPCECORE-24DEC-T0.3",
+    "KXPCECORE-24NOV-T0.0",
+    "KXPCECORE-24NOV-T0.1",
+    "KXPCECORE-24NOV-T0.2",
+    "KXPCECORE-24NOV-T0.3",
+    "KXPCECORE-25APR-T0.0",
+    "KXPCECORE-25APR-T0.1",
+    "KXPCECORE-25APR-T0.2",
+    "KXPCECORE-25APR-T0.3",
+    "KXPCECORE-25APR-T0.4",
+    "KXPCECORE-25DEC-T0.0",
+    "KXPCECORE-25DEC-T0.1",
+    "KXPCECORE-25DEC-T0.2",
+    "KXPCECORE-25DEC-T0.3",
+    "KXPCECORE-25DEC-T0.4",
+    "KXPCECORE-25FEB-T0.0",
+    "KXPCECORE-25FEB-T0.1",
+    "KXPCECORE-25FEB-T0.2",
+    "KXPCECORE-25FEB-T0.3",
+    "KXPCECORE-25JAN-T0.0",
+    "KXPCECORE-25JAN-T0.1",
+    "KXPCECORE-25JAN-T0.2",
+    "KXPCECORE-25JAN-T0.3",
+    "KXPCECORE-25JUL-T0.0",
+    "KXPCECORE-25JUL-T0.1",
+    "KXPCECORE-25JUL-T0.2",
+    "KXPCECORE-25JUL-T0.3",
+    "KXPCECORE-25JUL-T0.4",
+    "KXPCECORE-25MAR-T0.0",
+    "KXPCECORE-25MAR-T0.1",
+    "KXPCECORE-25MAR-T0.2",
+    "KXPCECORE-25MAR-T0.3",
+    "KXPCECORE-25MAR-T0.4",
+    "KXPCECORE-25MAY-T0.0",
+    "KXPCECORE-25MAY-T0.1",
+    "KXPCECORE-25MAY-T0.2",
+    "KXPCECORE-25MAY-T0.3",
+    "KXPCECORE-25MAY-T0.4",
+    "KXPCECORE-25NOV-T0.0",
+    "KXPCECORE-25NOV-T0.1",
+    "KXPCECORE-25NOV-T0.2",
+    "KXPCECORE-25NOV-T0.3",
+    "KXPCECORE-25NOV-T0.4",
+    "KXPCECORE-25OCT-T0.0",
+    "KXPCECORE-25OCT-T0.1",
+    "KXPCECORE-25OCT-T0.2",
+    "KXPCECORE-25OCT-T0.3",
+    "KXPCECORE-25OCT-T0.4",
+    "KXPCECORE-25SEP-T0.0",
+    "KXPCECORE-25SEP-T0.1",
+    "KXPCECORE-25SEP-T0.2",
+    "KXPCECORE-25SEP-T0.3",
+    "KXPCECORE-25SEP-T0.4",
+    "KXPCECORE-26APR-T0.0",
+    "KXPCECORE-26APR-T0.1",
+    "KXPCECORE-26APR-T0.2",
+    "KXPCECORE-26APR-T0.3",
+    "KXPCECORE-26APR-T0.4",
+    "KXPCECORE-26AUG-T0.0",
+    "KXPCECORE-26AUG-T0.1",
+    "KXPCECORE-26AUG-T0.2",
+    "KXPCECORE-26AUG-T0.3",
+    "KXPCECORE-26AUG-T0.4",
+    "KXPCECORE-26FEB-T0.0",
+    "KXPCECORE-26FEB-T0.1",
+    "KXPCECORE-26FEB-T0.2",
+    "KXPCECORE-26FEB-T0.3",
+    "KXPCECORE-26FEB-T0.4",
+    "KXPCECORE-26FEB-T0.5",
+    "KXPCECORE-26JAN-T0.0",
+    "KXPCECORE-26JAN-T0.1",
+    "KXPCECORE-26JAN-T0.2",
+    "KXPCECORE-26JAN-T0.3",
+    "KXPCECORE-26JAN-T0.4",
+    "KXPCECORE-26JUL-T0.0",
+    "KXPCECORE-26JUL-T0.1",
+    "KXPCECORE-26JUL-T0.2",
+    "KXPCECORE-26JUL-T0.3",
+    "KXPCECORE-26JUL-T0.4",
+    "KXPCECORE-26JUN-T0.0",
+    "KXPCECORE-26JUN-T0.1",
+    "KXPCECORE-26JUN-T0.2",
+    "KXPCECORE-26JUN-T0.3",
+    "KXPCECORE-26JUN-T0.4",
+    "KXPCECORE-26MAR-T0.0",
+    "KXPCECORE-26MAR-T0.1",
+    "KXPCECORE-26MAR-T0.2",
+    "KXPCECORE-26MAR-T0.3",
+    "KXPCECORE-26MAR-T0.4",
+    "KXPCECORE-26MAY-T0.0",
+    "KXPCECORE-26MAY-T0.1",
+    "KXPCECORE-26MAY-T0.2",
+    "KXPCECORE-26MAY-T0.3",
+    "KXPCECORE-26MAY-T0.4",
+    "KXPCECORE-26NOV-T0.0",
+    "KXPCECORE-26NOV-T0.1",
+    "KXPCECORE-26NOV-T0.2",
+    "KXPCECORE-26NOV-T0.3",
+    "KXPCECORE-26NOV-T0.4",
+    "KXPCECORE-26OCT-T0.0",
+    "KXPCECORE-26OCT-T0.1",
+    "KXPCECORE-26OCT-T0.2",
+    "KXPCECORE-26OCT-T0.3",
+    "KXPCECORE-26OCT-T0.4",
+    "KXPCECORE-26SEP-T0.0",
+    "KXPCECORE-26SEP-T0.1",
+    "KXPCECORE-26SEP-T0.2",
+    "KXPCECORE-26SEP-T0.3",
+    "KXPCECORE-26SEP-T0.4",
+    "PCECORE-22DEC-T0.0",
+    "PCECORE-22DEC-T0.1",
+    "PCECORE-22DEC-T0.2",
+    "PCECORE-22DEC-T0.3",
+    "PCECORE-22DEC-T0.4",
+    "PCECORE-22DEC-T0.5",
+    "PCECORE-22DEC-T0.6",
+    "PCECORE-22DEC-T0.7",
+    "PCECORE-22DEC-TN0.1",
+    "PCECORE-22NOV-T0.0",
+    "PCECORE-22NOV-T0.1",
+    "PCECORE-22NOV-T0.2",
+    "PCECORE-22NOV-T0.3",
+    "PCECORE-22NOV-T0.4",
+    "PCECORE-22NOV-T0.5",
+    "PCECORE-22NOV-T0.6",
+    "PCECORE-22NOV-T0.7",
+    "PCECORE-22NOV-T0.8",
+    "PCECORE-22NOV-TN0.1",
+    "PCECORE-23SEP-T0.1",
+    "PCECORE-23SEP-T0.2",
+    "PCECORE-23SEP-T0.3",
+    "PCECORE-23SEP-T0.4",
+    "PCECORE-23SEP-T0.5"
+  ]
+}

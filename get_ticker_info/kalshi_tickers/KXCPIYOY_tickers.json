@@ -1,0 +1,4721 @@
+{
+  "series": "KXCPIYOY",
+  "events": [
+    {
+      "event_ticker": "CPIYOY-22DEC",
+      "title": "Inflation, December 2022?"
+    },
+    {
+      "event_ticker": "CPIYOY-22NOV",
+      "title": "Inflation, November 2022?"
+    },
+    {
+      "event_ticker": "CPIYOY-23APR",
+      "title": "Inflation in Apr 2023?"
+    },
+    {
+      "event_ticker": "CPIYOY-23AUG",
+      "title": "Inflation in Aug 2023?"
+    },
+    {
+      "event_ticker": "CPIYOY-23DEC",
+      "title": "Inflation in Dec 2023?"
+    },
+    {
+      "event_ticker": "CPIYOY-23FEB",
+      "title": "Inflation in Feb 2023?"
+    },
+    {
+      "event_ticker": "CPIYOY-23JAN",
+      "title": "Inflation in Jan 2023?"
+    },
+    {
+      "event_ticker": "CPIYOY-23JUL",
+      "title": "Inflation in Jul 2023?"
+    },
+    {
+      "event_ticker": "CPIYOY-23JUN",
+      "title": "Inflation in Jun 2023?"
+    },
+    {
+      "event_ticker": "CPIYOY-23MAR",
+      "title": "Inflation in Mar 2023?"
+    },
+    {
+      "event_ticker": "CPIYOY-23MAY",
+      "title": "Inflation in May 2023?"
+    },
+    {
+      "event_ticker": "CPIYOY-23NOV",
+      "title": "Inflation in Nov 2023?"
+    },
+    {
+      "event_ticker": "CPIYOY-23OCT",
+      "title": "Inflation in Oct 2023?"
+    },
+    {
+      "event_ticker": "CPIYOY-23SEP",
+      "title": "Inflation in Sep 2023?"
+    },
+    {
+      "event_ticker": "CPIYOY-24APR",
+      "title": "Inflation in Apr 2024? (CPI YoY)"
+    },
+    {
+      "event_ticker": "CPIYOY-24AUG",
+      "title": "Inflation in Aug 2024? (CPI YoY)"
+    },
+    {
+      "event_ticker": "CPIYOY-24FEB",
+      "title": "Inflation in Feb 2024? (CPI YoY)"
+    },
+    {
+      "event_ticker": "CPIYOY-24JAN",
+      "title": "Inflation in Jan 2024?"
+    },
+    {
+      "event_ticker": "CPIYOY-24JUL",
+      "title": "Inflation in Jul 2024? (CPI YoY)"
+    },
+    {
+      "event_ticker": "CPIYOY-24JUN",
+      "title": "Inflation in Jun 2024? (CPI YoY)"
+    },
+    {
+      "event_ticker": "CPIYOY-24MAR",
+      "title": "Inflation in Mar 2024? (CPI YoY)"
+    },
+    {
+      "event_ticker": "CPIYOY-24MAY",
+      "title": "Inflation in May 2024? (CPI YoY)"
+    },
+    {
+      "event_ticker": "CPIYOY-24OCT",
+      "title": "Inflation in Oct 2024? (CPI YoY)"
+    },
+    {
+      "event_ticker": "CPIYOY-24SEP",
+      "title": "Inflation in Sep 2024? (CPI YoY)"
+    },
+    {
+      "event_ticker": "KXCPIYOY-24DEC",
+      "title": "Inflation in Dec 2024? (CPI YoY)"
+    },
+    {
+      "event_ticker": "KXCPIYOY-24NOV",
+      "title": "Inflation in Nov 2024? (CPI YoY)"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25APR",
+      "title": "Inflation in Apr 2025? (CPI YoY)"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25AUG",
+      "title": "Inflation in Aug 2025? (CPI YoY)"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25DEC",
+      "title": "Inflation in Dec 2025? (CPI YoY)"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25FEB",
+      "title": "Inflation in Feb 2025? (CPI YoY)"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25JAN",
+      "title": "Inflation in Jan 2025? (CPI YoY)"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25JUL",
+      "title": "Inflation in Jul 2025? (CPI YoY)"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25JUN",
+      "title": "Inflation in Jun 2025? (CPI YoY)"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25MAR",
+      "title": "Inflation in Mar 2025? (CPI YoY)"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25MAY",
+      "title": "Inflation in May 2025? (CPI YoY)"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25NOV",
+      "title": "Inflation in Nov 2025? (CPI YoY)"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25OCT",
+      "title": "Inflation in Oct 2025? (CPI YoY)"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25SEP",
+      "title": "Inflation in Sep 2025? (CPI YoY)"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26APR",
+      "title": "Inflation in Apr 2026 (CPI YoY)"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26FEB",
+      "title": "Inflation in Feb 2026? (CPI YoY)"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26JAN",
+      "title": "Inflation in Jan 2026? (CPI YoY)"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26JUN",
+      "title": "Inflation in June 2026 (CPI YoY)"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26MAR",
+      "title": "Inflation in Mar 2026 (CPI YoY)"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26MAY",
+      "title": "Inflation in May 2026 (CPI YoY)"
+    }
+  ],
+  "markets": [
+    {
+      "event_ticker": "CPIYOY-22DEC",
+      "market_ticker": "CPIYOY-22DEC-T7.4",
+      "title": "Will the rate of CPI inflation be above 7.4% for the year ending in December 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-22DEC",
+      "market_ticker": "CPIYOY-22DEC-T7.3",
+      "title": "Will the rate of CPI inflation be above 7.3% for the year ending in December 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-22DEC",
+      "market_ticker": "CPIYOY-22DEC-T7.2",
+      "title": "Will the rate of CPI inflation be above 7.2% for the year ending in December 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-22DEC",
+      "market_ticker": "CPIYOY-22DEC-T7.1",
+      "title": "Will the rate of CPI inflation be above 7.1% for the year ending in December 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-22DEC",
+      "market_ticker": "CPIYOY-22DEC-T7.0",
+      "title": "Will the rate of CPI inflation be above 7.0% for the year ending in December 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-22DEC",
+      "market_ticker": "CPIYOY-22DEC-T6.9",
+      "title": "Will the rate of CPI inflation be above 6.9% for the year ending in December 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-22DEC",
+      "market_ticker": "CPIYOY-22DEC-T6.8",
+      "title": "Will the rate of CPI inflation be above 6.8% for the year ending in December 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-22DEC",
+      "market_ticker": "CPIYOY-22DEC-T6.7",
+      "title": "Will the rate of CPI inflation be above 6.7% for the year ending in December 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-22DEC",
+      "market_ticker": "CPIYOY-22DEC-T6.6",
+      "title": "Will the rate of CPI inflation be above 6.6% for the year ending in December 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-22DEC",
+      "market_ticker": "CPIYOY-22DEC-T6.5",
+      "title": "Will the rate of CPI inflation be above 6.5% for the year ending in December 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-22DEC",
+      "market_ticker": "CPIYOY-22DEC-T6.4",
+      "title": "Will the rate of CPI inflation be above 6.4% for the year ending in December 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-22DEC",
+      "market_ticker": "CPIYOY-22DEC-T6.3",
+      "title": "Will the rate of CPI inflation be above 6.3% for the year ending in December 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-22DEC",
+      "market_ticker": "CPIYOY-22DEC-T6.2",
+      "title": "Will the rate of CPI inflation be above 6.2% for the year ending in December 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-22DEC",
+      "market_ticker": "CPIYOY-22DEC-T6.1",
+      "title": "Will the rate of CPI inflation be above 6.1% for the year ending in December 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-22DEC",
+      "market_ticker": "CPIYOY-22DEC-T6.0",
+      "title": "Will the rate of CPI inflation be above 6.0% for the year ending in December 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-22NOV",
+      "market_ticker": "CPIYOY-22NOV-T8.0",
+      "title": "Will the rate of CPI inflation be above 8.0% for the year ending in November 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-22NOV",
+      "market_ticker": "CPIYOY-22NOV-T7.9",
+      "title": "Will the rate of CPI inflation be above 7.9% for the year ending in November 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-22NOV",
+      "market_ticker": "CPIYOY-22NOV-T7.8",
+      "title": "Will the rate of CPI inflation be above 7.8% for the year ending in November 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-22NOV",
+      "market_ticker": "CPIYOY-22NOV-T7.7",
+      "title": "Will the rate of CPI inflation be above 7.7% for the year ending in November 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-22NOV",
+      "market_ticker": "CPIYOY-22NOV-T7.6",
+      "title": "Will the rate of CPI inflation be above 7.6% for the year ending in November 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-22NOV",
+      "market_ticker": "CPIYOY-22NOV-T7.5",
+      "title": "Will the rate of CPI inflation be above 7.5% for the year ending in November 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-22NOV",
+      "market_ticker": "CPIYOY-22NOV-T7.4",
+      "title": "Will the rate of CPI inflation be above 7.4% for the year ending in November 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-22NOV",
+      "market_ticker": "CPIYOY-22NOV-T7.3",
+      "title": "Will the rate of CPI inflation be above 7.3% for the year ending in November 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-22NOV",
+      "market_ticker": "CPIYOY-22NOV-T7.2",
+      "title": "Will the rate of CPI inflation be above 7.2% for the year ending in November 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-22NOV",
+      "market_ticker": "CPIYOY-22NOV-T7.1",
+      "title": "Will the rate of CPI inflation be above 7.1% for the year ending in November 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-22NOV",
+      "market_ticker": "CPIYOY-22NOV-T7.0",
+      "title": "Will the rate of CPI inflation be above 7.0% for the year ending in November 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-22NOV",
+      "market_ticker": "CPIYOY-22NOV-T6.9",
+      "title": "Will the rate of CPI inflation be above 6.9% for the year ending in November 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-22NOV",
+      "market_ticker": "CPIYOY-22NOV-T6.8",
+      "title": "Will the rate of CPI inflation be above 6.8% for the year ending in November 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23APR",
+      "market_ticker": "CPIYOY-23APR-T5.4",
+      "title": "Will the rate of CPI inflation be above 5.4% for the year ending in April 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23APR",
+      "market_ticker": "CPIYOY-23APR-T5.5",
+      "title": "Will the rate of CPI inflation be above 5.5% for the year ending in April 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23APR",
+      "market_ticker": "CPIYOY-23APR-T5.3",
+      "title": "Will the rate of CPI inflation be above 5.3% for the year ending in April 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23APR",
+      "market_ticker": "CPIYOY-23APR-T5.2",
+      "title": "Will the rate of CPI inflation be above 5.2% for the year ending in April 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23APR",
+      "market_ticker": "CPIYOY-23APR-T5.1",
+      "title": "Will the rate of CPI inflation be above 5.1% for the year ending in April 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23APR",
+      "market_ticker": "CPIYOY-23APR-T5.0",
+      "title": "Will the rate of CPI inflation be above 5.0% for the year ending in April 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23APR",
+      "market_ticker": "CPIYOY-23APR-T4.9",
+      "title": "Will the rate of CPI inflation be above 4.9% for the year ending in April 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23APR",
+      "market_ticker": "CPIYOY-23APR-T4.8",
+      "title": "Will the rate of CPI inflation be above 4.8% for the year ending in April 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23APR",
+      "market_ticker": "CPIYOY-23APR-T4.7",
+      "title": "Will the rate of CPI inflation be above 4.7% for the year ending in April 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23APR",
+      "market_ticker": "CPIYOY-23APR-T4.6",
+      "title": "Will the rate of CPI inflation be above 4.6% for the year ending in April 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23APR",
+      "market_ticker": "CPIYOY-23APR-T4.5",
+      "title": "Will the rate of CPI inflation be above 4.5% for the year ending in April 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23APR",
+      "market_ticker": "CPIYOY-23APR-T4.4",
+      "title": "Will the rate of CPI inflation be above 4.4% for the year ending in April 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23APR",
+      "market_ticker": "CPIYOY-23APR-T4.3",
+      "title": "Will the rate of CPI inflation be above 4.3% for the year ending in April 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23APR",
+      "market_ticker": "CPIYOY-23APR-T4.2",
+      "title": "Will the rate of CPI inflation be above 4.2% for the year ending in April 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23APR",
+      "market_ticker": "CPIYOY-23APR-T4.1",
+      "title": "Will the rate of CPI inflation be above 4.1% for the year ending in April 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23APR",
+      "market_ticker": "CPIYOY-23APR-T4.0",
+      "title": "Will the rate of CPI inflation be above 4.0% for the year ending in April 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23APR",
+      "market_ticker": "CPIYOY-23APR-T3.9",
+      "title": "Will the rate of CPI inflation be above 3.9% for the year ending in April 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23APR",
+      "market_ticker": "CPIYOY-23APR-T3.8",
+      "title": "Will the rate of CPI inflation be above 3.8% for the year ending in April 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23APR",
+      "market_ticker": "CPIYOY-23APR-T3.7",
+      "title": "Will the rate of CPI inflation be above 3.7% for the year ending in April 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23APR",
+      "market_ticker": "CPIYOY-23APR-T3.6",
+      "title": "Will the rate of CPI inflation be above 3.6% for the year ending in April 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23APR",
+      "market_ticker": "CPIYOY-23APR-T3.5",
+      "title": "Will the rate of CPI inflation be above 3.5% for the year ending in April 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23APR",
+      "market_ticker": "CPIYOY-23APR-T3.4",
+      "title": "Will the rate of CPI inflation be above 3.4% for the year ending in April 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23AUG",
+      "market_ticker": "CPIYOY-23AUG-T4.2",
+      "title": "Will the rate of CPI inflation be above 4.2% for the year ending in August 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23AUG",
+      "market_ticker": "CPIYOY-23AUG-T4.1",
+      "title": "Will the rate of CPI inflation be above 4.1% for the year ending in August 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23AUG",
+      "market_ticker": "CPIYOY-23AUG-T4.0",
+      "title": "Will the rate of CPI inflation be above 4.0% for the year ending in August 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23AUG",
+      "market_ticker": "CPIYOY-23AUG-T3.9",
+      "title": "Will the rate of CPI inflation be above 3.9% for the year ending in August 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23AUG",
+      "market_ticker": "CPIYOY-23AUG-T3.8",
+      "title": "Will the rate of CPI inflation be above 3.8% for the year ending in August 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23AUG",
+      "market_ticker": "CPIYOY-23AUG-T3.7",
+      "title": "Will the rate of CPI inflation be above 3.7% for the year ending in August 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23AUG",
+      "market_ticker": "CPIYOY-23AUG-T3.6",
+      "title": "Will the rate of CPI inflation be above 3.6% for the year ending in August 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23AUG",
+      "market_ticker": "CPIYOY-23AUG-T3.5",
+      "title": "Will the rate of CPI inflation be above 3.5% for the year ending in August 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23AUG",
+      "market_ticker": "CPIYOY-23AUG-T3.4",
+      "title": "Will the rate of CPI inflation be above 3.4% for the year ending in August 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23AUG",
+      "market_ticker": "CPIYOY-23AUG-T3.3",
+      "title": "Will the rate of CPI inflation be above 3.3% for the year ending in August 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23AUG",
+      "market_ticker": "CPIYOY-23AUG-T3.2",
+      "title": "Will the rate of CPI inflation be above 3.2% for the year ending in August 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23AUG",
+      "market_ticker": "CPIYOY-23AUG-T3.1",
+      "title": "Will the rate of CPI inflation be above 3.1% for the year ending in August 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23AUG",
+      "market_ticker": "CPIYOY-23AUG-T3.0",
+      "title": "Will the rate of CPI inflation be above 3.0% for the year ending in August 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23AUG",
+      "market_ticker": "CPIYOY-23AUG-T2.9",
+      "title": "Will the rate of CPI inflation be above 2.9% for the year ending in August 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23AUG",
+      "market_ticker": "CPIYOY-23AUG-T2.8",
+      "title": "Will the rate of CPI inflation be above 2.8% for the year ending in August 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23DEC",
+      "market_ticker": "CPIYOY-23DEC-T3.4",
+      "title": "Will the rate of CPI inflation be above 3.4% for the year ending in December 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23DEC",
+      "market_ticker": "CPIYOY-23DEC-T3.3",
+      "title": "Will the rate of CPI inflation be above 3.3% for the year ending in December 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23DEC",
+      "market_ticker": "CPIYOY-23DEC-T3.2",
+      "title": "Will the rate of CPI inflation be above 3.2% for the year ending in December 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23DEC",
+      "market_ticker": "CPIYOY-23DEC-T3.1",
+      "title": "Will the rate of CPI inflation be above 3.1% for the year ending in December 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23DEC",
+      "market_ticker": "CPIYOY-23DEC-T3.0",
+      "title": "Will the rate of CPI inflation be above 3.0% for the year ending in December 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23DEC",
+      "market_ticker": "CPIYOY-23DEC-T2.9",
+      "title": "Will the rate of CPI inflation be above 2.9% for the year ending in December 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23DEC",
+      "market_ticker": "CPIYOY-23DEC-T2.8",
+      "title": "Will the rate of CPI inflation be above 2.8% for the year ending in December 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23FEB",
+      "market_ticker": "CPIYOY-23FEB-T6.5",
+      "title": "Will the rate of CPI inflation be above 6.5% for the year ending in February 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23FEB",
+      "market_ticker": "CPIYOY-23FEB-T6.4",
+      "title": "Will the rate of CPI inflation be above 6.4% for the year ending in February 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23FEB",
+      "market_ticker": "CPIYOY-23FEB-T6.3",
+      "title": "Will the rate of CPI inflation be above 6.3% for the year ending in February 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23FEB",
+      "market_ticker": "CPIYOY-23FEB-T6.2",
+      "title": "Will the rate of CPI inflation be above 6.2% for the year ending in February 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23FEB",
+      "market_ticker": "CPIYOY-23FEB-T6.1",
+      "title": "Will the rate of CPI inflation be above 6.1% for the year ending in February 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23FEB",
+      "market_ticker": "CPIYOY-23FEB-T6.0",
+      "title": "Will the rate of CPI inflation be above 6.0% for the year ending in February 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23FEB",
+      "market_ticker": "CPIYOY-23FEB-T5.9",
+      "title": "Will the rate of CPI inflation be above 5.9% for the year ending in February 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23FEB",
+      "market_ticker": "CPIYOY-23FEB-T5.8",
+      "title": "Will the rate of CPI inflation be above 5.8% for the year ending in February 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23FEB",
+      "market_ticker": "CPIYOY-23FEB-T5.7",
+      "title": "Will the rate of CPI inflation be above 5.7% for the year ending in February 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23FEB",
+      "market_ticker": "CPIYOY-23FEB-T5.6",
+      "title": "Will the rate of CPI inflation be above 5.6% for the year ending in February 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23FEB",
+      "market_ticker": "CPIYOY-23FEB-T5.5",
+      "title": "Will the rate of CPI inflation be above 5.5% for the year ending in February 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23FEB",
+      "market_ticker": "CPIYOY-23FEB-T5.4",
+      "title": "Will the rate of CPI inflation be above 5.4% for the year ending in February 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23FEB",
+      "market_ticker": "CPIYOY-23FEB-T5.3",
+      "title": "Will the rate of CPI inflation be above 5.3% for the year ending in February 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23FEB",
+      "market_ticker": "CPIYOY-23FEB-T5.2",
+      "title": "Will the rate of CPI inflation be above 5.2% for the year ending in February 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23FEB",
+      "market_ticker": "CPIYOY-23FEB-T5.1",
+      "title": "Will the rate of CPI inflation be above 5.1% for the year ending in February 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23FEB",
+      "market_ticker": "CPIYOY-23FEB-T5.0",
+      "title": "Will the rate of CPI inflation be above 5.0% for the year ending in February 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23FEB",
+      "market_ticker": "CPIYOY-23FEB-T4.9",
+      "title": "Will the rate of CPI inflation be above 4.9% for the year ending in February 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23FEB",
+      "market_ticker": "CPIYOY-23FEB-T4.8",
+      "title": "Will the rate of CPI inflation be above 4.8% for the year ending in February 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23FEB",
+      "market_ticker": "CPIYOY-23FEB-T4.7",
+      "title": "Will the rate of CPI inflation be above 4.7% for the year ending in February 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23FEB",
+      "market_ticker": "CPIYOY-23FEB-T4.6",
+      "title": "Will the rate of CPI inflation be above 4.6% for the year ending in February 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23FEB",
+      "market_ticker": "CPIYOY-23FEB-T4.5",
+      "title": "Will the rate of CPI inflation be above 4.5% for the year ending in February 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23FEB",
+      "market_ticker": "CPIYOY-23FEB-T4.4",
+      "title": "Will the rate of CPI inflation be above 4.4% for the year ending in February 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23JAN",
+      "market_ticker": "CPIYOY-23JAN-T6.8",
+      "title": "Will the rate of CPI inflation be above 6.8% for the year ending in January 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23JAN",
+      "market_ticker": "CPIYOY-23JAN-T6.7",
+      "title": "Will the rate of CPI inflation be above 6.7% for the year ending in January 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23JAN",
+      "market_ticker": "CPIYOY-23JAN-T6.6",
+      "title": "Will the rate of CPI inflation be above 6.6% for the year ending in January 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23JAN",
+      "market_ticker": "CPIYOY-23JAN-T6.5",
+      "title": "Will the rate of CPI inflation be above 6.5% for the year ending in January 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23JAN",
+      "market_ticker": "CPIYOY-23JAN-T6.4",
+      "title": "Will the rate of CPI inflation be above 6.4% for the year ending in January 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23JAN",
+      "market_ticker": "CPIYOY-23JAN-T6.3",
+      "title": "Will the rate of CPI inflation be above 6.3% for the year ending in January 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23JAN",
+      "market_ticker": "CPIYOY-23JAN-T6.2",
+      "title": "Will the rate of CPI inflation be above 6.2% for the year ending in January 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23JAN",
+      "market_ticker": "CPIYOY-23JAN-T6.1",
+      "title": "Will the rate of CPI inflation be above 6.1% for the year ending in January 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23JAN",
+      "market_ticker": "CPIYOY-23JAN-T6.0",
+      "title": "Will the rate of CPI inflation be above 6.0% for the year ending in January 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23JAN",
+      "market_ticker": "CPIYOY-23JAN-T5.9",
+      "title": "Will the rate of CPI inflation be above 5.9% for the year ending in January 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23JAN",
+      "market_ticker": "CPIYOY-23JAN-T5.8",
+      "title": "Will the rate of CPI inflation be above 5.8% for the year ending in January 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23JAN",
+      "market_ticker": "CPIYOY-23JAN-T5.7",
+      "title": "Will the rate of CPI inflation be above 5.7% for the year ending in January 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23JAN",
+      "market_ticker": "CPIYOY-23JAN-T5.6",
+      "title": "Will the rate of CPI inflation be above 5.6% for the year ending in January 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23JAN",
+      "market_ticker": "CPIYOY-23JAN-T5.5",
+      "title": "Will the rate of CPI inflation be above 5.5% for the year ending in January 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23JAN",
+      "market_ticker": "CPIYOY-23JAN-T5.4",
+      "title": "Will the rate of CPI inflation be above 5.4% for the year ending in January 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23JUL",
+      "market_ticker": "CPIYOY-23JUL-T1.5",
+      "title": "Will the rate of CPI inflation be above 1.5% for the year ending in July 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23JUL",
+      "market_ticker": "CPIYOY-23JUL-T1.6",
+      "title": "Will the rate of CPI inflation be above 1.6% for the year ending in July 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23JUL",
+      "market_ticker": "CPIYOY-23JUL-T1.7",
+      "title": "Will the rate of CPI inflation be above 1.7% for the year ending in July 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23JUL",
+      "market_ticker": "CPIYOY-23JUL-T1.8",
+      "title": "Will the rate of CPI inflation be above 1.8% for the year ending in July 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23JUL",
+      "market_ticker": "CPIYOY-23JUL-T1.9",
+      "title": "Will the rate of CPI inflation be above 1.9% for the year ending in July 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23JUL",
+      "market_ticker": "CPIYOY-23JUL-T2.0",
+      "title": "Will the rate of CPI inflation be above 2.0% for the year ending in July 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23JUL",
+      "market_ticker": "CPIYOY-23JUL-T2.1",
+      "title": "Will the rate of CPI inflation be above 2.1% for the year ending in July 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23JUL",
+      "market_ticker": "CPIYOY-23JUL-T2.2",
+      "title": "Will the rate of CPI inflation be above 2.2% for the year ending in July 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23JUL",
+      "market_ticker": "CPIYOY-23JUL-T2.3",
+      "title": "Will the rate of CPI inflation be above 2.3% for the year ending in July 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23JUL",
+      "market_ticker": "CPIYOY-23JUL-T2.4",
+      "title": "Will the rate of CPI inflation be above 2.4% for the year ending in July 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23JUL",
+      "market_ticker": "CPIYOY-23JUL-T2.5",
+      "title": "Will the rate of CPI inflation be above 2.5% for the year ending in July 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23JUL",
+      "market_ticker": "CPIYOY-23JUL-T2.6",
+      "title": "Will the rate of CPI inflation be above 2.6% for the year ending in July 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23JUL",
+      "market_ticker": "CPIYOY-23JUL-T2.7",
+      "title": "Will the rate of CPI inflation be above 2.7% for the year ending in July 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23JUL",
+      "market_ticker": "CPIYOY-23JUL-T2.8",
+      "title": "Will the rate of CPI inflation be above 2.8% for the year ending in July 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23JUL",
+      "market_ticker": "CPIYOY-23JUL-T4.3",
+      "title": "Will the rate of CPI inflation be above 4.3% for the year ending in July 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23JUL",
+      "market_ticker": "CPIYOY-23JUL-T4.2",
+      "title": "Will the rate of CPI inflation be above 4.2% for the year ending in July 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23JUL",
+      "market_ticker": "CPIYOY-23JUL-T4.1",
+      "title": "Will the rate of CPI inflation be above 4.1% for the year ending in July 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23JUL",
+      "market_ticker": "CPIYOY-23JUL-T4.0",
+      "title": "Will the rate of CPI inflation be above 4.0% for the year ending in July 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23JUL",
+      "market_ticker": "CPIYOY-23JUL-T3.9",
+      "title": "Will the rate of CPI inflation be above 3.9% for the year ending in July 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23JUL",
+      "market_ticker": "CPIYOY-23JUL-T3.8",
+      "title": "Will the rate of CPI inflation be above 3.8% for the year ending in July 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23JUL",
+      "market_ticker": "CPIYOY-23JUL-T3.7",
+      "title": "Will the rate of CPI inflation be above 3.7% for the year ending in July 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23JUL",
+      "market_ticker": "CPIYOY-23JUL-T3.6",
+      "title": "Will the rate of CPI inflation be above 3.6% for the year ending in July 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23JUL",
+      "market_ticker": "CPIYOY-23JUL-T3.5",
+      "title": "Will the rate of CPI inflation be above 3.5% for the year ending in July 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23JUL",
+      "market_ticker": "CPIYOY-23JUL-T3.4",
+      "title": "Will the rate of CPI inflation be above 3.4% for the year ending in July 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23JUL",
+      "market_ticker": "CPIYOY-23JUL-T3.3",
+      "title": "Will the rate of CPI inflation be above 3.3% for the year ending in July 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23JUL",
+      "market_ticker": "CPIYOY-23JUL-T3.2",
+      "title": "Will the rate of CPI inflation be above 3.2% for the year ending in July 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23JUL",
+      "market_ticker": "CPIYOY-23JUL-T3.1",
+      "title": "Will the rate of CPI inflation be above 3.1% for the year ending in July 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23JUL",
+      "market_ticker": "CPIYOY-23JUL-T3.0",
+      "title": "Will the rate of CPI inflation be above 3.0% for the year ending in July 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23JUL",
+      "market_ticker": "CPIYOY-23JUL-T2.9",
+      "title": "Will the rate of CPI inflation be above 2.9% for the year ending in July 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23JUN",
+      "market_ticker": "CPIYOY-23JUN-T2.7",
+      "title": "Will the rate of CPI inflation be above 2.7% for the year ending in June 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23JUN",
+      "market_ticker": "CPIYOY-23JUN-T2.8",
+      "title": "Will the rate of CPI inflation be above 2.8% for the year ending in June 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23JUN",
+      "market_ticker": "CPIYOY-23JUN-T2.9",
+      "title": "Will the rate of CPI inflation be above 2.9% for the year ending in June 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23JUN",
+      "market_ticker": "CPIYOY-23JUN-T3.0",
+      "title": "Will the rate of CPI inflation be above 3.0% for the year ending in June 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23JUN",
+      "market_ticker": "CPIYOY-23JUN-T3.1",
+      "title": "Will the rate of CPI inflation be above 3.1% for the year ending in June 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23JUN",
+      "market_ticker": "CPIYOY-23JUN-T3.2",
+      "title": "Will the rate of CPI inflation be above 3.2% for the year ending in June 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23JUN",
+      "market_ticker": "CPIYOY-23JUN-T4.7",
+      "title": "Will the rate of CPI inflation be above 4.7% for the year ending in June 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23JUN",
+      "market_ticker": "CPIYOY-23JUN-T4.6",
+      "title": "Will the rate of CPI inflation be above 4.6% for the year ending in June 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23JUN",
+      "market_ticker": "CPIYOY-23JUN-T4.5",
+      "title": "Will the rate of CPI inflation be above 4.5% for the year ending in June 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23JUN",
+      "market_ticker": "CPIYOY-23JUN-T4.4",
+      "title": "Will the rate of CPI inflation be above 4.4% for the year ending in June 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23JUN",
+      "market_ticker": "CPIYOY-23JUN-T4.3",
+      "title": "Will the rate of CPI inflation be above 4.3% for the year ending in June 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23JUN",
+      "market_ticker": "CPIYOY-23JUN-T4.2",
+      "title": "Will the rate of CPI inflation be above 4.2% for the year ending in June 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23JUN",
+      "market_ticker": "CPIYOY-23JUN-T4.1",
+      "title": "Will the rate of CPI inflation be above 4.1% for the year ending in June 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23JUN",
+      "market_ticker": "CPIYOY-23JUN-T4.0",
+      "title": "Will the rate of CPI inflation be above 4.0% for the year ending in June 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23JUN",
+      "market_ticker": "CPIYOY-23JUN-T3.9",
+      "title": "Will the rate of CPI inflation be above 3.9% for the year ending in June 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23JUN",
+      "market_ticker": "CPIYOY-23JUN-T3.8",
+      "title": "Will the rate of CPI inflation be above 3.8% for the year ending in June 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23JUN",
+      "market_ticker": "CPIYOY-23JUN-T3.7",
+      "title": "Will the rate of CPI inflation be above 3.7% for the year ending in June 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23JUN",
+      "market_ticker": "CPIYOY-23JUN-T3.6",
+      "title": "Will the rate of CPI inflation be above 3.6% for the year ending in June 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23JUN",
+      "market_ticker": "CPIYOY-23JUN-T3.5",
+      "title": "Will the rate of CPI inflation be above 3.5% for the year ending in June 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23JUN",
+      "market_ticker": "CPIYOY-23JUN-T3.4",
+      "title": "Will the rate of CPI inflation be above 3.4% for the year ending in June 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23JUN",
+      "market_ticker": "CPIYOY-23JUN-T3.3",
+      "title": "Will the rate of CPI inflation be above 3.3% for the year ending in June 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23MAR",
+      "market_ticker": "CPIYOY-23MAR-T6.5",
+      "title": "Will the rate of CPI inflation be above 6.5% for the year ending in March 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23MAR",
+      "market_ticker": "CPIYOY-23MAR-T6.4",
+      "title": "Will the rate of CPI inflation be above 6.4% for the year ending in March 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23MAR",
+      "market_ticker": "CPIYOY-23MAR-T6.3",
+      "title": "Will the rate of CPI inflation be above 6.3% for the year ending in March 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23MAR",
+      "market_ticker": "CPIYOY-23MAR-T6.2",
+      "title": "Will the rate of CPI inflation be above 6.2% for the year ending in March 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23MAR",
+      "market_ticker": "CPIYOY-23MAR-T6.1",
+      "title": "Will the rate of CPI inflation be above 6.1% for the year ending in March 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23MAR",
+      "market_ticker": "CPIYOY-23MAR-T6.0",
+      "title": "Will the rate of CPI inflation be above 6.0% for the year ending in March 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23MAR",
+      "market_ticker": "CPIYOY-23MAR-T5.9",
+      "title": "Will the rate of CPI inflation be above 5.9% for the year ending in March 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23MAR",
+      "market_ticker": "CPIYOY-23MAR-T5.8",
+      "title": "Will the rate of CPI inflation be above 5.8% for the year ending in March 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23MAR",
+      "market_ticker": "CPIYOY-23MAR-T5.7",
+      "title": "Will the rate of CPI inflation be above 5.7% for the year ending in March 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23MAR",
+      "market_ticker": "CPIYOY-23MAR-T5.6",
+      "title": "Will the rate of CPI inflation be above 5.6% for the year ending in March 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23MAR",
+      "market_ticker": "CPIYOY-23MAR-T5.5",
+      "title": "Will the rate of CPI inflation be above 5.5% for the year ending in March 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23MAR",
+      "market_ticker": "CPIYOY-23MAR-T5.4",
+      "title": "Will the rate of CPI inflation be above 5.4% for the year ending in March 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23MAR",
+      "market_ticker": "CPIYOY-23MAR-T5.3",
+      "title": "Will the rate of CPI inflation be above 5.3% for the year ending in March 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23MAR",
+      "market_ticker": "CPIYOY-23MAR-T5.2",
+      "title": "Will the rate of CPI inflation be above 5.2% for the year ending in March 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23MAR",
+      "market_ticker": "CPIYOY-23MAR-T5.1",
+      "title": "Will the rate of CPI inflation be above 5.1% for the year ending in March 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23MAR",
+      "market_ticker": "CPIYOY-23MAR-T5.0",
+      "title": "Will the rate of CPI inflation be above 5.0% for the year ending in March 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23MAR",
+      "market_ticker": "CPIYOY-23MAR-T4.9",
+      "title": "Will the rate of CPI inflation be above 4.9% for the year ending in March 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23MAR",
+      "market_ticker": "CPIYOY-23MAR-T4.8",
+      "title": "Will the rate of CPI inflation be above 4.8% for the year ending in March 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23MAR",
+      "market_ticker": "CPIYOY-23MAR-T4.7",
+      "title": "Will the rate of CPI inflation be above 4.7% for the year ending in March 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23MAR",
+      "market_ticker": "CPIYOY-23MAR-T4.6",
+      "title": "Will the rate of CPI inflation be above 4.6% for the year ending in March 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23MAR",
+      "market_ticker": "CPIYOY-23MAR-T4.5",
+      "title": "Will the rate of CPI inflation be above 4.5% for the year ending in March 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23MAR",
+      "market_ticker": "CPIYOY-23MAR-T4.4",
+      "title": "Will the rate of CPI inflation be above 4.4% for the year ending in March 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23MAR",
+      "market_ticker": "CPIYOY-23MAR-T4.3",
+      "title": "Will the rate of CPI inflation be above 4.3% for the year ending in March 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23MAR",
+      "market_ticker": "CPIYOY-23MAR-T4.2",
+      "title": "Will the rate of CPI inflation be above 4.2% for the year ending in March 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23MAR",
+      "market_ticker": "CPIYOY-23MAR-T4.1",
+      "title": "Will the rate of CPI inflation be above 4.1% for the year ending in March 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23MAR",
+      "market_ticker": "CPIYOY-23MAR-T4.0",
+      "title": "Will the rate of CPI inflation be above 4.0% for the year ending in March 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23MAR",
+      "market_ticker": "CPIYOY-23MAR-T3.9",
+      "title": "Will the rate of CPI inflation be above 3.9% for the year ending in March 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23MAR",
+      "market_ticker": "CPIYOY-23MAR-T3.8",
+      "title": "Will the rate of CPI inflation be above 3.8% for the year ending in March 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23MAR",
+      "market_ticker": "CPIYOY-23MAR-T3.7",
+      "title": "Will the rate of CPI inflation be above 3.7% for the year ending in March 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23MAR",
+      "market_ticker": "CPIYOY-23MAR-T3.6",
+      "title": "Will the rate of CPI inflation be above 3.6% for the year ending in March 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23MAR",
+      "market_ticker": "CPIYOY-23MAR-T3.5",
+      "title": "Will the rate of CPI inflation be above 3.5% for the year ending in March 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23MAR",
+      "market_ticker": "CPIYOY-23MAR-T3.4",
+      "title": "Will the rate of CPI inflation be above 3.4% for the year ending in March 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23MAY",
+      "market_ticker": "CPIYOY-23MAY-T4.7",
+      "title": "Will the rate of CPI inflation be above 4.7% for the year ending in May 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23MAY",
+      "market_ticker": "CPIYOY-23MAY-T4.6",
+      "title": "Will the rate of CPI inflation be above 4.6% for the year ending in May 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23MAY",
+      "market_ticker": "CPIYOY-23MAY-T4.5",
+      "title": "Will the rate of CPI inflation be above 4.5% for the year ending in May 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23MAY",
+      "market_ticker": "CPIYOY-23MAY-T4.4",
+      "title": "Will the rate of CPI inflation be above 4.4% for the year ending in May 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23MAY",
+      "market_ticker": "CPIYOY-23MAY-T4.3",
+      "title": "Will the rate of CPI inflation be above 4.3% for the year ending in May 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23MAY",
+      "market_ticker": "CPIYOY-23MAY-T4.2",
+      "title": "Will the rate of CPI inflation be above 4.2% for the year ending in May 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23MAY",
+      "market_ticker": "CPIYOY-23MAY-T4.1",
+      "title": "Will the rate of CPI inflation be above 4.1% for the year ending in May 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23MAY",
+      "market_ticker": "CPIYOY-23MAY-T4.0",
+      "title": "Will the rate of CPI inflation be above 4.0% for the year ending in May 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23MAY",
+      "market_ticker": "CPIYOY-23MAY-T3.9",
+      "title": "Will the rate of CPI inflation be above 3.9% for the year ending in May 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23MAY",
+      "market_ticker": "CPIYOY-23MAY-T3.8",
+      "title": "Will the rate of CPI inflation be above 3.8% for the year ending in May 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23MAY",
+      "market_ticker": "CPIYOY-23MAY-T3.7",
+      "title": "Will the rate of CPI inflation be above 3.7% for the year ending in May 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23MAY",
+      "market_ticker": "CPIYOY-23MAY-T3.6",
+      "title": "Will the rate of CPI inflation be above 3.6% for the year ending in May 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23MAY",
+      "market_ticker": "CPIYOY-23MAY-T3.5",
+      "title": "Will the rate of CPI inflation be above 3.5% for the year ending in May 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23MAY",
+      "market_ticker": "CPIYOY-23MAY-T3.4",
+      "title": "Will the rate of CPI inflation be above 3.4% for the year ending in May 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23MAY",
+      "market_ticker": "CPIYOY-23MAY-T3.3",
+      "title": "Will the rate of CPI inflation be above 3.3% for the year ending in May 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23NOV",
+      "market_ticker": "CPIYOY-23NOV-T4.0",
+      "title": "Will the rate of CPI inflation be above 4.0% for the year ending in November 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23NOV",
+      "market_ticker": "CPIYOY-23NOV-T3.9",
+      "title": "Will the rate of CPI inflation be above 3.9% for the year ending in November 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23NOV",
+      "market_ticker": "CPIYOY-23NOV-T3.8",
+      "title": "Will the rate of CPI inflation be above 3.8% for the year ending in November 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23NOV",
+      "market_ticker": "CPIYOY-23NOV-T3.7",
+      "title": "Will the rate of CPI inflation be above 3.7% for the year ending in November 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23NOV",
+      "market_ticker": "CPIYOY-23NOV-T3.6",
+      "title": "Will the rate of CPI inflation be above 3.6% for the year ending in November 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23NOV",
+      "market_ticker": "CPIYOY-23NOV-T3.5",
+      "title": "Will the rate of CPI inflation be above 3.5% for the year ending in November 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23NOV",
+      "market_ticker": "CPIYOY-23NOV-T3.4",
+      "title": "Will the rate of CPI inflation be above 3.4% for the year ending in November 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23NOV",
+      "market_ticker": "CPIYOY-23NOV-T3.3",
+      "title": "Will the rate of CPI inflation be above 3.3% for the year ending in November 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23NOV",
+      "market_ticker": "CPIYOY-23NOV-T3.2",
+      "title": "Will the rate of CPI inflation be above 3.2% for the year ending in November 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23NOV",
+      "market_ticker": "CPIYOY-23NOV-T3.1",
+      "title": "Will the rate of CPI inflation be above 3.1% for the year ending in November 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23NOV",
+      "market_ticker": "CPIYOY-23NOV-T3.0",
+      "title": "Will the rate of CPI inflation be above 3.0% for the year ending in November 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23NOV",
+      "market_ticker": "CPIYOY-23NOV-T2.9",
+      "title": "Will the rate of CPI inflation be above 2.9% for the year ending in November 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23NOV",
+      "market_ticker": "CPIYOY-23NOV-T2.8",
+      "title": "Will the rate of CPI inflation be above 2.8% for the year ending in November 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23NOV",
+      "market_ticker": "CPIYOY-23NOV-T2.7",
+      "title": "Will the rate of CPI inflation be above 2.7% for the year ending in November 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23NOV",
+      "market_ticker": "CPIYOY-23NOV-T2.6",
+      "title": "Will the rate of CPI inflation be above 2.6% for the year ending in November 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23OCT",
+      "market_ticker": "CPIYOY-23OCT-T4.0",
+      "title": "Will the rate of CPI inflation be above 4.0% for the year ending in October 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23OCT",
+      "market_ticker": "CPIYOY-23OCT-T3.9",
+      "title": "Will the rate of CPI inflation be above 3.9% for the year ending in October 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23OCT",
+      "market_ticker": "CPIYOY-23OCT-T3.8",
+      "title": "Will the rate of CPI inflation be above 3.8% for the year ending in October 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23OCT",
+      "market_ticker": "CPIYOY-23OCT-T3.7",
+      "title": "Will the rate of CPI inflation be above 3.7% for the year ending in October 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23OCT",
+      "market_ticker": "CPIYOY-23OCT-T3.6",
+      "title": "Will the rate of CPI inflation be above 3.6% for the year ending in October 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23OCT",
+      "market_ticker": "CPIYOY-23OCT-T3.5",
+      "title": "Will the rate of CPI inflation be above 3.5% for the year ending in October 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23OCT",
+      "market_ticker": "CPIYOY-23OCT-T3.4",
+      "title": "Will the rate of CPI inflation be above 3.4% for the year ending in October 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23OCT",
+      "market_ticker": "CPIYOY-23OCT-T3.3",
+      "title": "Will the rate of CPI inflation be above 3.3% for the year ending in October 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23OCT",
+      "market_ticker": "CPIYOY-23OCT-T3.2",
+      "title": "Will the rate of CPI inflation be above 3.2% for the year ending in October 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23OCT",
+      "market_ticker": "CPIYOY-23OCT-T3.1",
+      "title": "Will the rate of CPI inflation be above 3.1% for the year ending in October 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23OCT",
+      "market_ticker": "CPIYOY-23OCT-T3.0",
+      "title": "Will the rate of CPI inflation be above 3.0% for the year ending in October 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23OCT",
+      "market_ticker": "CPIYOY-23OCT-T2.9",
+      "title": "Will the rate of CPI inflation be above 2.9% for the year ending in October 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23OCT",
+      "market_ticker": "CPIYOY-23OCT-T2.8",
+      "title": "Will the rate of CPI inflation be above 2.8% for the year ending in October 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23OCT",
+      "market_ticker": "CPIYOY-23OCT-T2.7",
+      "title": "Will the rate of CPI inflation be above 2.7% for the year ending in October 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23OCT",
+      "market_ticker": "CPIYOY-23OCT-T2.6",
+      "title": "Will the rate of CPI inflation be above 2.6% for the year ending in October 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23SEP",
+      "market_ticker": "CPIYOY-23SEP-T4.0",
+      "title": "Will the rate of CPI inflation be above 4.0% for the year ending in September 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23SEP",
+      "market_ticker": "CPIYOY-23SEP-T3.9",
+      "title": "Will the rate of CPI inflation be above 3.9% for the year ending in September 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23SEP",
+      "market_ticker": "CPIYOY-23SEP-T3.8",
+      "title": "Will the rate of CPI inflation be above 3.8% for the year ending in September 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23SEP",
+      "market_ticker": "CPIYOY-23SEP-T3.7",
+      "title": "Will the rate of CPI inflation be above 3.7% for the year ending in September 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23SEP",
+      "market_ticker": "CPIYOY-23SEP-T3.6",
+      "title": "Will the rate of CPI inflation be above 3.6% for the year ending in September 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23SEP",
+      "market_ticker": "CPIYOY-23SEP-T3.5",
+      "title": "Will the rate of CPI inflation be above 3.5% for the year ending in September 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23SEP",
+      "market_ticker": "CPIYOY-23SEP-T3.4",
+      "title": "Will the rate of CPI inflation be above 3.4% for the year ending in September 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23SEP",
+      "market_ticker": "CPIYOY-23SEP-T3.3",
+      "title": "Will the rate of CPI inflation be above 3.3% for the year ending in September 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23SEP",
+      "market_ticker": "CPIYOY-23SEP-T3.2",
+      "title": "Will the rate of CPI inflation be above 3.2% for the year ending in September 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23SEP",
+      "market_ticker": "CPIYOY-23SEP-T3.1",
+      "title": "Will the rate of CPI inflation be above 3.1% for the year ending in September 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23SEP",
+      "market_ticker": "CPIYOY-23SEP-T3.0",
+      "title": "Will the rate of CPI inflation be above 3.0% for the year ending in September 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23SEP",
+      "market_ticker": "CPIYOY-23SEP-T2.9",
+      "title": "Will the rate of CPI inflation be above 2.9% for the year ending in September 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23SEP",
+      "market_ticker": "CPIYOY-23SEP-T2.8",
+      "title": "Will the rate of CPI inflation be above 2.8% for the year ending in September 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23SEP",
+      "market_ticker": "CPIYOY-23SEP-T2.7",
+      "title": "Will the rate of CPI inflation be above 2.7% for the year ending in September 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-23SEP",
+      "market_ticker": "CPIYOY-23SEP-T2.6",
+      "title": "Will the rate of CPI inflation be above 2.6% for the year ending in September 2023?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24APR",
+      "market_ticker": "CPIYOY-24APR-T3.8",
+      "title": "Will the rate of CPI inflation be above 3.8% for the year ending in April 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24APR",
+      "market_ticker": "CPIYOY-24APR-T3.7",
+      "title": "Will the rate of CPI inflation be above 3.7% for the year ending in April 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24APR",
+      "market_ticker": "CPIYOY-24APR-T3.6",
+      "title": "Will the rate of CPI inflation be above 3.6% for the year ending in April 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24APR",
+      "market_ticker": "CPIYOY-24APR-T3.5",
+      "title": "Will the rate of CPI inflation be above 3.5% for the year ending in April 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24APR",
+      "market_ticker": "CPIYOY-24APR-T3.4",
+      "title": "Will the rate of CPI inflation be above 3.4% for the year ending in April 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24APR",
+      "market_ticker": "CPIYOY-24APR-T3.3",
+      "title": "Will the rate of CPI inflation be above 3.3% for the year ending in April 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24APR",
+      "market_ticker": "CPIYOY-24APR-T3.2",
+      "title": "Will the rate of CPI inflation be above 3.2% for the year ending in April 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24APR",
+      "market_ticker": "CPIYOY-24APR-T3.1",
+      "title": "Will the rate of CPI inflation be above 3.1% for the year ending in April 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24APR",
+      "market_ticker": "CPIYOY-24APR-T3.0",
+      "title": "Will the rate of CPI inflation be above 3.0% for the year ending in April 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24APR",
+      "market_ticker": "CPIYOY-24APR-T2.9",
+      "title": "Will the rate of CPI inflation be above 2.9% for the year ending in April 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24APR",
+      "market_ticker": "CPIYOY-24APR-T2.8",
+      "title": "Will the rate of CPI inflation be above 2.8% for the year ending in April 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24AUG",
+      "market_ticker": "CPIYOY-24AUG-T3.1",
+      "title": "Will the rate of CPI inflation be above 3.1% for the year ending in August 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24AUG",
+      "market_ticker": "CPIYOY-24AUG-T3.0",
+      "title": "Will the rate of CPI inflation be above 3.0% for the year ending in August 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24AUG",
+      "market_ticker": "CPIYOY-24AUG-T2.9",
+      "title": "Will the rate of CPI inflation be above 2.9% for the year ending in August 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24AUG",
+      "market_ticker": "CPIYOY-24AUG-T2.8",
+      "title": "Will the rate of CPI inflation be above 2.8% for the year ending in August 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24AUG",
+      "market_ticker": "CPIYOY-24AUG-T2.7",
+      "title": "Will the rate of CPI inflation be above 2.7% for the year ending in August 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24AUG",
+      "market_ticker": "CPIYOY-24AUG-T2.6",
+      "title": "Will the rate of CPI inflation be above 2.6% for the year ending in August 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24AUG",
+      "market_ticker": "CPIYOY-24AUG-T2.5",
+      "title": "Will the rate of CPI inflation be above 2.5% for the year ending in August 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24AUG",
+      "market_ticker": "CPIYOY-24AUG-T2.4",
+      "title": "Will the rate of CPI inflation be above 2.4% for the year ending in August 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24AUG",
+      "market_ticker": "CPIYOY-24AUG-T2.3",
+      "title": "Will the rate of CPI inflation be above 2.3% for the year ending in August 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24FEB",
+      "market_ticker": "CPIYOY-24FEB-T2.5",
+      "title": "Will the rate of CPI inflation be above 2.5% for the year ending in February 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24FEB",
+      "market_ticker": "CPIYOY-24FEB-T2.6",
+      "title": "Will the rate of CPI inflation be above 2.6% for the year ending in February 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24FEB",
+      "market_ticker": "CPIYOY-24FEB-T2.7",
+      "title": "Will the rate of CPI inflation be above 2.7% for the year ending in February 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24FEB",
+      "market_ticker": "CPIYOY-24FEB-T2.8",
+      "title": "Will the rate of CPI inflation be above 2.8% for the year ending in February 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24FEB",
+      "market_ticker": "CPIYOY-24FEB-T2.9",
+      "title": "Will the rate of CPI inflation be above 2.9% for the year ending in February 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24FEB",
+      "market_ticker": "CPIYOY-24FEB-T3.0",
+      "title": "Will the rate of CPI inflation be above 3.0% for the year ending in February 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24FEB",
+      "market_ticker": "CPIYOY-24FEB-T3.7",
+      "title": "Will the rate of CPI inflation be above 3.7% for the year ending in February 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24FEB",
+      "market_ticker": "CPIYOY-24FEB-T3.6",
+      "title": "Will the rate of CPI inflation be above 3.6% for the year ending in February 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24FEB",
+      "market_ticker": "CPIYOY-24FEB-T3.5",
+      "title": "Will the rate of CPI inflation be above 3.5% for the year ending in February 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24FEB",
+      "market_ticker": "CPIYOY-24FEB-T3.4",
+      "title": "Will the rate of CPI inflation be above 3.4% for the year ending in February 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24FEB",
+      "market_ticker": "CPIYOY-24FEB-T3.3",
+      "title": "Will the rate of CPI inflation be above 3.3% for the year ending in February 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24FEB",
+      "market_ticker": "CPIYOY-24FEB-T3.2",
+      "title": "Will the rate of CPI inflation be above 3.2% for the year ending in February 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24FEB",
+      "market_ticker": "CPIYOY-24FEB-T3.1",
+      "title": "Will the rate of CPI inflation be above 3.1% for the year ending in February 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24JAN",
+      "market_ticker": "CPIYOY-24JAN-T2.8",
+      "title": "Will the rate of CPI inflation be above 2.8% for the year ending in January 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24JAN",
+      "market_ticker": "CPIYOY-24JAN-T2.9",
+      "title": "Will the rate of CPI inflation be above 2.9% for the year ending in January 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24JAN",
+      "market_ticker": "CPIYOY-24JAN-T3.0",
+      "title": "Will the rate of CPI inflation be above 3.0% for the year ending in January 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24JAN",
+      "market_ticker": "CPIYOY-24JAN-T3.7",
+      "title": "Will the rate of CPI inflation be above 3.7% for the year ending in January 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24JAN",
+      "market_ticker": "CPIYOY-24JAN-T3.6",
+      "title": "Will the rate of CPI inflation be above 3.6% for the year ending in January 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24JAN",
+      "market_ticker": "CPIYOY-24JAN-T3.5",
+      "title": "Will the rate of CPI inflation be above 3.5% for the year ending in January 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24JAN",
+      "market_ticker": "CPIYOY-24JAN-T3.4",
+      "title": "Will the rate of CPI inflation be above 3.4% for the year ending in January 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24JAN",
+      "market_ticker": "CPIYOY-24JAN-T3.3",
+      "title": "Will the rate of CPI inflation be above 3.3% for the year ending in January 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24JAN",
+      "market_ticker": "CPIYOY-24JAN-T3.2",
+      "title": "Will the rate of CPI inflation be above 3.2% for the year ending in January 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24JAN",
+      "market_ticker": "CPIYOY-24JAN-T3.1",
+      "title": "Will the rate of CPI inflation be above 3.1% for the year ending in January 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24JUL",
+      "market_ticker": "CPIYOY-24JUL-T2.9",
+      "title": "Will the rate of CPI inflation be above 2.9% for the year ending in July 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24JUL",
+      "market_ticker": "CPIYOY-24JUL-T2.8",
+      "title": "Will the rate of CPI inflation be above 2.8% for the year ending in July 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24JUL",
+      "market_ticker": "CPIYOY-24JUL-T2.7",
+      "title": "Will the rate of CPI inflation be above 2.7% for the year ending in July 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24JUL",
+      "market_ticker": "CPIYOY-24JUL-T3.8",
+      "title": "Will the rate of CPI inflation be above 3.8% for the year ending in July 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24JUL",
+      "market_ticker": "CPIYOY-24JUL-T3.7",
+      "title": "Will the rate of CPI inflation be above 3.7% for the year ending in July 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24JUL",
+      "market_ticker": "CPIYOY-24JUL-T3.6",
+      "title": "Will the rate of CPI inflation be above 3.6% for the year ending in July 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24JUL",
+      "market_ticker": "CPIYOY-24JUL-T3.5",
+      "title": "Will the rate of CPI inflation be above 3.5% for the year ending in July 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24JUL",
+      "market_ticker": "CPIYOY-24JUL-T3.4",
+      "title": "Will the rate of CPI inflation be above 3.4% for the year ending in July 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24JUL",
+      "market_ticker": "CPIYOY-24JUL-T3.3",
+      "title": "Will the rate of CPI inflation be above 3.3% for the year ending in July 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24JUL",
+      "market_ticker": "CPIYOY-24JUL-T3.2",
+      "title": "Will the rate of CPI inflation be above 3.2% for the year ending in July 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24JUL",
+      "market_ticker": "CPIYOY-24JUL-T3.1",
+      "title": "Will the rate of CPI inflation be above 3.1% for the year ending in July 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24JUL",
+      "market_ticker": "CPIYOY-24JUL-T3.0",
+      "title": "Will the rate of CPI inflation be above 3.0% for the year ending in July 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24JUN",
+      "market_ticker": "CPIYOY-24JUN-T2.9",
+      "title": "Will the rate of CPI inflation be above 2.9% for the year ending in June 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24JUN",
+      "market_ticker": "CPIYOY-24JUN-T2.8",
+      "title": "Will the rate of CPI inflation be above 2.8% for the year ending in June 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24JUN",
+      "market_ticker": "CPIYOY-24JUN-T3.8",
+      "title": "Will the rate of CPI inflation be above 3.8% for the year ending in June 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24JUN",
+      "market_ticker": "CPIYOY-24JUN-T3.7",
+      "title": "Will the rate of CPI inflation be above 3.7% for the year ending in June 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24JUN",
+      "market_ticker": "CPIYOY-24JUN-T3.6",
+      "title": "Will the rate of CPI inflation be above 3.6% for the year ending in June 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24JUN",
+      "market_ticker": "CPIYOY-24JUN-T3.5",
+      "title": "Will the rate of CPI inflation be above 3.5% for the year ending in June 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24JUN",
+      "market_ticker": "CPIYOY-24JUN-T3.4",
+      "title": "Will the rate of CPI inflation be above 3.4% for the year ending in June 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24JUN",
+      "market_ticker": "CPIYOY-24JUN-T3.3",
+      "title": "Will the rate of CPI inflation be above 3.3% for the year ending in June 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24JUN",
+      "market_ticker": "CPIYOY-24JUN-T3.2",
+      "title": "Will the rate of CPI inflation be above 3.2% for the year ending in June 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24JUN",
+      "market_ticker": "CPIYOY-24JUN-T3.1",
+      "title": "Will the rate of CPI inflation be above 3.1% for the year ending in June 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24JUN",
+      "market_ticker": "CPIYOY-24JUN-T3.0",
+      "title": "Will the rate of CPI inflation be above 3.0% for the year ending in June 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24MAR",
+      "market_ticker": "CPIYOY-24MAR-T3.5",
+      "title": "Will the rate of CPI inflation be above 3.5% for the year ending in March 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24MAR",
+      "market_ticker": "CPIYOY-24MAR-T3.4",
+      "title": "Will the rate of CPI inflation be above 3.4% for the year ending in March 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24MAR",
+      "market_ticker": "CPIYOY-24MAR-T3.3",
+      "title": "Will the rate of CPI inflation be above 3.3% for the year ending in March 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24MAR",
+      "market_ticker": "CPIYOY-24MAR-T3.2",
+      "title": "Will the rate of CPI inflation be above 3.2% for the year ending in March 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24MAR",
+      "market_ticker": "CPIYOY-24MAR-T3.1",
+      "title": "Will the rate of CPI inflation be above 3.1% for the year ending in March 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24MAR",
+      "market_ticker": "CPIYOY-24MAR-T3.0",
+      "title": "Will the rate of CPI inflation be above 3.0% for the year ending in March 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24MAR",
+      "market_ticker": "CPIYOY-24MAR-T2.9",
+      "title": "Will the rate of CPI inflation be above 2.9% for the year ending in March 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24MAR",
+      "market_ticker": "CPIYOY-24MAR-T2.8",
+      "title": "Will the rate of CPI inflation be above 2.8% for the year ending in March 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24MAY",
+      "market_ticker": "CPIYOY-24MAY-T3.9",
+      "title": "Will the rate of CPI inflation be above 3.9% for the year ending in May 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24MAY",
+      "market_ticker": "CPIYOY-24MAY-T3.8",
+      "title": "Will the rate of CPI inflation be above 3.8% for the year ending in May 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24MAY",
+      "market_ticker": "CPIYOY-24MAY-T3.7",
+      "title": "Will the rate of CPI inflation be above 3.7% for the year ending in May 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24MAY",
+      "market_ticker": "CPIYOY-24MAY-T3.6",
+      "title": "Will the rate of CPI inflation be above 3.6% for the year ending in May 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24MAY",
+      "market_ticker": "CPIYOY-24MAY-T3.5",
+      "title": "Will the rate of CPI inflation be above 3.5% for the year ending in May 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24MAY",
+      "market_ticker": "CPIYOY-24MAY-T3.4",
+      "title": "Will the rate of CPI inflation be above 3.4% for the year ending in May 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24MAY",
+      "market_ticker": "CPIYOY-24MAY-T3.3",
+      "title": "Will the rate of CPI inflation be above 3.3% for the year ending in May 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24MAY",
+      "market_ticker": "CPIYOY-24MAY-T3.2",
+      "title": "Will the rate of CPI inflation be above 3.2% for the year ending in May 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24MAY",
+      "market_ticker": "CPIYOY-24MAY-T3.1",
+      "title": "Will the rate of CPI inflation be above 3.1% for the year ending in May 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24MAY",
+      "market_ticker": "CPIYOY-24MAY-T3.0",
+      "title": "Will the rate of CPI inflation be above 3.0% for the year ending in May 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24OCT",
+      "market_ticker": "CPIYOY-24OCT-T3.1",
+      "title": "Will the rate of CPI inflation be above 3.1% for the year ending in October 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24OCT",
+      "market_ticker": "CPIYOY-24OCT-T3.0",
+      "title": "Will the rate of CPI inflation be above 3.0% for the year ending in October 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24OCT",
+      "market_ticker": "CPIYOY-24OCT-T2.9",
+      "title": "Will the rate of CPI inflation be above 2.9% for the year ending in October 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24OCT",
+      "market_ticker": "CPIYOY-24OCT-T2.8",
+      "title": "Will the rate of CPI inflation be above 2.8% for the year ending in October 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24OCT",
+      "market_ticker": "CPIYOY-24OCT-T2.7",
+      "title": "Will the rate of CPI inflation be above 2.7% for the year ending in October 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24OCT",
+      "market_ticker": "CPIYOY-24OCT-T2.6",
+      "title": "Will the rate of CPI inflation be above 2.6% for the year ending in October 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24OCT",
+      "market_ticker": "CPIYOY-24OCT-T2.5",
+      "title": "Will the rate of CPI inflation be above 2.5% for the year ending in October 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24OCT",
+      "market_ticker": "CPIYOY-24OCT-T2.4",
+      "title": "Will the rate of CPI inflation be above 2.4% for the year ending in October 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24OCT",
+      "market_ticker": "CPIYOY-24OCT-T2.3",
+      "title": "Will the rate of CPI inflation be above 2.3% for the year ending in October 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24SEP",
+      "market_ticker": "CPIYOY-24SEP-T2.2",
+      "title": "Will the rate of CPI inflation be above 2.2% for the year ending in September 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24SEP",
+      "market_ticker": "CPIYOY-24SEP-T2.1",
+      "title": "Will the rate of CPI inflation be above 2.1% for the year ending in September 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24SEP",
+      "market_ticker": "CPIYOY-24SEP-T2.0",
+      "title": "Will the rate of CPI inflation be above 2.0% for the year ending in September 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24SEP",
+      "market_ticker": "CPIYOY-24SEP-T3.1",
+      "title": "Will the rate of CPI inflation be above 3.1% for the year ending in September 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24SEP",
+      "market_ticker": "CPIYOY-24SEP-T3.0",
+      "title": "Will the rate of CPI inflation be above 3.0% for the year ending in September 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24SEP",
+      "market_ticker": "CPIYOY-24SEP-T2.9",
+      "title": "Will the rate of CPI inflation be above 2.9% for the year ending in September 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24SEP",
+      "market_ticker": "CPIYOY-24SEP-T2.8",
+      "title": "Will the rate of CPI inflation be above 2.8% for the year ending in September 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24SEP",
+      "market_ticker": "CPIYOY-24SEP-T2.7",
+      "title": "Will the rate of CPI inflation be above 2.7% for the year ending in September 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24SEP",
+      "market_ticker": "CPIYOY-24SEP-T2.6",
+      "title": "Will the rate of CPI inflation be above 2.6% for the year ending in September 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24SEP",
+      "market_ticker": "CPIYOY-24SEP-T2.5",
+      "title": "Will the rate of CPI inflation be above 2.5% for the year ending in September 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24SEP",
+      "market_ticker": "CPIYOY-24SEP-T2.4",
+      "title": "Will the rate of CPI inflation be above 2.4% for the year ending in September 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "CPIYOY-24SEP",
+      "market_ticker": "CPIYOY-24SEP-T2.3",
+      "title": "Will the rate of CPI inflation be above 2.3% for the year ending in September 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-24DEC",
+      "market_ticker": "KXCPIYOY-24DEC-T3.0",
+      "title": "Will the rate of CPI inflation be above 3.0% for the year ending in December 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-24DEC",
+      "market_ticker": "KXCPIYOY-24DEC-T2.9",
+      "title": "Will the rate of CPI inflation be above 2.9% for the year ending in December 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-24DEC",
+      "market_ticker": "KXCPIYOY-24DEC-T2.8",
+      "title": "Will the rate of CPI inflation be above 2.8% for the year ending in December 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-24DEC",
+      "market_ticker": "KXCPIYOY-24DEC-T2.7",
+      "title": "Will the rate of CPI inflation be above 2.7% for the year ending in December 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-24DEC",
+      "market_ticker": "KXCPIYOY-24DEC-T2.6",
+      "title": "Will the rate of CPI inflation be above 2.6% for the year ending in December 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-24DEC",
+      "market_ticker": "KXCPIYOY-24DEC-T2.5",
+      "title": "Will the rate of CPI inflation be above 2.5% for the year ending in December 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-24DEC",
+      "market_ticker": "KXCPIYOY-24DEC-T2.4",
+      "title": "Will the rate of CPI inflation be above 2.4% for the year ending in December 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-24DEC",
+      "market_ticker": "KXCPIYOY-24DEC-T2.3",
+      "title": "Will the rate of CPI inflation be above 2.3% for the year ending in December 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-24DEC",
+      "market_ticker": "KXCPIYOY-24DEC-T2.2",
+      "title": "Will the rate of CPI inflation be above 2.2% for the year ending in December 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-24DEC",
+      "market_ticker": "KXCPIYOY-24DEC-T2.1",
+      "title": "Will the rate of CPI inflation be above 2.1% for the year ending in December 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-24DEC",
+      "market_ticker": "KXCPIYOY-24DEC-T2.0",
+      "title": "Will the rate of CPI inflation be above 2.0% for the year ending in December 2024?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25APR",
+      "market_ticker": "KXCPIYOY-25APR-T2.2",
+      "title": "Will the rate of CPI inflation be above 2.2% for the year ending in April 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25APR",
+      "market_ticker": "KXCPIYOY-25APR-T2.3",
+      "title": "Will the rate of CPI inflation be above 2.3% for the year ending in April 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25APR",
+      "market_ticker": "KXCPIYOY-25APR-T3.1",
+      "title": "Will the rate of CPI inflation be above 3.1% for the year ending in April 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25APR",
+      "market_ticker": "KXCPIYOY-25APR-T3.0",
+      "title": "Will the rate of CPI inflation be above 3.0% for the year ending in April 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25APR",
+      "market_ticker": "KXCPIYOY-25APR-T2.9",
+      "title": "Will the rate of CPI inflation be above 2.9% for the year ending in April 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25APR",
+      "market_ticker": "KXCPIYOY-25APR-T2.8",
+      "title": "Will the rate of CPI inflation be above 2.8% for the year ending in April 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25APR",
+      "market_ticker": "KXCPIYOY-25APR-T2.7",
+      "title": "Will the rate of CPI inflation be above 2.7% for the year ending in April 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25APR",
+      "market_ticker": "KXCPIYOY-25APR-T2.6",
+      "title": "Will the rate of CPI inflation be above 2.6% for the year ending in April 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25APR",
+      "market_ticker": "KXCPIYOY-25APR-T2.5",
+      "title": "Will the rate of CPI inflation be above 2.5% for the year ending in April 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25APR",
+      "market_ticker": "KXCPIYOY-25APR-T2.4",
+      "title": "Will the rate of CPI inflation be above 2.4% for the year ending in April 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25AUG",
+      "market_ticker": "KXCPIYOY-25AUG-T3.1",
+      "title": "Will the rate of CPI inflation be above 3.1% for the year ending in August 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25AUG",
+      "market_ticker": "KXCPIYOY-25AUG-T3.0",
+      "title": "Will the rate of CPI inflation be above 3.0% for the year ending in August 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25AUG",
+      "market_ticker": "KXCPIYOY-25AUG-T2.9",
+      "title": "Will the rate of CPI inflation be above 2.9% for the year ending in August 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25AUG",
+      "market_ticker": "KXCPIYOY-25AUG-T2.8",
+      "title": "Will the rate of CPI inflation be above 2.8% for the year ending in August 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25AUG",
+      "market_ticker": "KXCPIYOY-25AUG-T2.7",
+      "title": "Will the rate of CPI inflation be above 2.7% for the year ending in August 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25AUG",
+      "market_ticker": "KXCPIYOY-25AUG-T2.6",
+      "title": "Will the rate of CPI inflation be above 2.6% for the year ending in August 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25AUG",
+      "market_ticker": "KXCPIYOY-25AUG-T2.5",
+      "title": "Will the rate of CPI inflation be above 2.5% for the year ending in August 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25AUG",
+      "market_ticker": "KXCPIYOY-25AUG-T2.4",
+      "title": "Will the rate of CPI inflation be above 2.4% for the year ending in August 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25DEC",
+      "market_ticker": "KXCPIYOY-25DEC-T3.1",
+      "title": "Will the rate of CPI inflation be above 3.1% for the year ending in December 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25DEC",
+      "market_ticker": "KXCPIYOY-25DEC-T3.0",
+      "title": "Will the rate of CPI inflation be above 3.0% for the year ending in December 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25DEC",
+      "market_ticker": "KXCPIYOY-25DEC-T2.9",
+      "title": "Will the rate of CPI inflation be above 2.9% for the year ending in December 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25DEC",
+      "market_ticker": "KXCPIYOY-25DEC-T2.8",
+      "title": "Will the rate of CPI inflation be above 2.8% for the year ending in December 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25DEC",
+      "market_ticker": "KXCPIYOY-25DEC-T2.7",
+      "title": "Will the rate of CPI inflation be above 2.7% for the year ending in December 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25DEC",
+      "market_ticker": "KXCPIYOY-25DEC-T2.6",
+      "title": "Will the rate of CPI inflation be above 2.6% for the year ending in December 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25DEC",
+      "market_ticker": "KXCPIYOY-25DEC-T2.5",
+      "title": "Will the rate of CPI inflation be above 2.5% for the year ending in December 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25DEC",
+      "market_ticker": "KXCPIYOY-25DEC-T2.4",
+      "title": "Will the rate of CPI inflation be above 2.4% for the year ending in December 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25FEB",
+      "market_ticker": "KXCPIYOY-25FEB-T3.1",
+      "title": "Will the rate of CPI inflation be above 3.1% for the year ending in February 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25FEB",
+      "market_ticker": "KXCPIYOY-25FEB-T3.0",
+      "title": "Will the rate of CPI inflation be above 3.0% for the year ending in February 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25FEB",
+      "market_ticker": "KXCPIYOY-25FEB-T2.9",
+      "title": "Will the rate of CPI inflation be above 2.9% for the year ending in February 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25FEB",
+      "market_ticker": "KXCPIYOY-25FEB-T2.8",
+      "title": "Will the rate of CPI inflation be above 2.8% for the year ending in February 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25FEB",
+      "market_ticker": "KXCPIYOY-25FEB-T2.7",
+      "title": "Will the rate of CPI inflation be above 2.7% for the year ending in February 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25FEB",
+      "market_ticker": "KXCPIYOY-25FEB-T2.6",
+      "title": "Will the rate of CPI inflation be above 2.6% for the year ending in February 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25FEB",
+      "market_ticker": "KXCPIYOY-25FEB-T2.5",
+      "title": "Will the rate of CPI inflation be above 2.5% for the year ending in February 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25FEB",
+      "market_ticker": "KXCPIYOY-25FEB-T2.4",
+      "title": "Will the rate of CPI inflation be above 2.4% for the year ending in February 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25JAN",
+      "market_ticker": "KXCPIYOY-25JAN-T3.1",
+      "title": "Will the rate of CPI inflation be above 3.1% for the year ending in January 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25JAN",
+      "market_ticker": "KXCPIYOY-25JAN-T3.0",
+      "title": "Will the rate of CPI inflation be above 3.0% for the year ending in January 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25JAN",
+      "market_ticker": "KXCPIYOY-25JAN-T2.9",
+      "title": "Will the rate of CPI inflation be above 2.9% for the year ending in January 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25JAN",
+      "market_ticker": "KXCPIYOY-25JAN-T2.8",
+      "title": "Will the rate of CPI inflation be above 2.8% for the year ending in January 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25JAN",
+      "market_ticker": "KXCPIYOY-25JAN-T2.7",
+      "title": "Will the rate of CPI inflation be above 2.7% for the year ending in January 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25JAN",
+      "market_ticker": "KXCPIYOY-25JAN-T2.6",
+      "title": "Will the rate of CPI inflation be above 2.6% for the year ending in January 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25JAN",
+      "market_ticker": "KXCPIYOY-25JAN-T2.5",
+      "title": "Will the rate of CPI inflation be above 2.5% for the year ending in January 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25JAN",
+      "market_ticker": "KXCPIYOY-25JAN-T2.4",
+      "title": "Will the rate of CPI inflation be above 2.4% for the year ending in January 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25JAN",
+      "market_ticker": "KXCPIYOY-25JAN-T2.3",
+      "title": "Will the rate of CPI inflation be above 2.3% for the year ending in January 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25JAN",
+      "market_ticker": "KXCPIYOY-25JAN-T2.2",
+      "title": "Will the rate of CPI inflation be above 2.2% for the year ending in January 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25JAN",
+      "market_ticker": "KXCPIYOY-25JAN-T2.1",
+      "title": "Will the rate of CPI inflation be above 2.1% for the year ending in January 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25JAN",
+      "market_ticker": "KXCPIYOY-25JAN-T2.0",
+      "title": "Will the rate of CPI inflation be above 2.0% for the year ending in January 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25JAN",
+      "market_ticker": "KXCPIYOY-25JAN-T1.9",
+      "title": "Will the rate of CPI inflation be above 1.9% for the year ending in January 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25JAN",
+      "market_ticker": "KXCPIYOY-25JAN-T1.8",
+      "title": "Will the rate of CPI inflation be above 1.8% for the year ending in January 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25JUL",
+      "market_ticker": "KXCPIYOY-25JUL-T3.1",
+      "title": "Will the rate of CPI inflation be above 3.1% for the year ending in July 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25JUL",
+      "market_ticker": "KXCPIYOY-25JUL-T3.0",
+      "title": "Will the rate of CPI inflation be above 3.0% for the year ending in July 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25JUL",
+      "market_ticker": "KXCPIYOY-25JUL-T2.9",
+      "title": "Will the rate of CPI inflation be above 2.9% for the year ending in July 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25JUL",
+      "market_ticker": "KXCPIYOY-25JUL-T2.8",
+      "title": "Will the rate of CPI inflation be above 2.8% for the year ending in July 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25JUL",
+      "market_ticker": "KXCPIYOY-25JUL-T2.7",
+      "title": "Will the rate of CPI inflation be above 2.7% for the year ending in July 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25JUL",
+      "market_ticker": "KXCPIYOY-25JUL-T2.6",
+      "title": "Will the rate of CPI inflation be above 2.6% for the year ending in July 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25JUL",
+      "market_ticker": "KXCPIYOY-25JUL-T2.5",
+      "title": "Will the rate of CPI inflation be above 2.5% for the year ending in July 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25JUL",
+      "market_ticker": "KXCPIYOY-25JUL-T2.4",
+      "title": "Will the rate of CPI inflation be above 2.4% for the year ending in July 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25MAR",
+      "market_ticker": "KXCPIYOY-25MAR-T2.3",
+      "title": "Will the rate of CPI inflation be above 2.3% for the year ending in March 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25MAR",
+      "market_ticker": "KXCPIYOY-25MAR-T3.1",
+      "title": "Will the rate of CPI inflation be above 3.1% for the year ending in March 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25MAR",
+      "market_ticker": "KXCPIYOY-25MAR-T3.0",
+      "title": "Will the rate of CPI inflation be above 3.0% for the year ending in March 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25MAR",
+      "market_ticker": "KXCPIYOY-25MAR-T2.9",
+      "title": "Will the rate of CPI inflation be above 2.9% for the year ending in March 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25MAR",
+      "market_ticker": "KXCPIYOY-25MAR-T2.8",
+      "title": "Will the rate of CPI inflation be above 2.8% for the year ending in March 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25MAR",
+      "market_ticker": "KXCPIYOY-25MAR-T2.7",
+      "title": "Will the rate of CPI inflation be above 2.7% for the year ending in March 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25MAR",
+      "market_ticker": "KXCPIYOY-25MAR-T2.6",
+      "title": "Will the rate of CPI inflation be above 2.6% for the year ending in March 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25MAR",
+      "market_ticker": "KXCPIYOY-25MAR-T2.5",
+      "title": "Will the rate of CPI inflation be above 2.5% for the year ending in March 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25MAR",
+      "market_ticker": "KXCPIYOY-25MAR-T2.4",
+      "title": "Will the rate of CPI inflation be above 2.4% for the year ending in March 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25MAY",
+      "market_ticker": "KXCPIYOY-25MAY-T2.1",
+      "title": "Will the rate of CPI inflation be above 2.1% for the year ending in May 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25MAY",
+      "market_ticker": "KXCPIYOY-25MAY-T2.3",
+      "title": "Will the rate of CPI inflation be above 2.3% for the year ending in May 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25MAY",
+      "market_ticker": "KXCPIYOY-25MAY-T2.2",
+      "title": "Will the rate of CPI inflation be above 2.2% for the year ending in May 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25MAY",
+      "market_ticker": "KXCPIYOY-25MAY-T3.1",
+      "title": "Will the rate of CPI inflation be above 3.1% for the year ending in May 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25MAY",
+      "market_ticker": "KXCPIYOY-25MAY-T3.0",
+      "title": "Will the rate of CPI inflation be above 3.0% for the year ending in May 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25MAY",
+      "market_ticker": "KXCPIYOY-25MAY-T2.9",
+      "title": "Will the rate of CPI inflation be above 2.9% for the year ending in May 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25MAY",
+      "market_ticker": "KXCPIYOY-25MAY-T2.8",
+      "title": "Will the rate of CPI inflation be above 2.8% for the year ending in May 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25MAY",
+      "market_ticker": "KXCPIYOY-25MAY-T2.7",
+      "title": "Will the rate of CPI inflation be above 2.7% for the year ending in May 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25MAY",
+      "market_ticker": "KXCPIYOY-25MAY-T2.6",
+      "title": "Will the rate of CPI inflation be above 2.6% for the year ending in May 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25MAY",
+      "market_ticker": "KXCPIYOY-25MAY-T2.5",
+      "title": "Will the rate of CPI inflation be above 2.5% for the year ending in May 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25MAY",
+      "market_ticker": "KXCPIYOY-25MAY-T2.4",
+      "title": "Will the rate of CPI inflation be above 2.4% for the year ending in May 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25NOV",
+      "market_ticker": "KXCPIYOY-25NOV-T3.1",
+      "title": "Will the rate of CPI inflation be above 3.1% for the year ending in November 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25NOV",
+      "market_ticker": "KXCPIYOY-25NOV-T3.0",
+      "title": "Will the rate of CPI inflation be above 3.0% for the year ending in November 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25NOV",
+      "market_ticker": "KXCPIYOY-25NOV-T2.9",
+      "title": "Will the rate of CPI inflation be above 2.9% for the year ending in November 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25NOV",
+      "market_ticker": "KXCPIYOY-25NOV-T2.8",
+      "title": "Will the rate of CPI inflation be above 2.8% for the year ending in November 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25NOV",
+      "market_ticker": "KXCPIYOY-25NOV-T2.7",
+      "title": "Will the rate of CPI inflation be above 2.7% for the year ending in November 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25NOV",
+      "market_ticker": "KXCPIYOY-25NOV-T2.6",
+      "title": "Will the rate of CPI inflation be above 2.6% for the year ending in November 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25NOV",
+      "market_ticker": "KXCPIYOY-25NOV-T2.5",
+      "title": "Will the rate of CPI inflation be above 2.5% for the year ending in November 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25NOV",
+      "market_ticker": "KXCPIYOY-25NOV-T2.4",
+      "title": "Will the rate of CPI inflation be above 2.4% for the year ending in November 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25OCT",
+      "market_ticker": "KXCPIYOY-25OCT-T3.1",
+      "title": "Will the rate of CPI inflation be above 3.1% for the year ending in October 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25OCT",
+      "market_ticker": "KXCPIYOY-25OCT-T3.0",
+      "title": "Will the rate of CPI inflation be above 3.0% for the year ending in October 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25OCT",
+      "market_ticker": "KXCPIYOY-25OCT-T2.9",
+      "title": "Will the rate of CPI inflation be above 2.9% for the year ending in October 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25OCT",
+      "market_ticker": "KXCPIYOY-25OCT-T2.8",
+      "title": "Will the rate of CPI inflation be above 2.8% for the year ending in October 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25OCT",
+      "market_ticker": "KXCPIYOY-25OCT-T2.7",
+      "title": "Will the rate of CPI inflation be above 2.7% for the year ending in October 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25OCT",
+      "market_ticker": "KXCPIYOY-25OCT-T2.6",
+      "title": "Will the rate of CPI inflation be above 2.6% for the year ending in October 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25OCT",
+      "market_ticker": "KXCPIYOY-25OCT-T2.5",
+      "title": "Will the rate of CPI inflation be above 2.5% for the year ending in October 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25OCT",
+      "market_ticker": "KXCPIYOY-25OCT-T2.4",
+      "title": "Will the rate of CPI inflation be above 2.4% for the year ending in October 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25SEP",
+      "market_ticker": "KXCPIYOY-25SEP-T3.1",
+      "title": "Will the rate of CPI inflation be above 3.1% for the year ending in September 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25SEP",
+      "market_ticker": "KXCPIYOY-25SEP-T3.0",
+      "title": "Will the rate of CPI inflation be above 3.0% for the year ending in September 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25SEP",
+      "market_ticker": "KXCPIYOY-25SEP-T2.9",
+      "title": "Will the rate of CPI inflation be above 2.9% for the year ending in September 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25SEP",
+      "market_ticker": "KXCPIYOY-25SEP-T2.8",
+      "title": "Will the rate of CPI inflation be above 2.8% for the year ending in September 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25SEP",
+      "market_ticker": "KXCPIYOY-25SEP-T2.7",
+      "title": "Will the rate of CPI inflation be above 2.7% for the year ending in September 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25SEP",
+      "market_ticker": "KXCPIYOY-25SEP-T2.6",
+      "title": "Will the rate of CPI inflation be above 2.6% for the year ending in September 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25SEP",
+      "market_ticker": "KXCPIYOY-25SEP-T2.5",
+      "title": "Will the rate of CPI inflation be above 2.5% for the year ending in September 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-25SEP",
+      "market_ticker": "KXCPIYOY-25SEP-T2.4",
+      "title": "Will the rate of CPI inflation be above 2.4% for the year ending in September 2025?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26APR",
+      "market_ticker": "KXCPIYOY-26APR-T2.3",
+      "title": "Will the rate of CPI inflation be above 2.3% for the year ending in April 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26APR",
+      "market_ticker": "KXCPIYOY-26APR-T2.4",
+      "title": "Will the rate of CPI inflation be above 2.4% for the year ending in April 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26APR",
+      "market_ticker": "KXCPIYOY-26APR-T2.5",
+      "title": "Will the rate of CPI inflation be above 2.5% for the year ending in April 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26APR",
+      "market_ticker": "KXCPIYOY-26APR-T2.6",
+      "title": "Will the rate of CPI inflation be above 2.6% for the year ending in April 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26APR",
+      "market_ticker": "KXCPIYOY-26APR-T2.7",
+      "title": "Will the rate of CPI inflation be above 2.7% for the year ending in April 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26APR",
+      "market_ticker": "KXCPIYOY-26APR-T2.8",
+      "title": "Will the rate of CPI inflation be above 2.8% for the year ending in April 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26APR",
+      "market_ticker": "KXCPIYOY-26APR-T2.9",
+      "title": "Will the rate of CPI inflation be above 2.9% for the year ending in April 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26APR",
+      "market_ticker": "KXCPIYOY-26APR-T3.0",
+      "title": "Will the rate of CPI inflation be above 3.0% for the year ending in April 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26APR",
+      "market_ticker": "KXCPIYOY-26APR-T3.1",
+      "title": "Will the rate of CPI inflation be above 3.1% for the year ending in April 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26APR",
+      "market_ticker": "KXCPIYOY-26APR-T3.2",
+      "title": "Will the rate of CPI inflation be above 3.2% for the year ending in April 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26APR",
+      "market_ticker": "KXCPIYOY-26APR-T3.3",
+      "title": "Will the rate of CPI inflation be above 3.3% for the year ending in April 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26APR",
+      "market_ticker": "KXCPIYOY-26APR-T3.4",
+      "title": "Will the rate of CPI inflation be above 3.4% for the year ending in April 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26APR",
+      "market_ticker": "KXCPIYOY-26APR-T3.5",
+      "title": "Will the rate of CPI inflation be above 3.5% for the year ending in April 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26APR",
+      "market_ticker": "KXCPIYOY-26APR-T3.6",
+      "title": "Will the rate of CPI inflation be above 3.6% for the year ending in April 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26APR",
+      "market_ticker": "KXCPIYOY-26APR-T3.7",
+      "title": "Will the rate of CPI inflation be above 3.7% for the year ending in April 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26APR",
+      "market_ticker": "KXCPIYOY-26APR-T3.8",
+      "title": "Will the rate of CPI inflation be above 3.8% for the year ending in April 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26APR",
+      "market_ticker": "KXCPIYOY-26APR-T3.9",
+      "title": "Will the rate of CPI inflation be above 3.9% for the year ending in April 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26APR",
+      "market_ticker": "KXCPIYOY-26APR-T4.0",
+      "title": "Will the rate of CPI inflation be above 4.0% for the year ending in April 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26APR",
+      "market_ticker": "KXCPIYOY-26APR-T4.1",
+      "title": "Will the rate of CPI inflation be above 4.1% for the year ending in April 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26APR",
+      "market_ticker": "KXCPIYOY-26APR-T4.2",
+      "title": "Will the rate of CPI inflation be above 4.2% for the year ending in April 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26APR",
+      "market_ticker": "KXCPIYOY-26APR-T4.3",
+      "title": "Will the rate of CPI inflation be above 4.3% for the year ending in April 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26APR",
+      "market_ticker": "KXCPIYOY-26APR-T4.4",
+      "title": "Will the rate of CPI inflation be above 4.4% for the year ending in April 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26APR",
+      "market_ticker": "KXCPIYOY-26APR-T4.5",
+      "title": "Will the rate of CPI inflation be above 4.5% for the year ending in April 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26FEB",
+      "market_ticker": "KXCPIYOY-26FEB-T2.2",
+      "title": "Will the rate of CPI inflation be above 2.2% for the year ending in February 2026?",
+      "status": "finalized",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26FEB",
+      "market_ticker": "KXCPIYOY-26FEB-T2.3",
+      "title": "Will the rate of CPI inflation be above 2.3% for the year ending in February 2026?",
+      "status": "finalized",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26FEB",
+      "market_ticker": "KXCPIYOY-26FEB-T2.4",
+      "title": "Will the rate of CPI inflation be above 2.4% for the year ending in February 2026?",
+      "status": "finalized",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26FEB",
+      "market_ticker": "KXCPIYOY-26FEB-T2.5",
+      "title": "Will the rate of CPI inflation be above 2.5% for the year ending in February 2026?",
+      "status": "finalized",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26FEB",
+      "market_ticker": "KXCPIYOY-26FEB-T2.6",
+      "title": "Will the rate of CPI inflation be above 2.6% for the year ending in February 2026?",
+      "status": "finalized",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26FEB",
+      "market_ticker": "KXCPIYOY-26FEB-T2.7",
+      "title": "Will the rate of CPI inflation be above 2.7% for the year ending in February 2026?",
+      "status": "finalized",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26FEB",
+      "market_ticker": "KXCPIYOY-26FEB-T2.8",
+      "title": "Will the rate of CPI inflation be above 2.8% for the year ending in February 2026?",
+      "status": "finalized",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26FEB",
+      "market_ticker": "KXCPIYOY-26FEB-T2.9",
+      "title": "Will the rate of CPI inflation be above 2.9% for the year ending in February 2026?",
+      "status": "finalized",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26FEB",
+      "market_ticker": "KXCPIYOY-26FEB-T3.0",
+      "title": "Will the rate of CPI inflation be above 3.0% for the year ending in February 2026?",
+      "status": "finalized",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26FEB",
+      "market_ticker": "KXCPIYOY-26FEB-T3.1",
+      "title": "Will the rate of CPI inflation be above 3.1% for the year ending in February 2026?",
+      "status": "finalized",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26JAN",
+      "market_ticker": "KXCPIYOY-26JAN-T2.1",
+      "title": "Will the rate of CPI inflation be above 2.1% for the year ending in January 2026?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26JAN",
+      "market_ticker": "KXCPIYOY-26JAN-T2.2",
+      "title": "Will the rate of CPI inflation be above 2.2% for the year ending in January 2026?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26JAN",
+      "market_ticker": "KXCPIYOY-26JAN-T2.3",
+      "title": "Will the rate of CPI inflation be above 2.3% for the year ending in January 2026?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26JAN",
+      "market_ticker": "KXCPIYOY-26JAN-T3.1",
+      "title": "Will the rate of CPI inflation be above 3.1% for the year ending in January 2026?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26JAN",
+      "market_ticker": "KXCPIYOY-26JAN-T3.0",
+      "title": "Will the rate of CPI inflation be above 3.0% for the year ending in January 2026?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26JAN",
+      "market_ticker": "KXCPIYOY-26JAN-T2.9",
+      "title": "Will the rate of CPI inflation be above 2.9% for the year ending in January 2026?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26JAN",
+      "market_ticker": "KXCPIYOY-26JAN-T2.8",
+      "title": "Will the rate of CPI inflation be above 2.8% for the year ending in January 2026?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26JAN",
+      "market_ticker": "KXCPIYOY-26JAN-T2.7",
+      "title": "Will the rate of CPI inflation be above 2.7% for the year ending in January 2026?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26JAN",
+      "market_ticker": "KXCPIYOY-26JAN-T2.6",
+      "title": "Will the rate of CPI inflation be above 2.6% for the year ending in January 2026?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26JAN",
+      "market_ticker": "KXCPIYOY-26JAN-T2.5",
+      "title": "Will the rate of CPI inflation be above 2.5% for the year ending in January 2026?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26JAN",
+      "market_ticker": "KXCPIYOY-26JAN-T2.4",
+      "title": "Will the rate of CPI inflation be above 2.4% for the year ending in January 2026?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26JUN",
+      "market_ticker": "KXCPIYOY-26JUN-T2.5",
+      "title": "Will the rate of CPI inflation be above 2.5% for the year ending in June 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26JUN",
+      "market_ticker": "KXCPIYOY-26JUN-T2.6",
+      "title": "Will the rate of CPI inflation be above 2.6% for the year ending in June 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26JUN",
+      "market_ticker": "KXCPIYOY-26JUN-T2.7",
+      "title": "Will the rate of CPI inflation be above 2.7% for the year ending in June 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26JUN",
+      "market_ticker": "KXCPIYOY-26JUN-T2.8",
+      "title": "Will the rate of CPI inflation be above 2.8% for the year ending in June 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26JUN",
+      "market_ticker": "KXCPIYOY-26JUN-T2.9",
+      "title": "Will the rate of CPI inflation be above 2.9% for the year ending in June 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26JUN",
+      "market_ticker": "KXCPIYOY-26JUN-T3.0",
+      "title": "Will the rate of CPI inflation be above 3.0% for the year ending in June 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26JUN",
+      "market_ticker": "KXCPIYOY-26JUN-T3.1",
+      "title": "Will the rate of CPI inflation be above 3.1% for the year ending in June 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26JUN",
+      "market_ticker": "KXCPIYOY-26JUN-T3.2",
+      "title": "Will the rate of CPI inflation be above 3.2% for the year ending in June 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26JUN",
+      "market_ticker": "KXCPIYOY-26JUN-T3.3",
+      "title": "Will the rate of CPI inflation be above 3.3% for the year ending in June 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26JUN",
+      "market_ticker": "KXCPIYOY-26JUN-T3.4",
+      "title": "Will the rate of CPI inflation be above 3.4% for the year ending in June 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26JUN",
+      "market_ticker": "KXCPIYOY-26JUN-T3.5",
+      "title": "Will the rate of CPI inflation be above 3.5% for the year ending in June 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26JUN",
+      "market_ticker": "KXCPIYOY-26JUN-T3.6",
+      "title": "Will the rate of CPI inflation be above 3.6% for the year ending in June 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26JUN",
+      "market_ticker": "KXCPIYOY-26JUN-T3.7",
+      "title": "Will the rate of CPI inflation be above 3.7% for the year ending in June 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26JUN",
+      "market_ticker": "KXCPIYOY-26JUN-T3.8",
+      "title": "Will the rate of CPI inflation be above 3.8% for the year ending in June 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26JUN",
+      "market_ticker": "KXCPIYOY-26JUN-T3.9",
+      "title": "Will the rate of CPI inflation be above 3.9% for the year ending in June 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26JUN",
+      "market_ticker": "KXCPIYOY-26JUN-T4.0",
+      "title": "Will the rate of CPI inflation be above 4.0% for the year ending in June 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26MAR",
+      "market_ticker": "KXCPIYOY-26MAR-T1.8",
+      "title": "Will the rate of CPI inflation be above 1.8% for the year ending in March 2026?",
+      "status": "finalized",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26MAR",
+      "market_ticker": "KXCPIYOY-26MAR-T1.9",
+      "title": "Will the rate of CPI inflation be above 1.9% for the year ending in March 2026?",
+      "status": "finalized",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26MAR",
+      "market_ticker": "KXCPIYOY-26MAR-T2.0",
+      "title": "Will the rate of CPI inflation be above 2.0% for the year ending in March 2026?",
+      "status": "finalized",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26MAR",
+      "market_ticker": "KXCPIYOY-26MAR-T2.1",
+      "title": "Will the rate of CPI inflation be above 2.1% for the year ending in March 2026?",
+      "status": "finalized",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26MAR",
+      "market_ticker": "KXCPIYOY-26MAR-T2.2",
+      "title": "Will the rate of CPI inflation be above 2.2% for the year ending in March 2026?",
+      "status": "finalized",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26MAR",
+      "market_ticker": "KXCPIYOY-26MAR-T2.3",
+      "title": "Will the rate of CPI inflation be above 2.3% for the year ending in March 2026?",
+      "status": "finalized",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26MAR",
+      "market_ticker": "KXCPIYOY-26MAR-T2.4",
+      "title": "Will the rate of CPI inflation be above 2.4% for the year ending in March 2026?",
+      "status": "finalized",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26MAR",
+      "market_ticker": "KXCPIYOY-26MAR-T2.5",
+      "title": "Will the rate of CPI inflation be above 2.5% for the year ending in March 2026?",
+      "status": "finalized",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26MAR",
+      "market_ticker": "KXCPIYOY-26MAR-T2.6",
+      "title": "Will the rate of CPI inflation be above 2.6% for the year ending in March 2026?",
+      "status": "finalized",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26MAR",
+      "market_ticker": "KXCPIYOY-26MAR-T2.7",
+      "title": "Will the rate of CPI inflation be above 2.7% for the year ending in March 2026?",
+      "status": "finalized",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26MAR",
+      "market_ticker": "KXCPIYOY-26MAR-T2.8",
+      "title": "Will the rate of CPI inflation be above 2.8% for the year ending in March 2026?",
+      "status": "finalized",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26MAR",
+      "market_ticker": "KXCPIYOY-26MAR-T2.9",
+      "title": "Will the rate of CPI inflation be above 2.9% for the year ending in March 2026?",
+      "status": "finalized",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26MAR",
+      "market_ticker": "KXCPIYOY-26MAR-T3.0",
+      "title": "Will the rate of CPI inflation be above 3.0% for the year ending in March 2026?",
+      "status": "finalized",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26MAR",
+      "market_ticker": "KXCPIYOY-26MAR-T3.1",
+      "title": "Will the rate of CPI inflation be above 3.1% for the year ending in March 2026?",
+      "status": "finalized",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26MAR",
+      "market_ticker": "KXCPIYOY-26MAR-T3.2",
+      "title": "Will the rate of CPI inflation be above 3.2% for the year ending in March 2026?",
+      "status": "finalized",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26MAR",
+      "market_ticker": "KXCPIYOY-26MAR-T3.3",
+      "title": "Will the rate of CPI inflation be above 3.3% for the year ending in March 2026?",
+      "status": "finalized",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26MAR",
+      "market_ticker": "KXCPIYOY-26MAR-T3.4",
+      "title": "Will the rate of CPI inflation be above 3.4% for the year ending in March 2026?",
+      "status": "finalized",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26MAR",
+      "market_ticker": "KXCPIYOY-26MAR-T3.5",
+      "title": "Will the rate of CPI inflation be above 3.5% for the year ending in March 2026?",
+      "status": "finalized",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26MAR",
+      "market_ticker": "KXCPIYOY-26MAR-T3.6",
+      "title": "Will the rate of CPI inflation be above 3.6% for the year ending in March 2026?",
+      "status": "finalized",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26MAR",
+      "market_ticker": "KXCPIYOY-26MAR-T3.7",
+      "title": "Will the rate of CPI inflation be above 3.7% for the year ending in March 2026?",
+      "status": "finalized",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26MAR",
+      "market_ticker": "KXCPIYOY-26MAR-T3.8",
+      "title": "Will the rate of CPI inflation be above 3.8% for the year ending in March 2026?",
+      "status": "finalized",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26MAR",
+      "market_ticker": "KXCPIYOY-26MAR-T3.9",
+      "title": "Will the rate of CPI inflation be above 3.9% for the year ending in March 2026?",
+      "status": "finalized",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26MAR",
+      "market_ticker": "KXCPIYOY-26MAR-T4.0",
+      "title": "Will the rate of CPI inflation be above 4.0% for the year ending in March 2026?",
+      "status": "finalized",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26MAY",
+      "market_ticker": "KXCPIYOY-26MAY-T2.4",
+      "title": "Will the rate of CPI inflation be above 2.4% for the year ending in May 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26MAY",
+      "market_ticker": "KXCPIYOY-26MAY-T2.5",
+      "title": "Will the rate of CPI inflation be above 2.5% for the year ending in May 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26MAY",
+      "market_ticker": "KXCPIYOY-26MAY-T2.6",
+      "title": "Will the rate of CPI inflation be above 2.6% for the year ending in May 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26MAY",
+      "market_ticker": "KXCPIYOY-26MAY-T2.7",
+      "title": "Will the rate of CPI inflation be above 2.7% for the year ending in May 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26MAY",
+      "market_ticker": "KXCPIYOY-26MAY-T2.8",
+      "title": "Will the rate of CPI inflation be above 2.8% for the year ending in May 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26MAY",
+      "market_ticker": "KXCPIYOY-26MAY-T2.9",
+      "title": "Will the rate of CPI inflation be above 2.9% for the year ending in May 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26MAY",
+      "market_ticker": "KXCPIYOY-26MAY-T3.0",
+      "title": "Will the rate of CPI inflation be above 3.0% for the year ending in May 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26MAY",
+      "market_ticker": "KXCPIYOY-26MAY-T3.1",
+      "title": "Will the rate of CPI inflation be above 3.1% for the year ending in May 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26MAY",
+      "market_ticker": "KXCPIYOY-26MAY-T3.2",
+      "title": "Will the rate of CPI inflation be above 3.2% for the year ending in May 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26MAY",
+      "market_ticker": "KXCPIYOY-26MAY-T3.3",
+      "title": "Will the rate of CPI inflation be above 3.3% for the year ending in May 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26MAY",
+      "market_ticker": "KXCPIYOY-26MAY-T3.4",
+      "title": "Will the rate of CPI inflation be above 3.4% for the year ending in May 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26MAY",
+      "market_ticker": "KXCPIYOY-26MAY-T3.5",
+      "title": "Will the rate of CPI inflation be above 3.5% for the year ending in May 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26MAY",
+      "market_ticker": "KXCPIYOY-26MAY-T3.6",
+      "title": "Will the rate of CPI inflation be above 3.6% for the year ending in May 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26MAY",
+      "market_ticker": "KXCPIYOY-26MAY-T3.7",
+      "title": "Will the rate of CPI inflation be above 3.7% for the year ending in May 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26MAY",
+      "market_ticker": "KXCPIYOY-26MAY-T3.8",
+      "title": "Will the rate of CPI inflation be above 3.8% for the year ending in May 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26MAY",
+      "market_ticker": "KXCPIYOY-26MAY-T3.9",
+      "title": "Will the rate of CPI inflation be above 3.9% for the year ending in May 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXCPIYOY-26MAY",
+      "market_ticker": "KXCPIYOY-26MAY-T4.0",
+      "title": "Will the rate of CPI inflation be above 4.0% for the year ending in May 2026?",
+      "status": "active",
+      "source": "live_event"
+    }
+  ],
+  "tickers": [
+    "CPIYOY-22DEC-T6.0",
+    "CPIYOY-22DEC-T6.1",
+    "CPIYOY-22DEC-T6.2",
+    "CPIYOY-22DEC-T6.3",
+    "CPIYOY-22DEC-T6.4",
+    "CPIYOY-22DEC-T6.5",
+    "CPIYOY-22DEC-T6.6",
+    "CPIYOY-22DEC-T6.7",
+    "CPIYOY-22DEC-T6.8",
+    "CPIYOY-22DEC-T6.9",
+    "CPIYOY-22DEC-T7.0",
+    "CPIYOY-22DEC-T7.1",
+    "CPIYOY-22DEC-T7.2",
+    "CPIYOY-22DEC-T7.3",
+    "CPIYOY-22DEC-T7.4",
+    "CPIYOY-22NOV-T6.8",
+    "CPIYOY-22NOV-T6.9",
+    "CPIYOY-22NOV-T7.0",
+    "CPIYOY-22NOV-T7.1",
+    "CPIYOY-22NOV-T7.2",
+    "CPIYOY-22NOV-T7.3",
+    "CPIYOY-22NOV-T7.4",
+    "CPIYOY-22NOV-T7.5",
+    "CPIYOY-22NOV-T7.6",
+    "CPIYOY-22NOV-T7.7",
+    "CPIYOY-22NOV-T7.8",
+    "CPIYOY-22NOV-T7.9",
+    "CPIYOY-22NOV-T8.0",
+    "CPIYOY-23APR-T3.4",
+    "CPIYOY-23APR-T3.5",
+    "CPIYOY-23APR-T3.6",
+    "CPIYOY-23APR-T3.7",
+    "CPIYOY-23APR-T3.8",
+    "CPIYOY-23APR-T3.9",
+    "CPIYOY-23APR-T4.0",
+    "CPIYOY-23APR-T4.1",
+    "CPIYOY-23APR-T4.2",
+    "CPIYOY-23APR-T4.3",
+    "CPIYOY-23APR-T4.4",
+    "CPIYOY-23APR-T4.5",
+    "CPIYOY-23APR-T4.6",
+    "CPIYOY-23APR-T4.7",
+    "CPIYOY-23APR-T4.8",
+    "CPIYOY-23APR-T4.9",
+    "CPIYOY-23APR-T5.0",
+    "CPIYOY-23APR-T5.1",
+    "CPIYOY-23APR-T5.2",
+    "CPIYOY-23APR-T5.3",
+    "CPIYOY-23APR-T5.4",
+    "CPIYOY-23APR-T5.5",
+    "CPIYOY-23AUG-T2.8",
+    "CPIYOY-23AUG-T2.9",
+    "CPIYOY-23AUG-T3.0",
+    "CPIYOY-23AUG-T3.1",
+    "CPIYOY-23AUG-T3.2",
+    "CPIYOY-23AUG-T3.3",
+    "CPIYOY-23AUG-T3.4",
+    "CPIYOY-23AUG-T3.5",
+    "CPIYOY-23AUG-T3.6",
+    "CPIYOY-23AUG-T3.7",
+    "CPIYOY-23AUG-T3.8",
+    "CPIYOY-23AUG-T3.9",
+    "CPIYOY-23AUG-T4.0",
+    "CPIYOY-23AUG-T4.1",
+    "CPIYOY-23AUG-T4.2",
+    "CPIYOY-23DEC-T2.8",
+    "CPIYOY-23DEC-T2.9",
+    "CPIYOY-23DEC-T3.0",
+    "CPIYOY-23DEC-T3.1",
+    "CPIYOY-23DEC-T3.2",
+    "CPIYOY-23DEC-T3.3",
+    "CPIYOY-23DEC-T3.4",
+    "CPIYOY-23FEB-T4.4",
+    "CPIYOY-23FEB-T4.5",
+    "CPIYOY-23FEB-T4.6",
+    "CPIYOY-23FEB-T4.7",
+    "CPIYOY-23FEB-T4.8",
+    "CPIYOY-23FEB-T4.9",
+    "CPIYOY-23FEB-T5.0",
+    "CPIYOY-23FEB-T5.1",
+    "CPIYOY-23FEB-T5.2",
+    "CPIYOY-23FEB-T5.3",
+    "CPIYOY-23FEB-T5.4",
+    "CPIYOY-23FEB-T5.5",
+    "CPIYOY-23FEB-T5.6",
+    "CPIYOY-23FEB-T5.7",
+    "CPIYOY-23FEB-T5.8",
+    "CPIYOY-23FEB-T5.9",
+    "CPIYOY-23FEB-T6.0",
+    "CPIYOY-23FEB-T6.1",
+    "CPIYOY-23FEB-T6.2",
+    "CPIYOY-23FEB-T6.3",
+    "CPIYOY-23FEB-T6.4",
+    "CPIYOY-23FEB-T6.5",
+    "CPIYOY-23JAN-T5.4",
+    "CPIYOY-23JAN-T5.5",
+    "CPIYOY-23JAN-T5.6",
+    "CPIYOY-23JAN-T5.7",
+    "CPIYOY-23JAN-T5.8",
+    "CPIYOY-23JAN-T5.9",
+    "CPIYOY-23JAN-T6.0",
+    "CPIYOY-23JAN-T6.1",
+    "CPIYOY-23JAN-T6.2",
+    "CPIYOY-23JAN-T6.3",
+    "CPIYOY-23JAN-T6.4",
+    "CPIYOY-23JAN-T6.5",
+    "CPIYOY-23JAN-T6.6",
+    "CPIYOY-23JAN-T6.7",
+    "CPIYOY-23JAN-T6.8",
+    "CPIYOY-23JUL-T1.5",
+    "CPIYOY-23JUL-T1.6",
+    "CPIYOY-23JUL-T1.7",
+    "CPIYOY-23JUL-T1.8",
+    "CPIYOY-23JUL-T1.9",
+    "CPIYOY-23JUL-T2.0",
+    "CPIYOY-23JUL-T2.1",
+    "CPIYOY-23JUL-T2.2",
+    "CPIYOY-23JUL-T2.3",
+    "CPIYOY-23JUL-T2.4",
+    "CPIYOY-23JUL-T2.5",
+    "CPIYOY-23JUL-T2.6",
+    "CPIYOY-23JUL-T2.7",
+    "CPIYOY-23JUL-T2.8",
+    "CPIYOY-23JUL-T2.9",
+    "CPIYOY-23JUL-T3.0",
+    "CPIYOY-23JUL-T3.1",
+    "CPIYOY-23JUL-T3.2",
+    "CPIYOY-23JUL-T3.3",
+    "CPIYOY-23JUL-T3.4",
+    "CPIYOY-23JUL-T3.5",
+    "CPIYOY-23JUL-T3.6",
+    "CPIYOY-23JUL-T3.7",
+    "CPIYOY-23JUL-T3.8",
+    "CPIYOY-23JUL-T3.9",
+    "CPIYOY-23JUL-T4.0",
+    "CPIYOY-23JUL-T4.1",
+    "CPIYOY-23JUL-T4.2",
+    "CPIYOY-23JUL-T4.3",
+    "CPIYOY-23JUN-T2.7",
+    "CPIYOY-23JUN-T2.8",
+    "CPIYOY-23JUN-T2.9",
+    "CPIYOY-23JUN-T3.0",
+    "CPIYOY-23JUN-T3.1",
+    "CPIYOY-23JUN-T3.2",
+    "CPIYOY-23JUN-T3.3",
+    "CPIYOY-23JUN-T3.4",
+    "CPIYOY-23JUN-T3.5",
+    "CPIYOY-23JUN-T3.6",
+    "CPIYOY-23JUN-T3.7",
+    "CPIYOY-23JUN-T3.8",
+    "CPIYOY-23JUN-T3.9",
+    "CPIYOY-23JUN-T4.0",
+    "CPIYOY-23JUN-T4.1",
+    "CPIYOY-23JUN-T4.2",
+    "CPIYOY-23JUN-T4.3",
+    "CPIYOY-23JUN-T4.4",
+    "CPIYOY-23JUN-T4.5",
+    "CPIYOY-23JUN-T4.6",
+    "CPIYOY-23JUN-T4.7",
+    "CPIYOY-23MAR-T3.4",
+    "CPIYOY-23MAR-T3.5",
+    "CPIYOY-23MAR-T3.6",
+    "CPIYOY-23MAR-T3.7",
+    "CPIYOY-23MAR-T3.8",
+    "CPIYOY-23MAR-T3.9",
+    "CPIYOY-23MAR-T4.0",
+    "CPIYOY-23MAR-T4.1",
+    "CPIYOY-23MAR-T4.2",
+    "CPIYOY-23MAR-T4.3",
+    "CPIYOY-23MAR-T4.4",
+    "CPIYOY-23MAR-T4.5",
+    "CPIYOY-23MAR-T4.6",
+    "CPIYOY-23MAR-T4.7",
+    "CPIYOY-23MAR-T4.8",
+    "CPIYOY-23MAR-T4.9",
+    "CPIYOY-23MAR-T5.0",
+    "CPIYOY-23MAR-T5.1",
+    "CPIYOY-23MAR-T5.2",
+    "CPIYOY-23MAR-T5.3",
+    "CPIYOY-23MAR-T5.4",
+    "CPIYOY-23MAR-T5.5",
+    "CPIYOY-23MAR-T5.6",
+    "CPIYOY-23MAR-T5.7",
+    "CPIYOY-23MAR-T5.8",
+    "CPIYOY-23MAR-T5.9",
+    "CPIYOY-23MAR-T6.0",
+    "CPIYOY-23MAR-T6.1",
+    "CPIYOY-23MAR-T6.2",
+    "CPIYOY-23MAR-T6.3",
+    "CPIYOY-23MAR-T6.4",
+    "CPIYOY-23MAR-T6.5",
+    "CPIYOY-23MAY-T3.3",
+    "CPIYOY-23MAY-T3.4",
+    "CPIYOY-23MAY-T3.5",
+    "CPIYOY-23MAY-T3.6",
+    "CPIYOY-23MAY-T3.7",
+    "CPIYOY-23MAY-T3.8",
+    "CPIYOY-23MAY-T3.9",
+    "CPIYOY-23MAY-T4.0",
+    "CPIYOY-23MAY-T4.1",
+    "CPIYOY-23MAY-T4.2",
+    "CPIYOY-23MAY-T4.3",
+    "CPIYOY-23MAY-T4.4",
+    "CPIYOY-23MAY-T4.5",
+    "CPIYOY-23MAY-T4.6",
+    "CPIYOY-23MAY-T4.7",
+    "CPIYOY-23NOV-T2.6",
+    "CPIYOY-23NOV-T2.7",
+    "CPIYOY-23NOV-T2.8",
+    "CPIYOY-23NOV-T2.9",
+    "CPIYOY-23NOV-T3.0",
+    "CPIYOY-23NOV-T3.1",
+    "CPIYOY-23NOV-T3.2",
+    "CPIYOY-23NOV-T3.3",
+    "CPIYOY-23NOV-T3.4",
+    "CPIYOY-23NOV-T3.5",
+    "CPIYOY-23NOV-T3.6",
+    "CPIYOY-23NOV-T3.7",
+    "CPIYOY-23NOV-T3.8",
+    "CPIYOY-23NOV-T3.9",
+    "CPIYOY-23NOV-T4.0",
+    "CPIYOY-23OCT-T2.6",
+    "CPIYOY-23OCT-T2.7",
+    "CPIYOY-23OCT-T2.8",
+    "CPIYOY-23OCT-T2.9",
+    "CPIYOY-23OCT-T3.0",
+    "CPIYOY-23OCT-T3.1",
+    "CPIYOY-23OCT-T3.2",
+    "CPIYOY-23OCT-T3.3",
+    "CPIYOY-23OCT-T3.4",
+    "CPIYOY-23OCT-T3.5",
+    "CPIYOY-23OCT-T3.6",
+    "CPIYOY-23OCT-T3.7",
+    "CPIYOY-23OCT-T3.8",
+    "CPIYOY-23OCT-T3.9",
+    "CPIYOY-23OCT-T4.0",
+    "CPIYOY-23SEP-T2.6",
+    "CPIYOY-23SEP-T2.7",
+    "CPIYOY-23SEP-T2.8",
+    "CPIYOY-23SEP-T2.9",
+    "CPIYOY-23SEP-T3.0",
+    "CPIYOY-23SEP-T3.1",
+    "CPIYOY-23SEP-T3.2",
+    "CPIYOY-23SEP-T3.3",
+    "CPIYOY-23SEP-T3.4",
+    "CPIYOY-23SEP-T3.5",
+    "CPIYOY-23SEP-T3.6",
+    "CPIYOY-23SEP-T3.7",
+    "CPIYOY-23SEP-T3.8",
+    "CPIYOY-23SEP-T3.9",
+    "CPIYOY-23SEP-T4.0",
+    "CPIYOY-24APR-T2.8",
+    "CPIYOY-24APR-T2.9",
+    "CPIYOY-24APR-T3.0",
+    "CPIYOY-24APR-T3.1",
+    "CPIYOY-24APR-T3.2",
+    "CPIYOY-24APR-T3.3",
+    "CPIYOY-24APR-T3.4",
+    "CPIYOY-24APR-T3.5",
+    "CPIYOY-24APR-T3.6",
+    "CPIYOY-24APR-T3.7",
+    "CPIYOY-24APR-T3.8",
+    "CPIYOY-24AUG-T2.3",
+    "CPIYOY-24AUG-T2.4",
+    "CPIYOY-24AUG-T2.5",
+    "CPIYOY-24AUG-T2.6",
+    "CPIYOY-24AUG-T2.7",
+    "CPIYOY-24AUG-T2.8",
+    "CPIYOY-24AUG-T2.9",
+    "CPIYOY-24AUG-T3.0",
+    "CPIYOY-24AUG-T3.1",
+    "CPIYOY-24FEB-T2.5",
+    "CPIYOY-24FEB-T2.6",
+    "CPIYOY-24FEB-T2.7",
+    "CPIYOY-24FEB-T2.8",
+    "CPIYOY-24FEB-T2.9",
+    "CPIYOY-24FEB-T3.0",
+    "CPIYOY-24FEB-T3.1",
+    "CPIYOY-24FEB-T3.2",
+    "CPIYOY-24FEB-T3.3",
+    "CPIYOY-24FEB-T3.4",
+    "CPIYOY-24FEB-T3.5",
+    "CPIYOY-24FEB-T3.6",
+    "CPIYOY-24FEB-T3.7",
+    "CPIYOY-24JAN-T2.8",
+    "CPIYOY-24JAN-T2.9",
+    "CPIYOY-24JAN-T3.0",
+    "CPIYOY-24JAN-T3.1",
+    "CPIYOY-24JAN-T3.2",
+    "CPIYOY-24JAN-T3.3",
+    "CPIYOY-24JAN-T3.4",
+    "CPIYOY-24JAN-T3.5",
+    "CPIYOY-24JAN-T3.6",
+    "CPIYOY-24JAN-T3.7",
+    "CPIYOY-24JUL-T2.7",
+    "CPIYOY-24JUL-T2.8",
+    "CPIYOY-24JUL-T2.9",
+    "CPIYOY-24JUL-T3.0",
+    "CPIYOY-24JUL-T3.1",
+    "CPIYOY-24JUL-T3.2",
+    "CPIYOY-24JUL-T3.3",
+    "CPIYOY-24JUL-T3.4",
+    "CPIYOY-24JUL-T3.5",
+    "CPIYOY-24JUL-T3.6",
+    "CPIYOY-24JUL-T3.7",
+    "CPIYOY-24JUL-T3.8",
+    "CPIYOY-24JUN-T2.8",
+    "CPIYOY-24JUN-T2.9",
+    "CPIYOY-24JUN-T3.0",
+    "CPIYOY-24JUN-T3.1",
+    "CPIYOY-24JUN-T3.2",
+    "CPIYOY-24JUN-T3.3",
+    "CPIYOY-24JUN-T3.4",
+    "CPIYOY-24JUN-T3.5",
+    "CPIYOY-24JUN-T3.6",
+    "CPIYOY-24JUN-T3.7",
+    "CPIYOY-24JUN-T3.8",
+    "CPIYOY-24MAR-T2.8",
+    "CPIYOY-24MAR-T2.9",
+    "CPIYOY-24MAR-T3.0",
+    "CPIYOY-24MAR-T3.1",
+    "CPIYOY-24MAR-T3.2",
+    "CPIYOY-24MAR-T3.3",
+    "CPIYOY-24MAR-T3.4",
+    "CPIYOY-24MAR-T3.5",
+    "CPIYOY-24MAY-T3.0",
+    "CPIYOY-24MAY-T3.1",
+    "CPIYOY-24MAY-T3.2",
+    "CPIYOY-24MAY-T3.3",
+    "CPIYOY-24MAY-T3.4",
+    "CPIYOY-24MAY-T3.5",
+    "CPIYOY-24MAY-T3.6",
+    "CPIYOY-24MAY-T3.7",
+    "CPIYOY-24MAY-T3.8",
+    "CPIYOY-24MAY-T3.9",
+    "CPIYOY-24OCT-T2.3",
+    "CPIYOY-24OCT-T2.4",
+    "CPIYOY-24OCT-T2.5",
+    "CPIYOY-24OCT-T2.6",
+    "CPIYOY-24OCT-T2.7",
+    "CPIYOY-24OCT-T2.8",
+    "CPIYOY-24OCT-T2.9",
+    "CPIYOY-24OCT-T3.0",
+    "CPIYOY-24OCT-T3.1",
+    "CPIYOY-24SEP-T2.0",
+    "CPIYOY-24SEP-T2.1",
+    "CPIYOY-24SEP-T2.2",
+    "CPIYOY-24SEP-T2.3",
+    "CPIYOY-24SEP-T2.4",
+    "CPIYOY-24SEP-T2.5",
+    "CPIYOY-24SEP-T2.6",
+    "CPIYOY-24SEP-T2.7",
+    "CPIYOY-24SEP-T2.8",
+    "CPIYOY-24SEP-T2.9",
+    "CPIYOY-24SEP-T3.0",
+    "CPIYOY-24SEP-T3.1",
+    "KXCPIYOY-24DEC-T2.0",
+    "KXCPIYOY-24DEC-T2.1",
+    "KXCPIYOY-24DEC-T2.2",
+    "KXCPIYOY-24DEC-T2.3",
+    "KXCPIYOY-24DEC-T2.4",
+    "KXCPIYOY-24DEC-T2.5",
+    "KXCPIYOY-24DEC-T2.6",
+    "KXCPIYOY-24DEC-T2.7",
+    "KXCPIYOY-24DEC-T2.8",
+    "KXCPIYOY-24DEC-T2.9",
+    "KXCPIYOY-24DEC-T3.0",
+    "KXCPIYOY-25APR-T2.2",
+    "KXCPIYOY-25APR-T2.3",
+    "KXCPIYOY-25APR-T2.4",
+    "KXCPIYOY-25APR-T2.5",
+    "KXCPIYOY-25APR-T2.6",
+    "KXCPIYOY-25APR-T2.7",
+    "KXCPIYOY-25APR-T2.8",
+    "KXCPIYOY-25APR-T2.9",
+    "KXCPIYOY-25APR-T3.0",
+    "KXCPIYOY-25APR-T3.1",
+    "KXCPIYOY-25AUG-T2.4",
+    "KXCPIYOY-25AUG-T2.5",
+    "KXCPIYOY-25AUG-T2.6",
+    "KXCPIYOY-25AUG-T2.7",
+    "KXCPIYOY-25AUG-T2.8",
+    "KXCPIYOY-25AUG-T2.9",
+    "KXCPIYOY-25AUG-T3.0",
+    "KXCPIYOY-25AUG-T3.1",
+    "KXCPIYOY-25DEC-T2.4",
+    "KXCPIYOY-25DEC-T2.5",
+    "KXCPIYOY-25DEC-T2.6",
+    "KXCPIYOY-25DEC-T2.7",
+    "KXCPIYOY-25DEC-T2.8",
+    "KXCPIYOY-25DEC-T2.9",
+    "KXCPIYOY-25DEC-T3.0",
+    "KXCPIYOY-25DEC-T3.1",
+    "KXCPIYOY-25FEB-T2.4",
+    "KXCPIYOY-25FEB-T2.5",
+    "KXCPIYOY-25FEB-T2.6",
+    "KXCPIYOY-25FEB-T2.7",
+    "KXCPIYOY-25FEB-T2.8",
+    "KXCPIYOY-25FEB-T2.9",
+    "KXCPIYOY-25FEB-T3.0",
+    "KXCPIYOY-25FEB-T3.1",
+    "KXCPIYOY-25JAN-T1.8",
+    "KXCPIYOY-25JAN-T1.9",
+    "KXCPIYOY-25JAN-T2.0",
+    "KXCPIYOY-25JAN-T2.1",
+    "KXCPIYOY-25JAN-T2.2",
+    "KXCPIYOY-25JAN-T2.3",
+    "KXCPIYOY-25JAN-T2.4",
+    "KXCPIYOY-25JAN-T2.5",
+    "KXCPIYOY-25JAN-T2.6",
+    "KXCPIYOY-25JAN-T2.7",
+    "KXCPIYOY-25JAN-T2.8",
+    "KXCPIYOY-25JAN-T2.9",
+    "KXCPIYOY-25JAN-T3.0",
+    "KXCPIYOY-25JAN-T3.1",
+    "KXCPIYOY-25JUL-T2.4",
+    "KXCPIYOY-25JUL-T2.5",
+    "KXCPIYOY-25JUL-T2.6",
+    "KXCPIYOY-25JUL-T2.7",
+    "KXCPIYOY-25JUL-T2.8",
+    "KXCPIYOY-25JUL-T2.9",
+    "KXCPIYOY-25JUL-T3.0",
+    "KXCPIYOY-25JUL-T3.1",
+    "KXCPIYOY-25MAR-T2.3",
+    "KXCPIYOY-25MAR-T2.4",
+    "KXCPIYOY-25MAR-T2.5",
+    "KXCPIYOY-25MAR-T2.6",
+    "KXCPIYOY-25MAR-T2.7",
+    "KXCPIYOY-25MAR-T2.8",
+    "KXCPIYOY-25MAR-T2.9",
+    "KXCPIYOY-25MAR-T3.0",
+    "KXCPIYOY-25MAR-T3.1",
+    "KXCPIYOY-25MAY-T2.1",
+    "KXCPIYOY-25MAY-T2.2",
+    "KXCPIYOY-25MAY-T2.3",
+    "KXCPIYOY-25MAY-T2.4",
+    "KXCPIYOY-25MAY-T2.5",
+    "KXCPIYOY-25MAY-T2.6",
+    "KXCPIYOY-25MAY-T2.7",
+    "KXCPIYOY-25MAY-T2.8",
+    "KXCPIYOY-25MAY-T2.9",
+    "KXCPIYOY-25MAY-T3.0",
+    "KXCPIYOY-25MAY-T3.1",
+    "KXCPIYOY-25NOV-T2.4",
+    "KXCPIYOY-25NOV-T2.5",
+    "KXCPIYOY-25NOV-T2.6",
+    "KXCPIYOY-25NOV-T2.7",
+    "KXCPIYOY-25NOV-T2.8",
+    "KXCPIYOY-25NOV-T2.9",
+    "KXCPIYOY-25NOV-T3.0",
+    "KXCPIYOY-25NOV-T3.1",
+    "KXCPIYOY-25OCT-T2.4",
+    "KXCPIYOY-25OCT-T2.5",
+    "KXCPIYOY-25OCT-T2.6",
+    "KXCPIYOY-25OCT-T2.7",
+    "KXCPIYOY-25OCT-T2.8",
+    "KXCPIYOY-25OCT-T2.9",
+    "KXCPIYOY-25OCT-T3.0",
+    "KXCPIYOY-25OCT-T3.1",
+    "KXCPIYOY-25SEP-T2.4",
+    "KXCPIYOY-25SEP-T2.5",
+    "KXCPIYOY-25SEP-T2.6",
+    "KXCPIYOY-25SEP-T2.7",
+    "KXCPIYOY-25SEP-T2.8",
+    "KXCPIYOY-25SEP-T2.9",
+    "KXCPIYOY-25SEP-T3.0",
+    "KXCPIYOY-25SEP-T3.1",
+    "KXCPIYOY-26APR-T2.3",
+    "KXCPIYOY-26APR-T2.4",
+    "KXCPIYOY-26APR-T2.5",
+    "KXCPIYOY-26APR-T2.6",
+    "KXCPIYOY-26APR-T2.7",
+    "KXCPIYOY-26APR-T2.8",
+    "KXCPIYOY-26APR-T2.9",
+    "KXCPIYOY-26APR-T3.0",
+    "KXCPIYOY-26APR-T3.1",
+    "KXCPIYOY-26APR-T3.2",
+    "KXCPIYOY-26APR-T3.3",
+    "KXCPIYOY-26APR-T3.4",
+    "KXCPIYOY-26APR-T3.5",
+    "KXCPIYOY-26APR-T3.6",
+    "KXCPIYOY-26APR-T3.7",
+    "KXCPIYOY-26APR-T3.8",
+    "KXCPIYOY-26APR-T3.9",
+    "KXCPIYOY-26APR-T4.0",
+    "KXCPIYOY-26APR-T4.1",
+    "KXCPIYOY-26APR-T4.2",
+    "KXCPIYOY-26APR-T4.3",
+    "KXCPIYOY-26APR-T4.4",
+    "KXCPIYOY-26APR-T4.5",
+    "KXCPIYOY-26FEB-T2.2",
+    "KXCPIYOY-26FEB-T2.3",
+    "KXCPIYOY-26FEB-T2.4",
+    "KXCPIYOY-26FEB-T2.5",
+    "KXCPIYOY-26FEB-T2.6",
+    "KXCPIYOY-26FEB-T2.7",
+    "KXCPIYOY-26FEB-T2.8",
+    "KXCPIYOY-26FEB-T2.9",
+    "KXCPIYOY-26FEB-T3.0",
+    "KXCPIYOY-26FEB-T3.1",
+    "KXCPIYOY-26JAN-T2.1",
+    "KXCPIYOY-26JAN-T2.2",
+    "KXCPIYOY-26JAN-T2.3",
+    "KXCPIYOY-26JAN-T2.4",
+    "KXCPIYOY-26JAN-T2.5",
+    "KXCPIYOY-26JAN-T2.6",
+    "KXCPIYOY-26JAN-T2.7",
+    "KXCPIYOY-26JAN-T2.8",
+    "KXCPIYOY-26JAN-T2.9",
+    "KXCPIYOY-26JAN-T3.0",
+    "KXCPIYOY-26JAN-T3.1",
+    "KXCPIYOY-26JUN-T2.5",
+    "KXCPIYOY-26JUN-T2.6",
+    "KXCPIYOY-26JUN-T2.7",
+    "KXCPIYOY-26JUN-T2.8",
+    "KXCPIYOY-26JUN-T2.9",
+    "KXCPIYOY-26JUN-T3.0",
+    "KXCPIYOY-26JUN-T3.1",
+    "KXCPIYOY-26JUN-T3.2",
+    "KXCPIYOY-26JUN-T3.3",
+    "KXCPIYOY-26JUN-T3.4",
+    "KXCPIYOY-26JUN-T3.5",
+    "KXCPIYOY-26JUN-T3.6",
+    "KXCPIYOY-26JUN-T3.7",
+    "KXCPIYOY-26JUN-T3.8",
+    "KXCPIYOY-26JUN-T3.9",
+    "KXCPIYOY-26JUN-T4.0",
+    "KXCPIYOY-26MAR-T1.8",
+    "KXCPIYOY-26MAR-T1.9",
+    "KXCPIYOY-26MAR-T2.0",
+    "KXCPIYOY-26MAR-T2.1",
+    "KXCPIYOY-26MAR-T2.2",
+    "KXCPIYOY-26MAR-T2.3",
+    "KXCPIYOY-26MAR-T2.4",
+    "KXCPIYOY-26MAR-T2.5",
+    "KXCPIYOY-26MAR-T2.6",
+    "KXCPIYOY-26MAR-T2.7",
+    "KXCPIYOY-26MAR-T2.8",
+    "KXCPIYOY-26MAR-T2.9",
+    "KXCPIYOY-26MAR-T3.0",
+    "KXCPIYOY-26MAR-T3.1",
+    "KXCPIYOY-26MAR-T3.2",
+    "KXCPIYOY-26MAR-T3.3",
+    "KXCPIYOY-26MAR-T3.4",
+    "KXCPIYOY-26MAR-T3.5",
+    "KXCPIYOY-26MAR-T3.6",
+    "KXCPIYOY-26MAR-T3.7",
+    "KXCPIYOY-26MAR-T3.8",
+    "KXCPIYOY-26MAR-T3.9",
+    "KXCPIYOY-26MAR-T4.0",
+    "KXCPIYOY-26MAY-T2.4",
+    "KXCPIYOY-26MAY-T2.5",
+    "KXCPIYOY-26MAY-T2.6",
+    "KXCPIYOY-26MAY-T2.7",
+    "KXCPIYOY-26MAY-T2.8",
+    "KXCPIYOY-26MAY-T2.9",
+    "KXCPIYOY-26MAY-T3.0",
+    "KXCPIYOY-26MAY-T3.1",
+    "KXCPIYOY-26MAY-T3.2",
+    "KXCPIYOY-26MAY-T3.3",
+    "KXCPIYOY-26MAY-T3.4",
+    "KXCPIYOY-26MAY-T3.5",
+    "KXCPIYOY-26MAY-T3.6",
+    "KXCPIYOY-26MAY-T3.7",
+    "KXCPIYOY-26MAY-T3.8",
+    "KXCPIYOY-26MAY-T3.9",
+    "KXCPIYOY-26MAY-T4.0"
+  ]
+}

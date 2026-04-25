@@ -1,0 +1,225 @@
+{
+  "series": "KXGDPYEAR",
+  "events": [
+    {
+      "event_ticker": "KXGDPYEAR-25",
+      "title": "GDP growth in 2025?"
+    },
+    {
+      "event_ticker": "KXGDPYEAR-26",
+      "title": "GDP growth in 2026?"
+    }
+  ],
+  "markets": [
+    {
+      "event_ticker": "KXGDPYEAR-25",
+      "market_ticker": "KXGDPYEAR-25-T0.1",
+      "title": "GDP growth in 2025?",
+      "status": "finalized",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXGDPYEAR-25",
+      "market_ticker": "KXGDPYEAR-25-B0.3",
+      "title": "GDP growth in 2025?",
+      "status": "finalized",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXGDPYEAR-25",
+      "market_ticker": "KXGDPYEAR-25-B0.8",
+      "title": "GDP growth in 2025?",
+      "status": "finalized",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXGDPYEAR-25",
+      "market_ticker": "KXGDPYEAR-25-B1.3",
+      "title": "GDP growth in 2025?",
+      "status": "finalized",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXGDPYEAR-25",
+      "market_ticker": "KXGDPYEAR-25-B1.8",
+      "title": "GDP growth in 2025?",
+      "status": "finalized",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXGDPYEAR-25",
+      "market_ticker": "KXGDPYEAR-25-B2.3",
+      "title": "GDP growth in 2025?",
+      "status": "finalized",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXGDPYEAR-25",
+      "market_ticker": "KXGDPYEAR-25-B2.8",
+      "title": "GDP growth in 2025?",
+      "status": "finalized",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXGDPYEAR-25",
+      "market_ticker": "KXGDPYEAR-25-B3.3",
+      "title": "GDP growth in 2025?",
+      "status": "finalized",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXGDPYEAR-25",
+      "market_ticker": "KXGDPYEAR-25-B3.8",
+      "title": "GDP growth in 2025?",
+      "status": "finalized",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXGDPYEAR-25",
+      "market_ticker": "KXGDPYEAR-25-B4.3",
+      "title": "GDP growth in 2025?",
+      "status": "finalized",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXGDPYEAR-25",
+      "market_ticker": "KXGDPYEAR-25-B4.8",
+      "title": "GDP growth in 2025?",
+      "status": "finalized",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXGDPYEAR-25",
+      "market_ticker": "KXGDPYEAR-25-T5.0",
+      "title": "GDP growth in 2025?",
+      "status": "finalized",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXGDPYEAR-26",
+      "market_ticker": "KXGDPYEAR-26-T0.1",
+      "title": "GDP growth in 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXGDPYEAR-26",
+      "market_ticker": "KXGDPYEAR-26-B0.3",
+      "title": "GDP growth in 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXGDPYEAR-26",
+      "market_ticker": "KXGDPYEAR-26-B0.8",
+      "title": "GDP growth in 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXGDPYEAR-26",
+      "market_ticker": "KXGDPYEAR-26-B1.3",
+      "title": "GDP growth in 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXGDPYEAR-26",
+      "market_ticker": "KXGDPYEAR-26-B1.8",
+      "title": "GDP growth in 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXGDPYEAR-26",
+      "market_ticker": "KXGDPYEAR-26-B2.3",
+      "title": "GDP growth in 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXGDPYEAR-26",
+      "market_ticker": "KXGDPYEAR-26-B2.8",
+      "title": "GDP growth in 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXGDPYEAR-26",
+      "market_ticker": "KXGDPYEAR-26-B3.3",
+      "title": "GDP growth in 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXGDPYEAR-26",
+      "market_ticker": "KXGDPYEAR-26-B3.8",
+      "title": "GDP growth in 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXGDPYEAR-26",
+      "market_ticker": "KXGDPYEAR-26-B4.3",
+      "title": "GDP growth in 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXGDPYEAR-26",
+      "market_ticker": "KXGDPYEAR-26-B4.8",
+      "title": "GDP growth in 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXGDPYEAR-26",
+      "market_ticker": "KXGDPYEAR-26-B5.3",
+      "title": "GDP growth in 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXGDPYEAR-26",
+      "market_ticker": "KXGDPYEAR-26-B5.8",
+      "title": "GDP growth in 2026?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXGDPYEAR-26",
+      "market_ticker": "KXGDPYEAR-26-T6.0",
+      "title": "GDP growth in 2026?",
+      "status": "active",
+      "source": "live_event"
+    }
+  ],
+  "tickers": [
+    "KXGDPYEAR-25-B0.3",
+    "KXGDPYEAR-25-B0.8",
+    "KXGDPYEAR-25-B1.3",
+    "KXGDPYEAR-25-B1.8",
+    "KXGDPYEAR-25-B2.3",
+    "KXGDPYEAR-25-B2.8",
+    "KXGDPYEAR-25-B3.3",
+    "KXGDPYEAR-25-B3.8",
+    "KXGDPYEAR-25-B4.3",
+    "KXGDPYEAR-25-B4.8",
+    "KXGDPYEAR-25-T0.1",
+    "KXGDPYEAR-25-T5.0",
+    "KXGDPYEAR-26-B0.3",
+    "KXGDPYEAR-26-B0.8",
+    "KXGDPYEAR-26-B1.3",
+    "KXGDPYEAR-26-B1.8",
+    "KXGDPYEAR-26-B2.3",
+    "KXGDPYEAR-26-B2.8",
+    "KXGDPYEAR-26-B3.3",
+    "KXGDPYEAR-26-B3.8",
+    "KXGDPYEAR-26-B4.3",
+    "KXGDPYEAR-26-B4.8",
+    "KXGDPYEAR-26-B5.3",
+    "KXGDPYEAR-26-B5.8",
+    "KXGDPYEAR-26-T0.1",
+    "KXGDPYEAR-26-T6.0"
+  ]
+}

@@ -1,0 +1,821 @@
+{
+  "series": "KXJOBLESS",
+  "events": [
+    {
+      "event_ticker": "JOBLESS-21AUG07",
+      "title": "Initial jobless claims from Aug 1-7, 2021?"
+    },
+    {
+      "event_ticker": "JOBLESS-21AUG14",
+      "title": "Initial jobless claims from Aug 8-14, 2021?"
+    },
+    {
+      "event_ticker": "JOBLESS-21AUG21",
+      "title": "Initial jobless claims from Aug 15-21, 2021?"
+    },
+    {
+      "event_ticker": "JOBLESS-21AUG28",
+      "title": "Initial jobless claims from Aug 22-28, 2021?"
+    },
+    {
+      "event_ticker": "JOBLESS-21DEC04",
+      "title": "Initial jobless claims from Nov 28-Dec 4, 2021?"
+    },
+    {
+      "event_ticker": "JOBLESS-21DEC11",
+      "title": "Initial jobless claims from Dec 5-11, 2021?"
+    },
+    {
+      "event_ticker": "JOBLESS-21DEC18",
+      "title": "Initial jobless claims from Dec 12-18, 2021?"
+    },
+    {
+      "event_ticker": "JOBLESS-21DEC25",
+      "title": "Initial jobless claims from Dec 19-25, 2021?"
+    },
+    {
+      "event_ticker": "JOBLESS-21JUL17",
+      "title": "Initial jobless claims from Jul 11-17, 2021?"
+    },
+    {
+      "event_ticker": "JOBLESS-21JUL24",
+      "title": "Initial jobless claims from Jul 18-24, 2021?"
+    },
+    {
+      "event_ticker": "JOBLESS-21JUL31",
+      "title": "Initial jobless claims from Jul 25-31, 2021?"
+    },
+    {
+      "event_ticker": "JOBLESS-21NOV13",
+      "title": "Initial jobless claims from Nov 7-13, 2021?"
+    },
+    {
+      "event_ticker": "JOBLESS-21NOV20",
+      "title": "Initial jobless claims from Nov 14-20, 2021?"
+    },
+    {
+      "event_ticker": "JOBLESS-21NOV27",
+      "title": "Initial jobless claims from Nov 21-27, 2021?"
+    },
+    {
+      "event_ticker": "JOBLESS-21OCT02",
+      "title": "Initial jobless claims from Sep 26-Oct 2, 2021?"
+    },
+    {
+      "event_ticker": "JOBLESS-21OCT09",
+      "title": "Initial jobless claims from Oct 3-9, 2021?"
+    },
+    {
+      "event_ticker": "JOBLESS-21OCT16",
+      "title": "Initial jobless claims from Oct 10-16, 2021?"
+    },
+    {
+      "event_ticker": "JOBLESS-21OCT23",
+      "title": "Initial jobless claims from Oct 17-23, 2021?"
+    },
+    {
+      "event_ticker": "JOBLESS-21OCT30",
+      "title": "Initial jobless claims from Oct 24-30, 2021?"
+    },
+    {
+      "event_ticker": "JOBLESS-21SEP04",
+      "title": "Initial jobless claims from Aug 29-Sep 4, 2021?"
+    },
+    {
+      "event_ticker": "JOBLESS-21SEP11",
+      "title": "Initial jobless claims from Sep 5-11, 2021?"
+    },
+    {
+      "event_ticker": "JOBLESS-21SEP18",
+      "title": "Initial jobless claims from Sep 12-18, 2021?"
+    },
+    {
+      "event_ticker": "JOBLESS-21SEP25",
+      "title": "Initial jobless claims from Sep 19-25, 2021?"
+    },
+    {
+      "event_ticker": "JOBLESS-22APR02",
+      "title": "Initial jobless claims from Mar 27-Apr 2, 2022?"
+    },
+    {
+      "event_ticker": "JOBLESS-22APR09",
+      "title": "Initial jobless claims from Apr 3-9?"
+    },
+    {
+      "event_ticker": "JOBLESS-22APR16",
+      "title": "Initial jobless claims from Apr 10-16, 2022?"
+    },
+    {
+      "event_ticker": "JOBLESS-22APR23",
+      "title": "Initial jobless claims from Apr 17-23?"
+    },
+    {
+      "event_ticker": "JOBLESS-22APR30",
+      "title": "Initial jobless claims from Apr 24-30?"
+    },
+    {
+      "event_ticker": "JOBLESS-22AUG06",
+      "title": "Initial jobless claims from Jul 31-Aug 6?"
+    },
+    {
+      "event_ticker": "JOBLESS-22AUG13",
+      "title": "Initial jobless claims from Aug 07-13?"
+    },
+    {
+      "event_ticker": "JOBLESS-22AUG20",
+      "title": "Initial jobless claims from Aug 14-20?"
+    },
+    {
+      "event_ticker": "JOBLESS-22AUG27",
+      "title": "Initial jobless claims from Aug 21-27?"
+    },
+    {
+      "event_ticker": "JOBLESS-22FEB05",
+      "title": "Initial jobless claims from Jan 30-Feb 5, 2022?"
+    },
+    {
+      "event_ticker": "JOBLESS-22FEB12",
+      "title": "Initial jobless claims from Feb 6-12, 2022?"
+    },
+    {
+      "event_ticker": "JOBLESS-22FEB19",
+      "title": "Initial jobless claims from Feb 13-19, 2022?"
+    },
+    {
+      "event_ticker": "JOBLESS-22FEB26",
+      "title": "Initial jobless claims from Feb 20-26, 2022?"
+    },
+    {
+      "event_ticker": "JOBLESS-22JAN01",
+      "title": "Initial jobless claims from Dec 26, 2021-Jan 1, 2022?"
+    },
+    {
+      "event_ticker": "JOBLESS-22JAN08",
+      "title": "Initial jobless claims from Jan 2-8, 2022?"
+    },
+    {
+      "event_ticker": "JOBLESS-22JAN15",
+      "title": "Initial jobless claims from Jan 9-15, 2022?"
+    },
+    {
+      "event_ticker": "JOBLESS-22JAN22",
+      "title": "Initial jobless claims from Jan 16-22, 2022?"
+    },
+    {
+      "event_ticker": "JOBLESS-22JAN29",
+      "title": "Initial jobless claims from Jan 23-29, 2022?"
+    },
+    {
+      "event_ticker": "JOBLESS-22JUL02",
+      "title": "Initial jobless claims from Jun 26-02?"
+    },
+    {
+      "event_ticker": "JOBLESS-22JUL09",
+      "title": "Initial jobless claims from Jul 03-09?"
+    },
+    {
+      "event_ticker": "JOBLESS-22JUL16",
+      "title": "Initial jobless claims from Jul 10-16?"
+    },
+    {
+      "event_ticker": "JOBLESS-22JUL23",
+      "title": "Initial jobless claims from Jul 17-23?"
+    },
+    {
+      "event_ticker": "JOBLESS-22JUL30",
+      "title": "Initial jobless claims from Jul 24-30?"
+    },
+    {
+      "event_ticker": "JOBLESS-22JUN04",
+      "title": "Initial jobless claims from May 29-June 4?"
+    },
+    {
+      "event_ticker": "JOBLESS-22JUN11",
+      "title": "Initial jobless claims from Jun 5-11?"
+    },
+    {
+      "event_ticker": "JOBLESS-22JUN18",
+      "title": "Initial jobless claims from Jun 12-18?"
+    },
+    {
+      "event_ticker": "JOBLESS-22JUN25",
+      "title": "Initial jobless claims from Jun 19-25?"
+    },
+    {
+      "event_ticker": "JOBLESS-22MAR05",
+      "title": "Initial jobless claims from Feb 27-Mar 5, 2022?"
+    },
+    {
+      "event_ticker": "JOBLESS-22MAR12",
+      "title": "Initial jobless claims from Mar 06-12, 2022?"
+    },
+    {
+      "event_ticker": "JOBLESS-22MAR26",
+      "title": "Initial jobless claims from Mar 20-26?"
+    },
+    {
+      "event_ticker": "JOBLESS-22MAY07",
+      "title": "Initial jobless claims from May 1-7?"
+    },
+    {
+      "event_ticker": "JOBLESS-22MAY14",
+      "title": "Initial jobless claims from May 8-14?"
+    },
+    {
+      "event_ticker": "JOBLESS-22MAY21",
+      "title": "Initial jobless claims from May 15-21?"
+    },
+    {
+      "event_ticker": "JOBLESS-22MAY28",
+      "title": "Initial jobless claims from May 22-28?"
+    },
+    {
+      "event_ticker": "JOBLESS-22NOV05",
+      "title": "Initial jobless claims, Oct 30 to Nov 5, 2022?"
+    },
+    {
+      "event_ticker": "JOBLESS-22NOV12",
+      "title": "Initial jobless claims, Nov 6 to 12, 2022?"
+    },
+    {
+      "event_ticker": "JOBLESS-22NOV26",
+      "title": "Initial jobless claims, Nov 20 to 26, 2022?"
+    },
+    {
+      "event_ticker": "JOBLESS-22OCT01",
+      "title": "Initial jobless claims, Sep 25 to Oct 1, 2022?"
+    },
+    {
+      "event_ticker": "JOBLESS-22OCT08",
+      "title": "Initial jobless claims, Oct 2 to 8, 2022?"
+    },
+    {
+      "event_ticker": "JOBLESS-22OCT17",
+      "title": "Initial jobless claims, Oct 9 to 15, 2022?"
+    },
+    {
+      "event_ticker": "JOBLESS-22OCT22",
+      "title": "Initial jobless claims, Oct 16 to 22, 2022?"
+    },
+    {
+      "event_ticker": "JOBLESS-22OCT29",
+      "title": "Initial jobless claims, Oct 23 to 29, 2022?"
+    },
+    {
+      "event_ticker": "JOBLESS-22SEP03",
+      "title": "Initial jobless claims from Aug 28-03?"
+    },
+    {
+      "event_ticker": "JOBLESS-22SEP10",
+      "title": "Initial jobless claims from Sep 4-10?"
+    },
+    {
+      "event_ticker": "JOBLESS-22SEP17",
+      "title": "Initial jobless claims from Sep 11-17?"
+    },
+    {
+      "event_ticker": "JOBLESS-22SEP24",
+      "title": "Initial jobless claims, Sep 18 to 24, 2022?"
+    }
+  ],
+  "markets": [
+    {
+      "event_ticker": "JOBLESS-21AUG14",
+      "market_ticker": "JOBLESS-21AUG14-C365",
+      "title": "Will initial jobless claims be higher than 365,000 for the week ending August 14, 2021?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "JOBLESS-21AUG21",
+      "market_ticker": "JOBLESS-21AUG21-C335",
+      "title": "Will initial jobless claims be higher than 335,000 for the week ending August 21st?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "JOBLESS-21AUG28",
+      "market_ticker": "JOBLESS-21AUG28-C350",
+      "title": "Will initial jobless claims be higher than 350,000 for the week ending August 28, 2021?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "JOBLESS-21DEC04",
+      "market_ticker": "JOBLESS-21DEC04-C220",
+      "title": "Will **initial jobless claims** be higher than 220,000 for the week ending December 04, 2021?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "JOBLESS-21DEC11",
+      "market_ticker": "JOBLESS-21DEC11-C185",
+      "title": "Will initial **jobless claims** be higher than 185,000 for the week ending December 11, 2021?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "JOBLESS-21DEC18",
+      "market_ticker": "JOBLESS-21DEC18-C200",
+      "title": "Will **initial jobless** claims be higher than 200,000 for the week ending December 18, 2021?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "JOBLESS-21DEC25",
+      "market_ticker": "JOBLESS-21DEC25-C200",
+      "title": "Will **initial jobless claims** be higher than 200,000 for the week ending December 25, 2021?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "JOBLESS-21JUL17",
+      "market_ticker": "JOBLESS-21JUL17-C350",
+      "title": "Will initial jobless claims be higher than 350,000 for the week ending July 17?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "JOBLESS-21JUL24",
+      "market_ticker": "JOBLESS-21JUL24-C380",
+      "title": "Will initial jobless claims be higher than 380,000 for the week ending July 24?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "JOBLESS-21JUL31",
+      "market_ticker": "JOBLESS-21JUL31-C380",
+      "title": "Will initial jobless claims be higher than 380,000 for the week ending July 31?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "JOBLESS-21NOV13",
+      "market_ticker": "JOBLESS-21NOV13-C265",
+      "title": "Will initial jobless claims be higher than 265,000 for the week ending November 13, 2021?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "JOBLESS-21NOV20",
+      "market_ticker": "JOBLESS-21NOV20-C265",
+      "title": "Will initial **jobless claims** be higher than 265,000 for the week ending November 20, 2021?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "JOBLESS-21NOV27",
+      "market_ticker": "JOBLESS-21NOV27-C240",
+      "title": "Will initial jobless claims be higher than 240,000 for the week ending November 27, 2021?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "JOBLESS-21NOV27",
+      "market_ticker": "JOBLESS-21NOV27-C200",
+      "title": "Will **initial jobless claims** be higher than 200,000 for the week ending November 27, 2021?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "JOBLESS-21OCT02",
+      "market_ticker": "JOBLESS-21OCT02-C350",
+      "title": "Will initial jobless claims be higher than 350,000 for the week ending October 02, 2021?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "JOBLESS-21OCT16",
+      "market_ticker": "JOBLESS-21OCT16-C300",
+      "title": "Will initial jobless claims be higher than 300,000 for the week ending October 16, 2021?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "JOBLESS-21OCT23",
+      "market_ticker": "JOBLESS-21OCT23-C290",
+      "title": "Will initial jobless claims be higher than 290,000 for the week ending October 23, 2021?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "JOBLESS-21OCT30",
+      "market_ticker": "JOBLESS-21OCT30-C280",
+      "title": "Will initial jobless claims be higher than 280,000 for the week ending October 30, 2021?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "JOBLESS-21SEP04",
+      "market_ticker": "JOBLESS-21SEP04-C330",
+      "title": "Will initial jobless claims be higher than 330,000 for the week ending September 4, 2021?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "JOBLESS-21SEP11",
+      "market_ticker": "JOBLESS-21SEP11-C320",
+      "title": "Will initial jobless claims be higher than 320,000 for the week ending September 11, 2021?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "JOBLESS-21SEP11",
+      "market_ticker": "JOBLESS-21SEP11-C310",
+      "title": "Will initial jobless claims be higher than 310,000 for the week ending September 11, 2021?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "JOBLESS-21SEP11",
+      "market_ticker": "JOBLESS-21SEP11-C300",
+      "title": "Will initial jobless claims be higher than 300,000 for the week ending September 11, 2021?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "JOBLESS-21SEP18",
+      "market_ticker": "JOBLESS-21SEP18-C300",
+      "title": "Will initial jobless claims be higher than 300,000 for the week ending September 18, 2021?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "JOBLESS-22APR02",
+      "market_ticker": "JOBLESS-22APR02-C200K",
+      "title": "Will **initial jobless claims** be higher than 200,000 for the week ending April 02, 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "JOBLESS-22APR09",
+      "market_ticker": "JOBLESS-22APR09-C160",
+      "title": "Will **initial jobless claims** be higher than 160,000 for the week ending April 09, 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "JOBLESS-22APR16",
+      "market_ticker": "JOBLESS-22APR16-C185",
+      "title": "Will **initial jobless claims** be higher than 185,000 for the week ending April 16, 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "JOBLESS-22APR23",
+      "market_ticker": "JOBLESS-22APR23-C185",
+      "title": "Will **initial jobless claims** be higher than 185,000 for the week ending April 23, 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "JOBLESS-22APR30",
+      "market_ticker": "JOBLESS-22APR30-C180",
+      "title": "Will **initial jobless claims** be higher than 180,000 for the week ending April 30, 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "JOBLESS-22AUG06",
+      "market_ticker": "JOBLESS-22AUG06-C270",
+      "title": "Will **initial jobless claims** be higher than 270,000 for the week ending August 06, 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "JOBLESS-22AUG06",
+      "market_ticker": "JOBLESS-22AUG06-C260",
+      "title": "Will **initial jobless claims** be higher than 260,000 for the week ending August 06, 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "JOBLESS-22AUG06",
+      "market_ticker": "JOBLESS-22AUG06-C250",
+      "title": "Will **initial jobless claims** be higher than 250,000 for the week ending August 06, 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "JOBLESS-22AUG13",
+      "market_ticker": "JOBLESS-22AUG13-C265",
+      "title": "Will **initial jobless claims** be higher than 265,000 for the week ending August 13, 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "JOBLESS-22AUG20",
+      "market_ticker": "JOBLESS-22AUG20-C250",
+      "title": "Will **initial jobless claims** be higher than 250,000 for the week ending August 20, 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "JOBLESS-22AUG27",
+      "market_ticker": "JOBLESS-22AUG27-C245",
+      "title": "Will **initial jobless claims** be higher than 245,000 for the week ending August 27, 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "JOBLESS-22FEB12",
+      "market_ticker": "JOBLESS-22FEB12-C220",
+      "title": "Will **initial jobless claims** be higher than 220,000 for the week ending February 12, 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "JOBLESS-22FEB19",
+      "market_ticker": "JOBLESS-22FEB19-C250",
+      "title": "Will **initial jobless claims** be higher than 250,000 for the week ending February 19, 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "JOBLESS-22FEB26",
+      "market_ticker": "JOBLESS-22FEB26-C230",
+      "title": "Will **initial jobless claims** be higher than 230,000 for the week ending February 26, 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "JOBLESS-22JAN01",
+      "market_ticker": "JOBLESS-22JAN01-C200",
+      "title": "Will **initial jobless claims** be higher than 200,000 for the week ending January 01, 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "JOBLESS-22JAN08",
+      "market_ticker": "JOBLESS-22JAN08-C200",
+      "title": "Will **initial jobless claims** be higher than 200,000 for the week ending January 08, 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "JOBLESS-22JAN15",
+      "market_ticker": "JOBLESS-22JAN15-C225",
+      "title": "Will **initial jobless claims** be higher than 225,000 for the week ending January 15, 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "JOBLESS-22JAN22",
+      "market_ticker": "JOBLESS-22JAN22-C300",
+      "title": "Will **initial jobless claims** be higher than 300,000 for the week ending January 22, 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "JOBLESS-22JAN29",
+      "market_ticker": "JOBLESS-22JAN29-C250",
+      "title": "Will **initial jobless claims** be higher than 250,000 for the week ending January 29, 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "JOBLESS-22JUL02",
+      "market_ticker": "JOBLESS-22JUL02-C230",
+      "title": "Will **initial jobless claims** be higher than 230,000 for the week ending July 02, 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "JOBLESS-22JUL09",
+      "market_ticker": "JOBLESS-22JUL09-C230",
+      "title": "Will initial jobless claims be higher than 230,000 for the week ending July 09, 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "JOBLESS-22JUL16",
+      "market_ticker": "JOBLESS-22JUL16-C250",
+      "title": "Will **initial jobless claims** be higher than 250,000 for the week ending July 16, 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "JOBLESS-22JUL30",
+      "market_ticker": "JOBLESS-22JUL30-C250",
+      "title": "Will **initial jobless claims** be higher than 250,000 for the week ending July 30, 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "JOBLESS-22JUN04",
+      "market_ticker": "JOBLESS-22JUN04-C200",
+      "title": "Will **initial jobless claims** be higher than 200,000 for the week ending June 04, 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "JOBLESS-22JUN11",
+      "market_ticker": "JOBLESS-22JUN11-C225",
+      "title": "Will **initial jobless claims** be higher than 225,000 for the week ending June 11, 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "JOBLESS-22JUN25",
+      "market_ticker": "JOBLESS-22JUN25-C225",
+      "title": "Will **initial jobless claims** be higher than 225,000 for the week ending June 25, 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "JOBLESS-22MAR05",
+      "market_ticker": "JOBLESS-22MAR05-C230",
+      "title": "Will **initial jobless claims** be higher than 230,000 for the week ending March 05, 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "JOBLESS-22MAR12",
+      "market_ticker": "JOBLESS-22MAR12-C220",
+      "title": "Will **initial jobless claims** be higher than 220,000 for the week ending March 12, 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "JOBLESS-22MAR26",
+      "market_ticker": "JOBLESS-22MAR26-C185",
+      "title": "Will **initial jobless claims** be higher than 185,000 for the week ending March 26, 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "JOBLESS-22MAY14",
+      "market_ticker": "JOBLESS-22MAY14-C200",
+      "title": "Will **initial jobless claims** be higher than 200,000 for the week ending May 14, 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "JOBLESS-22MAY21",
+      "market_ticker": "JOBLESS-22MAY21-C215",
+      "title": "Will initial jobless claims be higher than 215,000 for the week ending May 21, 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "JOBLESS-22MAY28",
+      "market_ticker": "JOBLESS-22MAY28-C210",
+      "title": "Will **initial jobless claims** be higher than 210,000 for the week ending May 28, 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "JOBLESS-22NOV05",
+      "market_ticker": "JOBLESS-22NOV05-C215",
+      "title": "Will **initial jobless claims** be higher than 215,000 for the week ending Nov 5, 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "JOBLESS-22NOV12",
+      "market_ticker": "JOBLESS-22NOV12-C225",
+      "title": "Will **initial jobless claims** be higher than 225,000 for the week ending Nov 12, 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "JOBLESS-22NOV26",
+      "market_ticker": "JOBLESS-22NOV26-C240",
+      "title": "Will **initial jobless claims** be higher than 240,000 for the week ending Nov 27, 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "JOBLESS-22OCT01",
+      "market_ticker": "JOBLESS-22OCT01-C200",
+      "title": "Will **initial jobless claims** be higher than 200,000 for the week ending Oct 1, 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "JOBLESS-22OCT08",
+      "market_ticker": "JOBLESS-22OCT08-C215",
+      "title": "Will **initial jobless claims** be higher than 215,000 for the week ending Oct 8, 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "JOBLESS-22OCT17",
+      "market_ticker": "JOBLESS-22OCT17-C230",
+      "title": "Will **initial jobless claims** be higher than 230,000 for the week ending Oct 15, 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "JOBLESS-22OCT22",
+      "market_ticker": "JOBLESS-22OCT22-C215",
+      "title": "Will **initial jobless claims** be higher than 215,000 for the week ending Oct 22, 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "JOBLESS-22OCT29",
+      "market_ticker": "JOBLESS-22OCT29-C220",
+      "title": "Will **initial jobless claims** be higher than 220,000 for the week ending Oct 29, 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "JOBLESS-22SEP03",
+      "market_ticker": "JOBLESS-22SEP03-C230",
+      "title": "Will **initial jobless claims** be higher than 230,000 for the week ending September 03, 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "JOBLESS-22SEP10",
+      "market_ticker": "JOBLESS-22SEP10-C220,000",
+      "title": "Will **initial jobless claims** be higher than 220,000 for the week ending September 11, 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "JOBLESS-22SEP17",
+      "market_ticker": "JOBLESS-22SEP17-C215",
+      "title": "Will **initial jobless claims** be higher than 215,000 for the week ending September 17, 2022?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "JOBLESS-22SEP24",
+      "market_ticker": "JOBLESS-22SEP24-C215",
+      "title": "Will **initial jobless claims** be higher than 215,000 for the week ending Sep 24, 2022?",
+      "status": "finalized",
+      "source": "historical"
+    }
+  ],
+  "tickers": [
+    "JOBLESS-21AUG14-C365",
+    "JOBLESS-21AUG21-C335",
+    "JOBLESS-21AUG28-C350",
+    "JOBLESS-21DEC04-C220",
+    "JOBLESS-21DEC11-C185",
+    "JOBLESS-21DEC18-C200",
+    "JOBLESS-21DEC25-C200",
+    "JOBLESS-21JUL17-C350",
+    "JOBLESS-21JUL24-C380",
+    "JOBLESS-21JUL31-C380",
+    "JOBLESS-21NOV13-C265",
+    "JOBLESS-21NOV20-C265",
+    "JOBLESS-21NOV27-C200",
+    "JOBLESS-21NOV27-C240",
+    "JOBLESS-21OCT02-C350",
+    "JOBLESS-21OCT16-C300",
+    "JOBLESS-21OCT23-C290",
+    "JOBLESS-21OCT30-C280",
+    "JOBLESS-21SEP04-C330",
+    "JOBLESS-21SEP11-C300",
+    "JOBLESS-21SEP11-C310",
+    "JOBLESS-21SEP11-C320",
+    "JOBLESS-21SEP18-C300",
+    "JOBLESS-22APR02-C200K",
+    "JOBLESS-22APR09-C160",
+    "JOBLESS-22APR16-C185",
+    "JOBLESS-22APR23-C185",
+    "JOBLESS-22APR30-C180",
+    "JOBLESS-22AUG06-C250",
+    "JOBLESS-22AUG06-C260",
+    "JOBLESS-22AUG06-C270",
+    "JOBLESS-22AUG13-C265",
+    "JOBLESS-22AUG20-C250",
+    "JOBLESS-22AUG27-C245",
+    "JOBLESS-22FEB12-C220",
+    "JOBLESS-22FEB19-C250",
+    "JOBLESS-22FEB26-C230",
+    "JOBLESS-22JAN01-C200",
+    "JOBLESS-22JAN08-C200",
+    "JOBLESS-22JAN15-C225",
+    "JOBLESS-22JAN22-C300",
+    "JOBLESS-22JAN29-C250",
+    "JOBLESS-22JUL02-C230",
+    "JOBLESS-22JUL09-C230",
+    "JOBLESS-22JUL16-C250",
+    "JOBLESS-22JUL30-C250",
+    "JOBLESS-22JUN04-C200",
+    "JOBLESS-22JUN11-C225",
+    "JOBLESS-22JUN25-C225",
+    "JOBLESS-22MAR05-C230",
+    "JOBLESS-22MAR12-C220",
+    "JOBLESS-22MAR26-C185",
+    "JOBLESS-22MAY14-C200",
+    "JOBLESS-22MAY21-C215",
+    "JOBLESS-22MAY28-C210",
+    "JOBLESS-22NOV05-C215",
+    "JOBLESS-22NOV12-C225",
+    "JOBLESS-22NOV26-C240",
+    "JOBLESS-22OCT01-C200",
+    "JOBLESS-22OCT08-C215",
+    "JOBLESS-22OCT17-C230",
+    "JOBLESS-22OCT22-C215",
+    "JOBLESS-22OCT29-C220",
+    "JOBLESS-22SEP03-C230",
+    "JOBLESS-22SEP10-C220,000",
+    "JOBLESS-22SEP17-C215",
+    "JOBLESS-22SEP24-C215"
+  ]
+}

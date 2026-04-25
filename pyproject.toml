@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "kalshi-pipeline"
+version = "0.1.0"
+requires-python = ">=3.13"
+dependencies = [
+    "pandas>=2.0",
+    "pyarrow>=15.0",
+    "requests>=2.31",
+    "python-dotenv>=1.0",
+    "kalshi-python-sync",
+    "duckdb>=0.9",
+]
+
+[tool.setuptools.packages.find]
+include = ["kalshi_io*", "pull_historical*", "pull_live*"]
+exclude = ["get_ticker_info*", "reference_scripts*", "Ideas_prediction_market*", "kalshi_data*"]

@@ -1,0 +1,3961 @@
+{
+  "series": "KXFED",
+  "events": [
+    {
+      "event_ticker": "FED-21DEC",
+      "title": "Fed funds rate in Dec 2021 meeting?"
+    },
+    {
+      "event_ticker": "FED-21JUL",
+      "title": "Fed funds rate, July 2021 meeting?"
+    },
+    {
+      "event_ticker": "FED-21SEP",
+      "title": "Fed funds rate, September 2021 meeting?"
+    },
+    {
+      "event_ticker": "FED-22DEC",
+      "title": "Fed funds rate in Dec 2022 meeting?"
+    },
+    {
+      "event_ticker": "FED-22JAN",
+      "title": "Fed funds rate in Jan 2022 meeting?"
+    },
+    {
+      "event_ticker": "FED-22JUL",
+      "title": "Fed funds rate in Jul 2022 meeting?"
+    },
+    {
+      "event_ticker": "FED-22JUN",
+      "title": "Fed funds rate in Jun 2022 meeting?"
+    },
+    {
+      "event_ticker": "FED-22MAR",
+      "title": "Fed funds rate in Mar 2022 meeting?"
+    },
+    {
+      "event_ticker": "FED-22MAY",
+      "title": "Fed funds rate in May 2022 meeting?"
+    },
+    {
+      "event_ticker": "FED-22NOV",
+      "title": "Fed funds rate in Nov 2022 meeting?"
+    },
+    {
+      "event_ticker": "FED-22SEP",
+      "title": "Fed funds rate in Sep 2022 meeting?"
+    },
+    {
+      "event_ticker": "FED-23DEC",
+      "title": "Fed funds rate in Dec 2023?"
+    },
+    {
+      "event_ticker": "FED-23FEB",
+      "title": "Fed funds rate in Feb 2023?"
+    },
+    {
+      "event_ticker": "FED-23JUL",
+      "title": "Fed funds rate in Jul 2023?"
+    },
+    {
+      "event_ticker": "FED-23JUN",
+      "title": "Fed funds rate in Jun 2023?"
+    },
+    {
+      "event_ticker": "FED-23MAR",
+      "title": "Fed funds rate in Mar 2023?"
+    },
+    {
+      "event_ticker": "FED-23MAY",
+      "title": "Fed funds rate in May 2023?"
+    },
+    {
+      "event_ticker": "FED-23NOV",
+      "title": "Fed funds rate in Nov 2023?"
+    },
+    {
+      "event_ticker": "FED-23SEP",
+      "title": "Fed funds rate in Sep 2023?"
+    },
+    {
+      "event_ticker": "FED-24DEC",
+      "title": "Fed funds rate in Dec 2024?"
+    },
+    {
+      "event_ticker": "FED-24JAN",
+      "title": "Fed funds rate in Jan 2024?"
+    },
+    {
+      "event_ticker": "FED-24JUL",
+      "title": "Fed funds rate in July?"
+    },
+    {
+      "event_ticker": "FED-24JUN",
+      "title": "Fed funds rate in June?"
+    },
+    {
+      "event_ticker": "FED-24MAR",
+      "title": "Fed funds rate in Mar 2024?"
+    },
+    {
+      "event_ticker": "FED-24MAY",
+      "title": "Fed funds rate in May 2024?"
+    },
+    {
+      "event_ticker": "FED-24NOV",
+      "title": "Fed funds rate in Nov 2024?"
+    },
+    {
+      "event_ticker": "FED-24SEP",
+      "title": "Fed funds rate in Sep 2024?"
+    },
+    {
+      "event_ticker": "FED-25DEC",
+      "title": "Fed funds rate in Dec 2025?"
+    },
+    {
+      "event_ticker": "FED-25JAN",
+      "title": "Fed funds rate in Jan 2025?"
+    },
+    {
+      "event_ticker": "FED-25JUL",
+      "title": "Fed funds rate in Jul 2025?"
+    },
+    {
+      "event_ticker": "FED-25JUN",
+      "title": "Fed funds rate in Jun 2025?"
+    },
+    {
+      "event_ticker": "FED-25MAR",
+      "title": "Fed funds rate in Mar 2025?"
+    },
+    {
+      "event_ticker": "FED-25MAY",
+      "title": "Fed funds rate in May 2025?"
+    },
+    {
+      "event_ticker": "FED-25OCT",
+      "title": "Fed funds rate in Oct 2025?"
+    },
+    {
+      "event_ticker": "FED-25SEP",
+      "title": "Fed funds rate in Sep 2025?"
+    },
+    {
+      "event_ticker": "KXFED-26APR",
+      "title": "Fed funds rate after Apr 2026 meeting?"
+    },
+    {
+      "event_ticker": "KXFED-26DEC",
+      "title": "Fed funds rate after Dec 2026 meeting?"
+    },
+    {
+      "event_ticker": "KXFED-26JAN",
+      "title": "Fed funds rate after Jan 2026 meeting?"
+    },
+    {
+      "event_ticker": "KXFED-26JUL",
+      "title": "Fed funds rate after Jul 2026 meeting?"
+    },
+    {
+      "event_ticker": "KXFED-26JUN",
+      "title": "Fed funds rate after Jun 2026 meeting?"
+    },
+    {
+      "event_ticker": "KXFED-26MAR",
+      "title": "Fed funds rate after Mar 2026 meeting?"
+    },
+    {
+      "event_ticker": "KXFED-26OCT",
+      "title": "Fed funds rate after Oct 2026 meeting?"
+    },
+    {
+      "event_ticker": "KXFED-26SEP",
+      "title": "Fed funds rate after Sep 2026 meeting?"
+    },
+    {
+      "event_ticker": "KXFED-27APR",
+      "title": "Fed funds rate after Apr 2027 meeting?"
+    },
+    {
+      "event_ticker": "KXFED-27JAN",
+      "title": "Fed funds rate after Jan 2027 meeting?"
+    },
+    {
+      "event_ticker": "KXFED-27MAR",
+      "title": "Fed funds rate after Mar 2027 meeting?"
+    }
+  ],
+  "markets": [
+    {
+      "event_ticker": "FED-21DEC",
+      "market_ticker": "FED-21DEC-T0.25",
+      "title": "Will the **target federal funds rate** be above 0.25%?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-21JUL",
+      "market_ticker": "FED-21JUL-T0.25",
+      "title": "Will the target federal funds rate be above 0.25%?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-21SEP",
+      "market_ticker": "FED-21SEP-T0.25",
+      "title": "Will the target federal funds rate be above 0.25%?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-22DEC",
+      "market_ticker": "FED-22DEC-T4.75",
+      "title": "Will the federal funds rate be above 4.75% following the Fed's December meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-22DEC",
+      "market_ticker": "FED-22DEC-T4.50",
+      "title": "Will the federal funds rate be above 4.50% following the Fed's December meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-22DEC",
+      "market_ticker": "FED-22DEC-T4.25",
+      "title": "Will the federal funds rate be above 4.25% following the Fed's December meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-22DEC",
+      "market_ticker": "FED-22DEC-T4.00",
+      "title": "Will the federal funds rate be above 4.00% following the Fed's December meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-22DEC",
+      "market_ticker": "FED-22DEC-T3.75",
+      "title": "Will the federal funds rate be above 3.75% following the Fed's December meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-22DEC",
+      "market_ticker": "FED-22DEC-T3.50",
+      "title": "Will the federal funds rate be above 3.50% following the Fed's December meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-22DEC",
+      "market_ticker": "FED-22DEC-T3.25",
+      "title": "Will the federal funds rate be above 3.25% following the Fed's December meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-22DEC",
+      "market_ticker": "FED-22DEC-T3.00",
+      "title": "Will the federal funds rate be above 3.00% following the Fed's December meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-22DEC",
+      "market_ticker": "FED-22DEC-T2.75",
+      "title": "Will the federal funds rate be above 2.75% following the Fed's December meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-22DEC",
+      "market_ticker": "FED-22DEC-T2.50",
+      "title": "Will the federal funds rate be above 2.50% following the Fed's December meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-22DEC",
+      "market_ticker": "FED-22DEC-T2.25",
+      "title": "Will the **federal funds rate** be above 2.25% following the Fed's December meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-22DEC",
+      "market_ticker": "FED-22DEC-T2.0",
+      "title": "Will the **federal funds rate** be above 2.00% following the Fed's December meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-22DEC",
+      "market_ticker": "FED-22DEC-T1.75",
+      "title": "Will the **federal funds rate** be above 1.75% following the Fed's December meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-22DEC",
+      "market_ticker": "FED-22DEC-T1.5",
+      "title": "Will the **federal funds rate** be above 1.50% following the Fed's December meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-22DEC",
+      "market_ticker": "FED-22DEC-T1.25",
+      "title": "Will the **federal funds rate** be above 1.25% following the Fed's December meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-22DEC",
+      "market_ticker": "FED-22DEC-T1",
+      "title": "Will the **federal funds rate** be above 1.00% following the Fed's December meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-22DEC",
+      "market_ticker": "FED-22DEC-T0.5",
+      "title": "Will the federal funds rate be above 0.5% following the Fed's December meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-22DEC",
+      "market_ticker": "FED-22DEC-T0.75",
+      "title": "Will the federal funds rate be above 0.75% following the Fed's December meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-22DEC",
+      "market_ticker": "FED-22DEC-T0.25",
+      "title": "Will the federal funds rate be above 0.25% following the Fed's December meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-22JAN",
+      "market_ticker": "FED-22JAN-T0.25",
+      "title": "Will the federal funds rate be above 0.25% following the Fed's January meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-22JUL",
+      "market_ticker": "FED-22JUL-T2.75",
+      "title": "Will the federal funds rate be above 2.75% following the Fed's July meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-22JUL",
+      "market_ticker": "FED-22JULY-T2.50",
+      "title": "Will the federal funds rate be above 2.50% following the Fed's July meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-22JUL",
+      "market_ticker": "FED-22JULY-T2.25",
+      "title": "Will the federal funds rate be above 2.25% following the Fed's July meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-22JUL",
+      "market_ticker": "FED-22JUL-T2.00",
+      "title": "Will the federal funds rate be above 2.00% following the Fed's July meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-22JUL",
+      "market_ticker": "FED-22JUL-T1.75",
+      "title": "Will the federal funds rate be above 1.75% following the Fed's July meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-22JUL",
+      "market_ticker": "FED-22JUL-T1.50",
+      "title": "Will the federal funds rate be above 1.50% following the Fed's July meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-22JUL",
+      "market_ticker": "FED-22JUL-T1.25",
+      "title": "Will the **federal funds rate** be above 1.25% following the Fed's July meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-22JUL",
+      "market_ticker": "FED-22JUL-T1",
+      "title": "Will the **federal funds rate** be above 1.00% following the Fed's July meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-22JUL",
+      "market_ticker": "FED-22JUL-T0.75",
+      "title": "Will the **federal funds rate** be above 0.75% following the Fed's July meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-22JUL",
+      "market_ticker": "FED-22JUL-T0.5",
+      "title": "Will the **federal funds rate** be above 0.5% following the Fed's July meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-22JUL",
+      "market_ticker": "FED-22JUL-T0.25",
+      "title": "Will the federal funds rate be above 0.25% following the Fed's July meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-22JUN",
+      "market_ticker": "FED-22JUN-T1.75",
+      "title": "Will the federal funds rate be above 1.75% following the Fed's June meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-22JUN",
+      "market_ticker": "FED-22JUN-T1.50",
+      "title": "Will the federal funds rate be above 1.50% following the Fed's June meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-22JUN",
+      "market_ticker": "FED-22JUN-T1.25",
+      "title": "Will the **federal funds rate** be above 1.25% following the Fed's June meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-22JUN",
+      "market_ticker": "FED-22JUN-T1",
+      "title": "Will the **federal funds rate** be above 1.00% following the Fed's June meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-22JUN",
+      "market_ticker": "FED-22JUN-T0.75",
+      "title": "Will the **federal funds rate** be above 0.75% following the Fed's June meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-22JUN",
+      "market_ticker": "FED-22JUN-T0.5",
+      "title": "Will the federal funds rate be above 0.5% following the Fed's June meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-22JUN",
+      "market_ticker": "FED-22JUN-T0.25",
+      "title": "Will the federal funds rate be above 0.25% following the Fed's June meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-22MAR",
+      "market_ticker": "FED-22MAR-T0.75",
+      "title": "Will the **federal funds rate** be above 0.75% following the Fed's March meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-22MAR",
+      "market_ticker": "FED-22MAR-T0.5",
+      "title": "Will the **federal funds rate** be above 0.5% following the Fed's March meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-22MAR",
+      "market_ticker": "FED-22MAR-T0.25",
+      "title": "Will the federal funds rate be above 0.25% following the Fed's March meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-22MAY",
+      "market_ticker": "FED-22MAY-T1",
+      "title": "Will the **federal funds rate** be above 1.00% following the Fed's May meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-22MAY",
+      "market_ticker": "FED-22MAY-T0.75",
+      "title": "Will the **federal funds rate** be above 0.75% following the Fed's May meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-22MAY",
+      "market_ticker": "FED-22MAY-T0.5",
+      "title": "Will the **federal funds rate** be above 0.5% following the Fed's May meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-22MAY",
+      "market_ticker": "FED-22MAY-T0.25",
+      "title": "Will the federal funds rate be above 0.25% following the Fed's May meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-22NOV",
+      "market_ticker": "FED-22NOV-T4.00",
+      "title": "Will the federal funds rate be above 4.00% following the Fed's November meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-22NOV",
+      "market_ticker": "FED-22NOV-T3.75",
+      "title": "Will the federal funds rate be above 3.75% following the Fed's November meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-22NOV",
+      "market_ticker": "FED-22NOV-T3.50",
+      "title": "Will the federal funds rate be above 3.50% following the Fed's November meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-22NOV",
+      "market_ticker": "FED-22NOV-T3.25",
+      "title": "Will the federal funds rate be above 3.25% following the Fed's November meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-22NOV",
+      "market_ticker": "FED-22NOV-T3.00",
+      "title": "Will the federal funds rate be above 3.00% following the Fed's November meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-22NOV",
+      "market_ticker": "FED-22NOV-T2.75",
+      "title": "Will the federal funds rate be above 2.75% following the Fed's November meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-22NOV",
+      "market_ticker": "FED-22NOV-T2.50",
+      "title": "Will the federal funds rate be above 2.50% following the Fed's November meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-22NOV",
+      "market_ticker": "FED-22NOV-T2.25",
+      "title": "Will the federal funds rate be above 2.25% following the Fed's November meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-22NOV",
+      "market_ticker": "FED-22NOV-T2.00",
+      "title": "Will the federal funds rate be above 2.00% following the Fed's November meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-22NOV",
+      "market_ticker": "FED-22NOV-T1.75",
+      "title": "Will the **federal funds rate** be above 1.75% following the Fed's November meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-22NOV",
+      "market_ticker": "FED-22NOV-T1.5",
+      "title": "Will the **federal funds rate** be above 1.50% following the Fed's November meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-22NOV",
+      "market_ticker": "FED-22NOV-T1.25",
+      "title": "Will the **federal funds rate** be above 1.25% following the Fed's November meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-22NOV",
+      "market_ticker": "FED-22NOV-T1",
+      "title": "Will the **federal funds rate** be above 1.00% following the Fed's November meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-22NOV",
+      "market_ticker": "FED-22NOV-T0.75",
+      "title": "Will the **federal funds rate** be above 0.75% following the Fed's November meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-22NOV",
+      "market_ticker": "FED-22NOV-T0.5",
+      "title": "Will the **federal funds rate** be above 0.5% following the Fed's November meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-22NOV",
+      "market_ticker": "FED-22NOV-T0.25",
+      "title": "Will the **federal funds rate** be above 0.25% following the Fed's November meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-22SEP",
+      "market_ticker": "FED-22SEP-T3.50",
+      "title": "Will the federal funds rate be above 3.50% following the Fed's September meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-22SEP",
+      "market_ticker": "FED-22SEP-T3.25",
+      "title": "Will the federal funds rate be above 3.25% following the Fed's September meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-22SEP",
+      "market_ticker": "FED-22SEP-T3.00",
+      "title": "Will the federal funds rate be above 3.00% following the Fed's September meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-22SEP",
+      "market_ticker": "FED-22SEP-T2.75",
+      "title": "Will the federal funds rate be above 2.75% following the Fed's September meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-22SEP",
+      "market_ticker": "FED-22SEP-T2.50",
+      "title": "Will the federal funds rate be above 2.50% following the Fed's September meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-22SEP",
+      "market_ticker": "FED-22SEP-T2.25",
+      "title": "Will the federal funds rate be above 2.25% following the Fed's September meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-22SEP",
+      "market_ticker": "FED-22SEP-T2.00",
+      "title": "Will the federal funds rate be above 2.00% following the Fed's September meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-22SEP",
+      "market_ticker": "FED-22SEP-T1.75",
+      "title": "Will the federal funds rate be above 1.75% following the Fed's September meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-22SEP",
+      "market_ticker": "FED-22SEP-T1.5",
+      "title": "Will the **federal funds rate** be above 1.5% following the Fed's September meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-22SEP",
+      "market_ticker": "FED-22SEP-T1.25",
+      "title": "Will the **federal funds rate** be above 1.25% following the Fed's September meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-22SEP",
+      "market_ticker": "FED-22SEP-T1",
+      "title": "Will the **federal funds rate** be above 1.00% following the Fed's September meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-22SEP",
+      "market_ticker": "FED-22SEP-T0.75",
+      "title": "Will the **federal funds rate** be above 0.75% following the Fed's September meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-22SEP",
+      "market_ticker": "FED-22SEP-T0.5",
+      "title": "Will the **federal funds rate** be above 0.5% following the Fed's September meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-22SEP",
+      "market_ticker": "FED-22SEP-T0.25",
+      "title": "Will the **federal funds rate** be above 0.25% following the Fed's September meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23DEC",
+      "market_ticker": "FED-23DEC-T6.50",
+      "title": "Will the upper bound of the federal funds rate be above 6.50% following the Fed's December meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23DEC",
+      "market_ticker": "FED-23DEC-T6.25",
+      "title": "Will the upper bound of the federal funds rate be above 6.25% following the Fed's December meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23DEC",
+      "market_ticker": "FED-23DEC-T6.00",
+      "title": "Will the upper bound of the federal funds rate be above 6.00% following the Fed's December meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23DEC",
+      "market_ticker": "FED-23DEC-T5.75",
+      "title": "Will the upper bound of the federal funds rate be above 5.75% following the Fed's December meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23DEC",
+      "market_ticker": "FED-23DEC-T5.50",
+      "title": "Will the upper bound of the federal funds rate be above 5.50% following the Fed's December meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23DEC",
+      "market_ticker": "FED-23DEC-T5.25",
+      "title": "Will the upper bound of the federal funds rate be above 5.25% following the Fed's December meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23DEC",
+      "market_ticker": "FED-23DEC-T5.00",
+      "title": "Will the upper bound of the federal funds rate be above 5.00% following the Fed's December meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23DEC",
+      "market_ticker": "FED-23DEC-T4.75",
+      "title": "Will the upper bound of the federal funds rate be above 4.75% following the Fed's December meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23DEC",
+      "market_ticker": "FED-23DEC-T4.50",
+      "title": "Will the upper bound of the federal funds rate be above 4.50% following the Fed's December meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23DEC",
+      "market_ticker": "FED-23DEC-T4.25",
+      "title": "Will the upper bound of the federal funds rate be above 4.25% following the Fed's December meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23DEC",
+      "market_ticker": "FED-23DEC-T4.00",
+      "title": "Will the upper bound of the federal funds rate be above 4.00% following the Fed's December meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23DEC",
+      "market_ticker": "FED-23DEC-T3.75",
+      "title": "Will the upper bound of the federal funds rate be above 3.75% following the Fed's December meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23DEC",
+      "market_ticker": "FED-23DEC-T3.50",
+      "title": "Will the upper bound of the federal funds rate be above 3.50% following the Fed's December meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23DEC",
+      "market_ticker": "FED-23DEC-T3.25",
+      "title": "Will the upper bound of the federal funds rate be above 3.25% following the Fed's December meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23DEC",
+      "market_ticker": "FED-23DEC-T3.00",
+      "title": "Will the upper bound of the federal funds rate be above 3.00% following the Fed's December meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23FEB",
+      "market_ticker": "FED-23FEB-T5.25",
+      "title": "Will the upper bound of the federal funds rate be above 5.25% following the Fed's February meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23FEB",
+      "market_ticker": "FED-23FEB-T5.00",
+      "title": "Will the upper bound of the federal funds rate be above 5.00% following the Fed's February meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23FEB",
+      "market_ticker": "FED-23FEB-T4.75",
+      "title": "Will the upper bound of the federal funds rate be above 4.75% following the Fed's February meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23FEB",
+      "market_ticker": "FED-23FEB-T4.50",
+      "title": "Will the upper bound of the federal funds rate be above 4.50% following the Fed's February meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23FEB",
+      "market_ticker": "FED-23FEB-T4.25",
+      "title": "Will the upper bound of the federal funds rate be above 4.25% following the Fed's February meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23FEB",
+      "market_ticker": "FED-23FEB-T4.00",
+      "title": "Will the upper bound of the federal funds rate be above 4.00% following the Fed's February meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23FEB",
+      "market_ticker": "FED-23FEB-T3.75",
+      "title": "Will the upper bound of the federal funds rate be above 3.75% following the Fed's February meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23FEB",
+      "market_ticker": "FED-23FEB-T3.50",
+      "title": "Will the upper bound of the federal funds rate be above 3.50% following the Fed's February meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23FEB",
+      "market_ticker": "FED-23FEB-T3.25",
+      "title": "Will the upper bound of the federal funds rate be above 3.25% following the Fed's February meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23FEB",
+      "market_ticker": "FED-23FEB-T3.00",
+      "title": "Will the upper bound of the federal funds rate be above 3.00% following the Fed's February meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23FEB",
+      "market_ticker": "FED-23FEB-T2.75",
+      "title": "Will the upper bound of the federal funds rate be above 2.75% following the Fed's February meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23FEB",
+      "market_ticker": "FED-23FEB-T2.50",
+      "title": "Will the upper bound of the federal funds rate be above 2.50% following the Fed's February meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23FEB",
+      "market_ticker": "FED-23FEB-T2.25",
+      "title": "Will the upper bound of the federal funds rate be above 2.25% following the Fed's February meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23FEB",
+      "market_ticker": "FED-23FEB-T2.00",
+      "title": "Will the upper bound of the federal funds rate be above 2.00% following the Fed's February meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23FEB",
+      "market_ticker": "FED-23FEB-T1.75",
+      "title": "Will the upper bound of the federal funds rate be above 1.75% following the Fed's February meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23JUL",
+      "market_ticker": "FED-23JUL-T6.50",
+      "title": "Will the upper bound of the federal funds rate be above 6.50% following the Fed's July meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23JUL",
+      "market_ticker": "FED-23JUL-T6.25",
+      "title": "Will the upper bound of the federal funds rate be above 6.25% following the Fed's July meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23JUL",
+      "market_ticker": "FED-23JUL-T6.00",
+      "title": "Will the upper bound of the federal funds rate be above 6.00% following the Fed's July meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23JUL",
+      "market_ticker": "FED-23JUL-T5.75",
+      "title": "Will the upper bound of the federal funds rate be above 5.75% following the Fed's July meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23JUL",
+      "market_ticker": "FED-23JUL-T5.50",
+      "title": "Will the upper bound of the federal funds rate be above 5.50% following the Fed's July meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23JUL",
+      "market_ticker": "FED-23JUL-T5.25",
+      "title": "Will the upper bound of the federal funds rate be above 5.25% following the Fed's July meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23JUL",
+      "market_ticker": "FED-23JUL-T5.00",
+      "title": "Will the upper bound of the federal funds rate be above 5.00% following the Fed's July meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23JUL",
+      "market_ticker": "FED-23JUL-T4.75",
+      "title": "Will the upper bound of the federal funds rate be above 4.75% following the Fed's July meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23JUL",
+      "market_ticker": "FED-23JUL-T4.50",
+      "title": "Will the upper bound of the federal funds rate be above 4.50% following the Fed's July meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23JUL",
+      "market_ticker": "FED-23JUL-T4.25",
+      "title": "Will the upper bound of the federal funds rate be above 4.25% following the Fed's July meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23JUL",
+      "market_ticker": "FED-23JUL-T4.00",
+      "title": "Will the upper bound of the federal funds rate be above 4.00% following the Fed's July meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23JUL",
+      "market_ticker": "FED-23JUL-T3.75",
+      "title": "Will the upper bound of the federal funds rate be above 3.75% following the Fed's July meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23JUL",
+      "market_ticker": "FED-23JUL-T3.50",
+      "title": "Will the upper bound of the federal funds rate be above 3.50% following the Fed's July meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23JUL",
+      "market_ticker": "FED-23JUL-T3.25",
+      "title": "Will the upper bound of the federal funds rate be above 3.25% following the Fed's July meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23JUL",
+      "market_ticker": "FED-23JUL-T3.00",
+      "title": "Will the upper bound of the federal funds rate be above 3.00% following the Fed's July meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23JUN",
+      "market_ticker": "FED-23JUN-T6.50",
+      "title": "Will the upper bound of the federal funds rate be above 6.50% following the Fed's June meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23JUN",
+      "market_ticker": "FED-23JUN-T6.25",
+      "title": "Will the upper bound of the federal funds rate be above 6.25% following the Fed's June meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23JUN",
+      "market_ticker": "FED-23JUN-T6.00",
+      "title": "Will the upper bound of the federal funds rate be above 6.00% following the Fed's June meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23JUN",
+      "market_ticker": "FED-23JUN-T5.75",
+      "title": "Will the upper bound of the federal funds rate be above 5.75% following the Fed's June meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23JUN",
+      "market_ticker": "FED-23JUN-T5.50",
+      "title": "Will the upper bound of the federal funds rate be above 5.50% following the Fed's June meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23JUN",
+      "market_ticker": "FED-23JUN-T5.25",
+      "title": "Will the upper bound of the federal funds rate be above 5.25% following the Fed's June meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23JUN",
+      "market_ticker": "FED-23JUN-T5.00",
+      "title": "Will the upper bound of the federal funds rate be above 5.00% following the Fed's June meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23JUN",
+      "market_ticker": "FED-23JUN-T4.75",
+      "title": "Will the upper bound of the federal funds rate be above 4.75% following the Fed's June meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23JUN",
+      "market_ticker": "FED-23JUN-T4.50",
+      "title": "Will the upper bound of the federal funds rate be above 4.50% following the Fed's June meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23JUN",
+      "market_ticker": "FED-23JUN-T4.25",
+      "title": "Will the upper bound of the federal funds rate be above 4.25% following the Fed's June meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23JUN",
+      "market_ticker": "FED-23JUN-T4.00",
+      "title": "Will the upper bound of the federal funds rate be above 4.00% following the Fed's June meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23JUN",
+      "market_ticker": "FED-23JUN-T3.75",
+      "title": "Will the upper bound of the federal funds rate be above 3.75% following the Fed's June meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23JUN",
+      "market_ticker": "FED-23JUN-T3.50",
+      "title": "Will the upper bound of the federal funds rate be above 3.50% following the Fed's June meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23JUN",
+      "market_ticker": "FED-23JUN-T3.25",
+      "title": "Will the upper bound of the federal funds rate be above 3.25% following the Fed's June meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23JUN",
+      "market_ticker": "FED-23JUN-T3.00",
+      "title": "Will the upper bound of the federal funds rate be above 3.00% following the Fed's June meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23MAR",
+      "market_ticker": "FED-23MAR-T6.50",
+      "title": "Will the upper bound of the federal funds rate be above 6.50% following the Fed's March meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23MAR",
+      "market_ticker": "FED-23MAR-T6.25",
+      "title": "Will the upper bound of the federal funds rate be above 6.25% following the Fed's March meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23MAR",
+      "market_ticker": "FED-23MAR-T6.00",
+      "title": "Will the upper bound of the federal funds rate be above 6.00% following the Fed's March meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23MAR",
+      "market_ticker": "FED-23MAR-T5.75",
+      "title": "Will the upper bound of the federal funds rate be above 5.75% following the Fed's March meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23MAR",
+      "market_ticker": "FED-23MAR-T5.50",
+      "title": "Will the upper bound of the federal funds rate be above 5.50% following the Fed's March meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23MAR",
+      "market_ticker": "FED-23MAR-T5.25",
+      "title": "Will the upper bound of the federal funds rate be above 5.25% following the Fed's March meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23MAR",
+      "market_ticker": "FED-23MAR-T5.00",
+      "title": "Will the upper bound of the federal funds rate be above 5.00% following the Fed's March meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23MAR",
+      "market_ticker": "FED-23MAR-T4.75",
+      "title": "Will the upper bound of the federal funds rate be above 4.75% following the Fed's March meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23MAR",
+      "market_ticker": "FED-23MAR-T4.50",
+      "title": "Will the upper bound of the federal funds rate be above 4.50% following the Fed's March meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23MAR",
+      "market_ticker": "FED-23MAR-T4.25",
+      "title": "Will the upper bound of the federal funds rate be above 4.25% following the Fed's March meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23MAR",
+      "market_ticker": "FED-23MAR-T4.00",
+      "title": "Will the upper bound of the federal funds rate be above 4.00% following the Fed's March meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23MAR",
+      "market_ticker": "FED-23MAR-T3.75",
+      "title": "Will the upper bound of the federal funds rate be above 3.75% following the Fed's March meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23MAR",
+      "market_ticker": "FED-23MAR-T3.50",
+      "title": "Will the upper bound of the federal funds rate be above 3.50% following the Fed's March meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23MAR",
+      "market_ticker": "FED-23MAR-T3.25",
+      "title": "Will the upper bound of the federal funds rate be above 3.25% following the Fed's March meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23MAR",
+      "market_ticker": "FED-23MAR-T3.00",
+      "title": "Will the upper bound of the federal funds rate be above 3.00% following the Fed's March meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23MAY",
+      "market_ticker": "FED-23MAY-T6.50",
+      "title": "Will the upper bound of the federal funds rate be above 6.50% following the Fed's May meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23MAY",
+      "market_ticker": "FED-23MAY-T6.25",
+      "title": "Will the upper bound of the federal funds rate be above 6.25% following the Fed's May meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23MAY",
+      "market_ticker": "FED-23MAY-T6.00",
+      "title": "Will the upper bound of the federal funds rate be above 6.00% following the Fed's May meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23MAY",
+      "market_ticker": "FED-23MAY-T5.75",
+      "title": "Will the upper bound of the federal funds rate be above 5.75% following the Fed's May meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23MAY",
+      "market_ticker": "FED-23MAY-T5.50",
+      "title": "Will the upper bound of the federal funds rate be above 5.50% following the Fed's May meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23MAY",
+      "market_ticker": "FED-23MAY-T5.25",
+      "title": "Will the upper bound of the federal funds rate be above 5.25% following the Fed's May meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23MAY",
+      "market_ticker": "FED-23MAY-T5.00",
+      "title": "Will the upper bound of the federal funds rate be above 5.00% following the Fed's May meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23MAY",
+      "market_ticker": "FED-23MAY-T4.75",
+      "title": "Will the upper bound of the federal funds rate be above 4.75% following the Fed's May meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23MAY",
+      "market_ticker": "FED-23MAY-T4.50",
+      "title": "Will the upper bound of the federal funds rate be above 4.50% following the Fed's May meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23MAY",
+      "market_ticker": "FED-23MAY-T4.25",
+      "title": "Will the upper bound of the federal funds rate be above 4.25% following the Fed's May meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23MAY",
+      "market_ticker": "FED-23MAY-T4.00",
+      "title": "Will the upper bound of the federal funds rate be above 4.00% following the Fed's May meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23MAY",
+      "market_ticker": "FED-23MAY-T3.75",
+      "title": "Will the upper bound of the federal funds rate be above 3.75% following the Fed's May meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23MAY",
+      "market_ticker": "FED-23MAY-T3.50",
+      "title": "Will the upper bound of the federal funds rate be above 3.50% following the Fed's May meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23MAY",
+      "market_ticker": "FED-23MAY-T3.25",
+      "title": "Will the upper bound of the federal funds rate be above 3.25% following the Fed's May meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23MAY",
+      "market_ticker": "FED-23MAY-T3.00",
+      "title": "Will the upper bound of the federal funds rate be above 3.00% following the Fed's May meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23NOV",
+      "market_ticker": "FED-23NOV-T6.50",
+      "title": "Will the upper bound of the federal funds rate be above 6.50% following the Fed's November meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23NOV",
+      "market_ticker": "FED-23NOV-T6.25",
+      "title": "Will the upper bound of the federal funds rate be above 6.25% following the Fed's November meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23NOV",
+      "market_ticker": "FED-23NOV-T6.00",
+      "title": "Will the upper bound of the federal funds rate be above 6.00% following the Fed's November meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23NOV",
+      "market_ticker": "FED-23NOV-T5.75",
+      "title": "Will the upper bound of the federal funds rate be above 5.75% following the Fed's November meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23NOV",
+      "market_ticker": "FED-23NOV-T5.50",
+      "title": "Will the upper bound of the federal funds rate be above 5.50% following the Fed's November meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23NOV",
+      "market_ticker": "FED-23NOV-T5.25",
+      "title": "Will the upper bound of the federal funds rate be above 5.25% following the Fed's November meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23NOV",
+      "market_ticker": "FED-23NOV-T5.00",
+      "title": "Will the upper bound of the federal funds rate be above 5.00% following the Fed's November meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23NOV",
+      "market_ticker": "FED-23NOV-T4.75",
+      "title": "Will the upper bound of the federal funds rate be above 4.75% following the Fed's November meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23NOV",
+      "market_ticker": "FED-23NOV-T4.50",
+      "title": "Will the upper bound of the federal funds rate be above 4.50% following the Fed's November meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23NOV",
+      "market_ticker": "FED-23NOV-T4.25",
+      "title": "Will the upper bound of the federal funds rate be above 4.25% following the Fed's November meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23NOV",
+      "market_ticker": "FED-23NOV-T4.00",
+      "title": "Will the upper bound of the federal funds rate be above 4.00% following the Fed's November meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23NOV",
+      "market_ticker": "FED-23NOV-T3.75",
+      "title": "Will the upper bound of the federal funds rate be above 3.75% following the Fed's November meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23NOV",
+      "market_ticker": "FED-23NOV-T3.50",
+      "title": "Will the upper bound of the federal funds rate be above 3.50% following the Fed's November meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23NOV",
+      "market_ticker": "FED-23NOV-T3.25",
+      "title": "Will the upper bound of the federal funds rate be above 3.25% following the Fed's November meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23NOV",
+      "market_ticker": "FED-23NOV-T3.00",
+      "title": "Will the upper bound of the federal funds rate be above 3.00% following the Fed's November meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23SEP",
+      "market_ticker": "FED-23SEP-T6.50",
+      "title": "Will the upper bound of the federal funds rate be above 6.50% following the Fed's September meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23SEP",
+      "market_ticker": "FED-23SEP-T6.25",
+      "title": "Will the upper bound of the federal funds rate be above 6.25% following the Fed's September meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23SEP",
+      "market_ticker": "FED-23SEP-T6.00",
+      "title": "Will the upper bound of the federal funds rate be above 6.00% following the Fed's September meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23SEP",
+      "market_ticker": "FED-23SEP-T5.75",
+      "title": "Will the upper bound of the federal funds rate be above 5.75% following the Fed's September meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23SEP",
+      "market_ticker": "FED-23SEP-T5.50",
+      "title": "Will the upper bound of the federal funds rate be above 5.50% following the Fed's September meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23SEP",
+      "market_ticker": "FED-23SEP-T5.25",
+      "title": "Will the upper bound of the federal funds rate be above 5.25% following the Fed's September meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23SEP",
+      "market_ticker": "FED-23SEP-T5.00",
+      "title": "Will the upper bound of the federal funds rate be above 5.00% following the Fed's September meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23SEP",
+      "market_ticker": "FED-23SEP-T4.75",
+      "title": "Will the upper bound of the federal funds rate be above 4.75% following the Fed's September meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23SEP",
+      "market_ticker": "FED-23SEP-T4.50",
+      "title": "Will the upper bound of the federal funds rate be above 4.50% following the Fed's September meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23SEP",
+      "market_ticker": "FED-23SEP-T4.25",
+      "title": "Will the upper bound of the federal funds rate be above 4.25% following the Fed's September meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23SEP",
+      "market_ticker": "FED-23SEP-T4.00",
+      "title": "Will the upper bound of the federal funds rate be above 4.00% following the Fed's September meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23SEP",
+      "market_ticker": "FED-23SEP-T3.75",
+      "title": "Will the upper bound of the federal funds rate be above 3.75% following the Fed's September meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23SEP",
+      "market_ticker": "FED-23SEP-T3.50",
+      "title": "Will the upper bound of the federal funds rate be above 3.50% following the Fed's September meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23SEP",
+      "market_ticker": "FED-23SEP-T3.25",
+      "title": "Will the upper bound of the federal funds rate be above 3.25% following the Fed's September meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-23SEP",
+      "market_ticker": "FED-23SEP-T3.00",
+      "title": "Will the upper bound of the federal funds rate be above 3.00% following the Fed's September meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-24DEC",
+      "market_ticker": "FED-24DEC-T5.50",
+      "title": "Will the upper bound of the federal funds rate be above 5.50% following the Fed's December meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-24DEC",
+      "market_ticker": "FED-24DEC-T5.25",
+      "title": "Will the upper bound of the federal funds rate be above 5.25% following the Fed's December meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-24DEC",
+      "market_ticker": "FED-24DEC-T5.00",
+      "title": "Will the upper bound of the federal funds rate be above 5.00% following the Fed's December meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-24DEC",
+      "market_ticker": "FED-24DEC-T4.75",
+      "title": "Will the upper bound of the federal funds rate be above 4.75% following the Fed's December meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-24DEC",
+      "market_ticker": "FED-24DEC-T4.50",
+      "title": "Will the upper bound of the federal funds rate be above 4.50% following the Fed's December meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-24DEC",
+      "market_ticker": "FED-24DEC-T4.25",
+      "title": "Will the upper bound of the federal funds rate be above 4.25% following the Fed's December meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-24DEC",
+      "market_ticker": "FED-24DEC-T4.00",
+      "title": "Will the upper bound of the federal funds rate be above 4.00% following the Fed's December meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-24DEC",
+      "market_ticker": "FED-24DEC-T3.75",
+      "title": "Will the upper bound of the federal funds rate be above 3.75% following the Fed's December meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-24DEC",
+      "market_ticker": "FED-24DEC-T3.50",
+      "title": "Will the upper bound of the federal funds rate be above 3.50% following the Fed's December meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-24DEC",
+      "market_ticker": "FED-24DEC-T3.25",
+      "title": "Will the upper bound of the federal funds rate be above 3.25% following the Fed's December meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-24JAN",
+      "market_ticker": "FED-24JAN-T6.50",
+      "title": "Will the upper bound of the federal funds rate be above 6.50% following the Fed's January meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-24JAN",
+      "market_ticker": "FED-24JAN-T6.25",
+      "title": "Will the upper bound of the federal funds rate be above 6.25% following the Fed's January meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-24JAN",
+      "market_ticker": "FED-24JAN-T6.00",
+      "title": "Will the upper bound of the federal funds rate be above 6.00% following the Fed's January meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-24JAN",
+      "market_ticker": "FED-24JAN-T5.75",
+      "title": "Will the upper bound of the federal funds rate be above 5.75% following the Fed's January meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-24JAN",
+      "market_ticker": "FED-24JAN-T5.50",
+      "title": "Will the upper bound of the federal funds rate be above 5.50% following the Fed's January meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-24JAN",
+      "market_ticker": "FED-24JAN-T5.25",
+      "title": "Will the upper bound of the federal funds rate be above 5.25% following the Fed's January meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-24JAN",
+      "market_ticker": "FED-24JAN-T5.00",
+      "title": "Will the upper bound of the federal funds rate be above 5.00% following the Fed's January meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-24JUL",
+      "market_ticker": "FED-24JUL-T5.50",
+      "title": "Will the upper bound of the federal funds rate be above 5.50% following the Fed's July meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-24JUL",
+      "market_ticker": "FED-24JUL-T5.25",
+      "title": "Will the upper bound of the federal funds rate be above 5.25% following the Fed's July meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-24JUL",
+      "market_ticker": "FED-24JUL-T5.00",
+      "title": "Will the upper bound of the federal funds rate be above 5.00% following the Fed's July meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-24JUL",
+      "market_ticker": "FED-24JUL-T4.75",
+      "title": "Will the upper bound of the federal funds rate be above 4.75% following the Fed's July meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-24JUL",
+      "market_ticker": "FED-24JUL-T4.50",
+      "title": "Will the upper bound of the federal funds rate be above 4.50% following the Fed's July meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-24JUL",
+      "market_ticker": "FED-24JUL-T4.25",
+      "title": "Will the upper bound of the federal funds rate be above 4.25% following the Fed's July meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-24JUL",
+      "market_ticker": "FED-24JUL-T4.00",
+      "title": "Will the upper bound of the federal funds rate be above 4.00% following the Fed's July meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-24MAR",
+      "market_ticker": "FED-24MAR-T6.00",
+      "title": "Will the upper bound of the federal funds rate be above 6.00% following the Fed's March meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-24MAR",
+      "market_ticker": "FED-24MAR-T5.75",
+      "title": "Will the upper bound of the federal funds rate be above 5.75% following the Fed's March meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-24MAR",
+      "market_ticker": "FED-24MAR-T5.50",
+      "title": "Will the upper bound of the federal funds rate be above 5.50% following the Fed's March meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-24MAR",
+      "market_ticker": "FED-24MAR-T5.25",
+      "title": "Will the upper bound of the federal funds rate be above 5.25% following the Fed's March meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-24MAR",
+      "market_ticker": "FED-24MAR-T5.00",
+      "title": "Will the upper bound of the federal funds rate be above 5.00% following the Fed's March meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-24MAR",
+      "market_ticker": "FED-24MAR-T4.75",
+      "title": "Will the upper bound of the federal funds rate be above 4.75% following the Fed's March meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-24MAR",
+      "market_ticker": "FED-24MAR-T4.50",
+      "title": "Will the upper bound of the federal funds rate be above 4.50% following the Fed's March meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-24MAY",
+      "market_ticker": "FED-24MAY-T5.75",
+      "title": "Will the upper bound of the federal funds rate be above 5.75% following the Fed's May meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-24MAY",
+      "market_ticker": "FED-24MAY-T5.50",
+      "title": "Will the upper bound of the federal funds rate be above 5.50% following the Fed's May meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-24MAY",
+      "market_ticker": "FED-24MAY-T5.25",
+      "title": "Will the upper bound of the federal funds rate be above 5.25% following the Fed's May meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-24MAY",
+      "market_ticker": "FED-24MAY-T5.00",
+      "title": "Will the upper bound of the federal funds rate be above 5.00% following the Fed's May meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-24MAY",
+      "market_ticker": "FED-24MAY-T4.75",
+      "title": "Will the upper bound of the federal funds rate be above 4.75% following the Fed's May meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-24MAY",
+      "market_ticker": "FED-24MAY-T4.50",
+      "title": "Will the upper bound of the federal funds rate be above 4.50% following the Fed's May meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-24MAY",
+      "market_ticker": "FED-24MAY-T4.25",
+      "title": "Will the upper bound of the federal funds rate be above 4.25% following the Fed's May meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-24NOV",
+      "market_ticker": "FED-24NOV-T5.50",
+      "title": "Will the upper bound of the federal funds rate be above 5.50% following the Fed's November meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-24NOV",
+      "market_ticker": "FED-24NOV-T5.25",
+      "title": "Will the upper bound of the federal funds rate be above 5.25% following the Fed's November meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-24NOV",
+      "market_ticker": "FED-24NOV-T5.00",
+      "title": "Will the upper bound of the federal funds rate be above 5.00% following the Fed's November meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-24NOV",
+      "market_ticker": "FED-24NOV-T4.75",
+      "title": "Will the upper bound of the federal funds rate be above 4.75% following the Fed's November meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-24NOV",
+      "market_ticker": "FED-24NOV-T4.50",
+      "title": "Will the upper bound of the federal funds rate be above 4.50% following the Fed's November meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-24NOV",
+      "market_ticker": "FED-24NOV-T4.25",
+      "title": "Will the upper bound of the federal funds rate be above 4.25% following the Fed's November meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-24NOV",
+      "market_ticker": "FED-24NOV-T4.00",
+      "title": "Will the upper bound of the federal funds rate be above 4.00% following the Fed's November meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-24NOV",
+      "market_ticker": "FED-24NOV-T3.75",
+      "title": "Will the upper bound of the federal funds rate be above 3.75% following the Fed's November meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-24NOV",
+      "market_ticker": "FED-24NOV-T3.50",
+      "title": "Will the upper bound of the federal funds rate be above 3.50% following the Fed's November meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-24SEP",
+      "market_ticker": "FED-24SEP-T5.50",
+      "title": "Will the upper bound of the federal funds rate be above 5.50% following the Fed's September meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-24SEP",
+      "market_ticker": "FED-24SEP-T5.25",
+      "title": "Will the upper bound of the federal funds rate be above 5.25% following the Fed's September meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-24SEP",
+      "market_ticker": "FED-24SEP-T5.00",
+      "title": "Will the upper bound of the federal funds rate be above 5.00% following the Fed's September meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-24SEP",
+      "market_ticker": "FED-24SEP-T4.75",
+      "title": "Will the upper bound of the federal funds rate be above 4.75% following the Fed's September meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-24SEP",
+      "market_ticker": "FED-24SEP-T4.50",
+      "title": "Will the upper bound of the federal funds rate be above 4.50% following the Fed's September meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-24SEP",
+      "market_ticker": "FED-24SEP-T4.25",
+      "title": "Will the upper bound of the federal funds rate be above 4.25% following the Fed's September meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-24SEP",
+      "market_ticker": "FED-24SEP-T4.00",
+      "title": "Will the upper bound of the federal funds rate be above 4.00% following the Fed's September meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-24SEP",
+      "market_ticker": "FED-24SEP-T3.75",
+      "title": "Will the upper bound of the federal funds rate be above 3.75% following the Fed's September meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-25DEC",
+      "market_ticker": "FED-25DEC-T5.25",
+      "title": "Will the upper bound of the federal funds rate be above 5.25% following the Fed's Dec 10, 2025 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-25DEC",
+      "market_ticker": "FED-25DEC-T5.00",
+      "title": "Will the upper bound of the federal funds rate be above 5.00% following the Fed's Dec 10, 2025 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-25DEC",
+      "market_ticker": "FED-25DEC-T4.75",
+      "title": "Will the upper bound of the federal funds rate be above 4.75% following the Fed's Dec 10, 2025 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-25DEC",
+      "market_ticker": "FED-25DEC-T4.50",
+      "title": "Will the upper bound of the federal funds rate be above 4.50% following the Fed's Dec 10, 2025 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-25DEC",
+      "market_ticker": "FED-25DEC-T4.25",
+      "title": "Will the upper bound of the federal funds rate be above 4.25% following the Fed's Dec 10, 2025 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-25DEC",
+      "market_ticker": "FED-25DEC-T4.00",
+      "title": "Will the upper bound of the federal funds rate be above 4.00% following the Fed's Dec 10, 2025 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-25DEC",
+      "market_ticker": "FED-25DEC-T3.75",
+      "title": "Will the upper bound of the federal funds rate be above 3.75% following the Fed's Dec 10, 2025 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-25DEC",
+      "market_ticker": "FED-25DEC-T3.50",
+      "title": "Will the upper bound of the federal funds rate be above 3.50% following the Fed's Dec 10, 2025 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-25DEC",
+      "market_ticker": "FED-25DEC-T3.25",
+      "title": "Will the upper bound of the federal funds rate be above 3.25% following the Fed's Dec 10, 2025 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-25DEC",
+      "market_ticker": "FED-25DEC-T3.00",
+      "title": "Will the upper bound of the federal funds rate be above 3.00% following the Fed's Dec 10, 2025 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-25DEC",
+      "market_ticker": "FED-25DEC-T2.75",
+      "title": "Will the upper bound of the federal funds rate be above 2.75% following the Fed's Dec 10, 2025 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-25JAN",
+      "market_ticker": "FED-25JAN-T5.50",
+      "title": "Will the upper bound of the federal funds rate be above 5.50% following the Fed's January meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-25JAN",
+      "market_ticker": "FED-25JAN-T5.25",
+      "title": "Will the upper bound of the federal funds rate be above 5.25% following the Fed's January meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-25JAN",
+      "market_ticker": "FED-25JAN-T5.00",
+      "title": "Will the upper bound of the federal funds rate be above 5.00% following the Fed's January meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-25JAN",
+      "market_ticker": "FED-25JAN-T4.75",
+      "title": "Will the upper bound of the federal funds rate be above 4.75% following the Fed's January meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-25JAN",
+      "market_ticker": "FED-25JAN-T4.50",
+      "title": "Will the upper bound of the federal funds rate be above 4.50% following the Fed's January meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-25JAN",
+      "market_ticker": "FED-25JAN-T4.25",
+      "title": "Will the upper bound of the federal funds rate be above 4.25% following the Fed's January meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-25JAN",
+      "market_ticker": "FED-25JAN-T4.00",
+      "title": "Will the upper bound of the federal funds rate be above 4.00% following the Fed's January meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-25JAN",
+      "market_ticker": "FED-25JAN-T3.75",
+      "title": "Will the upper bound of the federal funds rate be above 3.75% following the Fed's January meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-25JAN",
+      "market_ticker": "FED-25JAN-T3.50",
+      "title": "Will the upper bound of the federal funds rate be above 3.50% following the Fed's January meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-25JAN",
+      "market_ticker": "FED-25JAN-T3.25",
+      "title": "Will the upper bound of the federal funds rate be above 3.25% following the Fed's January meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-25JUL",
+      "market_ticker": "FED-25JUL-T5.25",
+      "title": "Will the upper bound of the federal funds rate be above 5.25% following the Fed's Jul 30, 2025 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-25JUL",
+      "market_ticker": "FED-25JUL-T5.00",
+      "title": "Will the upper bound of the federal funds rate be above 5.00% following the Fed's Jul 30, 2025 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-25JUL",
+      "market_ticker": "FED-25JUL-T4.75",
+      "title": "Will the upper bound of the federal funds rate be above 4.75% following the Fed's Jul 30, 2025 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-25JUL",
+      "market_ticker": "FED-25JUL-T4.50",
+      "title": "Will the upper bound of the federal funds rate be above 4.50% following the Fed's Jul 30, 2025 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-25JUL",
+      "market_ticker": "FED-25JUL-T4.25",
+      "title": "Will the upper bound of the federal funds rate be above 4.25% following the Fed's Jul 30, 2025 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-25JUL",
+      "market_ticker": "FED-25JUL-T4.00",
+      "title": "Will the upper bound of the federal funds rate be above 4.00% following the Fed's Jul 30, 2025 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-25JUL",
+      "market_ticker": "FED-25JUL-T3.75",
+      "title": "Will the upper bound of the federal funds rate be above 3.75% following the Fed's Jul 30, 2025 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-25JUL",
+      "market_ticker": "FED-25JUL-T3.50",
+      "title": "Will the upper bound of the federal funds rate be above 3.50% following the Fed's Jul 30, 2025 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-25JUL",
+      "market_ticker": "FED-25JUL-T3.25",
+      "title": "Will the upper bound of the federal funds rate be above 3.25% following the Fed's Jul 30, 2025 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-25JUL",
+      "market_ticker": "FED-25JUL-T3.00",
+      "title": "Will the upper bound of the federal funds rate be above 3.00% following the Fed's Jul 30, 2025 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-25JUL",
+      "market_ticker": "FED-25JUL-T2.75",
+      "title": "Will the upper bound of the federal funds rate be above 2.75% following the Fed's Jul 30, 2025 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-25MAR",
+      "market_ticker": "FED-25MAR-T5.25",
+      "title": "Will the upper bound of the federal funds rate be above 5.25% following the Fed's Mar 19, 2025 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-25MAR",
+      "market_ticker": "FED-25MAR-T5.00",
+      "title": "Will the upper bound of the federal funds rate be above 5.00% following the Fed's Mar 19, 2025 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-25MAR",
+      "market_ticker": "FED-25MAR-T4.75",
+      "title": "Will the upper bound of the federal funds rate be above 4.75% following the Fed's Mar 19, 2025 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-25MAR",
+      "market_ticker": "FED-25MAR-T4.50",
+      "title": "Will the upper bound of the federal funds rate be above 4.50% following the Fed's Mar 19, 2025 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-25MAR",
+      "market_ticker": "FED-25MAR-T4.25",
+      "title": "Will the upper bound of the federal funds rate be above 4.25% following the Fed's Mar 19, 2025 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-25MAR",
+      "market_ticker": "FED-25MAR-T4.00",
+      "title": "Will the upper bound of the federal funds rate be above 4.00% following the Fed's Mar 19, 2025 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-25MAR",
+      "market_ticker": "FED-25MAR-T3.75",
+      "title": "Will the upper bound of the federal funds rate be above 3.75% following the Fed's Mar 19, 2025 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-25MAR",
+      "market_ticker": "FED-25MAR-T3.50",
+      "title": "Will the upper bound of the federal funds rate be above 3.50% following the Fed's Mar 19, 2025 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-25MAR",
+      "market_ticker": "FED-25MAR-T3.25",
+      "title": "Will the upper bound of the federal funds rate be above 3.25% following the Fed's Mar 19, 2025 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-25MAR",
+      "market_ticker": "FED-25MAR-T3.00",
+      "title": "Will the upper bound of the federal funds rate be above 3.00% following the Fed's Mar 19, 2025 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-25MAR",
+      "market_ticker": "FED-25MAR-T2.75",
+      "title": "Will the upper bound of the federal funds rate be above 2.75% following the Fed's Mar 19, 2025 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-25MAY",
+      "market_ticker": "FED-25MAY-T5.25",
+      "title": "Will the upper bound of the federal funds rate be above 5.25% following the Fed's May 7, 2025 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-25MAY",
+      "market_ticker": "FED-25MAY-T5.00",
+      "title": "Will the upper bound of the federal funds rate be above 5.00% following the Fed's May 7, 2025 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-25MAY",
+      "market_ticker": "FED-25MAY-T4.75",
+      "title": "Will the upper bound of the federal funds rate be above 4.75% following the Fed's May 7, 2025 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-25MAY",
+      "market_ticker": "FED-25MAY-T4.50",
+      "title": "Will the upper bound of the federal funds rate be above 4.50% following the Fed's May 7, 2025 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-25MAY",
+      "market_ticker": "FED-25MAY-T4.25",
+      "title": "Will the upper bound of the federal funds rate be above 4.25% following the Fed's May 7, 2025 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-25MAY",
+      "market_ticker": "FED-25MAY-T4.00",
+      "title": "Will the upper bound of the federal funds rate be above 4.00% following the Fed's May 7, 2025 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-25MAY",
+      "market_ticker": "FED-25MAY-T3.75",
+      "title": "Will the upper bound of the federal funds rate be above 3.75% following the Fed's May 7, 2025 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-25MAY",
+      "market_ticker": "FED-25MAY-T3.50",
+      "title": "Will the upper bound of the federal funds rate be above 3.50% following the Fed's May 7, 2025 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-25MAY",
+      "market_ticker": "FED-25MAY-T3.25",
+      "title": "Will the upper bound of the federal funds rate be above 3.25% following the Fed's May 7, 2025 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-25MAY",
+      "market_ticker": "FED-25MAY-T3.00",
+      "title": "Will the upper bound of the federal funds rate be above 3.00% following the Fed's May 7, 2025 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-25MAY",
+      "market_ticker": "FED-25MAY-T2.75",
+      "title": "Will the upper bound of the federal funds rate be above 2.75% following the Fed's May 7, 2025 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-25OCT",
+      "market_ticker": "FED-25OCT-T5.25",
+      "title": "Will the upper bound of the federal funds rate be above 5.25% following the Fed's Oct 29, 2025 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-25OCT",
+      "market_ticker": "FED-25OCT-T5.00",
+      "title": "Will the upper bound of the federal funds rate be above 5.00% following the Fed's Oct 29, 2025 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-25OCT",
+      "market_ticker": "FED-25OCT-T4.75",
+      "title": "Will the upper bound of the federal funds rate be above 4.75% following the Fed's Oct 29, 2025 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-25OCT",
+      "market_ticker": "FED-25OCT-T4.50",
+      "title": "Will the upper bound of the federal funds rate be above 4.50% following the Fed's Oct 29, 2025 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-25OCT",
+      "market_ticker": "FED-25OCT-T4.25",
+      "title": "Will the upper bound of the federal funds rate be above 4.25% following the Fed's Oct 29, 2025 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-25OCT",
+      "market_ticker": "FED-25OCT-T4.00",
+      "title": "Will the upper bound of the federal funds rate be above 4.00% following the Fed's Oct 29, 2025 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-25OCT",
+      "market_ticker": "FED-25OCT-T3.75",
+      "title": "Will the upper bound of the federal funds rate be above 3.75% following the Fed's Oct 29, 2025 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-25OCT",
+      "market_ticker": "FED-25OCT-T3.50",
+      "title": "Will the upper bound of the federal funds rate be above 3.50% following the Fed's Oct 29, 2025 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-25OCT",
+      "market_ticker": "FED-25OCT-T3.25",
+      "title": "Will the upper bound of the federal funds rate be above 3.25% following the Fed's Oct 29, 2025 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-25OCT",
+      "market_ticker": "FED-25OCT-T3.00",
+      "title": "Will the upper bound of the federal funds rate be above 3.00% following the Fed's Oct 29, 2025 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-25OCT",
+      "market_ticker": "FED-25OCT-T2.75",
+      "title": "Will the upper bound of the federal funds rate be above 2.75% following the Fed's Oct 29, 2025 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-25SEP",
+      "market_ticker": "FED-25SEP-T5.25",
+      "title": "Will the upper bound of the federal funds rate be above 5.25% following the Fed's Sep 17, 2025 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-25SEP",
+      "market_ticker": "FED-25SEP-T5.00",
+      "title": "Will the upper bound of the federal funds rate be above 5.00% following the Fed's Sep 17, 2025 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-25SEP",
+      "market_ticker": "FED-25SEP-T4.75",
+      "title": "Will the upper bound of the federal funds rate be above 4.75% following the Fed's Sep 17, 2025 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-25SEP",
+      "market_ticker": "FED-25SEP-T4.50",
+      "title": "Will the upper bound of the federal funds rate be above 4.50% following the Fed's Sep 17, 2025 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-25SEP",
+      "market_ticker": "FED-25SEP-T4.25",
+      "title": "Will the upper bound of the federal funds rate be above 4.25% following the Fed's Sep 17, 2025 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-25SEP",
+      "market_ticker": "FED-25SEP-T4.00",
+      "title": "Will the upper bound of the federal funds rate be above 4.00% following the Fed's Sep 17, 2025 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-25SEP",
+      "market_ticker": "FED-25SEP-T3.75",
+      "title": "Will the upper bound of the federal funds rate be above 3.75% following the Fed's Sep 17, 2025 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-25SEP",
+      "market_ticker": "FED-25SEP-T3.50",
+      "title": "Will the upper bound of the federal funds rate be above 3.50% following the Fed's Sep 17, 2025 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-25SEP",
+      "market_ticker": "FED-25SEP-T3.25",
+      "title": "Will the upper bound of the federal funds rate be above 3.25% following the Fed's Sep 17, 2025 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-25SEP",
+      "market_ticker": "FED-25SEP-T3.00",
+      "title": "Will the upper bound of the federal funds rate be above 3.00% following the Fed's Sep 17, 2025 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "FED-25SEP",
+      "market_ticker": "FED-25SEP-T2.75",
+      "title": "Will the upper bound of the federal funds rate be above 2.75% following the Fed's Sep 17, 2025 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXFED-26APR",
+      "market_ticker": "KXFED-26APR-T2.75",
+      "title": "Will the upper bound of the federal funds rate be above 2.75% following the Fed's Apr 29, 2026 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-26APR",
+      "market_ticker": "KXFED-26APR-T3.00",
+      "title": "Will the upper bound of the federal funds rate be above 3.00% following the Fed's Apr 29, 2026 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-26APR",
+      "market_ticker": "KXFED-26APR-T3.25",
+      "title": "Will the upper bound of the federal funds rate be above 3.25% following the Fed's Apr 29, 2026 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-26APR",
+      "market_ticker": "KXFED-26APR-T3.50",
+      "title": "Will the upper bound of the federal funds rate be above 3.50% following the Fed's Apr 29, 2026 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-26APR",
+      "market_ticker": "KXFED-26APR-T3.75",
+      "title": "Will the upper bound of the federal funds rate be above 3.75% following the Fed's Apr 29, 2026 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-26APR",
+      "market_ticker": "KXFED-26APR-T4.00",
+      "title": "Will the upper bound of the federal funds rate be above 4.00% following the Fed's Apr 29, 2026 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-26APR",
+      "market_ticker": "KXFED-26APR-T4.25",
+      "title": "Will the upper bound of the federal funds rate be above 4.25% following the Fed's Apr 29, 2026 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-26APR",
+      "market_ticker": "KXFED-26APR-T4.50",
+      "title": "Will the upper bound of the federal funds rate be above 4.50% following the Fed's Apr 29, 2026 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-26APR",
+      "market_ticker": "KXFED-26APR-T4.75",
+      "title": "Will the upper bound of the federal funds rate be above 4.75% following the Fed's Apr 29, 2026 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-26APR",
+      "market_ticker": "KXFED-26APR-T5.00",
+      "title": "Will the upper bound of the federal funds rate be above 5.00% following the Fed's Apr 29, 2026 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-26APR",
+      "market_ticker": "KXFED-26APR-T5.25",
+      "title": "Will the upper bound of the federal funds rate be above 5.25% following the Fed's Apr 29, 2026 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-26DEC",
+      "market_ticker": "KXFED-26DEC-T2.75",
+      "title": "Will the upper bound of the federal funds rate be above 2.75% following the Fed's Dec 9, 2026 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-26DEC",
+      "market_ticker": "KXFED-26DEC-T3.00",
+      "title": "Will the upper bound of the federal funds rate be above 3.00% following the Fed's Dec 9, 2026 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-26DEC",
+      "market_ticker": "KXFED-26DEC-T3.25",
+      "title": "Will the upper bound of the federal funds rate be above 3.25% following the Fed's Dec 9, 2026 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-26DEC",
+      "market_ticker": "KXFED-26DEC-T3.50",
+      "title": "Will the upper bound of the federal funds rate be above 3.50% following the Fed's Dec 9, 2026 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-26DEC",
+      "market_ticker": "KXFED-26DEC-T3.75",
+      "title": "Will the upper bound of the federal funds rate be above 3.75% following the Fed's Dec 9, 2026 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-26DEC",
+      "market_ticker": "KXFED-26DEC-T4.00",
+      "title": "Will the upper bound of the federal funds rate be above 4.00% following the Fed's Dec 9, 2026 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-26DEC",
+      "market_ticker": "KXFED-26DEC-T4.25",
+      "title": "Will the upper bound of the federal funds rate be above 4.25% following the Fed's Dec 9, 2026 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-26DEC",
+      "market_ticker": "KXFED-26DEC-T4.50",
+      "title": "Will the upper bound of the federal funds rate be above 4.50% following the Fed's Dec 9, 2026 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-26DEC",
+      "market_ticker": "KXFED-26DEC-T4.75",
+      "title": "Will the upper bound of the federal funds rate be above 4.75% following the Fed's Dec 9, 2026 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-26DEC",
+      "market_ticker": "KXFED-26DEC-T5.00",
+      "title": "Will the upper bound of the federal funds rate be above 5.00% following the Fed's Dec 9, 2026 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-26DEC",
+      "market_ticker": "KXFED-26DEC-T5.25",
+      "title": "Will the upper bound of the federal funds rate be above 5.25% following the Fed's Dec 9, 2026 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-26JAN",
+      "market_ticker": "KXFED-26JAN-T5.25",
+      "title": "Will the upper bound of the federal funds rate be above 5.25% following the Fed's Jan 28, 2026 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXFED-26JAN",
+      "market_ticker": "KXFED-26JAN-T5.00",
+      "title": "Will the upper bound of the federal funds rate be above 5.00% following the Fed's Jan 28, 2026 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXFED-26JAN",
+      "market_ticker": "KXFED-26JAN-T4.75",
+      "title": "Will the upper bound of the federal funds rate be above 4.75% following the Fed's Jan 28, 2026 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXFED-26JAN",
+      "market_ticker": "KXFED-26JAN-T4.50",
+      "title": "Will the upper bound of the federal funds rate be above 4.50% following the Fed's Jan 28, 2026 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXFED-26JAN",
+      "market_ticker": "KXFED-26JAN-T4.25",
+      "title": "Will the upper bound of the federal funds rate be above 4.25% following the Fed's Jan 28, 2026 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXFED-26JAN",
+      "market_ticker": "KXFED-26JAN-T4.00",
+      "title": "Will the upper bound of the federal funds rate be above 4.00% following the Fed's Jan 28, 2026 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXFED-26JAN",
+      "market_ticker": "KXFED-26JAN-T3.75",
+      "title": "Will the upper bound of the federal funds rate be above 3.75% following the Fed's Jan 28, 2026 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXFED-26JAN",
+      "market_ticker": "KXFED-26JAN-T3.50",
+      "title": "Will the upper bound of the federal funds rate be above 3.50% following the Fed's Jan 28, 2026 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXFED-26JAN",
+      "market_ticker": "KXFED-26JAN-T3.25",
+      "title": "Will the upper bound of the federal funds rate be above 3.25% following the Fed's Jan 28, 2026 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXFED-26JAN",
+      "market_ticker": "KXFED-26JAN-T3.00",
+      "title": "Will the upper bound of the federal funds rate be above 3.00% following the Fed's Jan 28, 2026 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXFED-26JAN",
+      "market_ticker": "KXFED-26JAN-T2.75",
+      "title": "Will the upper bound of the federal funds rate be above 2.75% following the Fed's Jan 28, 2026 meeting?",
+      "status": "finalized",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXFED-26JUL",
+      "market_ticker": "KXFED-26JUL-T2.75",
+      "title": "Will the upper bound of the federal funds rate be above 2.75% following the Fed's Jul 29, 2026 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-26JUL",
+      "market_ticker": "KXFED-26JUL-T3.00",
+      "title": "Will the upper bound of the federal funds rate be above 3.00% following the Fed's Jul 29, 2026 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-26JUL",
+      "market_ticker": "KXFED-26JUL-T3.25",
+      "title": "Will the upper bound of the federal funds rate be above 3.25% following the Fed's Jul 29, 2026 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-26JUL",
+      "market_ticker": "KXFED-26JUL-T3.50",
+      "title": "Will the upper bound of the federal funds rate be above 3.50% following the Fed's Jul 29, 2026 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-26JUL",
+      "market_ticker": "KXFED-26JUL-T3.75",
+      "title": "Will the upper bound of the federal funds rate be above 3.75% following the Fed's Jul 29, 2026 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-26JUL",
+      "market_ticker": "KXFED-26JUL-T4.00",
+      "title": "Will the upper bound of the federal funds rate be above 4.00% following the Fed's Jul 29, 2026 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-26JUL",
+      "market_ticker": "KXFED-26JUL-T4.25",
+      "title": "Will the upper bound of the federal funds rate be above 4.25% following the Fed's Jul 29, 2026 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-26JUL",
+      "market_ticker": "KXFED-26JUL-T4.50",
+      "title": "Will the upper bound of the federal funds rate be above 4.50% following the Fed's Jul 29, 2026 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-26JUL",
+      "market_ticker": "KXFED-26JUL-T4.75",
+      "title": "Will the upper bound of the federal funds rate be above 4.75% following the Fed's Jul 29, 2026 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-26JUL",
+      "market_ticker": "KXFED-26JUL-T5.00",
+      "title": "Will the upper bound of the federal funds rate be above 5.00% following the Fed's Jul 29, 2026 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-26JUL",
+      "market_ticker": "KXFED-26JUL-T5.25",
+      "title": "Will the upper bound of the federal funds rate be above 5.25% following the Fed's Jul 29, 2026 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-26JUN",
+      "market_ticker": "KXFED-26JUN-T2.75",
+      "title": "Will the upper bound of the federal funds rate be above 2.75% following the Fed's Jun 17, 2026 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-26JUN",
+      "market_ticker": "KXFED-26JUN-T3.00",
+      "title": "Will the upper bound of the federal funds rate be above 3.00% following the Fed's Jun 17, 2026 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-26JUN",
+      "market_ticker": "KXFED-26JUN-T3.25",
+      "title": "Will the upper bound of the federal funds rate be above 3.25% following the Fed's Jun 17, 2026 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-26JUN",
+      "market_ticker": "KXFED-26JUN-T3.50",
+      "title": "Will the upper bound of the federal funds rate be above 3.50% following the Fed's Jun 17, 2026 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-26JUN",
+      "market_ticker": "KXFED-26JUN-T3.75",
+      "title": "Will the upper bound of the federal funds rate be above 3.75% following the Fed's Jun 17, 2026 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-26JUN",
+      "market_ticker": "KXFED-26JUN-T4.00",
+      "title": "Will the upper bound of the federal funds rate be above 4.00% following the Fed's Jun 17, 2026 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-26JUN",
+      "market_ticker": "KXFED-26JUN-T4.25",
+      "title": "Will the upper bound of the federal funds rate be above 4.25% following the Fed's Jun 17, 2026 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-26JUN",
+      "market_ticker": "KXFED-26JUN-T4.50",
+      "title": "Will the upper bound of the federal funds rate be above 4.50% following the Fed's Jun 17, 2026 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-26JUN",
+      "market_ticker": "KXFED-26JUN-T4.75",
+      "title": "Will the upper bound of the federal funds rate be above 4.75% following the Fed's Jun 17, 2026 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-26JUN",
+      "market_ticker": "KXFED-26JUN-T5.00",
+      "title": "Will the upper bound of the federal funds rate be above 5.00% following the Fed's Jun 17, 2026 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-26JUN",
+      "market_ticker": "KXFED-26JUN-T5.25",
+      "title": "Will the upper bound of the federal funds rate be above 5.25% following the Fed's Jun 17, 2026 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-26MAR",
+      "market_ticker": "KXFED-26MAR-T2.75",
+      "title": "Will the upper bound of the federal funds rate be above 2.75% following the Fed's Mar 18, 2026 meeting?",
+      "status": "finalized",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-26MAR",
+      "market_ticker": "KXFED-26MAR-T3.00",
+      "title": "Will the upper bound of the federal funds rate be above 3.00% following the Fed's Mar 18, 2026 meeting?",
+      "status": "finalized",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-26MAR",
+      "market_ticker": "KXFED-26MAR-T3.25",
+      "title": "Will the upper bound of the federal funds rate be above 3.25% following the Fed's Mar 18, 2026 meeting?",
+      "status": "finalized",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-26MAR",
+      "market_ticker": "KXFED-26MAR-T3.50",
+      "title": "Will the upper bound of the federal funds rate be above 3.50% following the Fed's Mar 18, 2026 meeting?",
+      "status": "finalized",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-26MAR",
+      "market_ticker": "KXFED-26MAR-T3.75",
+      "title": "Will the upper bound of the federal funds rate be above 3.75% following the Fed's Mar 18, 2026 meeting?",
+      "status": "finalized",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-26MAR",
+      "market_ticker": "KXFED-26MAR-T4.00",
+      "title": "Will the upper bound of the federal funds rate be above 4.00% following the Fed's Mar 18, 2026 meeting?",
+      "status": "finalized",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-26MAR",
+      "market_ticker": "KXFED-26MAR-T4.25",
+      "title": "Will the upper bound of the federal funds rate be above 4.25% following the Fed's Mar 18, 2026 meeting?",
+      "status": "finalized",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-26MAR",
+      "market_ticker": "KXFED-26MAR-T4.50",
+      "title": "Will the upper bound of the federal funds rate be above 4.50% following the Fed's Mar 18, 2026 meeting?",
+      "status": "finalized",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-26MAR",
+      "market_ticker": "KXFED-26MAR-T4.75",
+      "title": "Will the upper bound of the federal funds rate be above 4.75% following the Fed's Mar 18, 2026 meeting?",
+      "status": "finalized",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-26MAR",
+      "market_ticker": "KXFED-26MAR-T5.00",
+      "title": "Will the upper bound of the federal funds rate be above 5.00% following the Fed's Mar 18, 2026 meeting?",
+      "status": "finalized",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-26MAR",
+      "market_ticker": "KXFED-26MAR-T5.25",
+      "title": "Will the upper bound of the federal funds rate be above 5.25% following the Fed's Mar 18, 2026 meeting?",
+      "status": "finalized",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-26OCT",
+      "market_ticker": "KXFED-26OCT-T2.75",
+      "title": "Will the upper bound of the federal funds rate be above 2.75% following the Fed's Oct 28, 2026 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-26OCT",
+      "market_ticker": "KXFED-26OCT-T3.00",
+      "title": "Will the upper bound of the federal funds rate be above 3.00% following the Fed's Oct 28, 2026 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-26OCT",
+      "market_ticker": "KXFED-26OCT-T3.25",
+      "title": "Will the upper bound of the federal funds rate be above 3.25% following the Fed's Oct 28, 2026 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-26OCT",
+      "market_ticker": "KXFED-26OCT-T3.50",
+      "title": "Will the upper bound of the federal funds rate be above 3.50% following the Fed's Oct 28, 2026 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-26OCT",
+      "market_ticker": "KXFED-26OCT-T3.75",
+      "title": "Will the upper bound of the federal funds rate be above 3.75% following the Fed's Oct 28, 2026 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-26OCT",
+      "market_ticker": "KXFED-26OCT-T4.00",
+      "title": "Will the upper bound of the federal funds rate be above 4.00% following the Fed's Oct 28, 2026 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-26OCT",
+      "market_ticker": "KXFED-26OCT-T4.25",
+      "title": "Will the upper bound of the federal funds rate be above 4.25% following the Fed's Oct 28, 2026 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-26OCT",
+      "market_ticker": "KXFED-26OCT-T4.50",
+      "title": "Will the upper bound of the federal funds rate be above 4.50% following the Fed's Oct 28, 2026 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-26OCT",
+      "market_ticker": "KXFED-26OCT-T4.75",
+      "title": "Will the upper bound of the federal funds rate be above 4.75% following the Fed's Oct 28, 2026 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-26OCT",
+      "market_ticker": "KXFED-26OCT-T5.00",
+      "title": "Will the upper bound of the federal funds rate be above 5.00% following the Fed's Oct 28, 2026 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-26OCT",
+      "market_ticker": "KXFED-26OCT-T5.25",
+      "title": "Will the upper bound of the federal funds rate be above 5.25% following the Fed's Oct 28, 2026 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-26SEP",
+      "market_ticker": "KXFED-26SEP-T2.75",
+      "title": "Will the upper bound of the federal funds rate be above 2.75% following the Fed's Sep 16, 2026 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-26SEP",
+      "market_ticker": "KXFED-26SEP-T3.00",
+      "title": "Will the upper bound of the federal funds rate be above 3.00% following the Fed's Sep 16, 2026 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-26SEP",
+      "market_ticker": "KXFED-26SEP-T3.25",
+      "title": "Will the upper bound of the federal funds rate be above 3.25% following the Fed's Sep 16, 2026 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-26SEP",
+      "market_ticker": "KXFED-26SEP-T3.50",
+      "title": "Will the upper bound of the federal funds rate be above 3.50% following the Fed's Sep 16, 2026 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-26SEP",
+      "market_ticker": "KXFED-26SEP-T3.75",
+      "title": "Will the upper bound of the federal funds rate be above 3.75% following the Fed's Sep 16, 2026 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-26SEP",
+      "market_ticker": "KXFED-26SEP-T4.00",
+      "title": "Will the upper bound of the federal funds rate be above 4.00% following the Fed's Sep 16, 2026 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-26SEP",
+      "market_ticker": "KXFED-26SEP-T4.25",
+      "title": "Will the upper bound of the federal funds rate be above 4.25% following the Fed's Sep 16, 2026 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-26SEP",
+      "market_ticker": "KXFED-26SEP-T4.50",
+      "title": "Will the upper bound of the federal funds rate be above 4.50% following the Fed's Sep 16, 2026 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-26SEP",
+      "market_ticker": "KXFED-26SEP-T4.75",
+      "title": "Will the upper bound of the federal funds rate be above 4.75% following the Fed's Sep 16, 2026 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-26SEP",
+      "market_ticker": "KXFED-26SEP-T5.00",
+      "title": "Will the upper bound of the federal funds rate be above 5.00% following the Fed's Sep 16, 2026 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-26SEP",
+      "market_ticker": "KXFED-26SEP-T5.25",
+      "title": "Will the upper bound of the federal funds rate be above 5.25% following the Fed's Sep 16, 2026 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-27APR",
+      "market_ticker": "KXFED-27APR-T0.00",
+      "title": "Will the upper bound of the federal funds rate be above 0.00% following the Fed's Apr 28, 2027 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-27APR",
+      "market_ticker": "KXFED-27APR-T0.25",
+      "title": "Will the upper bound of the federal funds rate be above 0.25% following the Fed's Apr 28, 2027 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-27APR",
+      "market_ticker": "KXFED-27APR-T0.50",
+      "title": "Will the upper bound of the federal funds rate be above 0.50% following the Fed's Apr 28, 2027 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-27APR",
+      "market_ticker": "KXFED-27APR-T0.75",
+      "title": "Will the upper bound of the federal funds rate be above 0.75% following the Fed's Apr 28, 2027 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-27APR",
+      "market_ticker": "KXFED-27APR-T1.00",
+      "title": "Will the upper bound of the federal funds rate be above 1.00% following the Fed's Apr 28, 2027 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-27APR",
+      "market_ticker": "KXFED-27APR-T1.25",
+      "title": "Will the upper bound of the federal funds rate be above 1.25% following the Fed's Apr 28, 2027 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-27APR",
+      "market_ticker": "KXFED-27APR-T1.50",
+      "title": "Will the upper bound of the federal funds rate be above 1.50% following the Fed's Apr 28, 2027 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-27APR",
+      "market_ticker": "KXFED-27APR-T1.75",
+      "title": "Will the upper bound of the federal funds rate be above 1.75% following the Fed's Apr 28, 2027 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-27APR",
+      "market_ticker": "KXFED-27APR-T2.00",
+      "title": "Will the upper bound of the federal funds rate be above 2.00% following the Fed's Apr 28, 2027 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-27APR",
+      "market_ticker": "KXFED-27APR-T2.25",
+      "title": "Will the upper bound of the federal funds rate be above 2.25% following the Fed's Apr 28, 2027 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-27APR",
+      "market_ticker": "KXFED-27APR-T2.50",
+      "title": "Will the upper bound of the federal funds rate be above 2.50% following the Fed's Apr 28, 2027 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-27APR",
+      "market_ticker": "KXFED-27APR-T2.75",
+      "title": "Will the upper bound of the federal funds rate be above 2.75% following the Fed's Apr 28, 2027 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-27APR",
+      "market_ticker": "KXFED-27APR-T3.00",
+      "title": "Will the upper bound of the federal funds rate be above 3.00% following the Fed's Apr 28, 2027 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-27APR",
+      "market_ticker": "KXFED-27APR-T3.25",
+      "title": "Will the upper bound of the federal funds rate be above 3.25% following the Fed's Apr 28, 2027 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-27APR",
+      "market_ticker": "KXFED-27APR-T3.50",
+      "title": "Will the upper bound of the federal funds rate be above 3.50% following the Fed's Apr 28, 2027 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-27APR",
+      "market_ticker": "KXFED-27APR-T3.75",
+      "title": "Will the upper bound of the federal funds rate be above 3.75% following the Fed's Apr 28, 2027 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-27APR",
+      "market_ticker": "KXFED-27APR-T4.00",
+      "title": "Will the upper bound of the federal funds rate be above 4.00% following the Fed's Apr 28, 2027 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-27APR",
+      "market_ticker": "KXFED-27APR-T4.25",
+      "title": "Will the upper bound of the federal funds rate be above 4.25% following the Fed's Apr 28, 2027 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-27JAN",
+      "market_ticker": "KXFED-27JAN-T0.00",
+      "title": "Will the upper bound of the federal funds rate be above 0.00% following the Fed's Jan 27, 2027 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-27JAN",
+      "market_ticker": "KXFED-27JAN-T0.25",
+      "title": "Will the upper bound of the federal funds rate be above 0.25% following the Fed's Jan 27, 2027 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-27JAN",
+      "market_ticker": "KXFED-27JAN-T0.50",
+      "title": "Will the upper bound of the federal funds rate be above 0.50% following the Fed's Jan 27, 2027 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-27JAN",
+      "market_ticker": "KXFED-27JAN-T0.75",
+      "title": "Will the upper bound of the federal funds rate be above 0.75% following the Fed's Jan 27, 2027 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-27JAN",
+      "market_ticker": "KXFED-27JAN-T1.00",
+      "title": "Will the upper bound of the federal funds rate be above 1.00% following the Fed's Jan 27, 2027 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-27JAN",
+      "market_ticker": "KXFED-27JAN-T1.25",
+      "title": "Will the upper bound of the federal funds rate be above 1.25% following the Fed's Jan 27, 2027 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-27JAN",
+      "market_ticker": "KXFED-27JAN-T1.50",
+      "title": "Will the upper bound of the federal funds rate be above 1.50% following the Fed's Jan 27, 2027 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-27JAN",
+      "market_ticker": "KXFED-27JAN-T1.75",
+      "title": "Will the upper bound of the federal funds rate be above 1.75% following the Fed's Jan 27, 2027 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-27JAN",
+      "market_ticker": "KXFED-27JAN-T2.00",
+      "title": "Will the upper bound of the federal funds rate be above 2.00% following the Fed's Jan 27, 2027 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-27JAN",
+      "market_ticker": "KXFED-27JAN-T2.25",
+      "title": "Will the upper bound of the federal funds rate be above 2.25% following the Fed's Jan 27, 2027 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-27JAN",
+      "market_ticker": "KXFED-27JAN-T2.50",
+      "title": "Will the upper bound of the federal funds rate be above 2.50% following the Fed's Jan 27, 2027 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-27JAN",
+      "market_ticker": "KXFED-27JAN-T2.75",
+      "title": "Will the upper bound of the federal funds rate be above 2.75% following the Fed's Jan 27, 2027 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-27JAN",
+      "market_ticker": "KXFED-27JAN-T3.00",
+      "title": "Will the upper bound of the federal funds rate be above 3.00% following the Fed's Jan 27, 2027 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-27JAN",
+      "market_ticker": "KXFED-27JAN-T3.25",
+      "title": "Will the upper bound of the federal funds rate be above 3.25% following the Fed's Jan 27, 2027 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-27JAN",
+      "market_ticker": "KXFED-27JAN-T3.50",
+      "title": "Will the upper bound of the federal funds rate be above 3.50% following the Fed's Jan 27, 2027 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-27JAN",
+      "market_ticker": "KXFED-27JAN-T3.75",
+      "title": "Will the upper bound of the federal funds rate be above 3.75% following the Fed's Jan 27, 2027 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-27JAN",
+      "market_ticker": "KXFED-27JAN-T4.00",
+      "title": "Will the upper bound of the federal funds rate be above 4.00% following the Fed's Jan 27, 2027 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-27JAN",
+      "market_ticker": "KXFED-27JAN-T4.25",
+      "title": "Will the upper bound of the federal funds rate be above 4.25% following the Fed's Jan 27, 2027 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-27MAR",
+      "market_ticker": "KXFED-27MAR-T0.00",
+      "title": "Will the upper bound of the federal funds rate be above 0.00% following the Fed's Mar 17, 2027 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-27MAR",
+      "market_ticker": "KXFED-27MAR-T0.25",
+      "title": "Will the upper bound of the federal funds rate be above 0.25% following the Fed's Mar 17, 2027 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-27MAR",
+      "market_ticker": "KXFED-27MAR-T0.50",
+      "title": "Will the upper bound of the federal funds rate be above 0.50% following the Fed's Mar 17, 2027 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-27MAR",
+      "market_ticker": "KXFED-27MAR-T0.75",
+      "title": "Will the upper bound of the federal funds rate be above 0.75% following the Fed's Mar 17, 2027 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-27MAR",
+      "market_ticker": "KXFED-27MAR-T1.00",
+      "title": "Will the upper bound of the federal funds rate be above 1.00% following the Fed's Mar 17, 2027 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-27MAR",
+      "market_ticker": "KXFED-27MAR-T1.25",
+      "title": "Will the upper bound of the federal funds rate be above 1.25% following the Fed's Mar 17, 2027 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-27MAR",
+      "market_ticker": "KXFED-27MAR-T1.50",
+      "title": "Will the upper bound of the federal funds rate be above 1.50% following the Fed's Mar 17, 2027 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-27MAR",
+      "market_ticker": "KXFED-27MAR-T1.75",
+      "title": "Will the upper bound of the federal funds rate be above 1.75% following the Fed's Mar 17, 2027 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-27MAR",
+      "market_ticker": "KXFED-27MAR-T2.00",
+      "title": "Will the upper bound of the federal funds rate be above 2.00% following the Fed's Mar 17, 2027 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-27MAR",
+      "market_ticker": "KXFED-27MAR-T2.25",
+      "title": "Will the upper bound of the federal funds rate be above 2.25% following the Fed's Mar 17, 2027 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-27MAR",
+      "market_ticker": "KXFED-27MAR-T2.50",
+      "title": "Will the upper bound of the federal funds rate be above 2.50% following the Fed's Mar 17, 2027 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-27MAR",
+      "market_ticker": "KXFED-27MAR-T2.75",
+      "title": "Will the upper bound of the federal funds rate be above 2.75% following the Fed's Mar 17, 2027 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-27MAR",
+      "market_ticker": "KXFED-27MAR-T3.00",
+      "title": "Will the upper bound of the federal funds rate be above 3.00% following the Fed's Mar 17, 2027 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-27MAR",
+      "market_ticker": "KXFED-27MAR-T3.25",
+      "title": "Will the upper bound of the federal funds rate be above 3.25% following the Fed's Mar 17, 2027 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-27MAR",
+      "market_ticker": "KXFED-27MAR-T3.50",
+      "title": "Will the upper bound of the federal funds rate be above 3.50% following the Fed's Mar 17, 2027 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-27MAR",
+      "market_ticker": "KXFED-27MAR-T3.75",
+      "title": "Will the upper bound of the federal funds rate be above 3.75% following the Fed's Mar 17, 2027 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-27MAR",
+      "market_ticker": "KXFED-27MAR-T4.00",
+      "title": "Will the upper bound of the federal funds rate be above 4.00% following the Fed's Mar 17, 2027 meeting?",
+      "status": "active",
+      "source": "live_event"
+    },
+    {
+      "event_ticker": "KXFED-27MAR",
+      "market_ticker": "KXFED-27MAR-T4.25",
+      "title": "Will the upper bound of the federal funds rate be above 4.25% following the Fed's Mar 17, 2027 meeting?",
+      "status": "active",
+      "source": "live_event"
+    }
+  ],
+  "tickers": [
+    "FED-21DEC-T0.25",
+    "FED-21JUL-T0.25",
+    "FED-21SEP-T0.25",
+    "FED-22DEC-T0.25",
+    "FED-22DEC-T0.5",
+    "FED-22DEC-T0.75",
+    "FED-22DEC-T1",
+    "FED-22DEC-T1.25",
+    "FED-22DEC-T1.5",
+    "FED-22DEC-T1.75",
+    "FED-22DEC-T2.0",
+    "FED-22DEC-T2.25",
+    "FED-22DEC-T2.50",
+    "FED-22DEC-T2.75",
+    "FED-22DEC-T3.00",
+    "FED-22DEC-T3.25",
+    "FED-22DEC-T3.50",
+    "FED-22DEC-T3.75",
+    "FED-22DEC-T4.00",
+    "FED-22DEC-T4.25",
+    "FED-22DEC-T4.50",
+    "FED-22DEC-T4.75",
+    "FED-22JAN-T0.25",
+    "FED-22JUL-T0.25",
+    "FED-22JUL-T0.5",
+    "FED-22JUL-T0.75",
+    "FED-22JUL-T1",
+    "FED-22JUL-T1.25",
+    "FED-22JUL-T1.50",
+    "FED-22JUL-T1.75",
+    "FED-22JUL-T2.00",
+    "FED-22JUL-T2.75",
+    "FED-22JULY-T2.25",
+    "FED-22JULY-T2.50",
+    "FED-22JUN-T0.25",
+    "FED-22JUN-T0.5",
+    "FED-22JUN-T0.75",
+    "FED-22JUN-T1",
+    "FED-22JUN-T1.25",
+    "FED-22JUN-T1.50",
+    "FED-22JUN-T1.75",
+    "FED-22MAR-T0.25",
+    "FED-22MAR-T0.5",
+    "FED-22MAR-T0.75",
+    "FED-22MAY-T0.25",
+    "FED-22MAY-T0.5",
+    "FED-22MAY-T0.75",
+    "FED-22MAY-T1",
+    "FED-22NOV-T0.25",
+    "FED-22NOV-T0.5",
+    "FED-22NOV-T0.75",
+    "FED-22NOV-T1",
+    "FED-22NOV-T1.25",
+    "FED-22NOV-T1.5",
+    "FED-22NOV-T1.75",
+    "FED-22NOV-T2.00",
+    "FED-22NOV-T2.25",
+    "FED-22NOV-T2.50",
+    "FED-22NOV-T2.75",
+    "FED-22NOV-T3.00",
+    "FED-22NOV-T3.25",
+    "FED-22NOV-T3.50",
+    "FED-22NOV-T3.75",
+    "FED-22NOV-T4.00",
+    "FED-22SEP-T0.25",
+    "FED-22SEP-T0.5",
+    "FED-22SEP-T0.75",
+    "FED-22SEP-T1",
+    "FED-22SEP-T1.25",
+    "FED-22SEP-T1.5",
+    "FED-22SEP-T1.75",
+    "FED-22SEP-T2.00",
+    "FED-22SEP-T2.25",
+    "FED-22SEP-T2.50",
+    "FED-22SEP-T2.75",
+    "FED-22SEP-T3.00",
+    "FED-22SEP-T3.25",
+    "FED-22SEP-T3.50",
+    "FED-23DEC-T3.00",
+    "FED-23DEC-T3.25",
+    "FED-23DEC-T3.50",
+    "FED-23DEC-T3.75",
+    "FED-23DEC-T4.00",
+    "FED-23DEC-T4.25",
+    "FED-23DEC-T4.50",
+    "FED-23DEC-T4.75",
+    "FED-23DEC-T5.00",
+    "FED-23DEC-T5.25",
+    "FED-23DEC-T5.50",
+    "FED-23DEC-T5.75",
+    "FED-23DEC-T6.00",
+    "FED-23DEC-T6.25",
+    "FED-23DEC-T6.50",
+    "FED-23FEB-T1.75",
+    "FED-23FEB-T2.00",
+    "FED-23FEB-T2.25",
+    "FED-23FEB-T2.50",
+    "FED-23FEB-T2.75",
+    "FED-23FEB-T3.00",
+    "FED-23FEB-T3.25",
+    "FED-23FEB-T3.50",
+    "FED-23FEB-T3.75",
+    "FED-23FEB-T4.00",
+    "FED-23FEB-T4.25",
+    "FED-23FEB-T4.50",
+    "FED-23FEB-T4.75",
+    "FED-23FEB-T5.00",
+    "FED-23FEB-T5.25",
+    "FED-23JUL-T3.00",
+    "FED-23JUL-T3.25",
+    "FED-23JUL-T3.50",
+    "FED-23JUL-T3.75",
+    "FED-23JUL-T4.00",
+    "FED-23JUL-T4.25",
+    "FED-23JUL-T4.50",
+    "FED-23JUL-T4.75",
+    "FED-23JUL-T5.00",
+    "FED-23JUL-T5.25",
+    "FED-23JUL-T5.50",
+    "FED-23JUL-T5.75",
+    "FED-23JUL-T6.00",
+    "FED-23JUL-T6.25",
+    "FED-23JUL-T6.50",
+    "FED-23JUN-T3.00",
+    "FED-23JUN-T3.25",
+    "FED-23JUN-T3.50",
+    "FED-23JUN-T3.75",
+    "FED-23JUN-T4.00",
+    "FED-23JUN-T4.25",
+    "FED-23JUN-T4.50",
+    "FED-23JUN-T4.75",
+    "FED-23JUN-T5.00",
+    "FED-23JUN-T5.25",
+    "FED-23JUN-T5.50",
+    "FED-23JUN-T5.75",
+    "FED-23JUN-T6.00",
+    "FED-23JUN-T6.25",
+    "FED-23JUN-T6.50",
+    "FED-23MAR-T3.00",
+    "FED-23MAR-T3.25",
+    "FED-23MAR-T3.50",
+    "FED-23MAR-T3.75",
+    "FED-23MAR-T4.00",
+    "FED-23MAR-T4.25",
+    "FED-23MAR-T4.50",
+    "FED-23MAR-T4.75",
+    "FED-23MAR-T5.00",
+    "FED-23MAR-T5.25",
+    "FED-23MAR-T5.50",
+    "FED-23MAR-T5.75",
+    "FED-23MAR-T6.00",
+    "FED-23MAR-T6.25",
+    "FED-23MAR-T6.50",
+    "FED-23MAY-T3.00",
+    "FED-23MAY-T3.25",
+    "FED-23MAY-T3.50",
+    "FED-23MAY-T3.75",
+    "FED-23MAY-T4.00",
+    "FED-23MAY-T4.25",
+    "FED-23MAY-T4.50",
+    "FED-23MAY-T4.75",
+    "FED-23MAY-T5.00",
+    "FED-23MAY-T5.25",
+    "FED-23MAY-T5.50",
+    "FED-23MAY-T5.75",
+    "FED-23MAY-T6.00",
+    "FED-23MAY-T6.25",
+    "FED-23MAY-T6.50",
+    "FED-23NOV-T3.00",
+    "FED-23NOV-T3.25",
+    "FED-23NOV-T3.50",
+    "FED-23NOV-T3.75",
+    "FED-23NOV-T4.00",
+    "FED-23NOV-T4.25",
+    "FED-23NOV-T4.50",
+    "FED-23NOV-T4.75",
+    "FED-23NOV-T5.00",
+    "FED-23NOV-T5.25",
+    "FED-23NOV-T5.50",
+    "FED-23NOV-T5.75",
+    "FED-23NOV-T6.00",
+    "FED-23NOV-T6.25",
+    "FED-23NOV-T6.50",
+    "FED-23SEP-T3.00",
+    "FED-23SEP-T3.25",
+    "FED-23SEP-T3.50",
+    "FED-23SEP-T3.75",
+    "FED-23SEP-T4.00",
+    "FED-23SEP-T4.25",
+    "FED-23SEP-T4.50",
+    "FED-23SEP-T4.75",
+    "FED-23SEP-T5.00",
+    "FED-23SEP-T5.25",
+    "FED-23SEP-T5.50",
+    "FED-23SEP-T5.75",
+    "FED-23SEP-T6.00",
+    "FED-23SEP-T6.25",
+    "FED-23SEP-T6.50",
+    "FED-24DEC-T3.25",
+    "FED-24DEC-T3.50",
+    "FED-24DEC-T3.75",
+    "FED-24DEC-T4.00",
+    "FED-24DEC-T4.25",
+    "FED-24DEC-T4.50",
+    "FED-24DEC-T4.75",
+    "FED-24DEC-T5.00",
+    "FED-24DEC-T5.25",
+    "FED-24DEC-T5.50",
+    "FED-24JAN-T5.00",
+    "FED-24JAN-T5.25",
+    "FED-24JAN-T5.50",
+    "FED-24JAN-T5.75",
+    "FED-24JAN-T6.00",
+    "FED-24JAN-T6.25",
+    "FED-24JAN-T6.50",
+    "FED-24JUL-T4.00",
+    "FED-24JUL-T4.25",
+    "FED-24JUL-T4.50",
+    "FED-24JUL-T4.75",
+    "FED-24JUL-T5.00",
+    "FED-24JUL-T5.25",
+    "FED-24JUL-T5.50",
+    "FED-24MAR-T4.50",
+    "FED-24MAR-T4.75",
+    "FED-24MAR-T5.00",
+    "FED-24MAR-T5.25",
+    "FED-24MAR-T5.50",
+    "FED-24MAR-T5.75",
+    "FED-24MAR-T6.00",
+    "FED-24MAY-T4.25",
+    "FED-24MAY-T4.50",
+    "FED-24MAY-T4.75",
+    "FED-24MAY-T5.00",
+    "FED-24MAY-T5.25",
+    "FED-24MAY-T5.50",
+    "FED-24MAY-T5.75",
+    "FED-24NOV-T3.50",
+    "FED-24NOV-T3.75",
+    "FED-24NOV-T4.00",
+    "FED-24NOV-T4.25",
+    "FED-24NOV-T4.50",
+    "FED-24NOV-T4.75",
+    "FED-24NOV-T5.00",
+    "FED-24NOV-T5.25",
+    "FED-24NOV-T5.50",
+    "FED-24SEP-T3.75",
+    "FED-24SEP-T4.00",
+    "FED-24SEP-T4.25",
+    "FED-24SEP-T4.50",
+    "FED-24SEP-T4.75",
+    "FED-24SEP-T5.00",
+    "FED-24SEP-T5.25",
+    "FED-24SEP-T5.50",
+    "FED-25DEC-T2.75",
+    "FED-25DEC-T3.00",
+    "FED-25DEC-T3.25",
+    "FED-25DEC-T3.50",
+    "FED-25DEC-T3.75",
+    "FED-25DEC-T4.00",
+    "FED-25DEC-T4.25",
+    "FED-25DEC-T4.50",
+    "FED-25DEC-T4.75",
+    "FED-25DEC-T5.00",
+    "FED-25DEC-T5.25",
+    "FED-25JAN-T3.25",
+    "FED-25JAN-T3.50",
+    "FED-25JAN-T3.75",
+    "FED-25JAN-T4.00",
+    "FED-25JAN-T4.25",
+    "FED-25JAN-T4.50",
+    "FED-25JAN-T4.75",
+    "FED-25JAN-T5.00",
+    "FED-25JAN-T5.25",
+    "FED-25JAN-T5.50",
+    "FED-25JUL-T2.75",
+    "FED-25JUL-T3.00",
+    "FED-25JUL-T3.25",
+    "FED-25JUL-T3.50",
+    "FED-25JUL-T3.75",
+    "FED-25JUL-T4.00",
+    "FED-25JUL-T4.25",
+    "FED-25JUL-T4.50",
+    "FED-25JUL-T4.75",
+    "FED-25JUL-T5.00",
+    "FED-25JUL-T5.25",
+    "FED-25MAR-T2.75",
+    "FED-25MAR-T3.00",
+    "FED-25MAR-T3.25",
+    "FED-25MAR-T3.50",
+    "FED-25MAR-T3.75",
+    "FED-25MAR-T4.00",
+    "FED-25MAR-T4.25",
+    "FED-25MAR-T4.50",
+    "FED-25MAR-T4.75",
+    "FED-25MAR-T5.00",
+    "FED-25MAR-T5.25",
+    "FED-25MAY-T2.75",
+    "FED-25MAY-T3.00",
+    "FED-25MAY-T3.25",
+    "FED-25MAY-T3.50",
+    "FED-25MAY-T3.75",
+    "FED-25MAY-T4.00",
+    "FED-25MAY-T4.25",
+    "FED-25MAY-T4.50",
+    "FED-25MAY-T4.75",
+    "FED-25MAY-T5.00",
+    "FED-25MAY-T5.25",
+    "FED-25OCT-T2.75",
+    "FED-25OCT-T3.00",
+    "FED-25OCT-T3.25",
+    "FED-25OCT-T3.50",
+    "FED-25OCT-T3.75",
+    "FED-25OCT-T4.00",
+    "FED-25OCT-T4.25",
+    "FED-25OCT-T4.50",
+    "FED-25OCT-T4.75",
+    "FED-25OCT-T5.00",
+    "FED-25OCT-T5.25",
+    "FED-25SEP-T2.75",
+    "FED-25SEP-T3.00",
+    "FED-25SEP-T3.25",
+    "FED-25SEP-T3.50",
+    "FED-25SEP-T3.75",
+    "FED-25SEP-T4.00",
+    "FED-25SEP-T4.25",
+    "FED-25SEP-T4.50",
+    "FED-25SEP-T4.75",
+    "FED-25SEP-T5.00",
+    "FED-25SEP-T5.25",
+    "KXFED-26APR-T2.75",
+    "KXFED-26APR-T3.00",
+    "KXFED-26APR-T3.25",
+    "KXFED-26APR-T3.50",
+    "KXFED-26APR-T3.75",
+    "KXFED-26APR-T4.00",
+    "KXFED-26APR-T4.25",
+    "KXFED-26APR-T4.50",
+    "KXFED-26APR-T4.75",
+    "KXFED-26APR-T5.00",
+    "KXFED-26APR-T5.25",
+    "KXFED-26DEC-T2.75",
+    "KXFED-26DEC-T3.00",
+    "KXFED-26DEC-T3.25",
+    "KXFED-26DEC-T3.50",
+    "KXFED-26DEC-T3.75",
+    "KXFED-26DEC-T4.00",
+    "KXFED-26DEC-T4.25",
+    "KXFED-26DEC-T4.50",
+    "KXFED-26DEC-T4.75",
+    "KXFED-26DEC-T5.00",
+    "KXFED-26DEC-T5.25",
+    "KXFED-26JAN-T2.75",
+    "KXFED-26JAN-T3.00",
+    "KXFED-26JAN-T3.25",
+    "KXFED-26JAN-T3.50",
+    "KXFED-26JAN-T3.75",
+    "KXFED-26JAN-T4.00",
+    "KXFED-26JAN-T4.25",
+    "KXFED-26JAN-T4.50",
+    "KXFED-26JAN-T4.75",
+    "KXFED-26JAN-T5.00",
+    "KXFED-26JAN-T5.25",
+    "KXFED-26JUL-T2.75",
+    "KXFED-26JUL-T3.00",
+    "KXFED-26JUL-T3.25",
+    "KXFED-26JUL-T3.50",
+    "KXFED-26JUL-T3.75",
+    "KXFED-26JUL-T4.00",
+    "KXFED-26JUL-T4.25",
+    "KXFED-26JUL-T4.50",
+    "KXFED-26JUL-T4.75",
+    "KXFED-26JUL-T5.00",
+    "KXFED-26JUL-T5.25",
+    "KXFED-26JUN-T2.75",
+    "KXFED-26JUN-T3.00",
+    "KXFED-26JUN-T3.25",
+    "KXFED-26JUN-T3.50",
+    "KXFED-26JUN-T3.75",
+    "KXFED-26JUN-T4.00",
+    "KXFED-26JUN-T4.25",
+    "KXFED-26JUN-T4.50",
+    "KXFED-26JUN-T4.75",
+    "KXFED-26JUN-T5.00",
+    "KXFED-26JUN-T5.25",
+    "KXFED-26MAR-T2.75",
+    "KXFED-26MAR-T3.00",
+    "KXFED-26MAR-T3.25",
+    "KXFED-26MAR-T3.50",
+    "KXFED-26MAR-T3.75",
+    "KXFED-26MAR-T4.00",
+    "KXFED-26MAR-T4.25",
+    "KXFED-26MAR-T4.50",
+    "KXFED-26MAR-T4.75",
+    "KXFED-26MAR-T5.00",
+    "KXFED-26MAR-T5.25",
+    "KXFED-26OCT-T2.75",
+    "KXFED-26OCT-T3.00",
+    "KXFED-26OCT-T3.25",
+    "KXFED-26OCT-T3.50",
+    "KXFED-26OCT-T3.75",
+    "KXFED-26OCT-T4.00",
+    "KXFED-26OCT-T4.25",
+    "KXFED-26OCT-T4.50",
+    "KXFED-26OCT-T4.75",
+    "KXFED-26OCT-T5.00",
+    "KXFED-26OCT-T5.25",
+    "KXFED-26SEP-T2.75",
+    "KXFED-26SEP-T3.00",
+    "KXFED-26SEP-T3.25",
+    "KXFED-26SEP-T3.50",
+    "KXFED-26SEP-T3.75",
+    "KXFED-26SEP-T4.00",
+    "KXFED-26SEP-T4.25",
+    "KXFED-26SEP-T4.50",
+    "KXFED-26SEP-T4.75",
+    "KXFED-26SEP-T5.00",
+    "KXFED-26SEP-T5.25",
+    "KXFED-27APR-T0.00",
+    "KXFED-27APR-T0.25",
+    "KXFED-27APR-T0.50",
+    "KXFED-27APR-T0.75",
+    "KXFED-27APR-T1.00",
+    "KXFED-27APR-T1.25",
+    "KXFED-27APR-T1.50",
+    "KXFED-27APR-T1.75",
+    "KXFED-27APR-T2.00",
+    "KXFED-27APR-T2.25",
+    "KXFED-27APR-T2.50",
+    "KXFED-27APR-T2.75",
+    "KXFED-27APR-T3.00",
+    "KXFED-27APR-T3.25",
+    "KXFED-27APR-T3.50",
+    "KXFED-27APR-T3.75",
+    "KXFED-27APR-T4.00",
+    "KXFED-27APR-T4.25",
+    "KXFED-27JAN-T0.00",
+    "KXFED-27JAN-T0.25",
+    "KXFED-27JAN-T0.50",
+    "KXFED-27JAN-T0.75",
+    "KXFED-27JAN-T1.00",
+    "KXFED-27JAN-T1.25",
+    "KXFED-27JAN-T1.50",
+    "KXFED-27JAN-T1.75",
+    "KXFED-27JAN-T2.00",
+    "KXFED-27JAN-T2.25",
+    "KXFED-27JAN-T2.50",
+    "KXFED-27JAN-T2.75",
+    "KXFED-27JAN-T3.00",
+    "KXFED-27JAN-T3.25",
+    "KXFED-27JAN-T3.50",
+    "KXFED-27JAN-T3.75",
+    "KXFED-27JAN-T4.00",
+    "KXFED-27JAN-T4.25",
+    "KXFED-27MAR-T0.00",
+    "KXFED-27MAR-T0.25",
+    "KXFED-27MAR-T0.50",
+    "KXFED-27MAR-T0.75",
+    "KXFED-27MAR-T1.00",
+    "KXFED-27MAR-T1.25",
+    "KXFED-27MAR-T1.50",
+    "KXFED-27MAR-T1.75",
+    "KXFED-27MAR-T2.00",
+    "KXFED-27MAR-T2.25",
+    "KXFED-27MAR-T2.50",
+    "KXFED-27MAR-T2.75",
+    "KXFED-27MAR-T3.00",
+    "KXFED-27MAR-T3.25",
+    "KXFED-27MAR-T3.50",
+    "KXFED-27MAR-T3.75",
+    "KXFED-27MAR-T4.00",
+    "KXFED-27MAR-T4.25"
+  ]
+}
