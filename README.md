@@ -11,6 +11,7 @@ Pure market-data pipeline for Kalshi prediction-market contracts on macro-econom
 
 ## Why it exists
 
+
 Kalshi prediction markets price macro outcomes (Fed rate decisions, CPI prints, payroll numbers) in real time. This pipeline captures that pricing data at multiple frequencies for downstream SPX/VIX volatility research and macro signal extraction. The pipeline stores raw data only — all analysis happens in separate projects that consume the parquet output.
 
 ## Installation
