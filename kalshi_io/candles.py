@@ -61,12 +61,29 @@ def resolve_ticker_meta(market_ticker: str) -> tuple[str, str]:
 # parse_candle — ported from lines 201-234
 # ============================================================
 
+def _to_float(v) -> float | None:
+    """Cast an API decimal string (or number) to float. None stays None (→ NaN)."""
+    return None if v is None else float(v)
+
+
+def _first_not_none(*vals):
+    """Return the first non-None value (unlike `or`, keeps legitimate 0 prices)."""
+    for v in vals:
+        if v is not None:
+            return v
+    return None
+
+
 def parse_candle(raw: object, is_historical: bool) -> dict:
     """
     Normalize one candle from either historical REST (dict) or live SDK (object).
 
-    Returns dict with ts_ms (int64 UTC ms), open, high, low, close, mean,
-    volume, open_interest.
+    Both API paths serialize numerics as decimal strings; everything is cast
+    to float here. Returns dict with ts_ms (int64 UTC ms) and float values:
+    open/high/low/close/mean are dollar prices in [0, 1]; volume and
+    open_interest are contract counts exactly as the API reports them
+    (fractional on markets with fractional-contract support), unscaled.
+    None (→ NaN) marks values the API did not provide.
 
     Historical path falls back to yes_bid.* when price.* is null.
     """
@@ -76,26 +93,26 @@ def parse_candle(raw: object, is_historical: bool) -> dict:
 
         return {
             "ts_ms":         int(raw["end_period_ts"] * 1000),
-            "open":          price.get("open") or yes_bid.get("open"),
-            "high":          price.get("high") or yes_bid.get("high"),
-            "low":           price.get("low") or yes_bid.get("low"),
-            "close":         price.get("close") or yes_bid.get("close"),
-            "mean":          price.get("mean"),
-            "volume":        raw.get("volume", 0),
-            "open_interest": raw.get("open_interest", 0),
+            "open":          _to_float(_first_not_none(price.get("open"), yes_bid.get("open"))),
+            "high":          _to_float(_first_not_none(price.get("high"), yes_bid.get("high"))),
+            "low":           _to_float(_first_not_none(price.get("low"), yes_bid.get("low"))),
+            "close":         _to_float(_first_not_none(price.get("close"), yes_bid.get("close"))),
+            "mean":          _to_float(price.get("mean")),
+            "volume":        _to_float(raw.get("volume")),
+            "open_interest": _to_float(raw.get("open_interest")),
         }
 
     # Live SDK object
     p = raw.price
     return {
         "ts_ms":         int(raw.end_period_ts * 1000),
-        "open":          p.open_dollars,
-        "high":          p.high_dollars,
-        "low":           p.low_dollars,
-        "close":         p.close_dollars,
-        "mean":          p.mean_dollars,
-        "volume":        raw.volume_fp,
-        "open_interest": raw.open_interest_fp,
+        "open":          _to_float(p.open_dollars),
+        "high":          _to_float(p.high_dollars),
+        "low":           _to_float(p.low_dollars),
+        "close":         _to_float(p.close_dollars),
+        "mean":          _to_float(p.mean_dollars),
+        "volume":        _to_float(raw.volume_fp),
+        "open_interest": _to_float(raw.open_interest_fp),
     }
 
 
