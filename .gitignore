@@ -1,0 +1,16 @@
+# Secrets and environment
+.env
+.venv/
+
+# Data output
+kalshi_data/
+
+# Python
+__pycache__/
+*.pyc
+*.egg-info/
+
+# IDE and OS
+.idea/
+.claude/
+.DS_Store
