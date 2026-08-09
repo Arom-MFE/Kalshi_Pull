@@ -1,4 +1,4 @@
-# Kalshi Macro Market Data Pipeline
+# Kalshi Market Data Pipeline
 
 Kalshi_Pull turns Kalshi's prediction market API into clean, research-ready market data. The raw API is awkward to build on: data splits across live and historical endpoints with different field names, prices, volumes, and counts arrive as decimal strings, candle requests are capped at 5,000 per call, and settled markets 404 on the live side. Kalshi_Pull absorbs those quirks behind pullers for candles (daily, hourly, minute), individual trades, and orderbook snapshots, writing partitioned zstd Parquet that dedupes on write and resumes from the last stored row. It ships with a committed catalog of 15 US macro series covering CPI, Fed decisions, payrolls, and GDP, and it pulls any ticker on the exchange; discovery scripts catalog new series on demand. There is no analysis code: downstream research reads the Parquet output.
 
