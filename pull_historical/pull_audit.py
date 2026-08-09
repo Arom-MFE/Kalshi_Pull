@@ -21,13 +21,19 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 import pandas as pd
 
 from kalshi_io.candles import resolve_ticker_meta
-from kalshi_io.config import DATA_DIR
+from kalshi_io.config import DATA_DIR, TICKERS_DIR
 from kalshi_io.storage import get_output_path, read_parquet_safe
 from kalshi_io.tickers import load_tickers
 
 # Thresholds for hourly/minute density expectations
 DENSE_HOURLY_VOLUME = 1000
 DENSE_MINUTE_VOLUME_30D = 500
+
+
+def _fmt_vol(v: float) -> str:
+    """Format a volume sum: whole numbers bare, fractional at full precision."""
+    v = float(v)
+    return str(int(v)) if v == int(v) else str(v)
 
 
 def _audit_ticker(ticker: str) -> dict | None:
@@ -46,8 +52,8 @@ def _audit_ticker(ticker: str) -> dict | None:
             "daily_rows": 0,
             "first_ts_ms": None,
             "last_ts_ms": None,
-            "total_volume": 0,
-            "recent_volume_30d": 0,
+            "total_volume": 0.0,
+            "recent_volume_30d": 0.0,
             "hourly_expectation": "sparse",
             "minute_expectation": "sparse",
         }
@@ -58,11 +64,11 @@ def _audit_ticker(ticker: str) -> dict | None:
     # Volume is float64 in the current schema; coerce defensively for files
     # written before the dtype fix
     vol = pd.to_numeric(df["volume"], errors="coerce").fillna(0)
-    total_vol = int(vol.sum())
+    total_vol = float(vol.sum())
 
     # Recent 30d volume
     cutoff_ms = int((time.time() - 30 * 86400) * 1000)
-    recent_vol = int(vol[df["ts_ms"] >= cutoff_ms].sum())
+    recent_vol = float(vol[df["ts_ms"] >= cutoff_ms].sum())
 
     # Density expectations
     hourly_exp = "dense" if total_vol >= DENSE_HOURLY_VOLUME or recent_vol >= 100 else "sparse"
@@ -85,7 +91,7 @@ def main():
     parser = argparse.ArgumentParser(description="Audit daily candle coverage (read-only).")
     parser.add_argument(
         "--tickers",
-        default="get_ticker_info/kalshi_tickers/all_tickers.txt",
+        default=str(TICKERS_DIR / "all_tickers.txt"),
         help="Ticker source: .txt path, .json path, series name, or single ticker",
     )
     parser.add_argument("--limit", type=int, default=None, help="Max tickers to audit")
@@ -130,16 +136,16 @@ def main():
         recent = grp["recent_volume_30d"].sum()
         print(
             f"{series:20s}  tickers={len(grp):4d}  "
-            f"rows={total_rows:6d}  vol={vol:10d}  "
-            f"recent_30d={recent:8d}  "
+            f"rows={total_rows:6d}  vol={_fmt_vol(vol):>10}  "
+            f"recent_30d={_fmt_vol(recent):>8}  "
             f"dense_h={n_dense_h:3d}  dense_m={n_dense_m:3d}"
         )
 
     # Overall
     print(f"\n{'TOTAL':20s}  tickers={len(audit_df):4d}  "
           f"rows={audit_df['daily_rows'].sum():6d}  "
-          f"vol={audit_df['total_volume'].sum():10d}  "
-          f"recent_30d={audit_df['recent_volume_30d'].sum():8d}")
+          f"vol={_fmt_vol(audit_df['total_volume'].sum()):>10}  "
+          f"recent_30d={_fmt_vol(audit_df['recent_volume_30d'].sum()):>8}")
 
     if missing:
         print(f"\nMissing daily data: {len(missing)} tickers (no parquet file)")
