@@ -1,6 +1,6 @@
 # Kalshi Macro Market Data Pipeline
 
-Kalshi_Pull is a standalone tool that collects market data from Kalshi prediction markets on US macro events. It pulls three kinds of data and nothing else: candles (daily, hourly, minute), individual trades, and orderbook snapshots. Every pull writes partitioned zstd Parquet under `kalshi_data/`, dedupes on write, and resumes from the last stored row, so re-running is safe. The repo contains no analysis code; downstream research lives in separate projects that read the output files. A committed ticker catalog covers 15 macro series, so there is no discovery step between cloning, installing, and the first pull.
+Kalshi_Pull turns Kalshi's prediction market API into clean, research-ready market data. The raw API is awkward to build on: data splits across live and historical endpoints with different field names, prices, volumes, and counts arrive as decimal strings, candle requests are capped at 5,000 per call, and settled markets 404 on the live side. Kalshi_Pull absorbs those quirks behind pullers for candles (daily, hourly, minute), individual trades, and orderbook snapshots, writing partitioned zstd Parquet that dedupes on write and resumes from the last stored row. It ships with a committed catalog of 15 US macro series covering CPI, Fed decisions, payrolls, and GDP, and it pulls any ticker on the exchange; discovery scripts catalog new series on demand. There is no analysis code: downstream research reads the Parquet output.
 
 ## Quickstart
 
@@ -42,12 +42,6 @@ Kalshi_Pull is a standalone tool that collects market data from Kalshi predictio
    df = pd.read_parquet("kalshi_data/candles/daily/KXRECSSNBER/KXRECSSNBER-26.parquet")
    df["date"] = pd.to_datetime(df["ts_ms"], unit="ms", utc=True)
    ```
-
-## Example output
-
-![Daily close of KXRECSSNBER-26, read as the market-implied probability of a 2026 US recession](docs/recession_probability.png)
-
-Source: `kalshi_data/candles/daily/KXRECSSNBER/KXRECSSNBER-26.parquet`, 2025-07-15 through 2026-08-09. Price equals market-implied probability, so this contract repriced a 2026 recession from a first close of 0.42 to a latest close of 0.05.
 
 ## Tools
 
@@ -159,10 +153,6 @@ Kalshi_Pull/
 │   ├── get_Econ_Info.py          # list all series by category
 │   ├── get_tickers.py            # per-series discovery, writes the catalog
 │   └── kalshi_tickers/           # committed catalog: per-series JSON + TXT, all_tickers.*
-├── examples/
-│   └── plot_recession_probability.py
-├── docs/
-│   └── recession_probability.png
 ├── tests/                        # 9 offline tests
 └── kalshi_data/                  # output, gitignored
     ├── candles/daily/{series}/{ticker}.parquet
@@ -201,7 +191,7 @@ ORDER BY rows DESC;
 
 ## Tests
 
-9 offline tests cover candle normalization, trade normalization, and the parquet append round trip. No credentials or network needed. Run with `pytest -q`.
+9 offline tests cover candle normalization, trade normalization, and the parquet append round trip. No credentials or network needed. Installing with `pip install -e ".[dev]"` provides pytest. Run with `pytest -q`.
 
 ## Known API quirks
 
