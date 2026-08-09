@@ -1,153 +1,192 @@
 # Kalshi Macro Market Data Pipeline
 
-Pure market-data pipeline for Kalshi prediction-market contracts on macro-economic events (CPI, Fed funds rate, unemployment, GDP, payrolls). Pulls and stores raw candles, trades, and orderbook snapshots as parquet files. Designed as a clean data layer for downstream research — no analysis, no derived metrics, just queryable market data.
+A standalone tool that pulls Kalshi prediction market data for US macro events and stores it as Parquet.
 
-## What it does
+![Daily close of KXRECSSNBER-26, read as the market-implied probability of a 2026 US recession](docs/recession_probability.png)
 
-- **Historical candles** (daily, hourly, minute) for every ticker across 15 macro series (~4,164 tickers, 525 events)
-- **Historical trades** (every individual fill) for a configurable focus universe of liquid contracts
-- **Orderbook snapshots** via REST polling on configurable cadences
-- **Idempotent pulls** — re-running any puller only fetches new data and appends to existing files
+Source: `kalshi_data/candles/daily/KXRECSSNBER/KXRECSSNBER-26.parquet`, 2025-07-15 through 2026-08-09. Price equals market-implied probability, so this contract repriced a 2026 recession from a first close of 0.42 to a latest close of 0.05.
 
-## Why it exists
+## What it is
 
-Kalshi prediction markets price macro outcomes (Fed rate decisions, CPI prints, payroll numbers) in real time. This pipeline captures that pricing data at multiple frequencies for downstream SPX/VIX volatility research and macro signal extraction. The pipeline stores raw data only — all analysis happens in separate projects that consume the parquet output.
+- **Collection only.** It pulls three kinds of market data: candles (daily, hourly, minute), individual trades, and orderbook snapshots.
+- **Partitioned zstd Parquet.** Everything lands under `kalshi_data/` in a fixed layout, deduped and safe to re-run.
+- **No analysis code.** Downstream research lives in separate projects that read the output files.
 
-## Installation
+## Quickstart
+
+1. Clone and enter the repo:
+
+   ```bash
+   git clone https://github.com/Arom-MFE/Kalshi_Pull.git
+   cd Kalshi_Pull
+   ```
+
+2. Create a virtual environment and install:
+
+   ```bash
+   python -m venv .venv
+   source .venv/bin/activate
+   pip install -e .
+   ```
+
+3. Create an API key from your Kalshi account settings (see the [official key guide](https://docs.kalshi.com/getting_started/api_keys)) and save the private key it gives you:
+
+   ```bash
+   mkdir -p ~/.kalshi && chmod 700 ~/.kalshi
+   # save the PEM as ~/.kalshi/kalshi_key.pem
+   chmod 600 ~/.kalshi/kalshi_key.pem
+   ```
+
+4. Copy `.env.example` to `.env` at the repo root and fill in both values: `KALSHI_API_KEY_ID` and `KALSHI_KEY_PATH`.
+
+5. Pull daily candles for one ticker:
+
+   ```bash
+   python -m pull_historical.pull_daily --tickers KXRECSSNBER-26
+   ```
+
+6. Read the result:
+
+   ```python
+   import pandas as pd
+   df = pd.read_parquet("kalshi_data/candles/daily/KXRECSSNBER/KXRECSSNBER-26.parquet")
+   df["date"] = pd.to_datetime(df["ts_ms"], unit="ms", utc=True)
+   ```
+
+## Tools
+
+| Script | What it does | Needs API key |
+|---|---|---|
+| `pull_historical/pull_daily.py` | Daily candles, resuming from the last stored row | Yes |
+| `pull_historical/pull_hourly.py` | Hourly candles, partitioned by year | Yes |
+| `pull_historical/pull_minute.py` | Minute candles, partitioned by year and month | Yes |
+| `pull_historical/pull_trades.py` | Every individual trade for a ticker | No |
+| `pull_historical/pull_audit.py` | Coverage report over stored daily files; no API calls | No |
+| `pull_historical/pull_all_freq.py` | All four pullers over every cataloged ticker | Yes |
+| `pull_live/poll_focus.py` | Scheduled pulls plus orderbook snapshots over `FOCUS_UNIVERSE` | Yes |
+| `get_ticker_info/get_tickers.py` | Rebuilds the ticker catalog for the 15 series | Yes |
+| `get_ticker_info/get_Econ_Info.py` | Lists every series on Kalshi by category | No |
+
+The trade endpoints are public today, so `pull_trades` runs without credentials; `kalshi_io/client.py` keeps them on an unauthenticated session.
+
+## Finding what to pull
+
+- `get_ticker_info/get_Econ_Info.py` prints every series on Kalshi grouped by category, then full details for the Economics ones.
+- The committed files under `get_ticker_info/kalshi_tickers/` are the current catalog: one JSON and one TXT per series, plus `all_tickers.json` and `all_tickers.txt`.
+- `get_ticker_info/get_tickers.py` rebuilds the catalog. `discover_series("KXCPIYOY")` works for any series ticker, and `build_combined()` regenerates the `all_tickers` files.
+
+## Usage
 
 ```bash
-# Clone the repo
-git clone https://github.com/your-username/kalshi-pipeline.git
-cd kalshi-pipeline
-
-# Create and activate a virtual environment
-python -m venv .venv
-source .venv/bin/activate
-
-# Install in editable mode
-pip install -e .
+python -m pull_historical.pull_daily --tickers KXRECSSNBER-26
+python -m pull_historical.pull_hourly --tickers KXFED --limit 10
+python -m pull_historical.pull_minute --tickers KXCPIYOY-26JUL-T3.5
+python -m pull_historical.pull_trades --tickers KXCPIYOY-26JUL-T3.5
+python -m pull_historical.pull_audit --tickers KXRECSSNBER
 ```
 
-### Kalshi API setup
+`--tickers` accepts a file path (`.txt` or `.json`), a series name, or a single ticker. `--limit` caps how many tickers a run processes. The candle and trade pullers also accept `--since YYYY-MM-DD`.
 
-1. Generate an API key at [kalshi.com/account/api-keys](https://kalshi.com/account/api-keys)
-2. Save your RSA private key:
+`pull_all_freq` runs daily, hourly, minute, and trade pulls over all 4,065 cataloged tickers in one shot. At that scale it is a multi-hour to multi-day job making tens of thousands of API calls; prefer the individual pullers with `--tickers` and `--limit` for bounded runs.
+
+Live polling runs every puller on a cadence against the 37 tickers in `FOCUS_UNIVERSE`. Defaults: minute candles, trades, and orderbook snapshots every 60 seconds; hourly candles every 900; daily candles every 21600. Ctrl+C or SIGTERM finishes the current task, then exits cleanly.
 
 ```bash
-mkdir -p ~/.kalshi && chmod 700 ~/.kalshi
-# Save your private key PEM file as:
-# ~/.kalshi/kalshi_key.pem
-chmod 600 ~/.kalshi/kalshi_key.pem
+python -m pull_live.poll_focus
+python -m pull_live.poll_focus --minute-interval 30 --no-daily
+python -m pull_live.poll_focus --iterations 1
 ```
 
-3. Create a `.env` file at the repo root (see `.env.example`):
+Every puller is also importable:
 
+```python
+from pull_historical.pull_daily import run
+result = run("KXRECSSNBER-26")
+# {'processed': 1, 'skipped': 0, 'rows_written': 0, 'elapsed_sec': 0.7}
 ```
-KALSHI_API_KEY_ID=your-api-key-id-here
-KALSHI_KEY_PATH=/Users/yourname/.kalshi/kalshi_key.pem
-```
+
+## Data and schemas
+
+Candles (daily, hourly, minute):
+
+| Column | Dtype | Meaning |
+|---|---|---|
+| `ts_ms` | int64 | Candle end time, UTC milliseconds |
+| `open`, `high`, `low`, `close` | float64 | Trade prices in dollars, 0.0 to 1.0 |
+| `mean` | float64 | Volume-weighted mean trade price for the period |
+| `volume` | float64 | Contracts traded during the period |
+| `open_interest` | float64 | Contracts outstanding, as the API reports for the period |
+| `market_ticker`, `event_ticker`, `series_ticker` | str | Kalshi identifiers |
+
+Trades:
+
+| Column | Dtype | Meaning |
+|---|---|---|
+| `trade_id` | str | Unique trade identifier, the dedupe key |
+| `market_ticker` | str | Kalshi market identifier |
+| `ts_ms` | int64 | Execution time, UTC milliseconds |
+| `yes_price`, `no_price` | float64 | Fill prices in dollars, 0.0 to 1.0 |
+| `count` | float64 | Contracts filled; fractional values are genuine |
+| `taker_side` | str | Side the aggressor traded, `yes` or `no` |
+
+Orderbook snapshots:
+
+| Column | Dtype | Meaning |
+|---|---|---|
+| `ts_ms` | int64 | Snapshot time, UTC milliseconds |
+| `market_ticker` | str | Kalshi market identifier |
+| `side` | str | `YES` or `NO` bid book |
+| `price` | float64 | Bid price in dollars |
+| `quantity` | float64 | Contracts resting at this level |
+| `cumulative_qty` | float64 | Running total from the best price down |
+| `distance_from_top` | int64 | 0 at the best price, counting down the book |
+
+The contract across every file: `ts_ms` is int64 UTC milliseconds. Prices are float64 dollars in [0.0, 1.0] and read directly as probabilities, because each contract settles at 1 dollar or 0. Volume, open interest, and count are float64 contract counts passed through unscaled; fractional values are genuine fractional contracts, not artifacts. NaN marks values the API did not provide; nothing is invented as 0.
 
 ## Directory layout
 
 ```
-kalshi-pipeline/
-├── kalshi_io/              # Shared library
-│   ├── client.py           # Authenticated SDK + REST session
-│   ├── config.py           # Paths, constants, focus universe, series list
-│   ├── tickers.py          # Flexible ticker loading (file, series name, list)
-│   ├── resolve.py          # Event/market/metadata resolution with fallbacks
-│   ├── candles.py          # Candle fetching + normalization (live/historical schemas)
-│   ├── trades.py           # Trade fetching with cursor pagination
-│   ├── orderbook.py        # Orderbook snapshot → DataFrame
-│   └── storage.py          # Parquet I/O: append, dedupe, resume
-│
-├── pull_historical/        # CLI scripts for historical backfill
-│   ├── pull_daily.py       # Daily candles (period_interval=1440)
-│   ├── pull_hourly.py      # Hourly candles (period_interval=60)
-│   ├── pull_minute.py      # Minute candles (period_interval=1)
-│   ├── pull_trades.py      # Historical trade tape
-│   └── pull_audit.py       # Read-only coverage report (no API calls)
-│
+Kalshi_Pull/
+├── kalshi_io/                    # shared library
+│   ├── client.py                 # SDK client + REST session, credentials read lazily
+│   ├── config.py                 # paths, chunk sizes, SERIES_LIST, FOCUS_UNIVERSE
+│   ├── tickers.py                # ticker list loading (file, series name, single ticker)
+│   ├── resolve.py                # event, market, and metadata resolution with fallbacks
+│   ├── candles.py                # candle fetch + normalization for both API shapes
+│   ├── trades.py                 # trade fetch with cursor pagination
+│   ├── orderbook.py              # orderbook snapshot to DataFrame
+│   └── storage.py                # parquet append, dedupe, resume, path routing
+├── pull_historical/              # backfill CLIs (daily, hourly, minute, trades, audit, all_freq)
 ├── pull_live/
-│   └── poll_focus.py       # Single-process scheduler for focus universe
-│
-├── get_ticker_info/        # Ticker discovery and series metadata
-│   └── kalshi_tickers/     # Per-series JSON+TXT, plus all_tickers.*
-│
-└── kalshi_data/            # All output (gitignored)
-    ├── candles/
-    │   ├── daily/{series}/{ticker}.parquet
-    │   ├── hourly/{series}/{year}/{ticker}.parquet
-    │   └── minute/{series}/{year}/{month}/{ticker}.parquet
+│   └── poll_focus.py             # cadence scheduler over FOCUS_UNIVERSE
+├── get_ticker_info/
+│   ├── get_Econ_Info.py          # list all series by category
+│   ├── get_tickers.py            # per-series discovery, writes the catalog
+│   └── kalshi_tickers/           # committed catalog: per-series JSON + TXT, all_tickers.*
+├── examples/
+│   └── plot_recession_probability.py
+├── docs/
+│   └── recession_probability.png
+├── tests/                        # 9 offline tests
+└── kalshi_data/                  # output, gitignored
+    ├── candles/daily/{series}/{ticker}.parquet
+    ├── candles/hourly/{series}/{year}/{ticker}.parquet
+    ├── candles/minute/{series}/{year}/{month}/{ticker}.parquet
     ├── trades/{series}/{ticker}/{yyyy-mm}.parquet
     ├── orderbook/{ticker}/{yyyy-mm-dd}.parquet
     └── logs/
 ```
 
-## Usage
-
-### Historical backfill
-
-```bash
-# Daily candles for all tickers
-python -m pull_historical.pull_daily
-
-# Hourly candles for a specific series
-python -m pull_historical.pull_hourly --tickers KXFED --limit 10
-
-# Minute candles for focus universe
-python -m pull_historical.pull_minute --tickers KXFED-26JUN-T4.25
-
-# Historical trades
-python -m pull_historical.pull_trades --tickers KXFEDDECISION
-
-# Coverage audit (read-only, no API calls)
-python -m pull_historical.pull_audit --tickers KXRECSSNBER
-```
-
-All pullers accept `--tickers` (path to `.txt`/`.json`, series name, or single ticker), `--limit`, and `--since YYYY-MM-DD`.
-
-### Live polling
-
-```bash
-# Run with defaults (minute/trades/orderbook every 60s, hourly every 15min, daily every 6h)
-python -m pull_live.poll_focus
-
-# Override cadences
-python -m pull_live.poll_focus --minute-interval 30 --trades-interval 30
-
-# Disable specific pullers
-python -m pull_live.poll_focus --no-daily --no-hourly
-
-# Single iteration (useful for testing)
-python -m pull_live.poll_focus --iterations 1
-```
-
-Ctrl+C for graceful shutdown. Logs to `kalshi_data/logs/poll_focus_{YYYYMMDD}.log`.
-
-### Programmatic usage
-
-```python
-from pull_historical.pull_daily import run
-result = run("KXFED", limit=5)
-# {"processed": 5, "skipped": 0, "rows_written": 42, "elapsed_sec": 3.2}
-```
-
 ## Reading the data
-
-### pandas
 
 ```python
 import pandas as pd
-
-df = pd.read_parquet("kalshi_data/candles/daily/KXFED/KXFED-26JUN-T4.25.parquet")
-df["timestamp"] = pd.to_datetime(df["ts_ms"], unit="ms", utc=True)
+df = pd.read_parquet("kalshi_data/candles/daily/KXRECSSNBER/KXRECSSNBER-26.parquet")
+df["date"] = pd.to_datetime(df["ts_ms"], unit="ms", utc=True)
 ```
 
-### DuckDB
-
 ```sql
-SELECT market_ticker, COUNT(*) as rows, MIN(ts_ms) as first, MAX(ts_ms) as last
+SELECT market_ticker, COUNT(*) AS rows, MIN(ts_ms) AS first, MAX(ts_ms) AS last
 FROM read_parquet('kalshi_data/candles/daily/**/*.parquet')
 GROUP BY market_ticker
 ORDER BY rows DESC;
@@ -155,27 +194,46 @@ ORDER BY rows DESC;
 
 ## Series covered
 
-15 macro series, ~4,164 tickers across 525 events:
+15 series, 524 events, 4,065 unique tickers, per the committed `all_tickers.json`.
 
 | Category | Series |
-|----------|--------|
+|---|---|
 | Inflation | KXCPI, KXCPIYOY, KXACPI, KXCPICORE, KXPCECORE, KXCPICOREYOY |
 | Labor | KXU3, KXJOBLESS, KXPAYROLLS |
 | Growth | KXGDP, KXGDPYEAR, KXRECSSNBER |
 | Fed | KXFEDDECISION, KXFED, KXFEDMEET |
 
+## Tests
+
+9 offline tests cover candle normalization, trade normalization, and the parquet append round trip. No credentials or network needed. Run with `pytest -q`.
+
 ## Known API quirks
 
-- KX prefix migration (late 2024): `FED` → `KXFEDDECISION`, `CPIYOY` → `KXCPIYOY`, etc.
-- Live vs historical candle schemas differ (`price.close` vs `price.close_dollars`)
-- SDK `get_series_list()` is broken (Pydantic error on `tags: null`) — pipeline hits REST directly
-- ~0.3% of tickers are malformed — automatically logged to skip-list and skipped
-- `get_event`/`get_market` 404 for old events — pipeline has multi-layer fallbacks
-- 5,000 candle cap per call — pipeline handles chunking and pagination automatically
+- **KX prefix migration.** Older tickers have no KX prefix; newer ones do. The same series file holds both, for example `CPIYOY-22DEC` and `KXCPIYOY-26JUN` events. Discovery queries both variants of every series name.
+- **Two response shapes for the same candle.** The live endpoint sends `price.close_dollars` and `volume_fp`; the historical endpoint sends `price.close` and `volume` for the same values. `kalshi_io/candles.py` normalizes both into one schema.
+- **Old markets 404 on live endpoints.** Settled markets age out of the live API onto `/historical/` endpoints. The resolvers in `kalshi_io/resolve.py` fall back through up to four tiers, and the candle fetcher swaps to the historical endpoint when the live one returns 404.
+- **5,000 candle cap per request.** The API rejects a request whose window spans more than 5,000 candles with the error `max candlesticks: 5000`. Chunk sizes in `kalshi_io/config.py` keep every window under the cap; a 3-day minute window is 4,320 candles.
+- **Numbers arrive as decimal strings.** Prices, volumes, and counts are serialized as strings like `"0.6900"` and `"5247.00"`. Normalization casts them all to float64.
+- **Fractional contracts are real.** The API reports contract counts as fixed-point values with two decimals, and fractional volumes such as `11747.08` are genuine fills, never rounding noise. They pass through unscaled.
+- **Broken titles on some old markets.** 21 markets from the 2024 and 2025 KXACPI events carry unfilled template titles containing the literal text `above_below_between`. Titles are metadata only; prices are unaffected.
+- **Unresolvable tickers get skipped, not fatal.** When a ticker cannot be resolved or fetched, the pullers log it to `kalshi_data/logs/skip_*.txt` and continue.
+
+## Design notes
+
+- **Trades refetch the full tape.** `fetch_trades` pulls the complete live plus historical tape and dedupes on `trade_id` instead of paginating incrementally. The largest stored tape here is 1,460 rows, so a full refetch is cheaper than cursor bookkeeping and cannot leave gaps.
+- **Minute backfill starts at market open.** The `pull_minute` CLI defaults `--since` to 2025-01-01, but `pull_all_freq` calls the programmatic `run()` without it, so cold-start tickers pull minute candles from the market's open time.
+- **The focus universe is hardcoded.** `FOCUS_UNIVERSE` in `kalshi_io/config.py` lists 37 tickers, each verified active on 2026-08-09. It is refreshed by hand once per macro cycle, so a polling run never depends on a discovery run.
 
 ## Maintenance
 
-- **Weekly**: Re-run `get_ticker_info/get_tickers.py` to discover new events/tickers
-- **Per macro cycle**: Update `FOCUS_UNIVERSE` in `kalshi_io/config.py` with the next month's active liquid tickers
-- **Backfill new tickers**: `python -m pull_historical.pull_daily --tickers path/to/new_tickers.txt`
+- **Weekly:** run `get_ticker_info/get_tickers.py` to pick up new events and tickers; it rewrites the per-series files and `all_tickers.*`.
+- **Per macro cycle:** update `FOCUS_UNIVERSE` in `kalshi_io/config.py` with the next cycle's active tickers.
+- **New tickers:** backfill with `python -m pull_historical.pull_daily --tickers path/to/new_tickers.txt`.
 
+## API guide
+
+[KalshiAPI.md](KalshiAPI.md) covers how Kalshi structures series, events, and markets, and which endpoints this repo calls.
+
+## License
+
+MIT, see [LICENSE](LICENSE).
