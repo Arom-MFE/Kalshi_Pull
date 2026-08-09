@@ -60,6 +60,9 @@ def fetch_trades(
     Returns:
         DataFrame with columns: trade_id, market_ticker, ts_ms (int64 UTC ms),
         yes_price, no_price, count, taker_side. Sorted by ts_ms ascending.
+        yes_price/no_price are float64 dollars in [0, 1]; count is float64
+        contracts exactly as the API reports it (fractional on markets with
+        fractional-contract support), unscaled.
     """
     live = _paginate_trades("/markets/trades", market_ticker)
     hist = _paginate_trades("/historical/trades", market_ticker)
@@ -87,6 +90,12 @@ def fetch_trades(
 
     # Keep only the columns we need
     df = df[TRADE_COLUMNS]
+
+    # Wire JSON serializes prices and counts as decimal strings — cast to
+    # float64. count is fixed-point contracts; fractional values are genuine
+    # (fractional-contract support), never rounded or rescaled.
+    for col in ("yes_price", "no_price", "count"):
+        df[col] = pd.to_numeric(df[col]).astype("float64")
 
     # Dedupe and sort
     df = (
