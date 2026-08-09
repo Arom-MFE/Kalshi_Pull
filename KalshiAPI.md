@@ -50,7 +50,7 @@ Callers marked (SDK) go through the `kalshi-python-sync` client; unmarked caller
 - **Two timestamp conventions.** Candle requests take `start_ts` and `end_ts` in Unix seconds, and trades arrive with an ISO 8601 `created_time`. Stored data uses one convention everywhere: `ts_ms`, int64 UTC milliseconds.
 - **The orderbook is two bid books.** The endpoint returns YES bids and NO bids with no separate ask side. This repo stores both books under a `side` column.
 
-## Quirks
+## Nuances
 
 - **KX prefix migration.** Older tickers lack the KX prefix; newer ones have it. The `KXCPIYOY` series contains both `CPIYOY-22DEC` and `KXCPIYOY-26JUN` events. Query both spellings when you look up a series by name.
 - **5,000 candle cap.** A candle request whose window spans more than 5,000 candles is rejected with `max candlesticks: 5000`. Size request windows to stay under it: for minute candles that means about 3 days per request.
