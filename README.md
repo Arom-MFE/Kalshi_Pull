@@ -1,16 +1,6 @@
 # Kalshi Macro Market Data Pipeline
 
-A standalone tool that pulls Kalshi prediction market data for US macro events and stores it as Parquet.
-
-![Daily close of KXRECSSNBER-26, read as the market-implied probability of a 2026 US recession](docs/recession_probability.png)
-
-Source: `kalshi_data/candles/daily/KXRECSSNBER/KXRECSSNBER-26.parquet`, 2025-07-15 through 2026-08-09. Price equals market-implied probability, so this contract repriced a 2026 recession from a first close of 0.42 to a latest close of 0.05.
-
-## What it is
-
-- **Collection only.** It pulls three kinds of market data: candles (daily, hourly, minute), individual trades, and orderbook snapshots.
-- **Partitioned zstd Parquet.** Everything lands under `kalshi_data/` in a fixed layout, deduped and safe to re-run.
-- **No analysis code.** Downstream research lives in separate projects that read the output files.
+Kalshi_Pull is a standalone tool that collects market data from Kalshi prediction markets on US macro events. It pulls three kinds of data and nothing else: candles (daily, hourly, minute), individual trades, and orderbook snapshots. Every pull writes partitioned zstd Parquet under `kalshi_data/`, dedupes on write, and resumes from the last stored row, so re-running is safe. The repo contains no analysis code; downstream research lives in separate projects that read the output files. A committed ticker catalog covers 15 macro series, so there is no discovery step between cloning, installing, and the first pull.
 
 ## Quickstart
 
@@ -52,6 +42,12 @@ Source: `kalshi_data/candles/daily/KXRECSSNBER/KXRECSSNBER-26.parquet`, 2025-07-
    df = pd.read_parquet("kalshi_data/candles/daily/KXRECSSNBER/KXRECSSNBER-26.parquet")
    df["date"] = pd.to_datetime(df["ts_ms"], unit="ms", utc=True)
    ```
+
+## Example output
+
+![Daily close of KXRECSSNBER-26, read as the market-implied probability of a 2026 US recession](docs/recession_probability.png)
+
+Source: `kalshi_data/candles/daily/KXRECSSNBER/KXRECSSNBER-26.parquet`, 2025-07-15 through 2026-08-09. Price equals market-implied probability, so this contract repriced a 2026 recession from a first close of 0.42 to a latest close of 0.05.
 
 ## Tools
 
@@ -113,7 +109,7 @@ Candles (daily, hourly, minute):
 |---|---|---|
 | `ts_ms` | int64 | Candle end time, UTC milliseconds |
 | `open`, `high`, `low`, `close` | float64 | Trade prices in dollars, 0.0 to 1.0 |
-| `mean` | float64 | Volume-weighted mean trade price for the period |
+| `mean` | float64 | Mean trade price for the period, as reported by the API |
 | `volume` | float64 | Contracts traded during the period |
 | `open_interest` | float64 | Contracts outstanding, as the API reports for the period |
 | `market_ticker`, `event_ticker`, `series_ticker` | str | Kalshi identifiers |

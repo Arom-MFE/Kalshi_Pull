@@ -30,7 +30,7 @@ The cutoff advances over time. A ticker that worked against the live API last qu
 |---|---|---|
 | `GET /series` | List every series on Kalshi | `get_ticker_info/get_Econ_Info.py` |
 | `GET /events` | List events for a series | `get_ticker_info/get_tickers.py` (SDK) |
-| `GET /events/{event_ticker}` | One event with its markets | `kalshi_io/resolve.py`, `get_ticker_info/get_tickers.py` |
+| `GET /events/{event_ticker}` | One event with its markets | `kalshi_io/resolve.py` (SDK, then REST), `get_ticker_info/get_tickers.py` (SDK) |
 | `GET /markets` | List markets by series or event | `kalshi_io/resolve.py`, `get_ticker_info/get_tickers.py` |
 | `GET /markets/{ticker}` | One market's metadata | `kalshi_io/resolve.py` (SDK) |
 | `GET /series/{series}/markets/{ticker}/candlesticks` | Live candles | `kalshi_io/candles.py` (SDK) |
@@ -41,7 +41,7 @@ The cutoff advances over time. A ticker that worked against the live API last qu
 | `GET /historical/markets/{ticker}/candlesticks` | Candles for settled markets | `kalshi_io/candles.py` |
 | `GET /historical/trades` | Trade tape for settled markets | `kalshi_io/trades.py` |
 
-Rows marked (SDK) go through the `kalshi-python-sync` client; the rest are plain REST calls. The base URL is `https://api.elections.kalshi.com/trade-api/v2`.
+Callers marked (SDK) go through the `kalshi-python-sync` client; unmarked callers are plain REST. The caller marked (SDK, then REST) tries the client first and falls back to plain REST. The base URL is `https://api.elections.kalshi.com/trade-api/v2`.
 
 ## Wire format
 
