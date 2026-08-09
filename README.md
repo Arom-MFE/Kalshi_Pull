@@ -1,7 +1,6 @@
 # Kalshi Market Data Pipeline
 
-Kalshi_Pull turns Kalshi's prediction market API into clean, research-ready market data. The raw Kalshi API is not optimized to build on: data splits across live and historical endpoints with different field names, prices, volumes, and counts arrive as decimal strings, candle requests are capped at 5,000 per call, and settled markets 404 on the live side. Kalshi_Pull absorbs those quirks behind pullers for candles (daily, hourly, minute), individual trades, and orderbook snapshots, writing partitioned zstd Parquet that dedupes on write and resumes from the last stored row. It ships with a committed catalog of 15 US macro series covering CPI, Fed decisions, payrolls, and GDP, and it pulls any ticker on the exchange; discovery scripts catalog new series on demand. There is no analysis code: downstream research reads the Parquet output.
-
+Kalshi_Pull turns Kalshi's prediction market API into clean, research-ready market data. Kalshi is an exchange where contracts trade on real-world events, so every price reads as a probability, and a full price history is a record of what the market believed, day by day. Getting that history out of the raw API is the hard part: data is split across live and historical endpoints that name the same fields differently, prices and volumes arrive as text rather than numbers, candle requests are capped at 5,000 per call, and settled markets drop off the live endpoints entirely. Kalshi_Pull handles all of it, pulling price history at three speeds (daily, hourly, minute), every individual trade, and order book snapshots into partitioned zstd Parquet that dedupes on write and resumes where it stopped. It ships with a committed catalog of 15 US macro series, from CPI and Fed decisions to payrolls and GDP, and it can pull any ticker on the exchange; discovery scripts catalog new series on demand. There is no analysis code here: downstream research reads the Parquet output.
 ## Quickstart
 
 1. Clone and enter the repo:
@@ -193,7 +192,7 @@ ORDER BY rows DESC;
 
 9 offline tests cover candle normalization, trade normalization, and the parquet append round trip. No credentials or network needed. Installing with `pip install -e ".[dev]"` provides pytest. Run with `pytest -q`.
 
-## Known API quirks
+## Known API Nuances
 
 - **KX prefix migration.** Older tickers have no KX prefix; newer ones do. The same series file holds both, for example `CPIYOY-22DEC` and `KXCPIYOY-26JUN` events. Discovery queries both variants of every series name.
 - **Two response shapes for the same candle.** The live endpoint sends `price.close_dollars` and `volume_fp`; the historical endpoint sends `price.close` and `volume` for the same values. `kalshi_io/candles.py` normalizes both into one schema.
