@@ -2,7 +2,7 @@
 kalshi_io — Shared library for the Kalshi macro market data pipeline.
 """
 
-from kalshi_io.client import client, session, BASE_URL
+from kalshi_io.client import get_client, get_session, BASE_URL
 from kalshi_io.candles import resolve_ticker_meta
 from kalshi_io.trades import fetch_trades
 from kalshi_io.orderbook import snapshot_orderbook, append_orderbook_snapshot
@@ -23,8 +23,8 @@ from kalshi_io.config import (
 
 
 __all__ = [
-    "client",
-    "session",
+    "get_client",
+    "get_session",
     "BASE_URL",
     "PROJECT_ROOT",
     "DATA_DIR",

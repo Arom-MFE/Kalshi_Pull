@@ -4,7 +4,7 @@ pull_historical/pull_daily.py — Daily candle puller (period_interval=1440).
 CLI:
     python pull_historical/pull_daily.py --tickers KXRECSSNBER --limit 5
     python pull_historical/pull_daily.py --since 2025-01-01
-    python pull_historical/pull_daily.py  # all 4,164 tickers
+    python pull_historical/pull_daily.py  # all ~4,065 tickers
 
 Importable:
     from pull_historical.pull_daily import run

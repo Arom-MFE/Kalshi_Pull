@@ -62,7 +62,7 @@ def _run_orderbook(tickers: list[str]) -> dict:
     rows_written = 0
     for ticker in tickers:
         try:
-            df_book, df_top = snapshot_orderbook(ticker)
+            df_book = snapshot_orderbook(ticker)
             n = append_orderbook_snapshot(ticker, df_book)
             rows_written += n
             processed += 1

@@ -1,4 +1,11 @@
-"""Runs every historical puller in sequence. Just press run."""
+"""Runs every historical puller in sequence over ALL tickers in
+get_ticker_info/kalshi_tickers/all_tickers.txt (~4,065 tickers) — including
+minute candles and trades, NOT just the focus universe.
+
+WARNING: at full scale this is a multi-hour (potentially multi-day) job that
+makes tens of thousands of API calls. For a bounded run, use the individual
+pullers with --tickers / --limit / --since instead.
+"""
 
 from pull_historical.pull_daily import run as run_daily
 from pull_historical.pull_hourly import run as run_hourly

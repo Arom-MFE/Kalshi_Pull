@@ -1,11 +1,5 @@
 """
 kalshi_io/candles.py — Candle fetching and normalization.
-
-Ported from reference_scripts/prediction_hourly_data_hist.py:
-    parse_candle   ← parse_candle              (lines 201-234)
-    fetch_candles  ← chunk loop + fallback      (lines 282-302)
-                   + fetch_historical_chunk     (lines 237-242)
-                   + attach_meta               (lines 245-246)
 """
 
 import json
@@ -13,7 +7,7 @@ import time
 
 from kalshi_python_sync.exceptions import NotFoundException
 
-from kalshi_io.client import BASE_URL, client, session
+from kalshi_io.client import BASE_URL, get_client, get_session
 from kalshi_io.config import (
     CHUNK_SECONDS,
     RATE_LIMIT_SECONDS,
@@ -58,7 +52,7 @@ def resolve_ticker_meta(market_ticker: str) -> tuple[str, str]:
 
 
 # ============================================================
-# parse_candle — ported from lines 201-234
+# parse_candle
 # ============================================================
 
 def _to_float(v) -> float | None:
@@ -117,7 +111,7 @@ def parse_candle(raw: object, is_historical: bool) -> dict:
 
 
 # ============================================================
-# fetch_candles — ported from chunk loop (lines 282-302)
+# fetch_candles
 # ============================================================
 
 def _fetch_historical_chunk(
@@ -135,7 +129,7 @@ def _fetch_historical_chunk(
     chunk_start = start_ts
 
     while chunk_start < end_ts:
-        resp = session.get(
+        resp = get_session().get(
             f"{BASE_URL}/historical/markets/{market_ticker}/candlesticks",
             params={
                 "start_ts": chunk_start,
@@ -204,7 +198,7 @@ def fetch_candles(
                 rows.append(candle)
         else:
             try:
-                result = client.get_market_candlesticks(
+                result = get_client().get_market_candlesticks(
                     series_ticker=series_ticker,
                     ticker=market_ticker,
                     start_ts=chunk_start,

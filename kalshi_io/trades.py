@@ -1,17 +1,13 @@
 """
 kalshi_io/trades.py — Trade fetching and normalization.
-
-Ported from reference_scripts/prediction_data_live.py:
-    _paginate_trades  ← paginate_trades  (lines 222-238)
-    fetch_trades      ← dedup block      (lines 248-257)
 """
 
 import time
-from datetime import datetime, timezone
+from datetime import datetime
 
 import pandas as pd
 
-from kalshi_io.client import BASE_URL, session
+from kalshi_io.client import BASE_URL, get_session
 from kalshi_io.config import RATE_LIMIT_SECONDS
 
 TRADE_COLUMNS = [
@@ -22,10 +18,8 @@ TRADE_COLUMNS = [
 
 def _paginate_trades(endpoint: str, ticker: str) -> list[dict]:
     """
-    Pull all pages from a trade endpoint.
+    Pull all pages from a trade endpoint via cursor pagination.
 
-    Ported from prediction_data_live.py lines 222-238.
-    Uses session.get instead of bare requests.get.
     Sleeps RATE_LIMIT_SECONDS between paginated calls.
     """
     rows: list[dict] = []
@@ -34,7 +28,7 @@ def _paginate_trades(endpoint: str, ticker: str) -> list[dict]:
         params = {"ticker": ticker, "limit": 1000}
         if cursor:
             params["cursor"] = cursor
-        resp = session.get(f"{BASE_URL}{endpoint}", params=params)
+        resp = get_session().get(f"{BASE_URL}{endpoint}", params=params)
         if resp.status_code != 200:
             break
         data = resp.json()

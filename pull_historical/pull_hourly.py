@@ -4,7 +4,7 @@ pull_historical/pull_hourly.py — Hourly candle puller (period_interval=60).
 CLI:
     python pull_historical/pull_hourly.py --tickers KXRECSSNBER --limit 5
     python pull_historical/pull_hourly.py --since 2025-01-01
-    python pull_historical/pull_hourly.py  # all 4,164 tickers
+    python pull_historical/pull_hourly.py  # all ~4,065 tickers
 
 Importable:
     from pull_historical.pull_hourly import run

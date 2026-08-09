@@ -4,7 +4,7 @@ kalshi_io/config.py — Paths, constants, and universe definitions.
 
 from pathlib import Path
 
-# Anchor all paths to prediction_market/ so they work regardless of CWD
+# Anchor all paths to the repo root so they work regardless of CWD
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
 DATA_DIR     = PROJECT_ROOT / "kalshi_data"
@@ -32,53 +32,55 @@ SERIES_LIST: list[str] = [
     "KXFEDDECISION", "KXFED", "KXFEDMEET",
 ]
 
+# Refreshed 2026-08-09; every ticker verified active via GET /markets/{ticker}.
+# Update per macro cycle (see README Maintenance).
 FOCUS_UNIVERSE: list[str] = [
-    # Fed funds rate level — June 2026 FOMC (next meeting after April)
-    "KXFED-26JUN-T5.25",
-    "KXFED-26JUN-T5.00",
-    "KXFED-26JUN-T4.75",
-    "KXFED-26JUN-T4.50",
-    "KXFED-26JUN-T4.25",
-    "KXFED-26JUN-T4.00",
-    "KXFED-26JUN-T3.75",
-    "KXFED-26JUN-T3.50",
+    # Fed funds rate level — September 2026 FOMC (next meeting), liquid core
+    "KXFED-26SEP-T2.75",
+    "KXFED-26SEP-T3.00",
+    "KXFED-26SEP-T3.25",
+    "KXFED-26SEP-T3.50",
+    "KXFED-26SEP-T3.75",
+    "KXFED-26SEP-T4.00",
+    "KXFED-26SEP-T4.25",
+    "KXFED-26SEP-T4.50",
 
-    # Fed decision action — June 2026 FOMC
-    "KXFEDDECISION-26JUN-C25",
-    "KXFEDDECISION-26JUN-C26",
-    "KXFEDDECISION-26JUN-H0",
-    "KXFEDDECISION-26JUN-H25",
-    "KXFEDDECISION-26JUN-H26",
+    # Fed decision action — September 2026 FOMC
+    "KXFEDDECISION-26SEP-C25",
+    "KXFEDDECISION-26SEP-C26",
+    "KXFEDDECISION-26SEP-H0",
+    "KXFEDDECISION-26SEP-H25",
+    "KXFEDDECISION-26SEP-H26",
 
-    # CPI YoY — May 2026 release (full ladder)
-    "KXCPIYOY-26MAY-T4.0",
-    "KXCPIYOY-26MAY-T3.5",
-    "KXCPIYOY-26MAY-T3.0",
-    "KXCPIYOY-26MAY-T2.9",
-    "KXCPIYOY-26MAY-T2.8",
-    "KXCPIYOY-26MAY-T2.7",
-    "KXCPIYOY-26MAY-T2.6",
-    "KXCPIYOY-26MAY-T2.5",
-    "KXCPIYOY-26MAY-T2.4",
+    # CPI YoY — July 2026 data, releases 2026-08-12 (liquid core of ladder)
+    "KXCPIYOY-26JUL-T3.2",
+    "KXCPIYOY-26JUL-T3.3",
+    "KXCPIYOY-26JUL-T3.4",
+    "KXCPIYOY-26JUL-T3.5",
+    "KXCPIYOY-26JUL-T3.6",
+    "KXCPIYOY-26JUL-T3.7",
+    "KXCPIYOY-26JUL-T3.8",
+    "KXCPIYOY-26JUL-T3.9",
+    "KXCPIYOY-26JUL-T4.0",
 
-    # Payrolls — May 2026 release
-    "KXPAYROLLS-26MAY-T-25000",
-    "KXPAYROLLS-26MAY-T0",
-    "KXPAYROLLS-26MAY-T50000",
-    "KXPAYROLLS-26MAY-T60000",
-    "KXPAYROLLS-26MAY-T70000",
-    "KXPAYROLLS-26MAY-T80000",
-    "KXPAYROLLS-26MAY-T90000",
-    "KXPAYROLLS-26MAY-T100000",
+    # Payrolls — August 2026 data, releases 2026-09-04
+    "KXPAYROLLS-26AUG-T-25000",
+    "KXPAYROLLS-26AUG-T0",
+    "KXPAYROLLS-26AUG-T50000",
+    "KXPAYROLLS-26AUG-T60000",
+    "KXPAYROLLS-26AUG-T70000",
+    "KXPAYROLLS-26AUG-T80000",
+    "KXPAYROLLS-26AUG-T90000",
+    "KXPAYROLLS-26AUG-T100000",
 
-    # Unemployment — April 2026 release (most recent available)
-    "KXU3-26APR-T3.9",
-    "KXU3-26APR-T4.0",
-    "KXU3-26APR-T4.1",
-    "KXU3-26APR-T4.2",
-    "KXU3-26APR-T4.3",
-    "KXU3-26APR-T4.4",
-    "KXU3-26APR-T4.5",
+    # Unemployment — August 2026 data, releases 2026-09-04
+    "KXU3-26AUG-T3.9",
+    "KXU3-26AUG-T4.0",
+    "KXU3-26AUG-T4.1",
+    "KXU3-26AUG-T4.2",
+    "KXU3-26AUG-T4.3",
+    "KXU3-26AUG-T4.4",
+    "KXU3-26AUG-T4.5",
 ]
 # Canonical timestamp column across all parquet files (int64 UTC milliseconds)
 TS_COL = "ts_ms"

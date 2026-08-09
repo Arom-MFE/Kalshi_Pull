@@ -1,7 +1,8 @@
 """
 pull_historical/pull_minute.py — Minute candle puller (period_interval=1).
 
-CLI (--tickers required — minute pulls are expensive):
+CLI (minute pulls are expensive — --tickers defaults to ALL tickers with
+--since 2025-01-01; prefer an explicit --tickers/--limit for bounded runs):
     python pull_historical/pull_minute.py --tickers KXRECSSNBER-26 --since 2026-04-20
     python pull_historical/pull_minute.py --tickers KXRECSSNBER --limit 5
 

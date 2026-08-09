@@ -15,6 +15,9 @@ dependencies = [
     "duckdb>=0.9",
 ]
 
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
 [tool.setuptools.packages.find]
 include = ["kalshi_io*", "pull_historical*", "pull_live*"]
 exclude = ["get_ticker_info*", "reference_scripts*", "Ideas_prediction_market*", "kalshi_data*"]

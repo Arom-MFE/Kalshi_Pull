@@ -1,10 +1,5 @@
 """
 kalshi_io/resolve.py — Event, market, and metadata resolution.
-
-Ported from reference_scripts/prediction_hourly_data_hist.py:
-    resolve_event      ← safe_get_event       (lines 112-143)
-    resolve_market     ← get_market_ticker     (lines 146-167)
-    get_market_metadata ← get_market_metadata  (lines 170-198)
 """
 
 from datetime import datetime
@@ -12,7 +7,7 @@ from types import SimpleNamespace
 
 from kalshi_python_sync.exceptions import NotFoundException
 
-from kalshi_io.client import BASE_URL, client, session
+from kalshi_io.client import BASE_URL, get_client, get_session
 
 
 def resolve_event(event_ticker: str) -> SimpleNamespace:
@@ -29,12 +24,12 @@ def resolve_event(event_ticker: str) -> SimpleNamespace:
     """
     # Tier 1: SDK
     try:
-        return client.get_event(event_ticker=event_ticker)
+        return get_client().get_event(event_ticker=event_ticker)
     except NotFoundException:
         pass
 
     # Tier 2: REST
-    resp = session.get(f"{BASE_URL}/events/{event_ticker}")
+    resp = get_session().get(f"{BASE_URL}/events/{event_ticker}")
     if resp.status_code == 200:
         data = resp.json()
         return SimpleNamespace(
@@ -74,7 +69,7 @@ def resolve_market(event: SimpleNamespace, event_ticker: str) -> str | None:
         return event.markets[0].ticker
 
     # Tier 2: live markets endpoint
-    resp = session.get(
+    resp = get_session().get(
         f"{BASE_URL}/markets",
         params={"event_ticker": event_ticker, "status": "all"},
     )
@@ -83,7 +78,7 @@ def resolve_market(event: SimpleNamespace, event_ticker: str) -> str | None:
         return markets[0]["ticker"]
 
     # Tier 3: historical markets endpoint
-    resp = session.get(
+    resp = get_session().get(
         f"{BASE_URL}/historical/markets",
         params={"event_ticker": event_ticker},
     )
@@ -92,7 +87,7 @@ def resolve_market(event: SimpleNamespace, event_ticker: str) -> str | None:
         return markets[0]["ticker"]
 
     # Tier 4: event_ticker == market_ticker for very old contracts
-    resp = session.get(f"{BASE_URL}/historical/markets/{event_ticker}")
+    resp = get_session().get(f"{BASE_URL}/historical/markets/{event_ticker}")
     if resp.status_code == 200 and resp.json().get("market"):
         return event_ticker
 
@@ -113,7 +108,7 @@ def get_market_metadata(market_ticker: str) -> dict:
     """
     # Tier 1: SDK
     try:
-        market = client.get_market(ticker=market_ticker)
+        market = get_client().get_market(ticker=market_ticker)
         m = market.market
         open_time = m.open_time
         if hasattr(open_time, "timestamp"):
@@ -136,7 +131,7 @@ def get_market_metadata(market_ticker: str) -> dict:
         print(f"  Warning: unexpected SDK error: {e}")
 
     # Tier 2: REST historical
-    resp = session.get(f"{BASE_URL}/historical/markets/{market_ticker}")
+    resp = get_session().get(f"{BASE_URL}/historical/markets/{market_ticker}")
     if resp.status_code == 200:
         m = resp.json().get("market", {})
         open_time_str = m.get("open_time", "")
