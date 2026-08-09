@@ -24,7 +24,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 import pandas as pd
 
 from kalshi_io.candles import fetch_candles, resolve_ticker_meta
-from kalshi_io.config import DATA_DIR, DEDUPE_COLS_CANDLES
+from kalshi_io.config import DATA_DIR, DEDUPE_COLS_CANDLES, TICKERS_DIR
 from kalshi_io.resolve import get_market_metadata
 from kalshi_io.storage import append_parquet, get_last_timestamp, get_output_path
 from kalshi_io.tickers import load_tickers
@@ -71,7 +71,7 @@ def run(
     Returns:
         {"processed": int, "skipped": int, "rows_written": int, "elapsed_sec": float}
     """
-    log_path = _setup_logging()
+    _setup_logging()
     logger.info("pull_daily starting")
 
     # Skip file
@@ -163,7 +163,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Pull daily candles for Kalshi tickers.")
     parser.add_argument(
         "--tickers",
-        default="get_ticker_info/kalshi_tickers/all_tickers.txt",
+        default=str(TICKERS_DIR / "all_tickers.txt"),
         help="Ticker source: .txt path, .json path, series name, or single ticker",
     )
     parser.add_argument("--limit", type=int, default=None, help="Max tickers to process")

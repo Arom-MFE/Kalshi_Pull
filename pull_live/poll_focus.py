@@ -91,7 +91,7 @@ def main():
         print("FOCUS_UNIVERSE is empty — populate kalshi_io/config.py first.")
         sys.exit(1)
 
-    log_path = _setup_logging()
+    _setup_logging()
     logger.info(f"poll_focus starting — {len(FOCUS_UNIVERSE)} tickers in FOCUS_UNIVERSE")
 
     # Build schedule

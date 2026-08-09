@@ -55,7 +55,8 @@ def _audit_ticker(ticker: str) -> dict | None:
     first_ts = int(df["ts_ms"].min())
     last_ts = int(df["ts_ms"].max())
 
-    # Volume columns are stored as strings (raw API output)
+    # Volume is float64 in the current schema; coerce defensively for files
+    # written before the dtype fix
     vol = pd.to_numeric(df["volume"], errors="coerce").fillna(0)
     total_vol = int(vol.sum())
 

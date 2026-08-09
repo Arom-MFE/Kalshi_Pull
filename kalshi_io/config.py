@@ -9,7 +9,6 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
 DATA_DIR     = PROJECT_ROOT / "kalshi_data"
 TICKERS_DIR  = PROJECT_ROOT / "get_ticker_info" / "kalshi_tickers"
-EXAMPLES_DIR = PROJECT_ROOT / "reference_scripts"
 
 # Chunk sizes per period_interval (seconds per API call window)
 CHUNK_SECONDS: dict[int, int] = {

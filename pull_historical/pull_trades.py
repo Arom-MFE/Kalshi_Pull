@@ -83,7 +83,7 @@ def run(
     Returns:
         {"processed": int, "skipped": int, "rows_written": int, "elapsed_sec": float}
     """
-    log_path = _setup_logging()
+    _setup_logging()
     logger.info("pull_trades starting")
 
     # Skip file

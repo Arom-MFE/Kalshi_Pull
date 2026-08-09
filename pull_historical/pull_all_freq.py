@@ -7,31 +7,39 @@ makes tens of thousands of API calls. For a bounded run, use the individual
 pullers with --tickers / --limit / --since instead.
 """
 
+from kalshi_io.config import TICKERS_DIR
+
 from pull_historical.pull_daily import run as run_daily
 from pull_historical.pull_hourly import run as run_hourly
 from pull_historical.pull_minute import run as run_minute
 from pull_historical.pull_trades import run as run_trades
 
-TICKERS = "get_ticker_info/kalshi_tickers/all_tickers.txt"
+TICKERS = str(TICKERS_DIR / "all_tickers.txt")
 
-print("=" * 60)
-print("DAILY CANDLES")
-print("=" * 60)
-print(run_daily(TICKERS))
 
-print("=" * 60)
-print("HOURLY CANDLES")
-print("=" * 60)
-print(run_hourly(TICKERS))
+def main() -> None:
+    print("=" * 60)
+    print("DAILY CANDLES (all tickers)")
+    print("=" * 60)
+    print(run_daily(TICKERS))
 
-print("=" * 60)
-print("MINUTE CANDLES (focus universe only — last ~100 days)")
-print("=" * 60)
-print(run_minute(TICKERS))
+    print("=" * 60)
+    print("HOURLY CANDLES (all tickers)")
+    print("=" * 60)
+    print(run_hourly(TICKERS))
 
-print("=" * 60)
-print("TRADES")
-print("=" * 60)
-print(run_trades(TICKERS))
+    print("=" * 60)
+    print("MINUTE CANDLES (all tickers)")
+    print("=" * 60)
+    print(run_minute(TICKERS))
 
-print("\n✅ All pulls complete.")
+    print("=" * 60)
+    print("TRADES (all tickers)")
+    print("=" * 60)
+    print(run_trades(TICKERS))
+
+    print("\nAll pulls complete.")
+
+
+if __name__ == "__main__":
+    main()

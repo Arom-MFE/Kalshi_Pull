@@ -2,12 +2,15 @@
 kalshi_io/resolve.py — Event, market, and metadata resolution.
 """
 
+import logging
 from datetime import datetime
 from types import SimpleNamespace
 
 from kalshi_python_sync.exceptions import NotFoundException
 
 from kalshi_io.client import BASE_URL, get_client, get_session
+
+logger = logging.getLogger(__name__)
 
 
 def resolve_event(event_ticker: str) -> SimpleNamespace:
@@ -128,7 +131,7 @@ def get_market_metadata(market_ticker: str) -> dict:
     except NotFoundException:
         pass
     except Exception as e:
-        print(f"  Warning: unexpected SDK error: {e}")
+        logger.warning(f"unexpected SDK error: {e}")
 
     # Tier 2: REST historical
     resp = get_session().get(f"{BASE_URL}/historical/markets/{market_ticker}")

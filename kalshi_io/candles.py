@@ -10,6 +10,7 @@ from kalshi_python_sync.exceptions import NotFoundException
 from kalshi_io.client import BASE_URL, get_client, get_session
 from kalshi_io.config import (
     CHUNK_SECONDS,
+    MAX_CANDLES_PER_CALL,
     RATE_LIMIT_SECONDS,
     SERIES_LIST,
     TICKERS_DIR,
@@ -144,7 +145,7 @@ def _fetch_historical_chunk(
         candles = data.get("candlesticks", [])
         all_candles.extend(candles)
 
-        if len(candles) < 5000:
+        if len(candles) < MAX_CANDLES_PER_CALL:
             break
 
         # Pagination: API returns adjustedEndTs when truncated

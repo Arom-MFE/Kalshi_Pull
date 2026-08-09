@@ -8,41 +8,36 @@ USAGE AS A SCRIPT:
     Change SERIES at bottom and run.
 
 USAGE AS A MODULE:
-    from series_discovery import discover_series, load_tickers
+    from get_tickers import discover_series, load_tickers
 
     discover_series("KXCPIYOY")
     tickers = load_tickers("KXCPIYOY")
 
-OUTPUT FILES (per series, in ./kalshi_tickers/):
+OUTPUT FILES (per series, in get_ticker_info/kalshi_tickers/):
     {SERIES}_tickers.txt      — one market_ticker per line
     {SERIES}_tickers.json     — structured: events + markets + tickers
 """
 
-import os
 import json
+import sys
 import time
 from pathlib import Path
 
+# Ensure kalshi_io is importable when running as a script
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+
 import requests
-from dotenv import load_dotenv
-from kalshi_python_sync import Configuration, KalshiClient
+
+from kalshi_io.client import BASE_URL, get_client
+from kalshi_io.config import TICKERS_DIR
 
 # ============================================================
 # SETUP
 # ============================================================
-load_dotenv()
-
-with open(os.getenv("KALSHI_KEY_PATH"), "r") as f:
-    _private_key = f.read()
-
-_config = Configuration(host="https://api.elections.kalshi.com/trade-api/v2")
-_config.api_key_id      = os.getenv("KALSHI_API_KEY_ID")
-_config.private_key_pem = _private_key
-
-_client    = KalshiClient(_config)
-BASE_URL   = "https://api.elections.kalshi.com/trade-api/v2"
-OUTPUT_DIR = Path("kalshi_tickers")
-OUTPUT_DIR.mkdir(exist_ok=True)
+# The authenticated SDK client comes from kalshi_io.client.get_client(),
+# which reads credentials lazily on first call — importing this module
+# performs no credential read and no network call.
+OUTPUT_DIR = TICKERS_DIR
 
 # ============================================================
 # INTERNAL HELPERS
@@ -81,7 +76,7 @@ def _find_events(series):
 
     for variant in _series_variants(series):
         try:
-            resp = _client.get_events(series_ticker=variant)
+            resp = get_client().get_events(series_ticker=variant)
             for e in resp.events:
                 events.setdefault(e.event_ticker, e.title)
         except Exception:
@@ -107,7 +102,7 @@ def _find_markets_for_event(event_ticker):
     markets = []
 
     try:
-        event = _client.get_event(event_ticker=event_ticker)
+        event = get_client().get_event(event_ticker=event_ticker)
         for m in event.markets:
             markets.append({
                 "event_ticker":  event_ticker,
@@ -192,6 +187,7 @@ def discover_series(series, verbose=True, save=True):
     }
 
     if save:
+        OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
         json_path = OUTPUT_DIR / f"{series}_tickers.json"
         txt_path  = OUTPUT_DIR / f"{series}_tickers.txt"
 
@@ -242,6 +238,7 @@ def build_combined(verbose=True):
     combined["tickers"] = sorted(all_tickers)
 
     # Save
+    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     json_path = OUTPUT_DIR / "all_tickers.json"
     txt_path  = OUTPUT_DIR / "all_tickers.txt"
 
