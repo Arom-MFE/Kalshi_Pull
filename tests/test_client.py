@@ -118,8 +118,8 @@ def test_request_starts_are_spaced_by_the_rate_limit(fake_api, clock):
     _exchange(fake_api)
     for _ in range(5):
         request_json("/markets", {"event_ticker": "TEST-26SEP"})
-    # Default 10 requests/s: the first goes out at once, the next four wait 0.1 s each
-    assert clock.sleeps == pytest.approx([0.1] * 4)
+    # Default 5 requests/s: the first goes out at once, the next four wait 0.2 s each
+    assert clock.sleeps == pytest.approx([0.2] * 4)
 
 
 # ------------------------------------------------------------------ signed fallback

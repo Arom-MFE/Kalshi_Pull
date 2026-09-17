@@ -26,15 +26,16 @@ def test_test_session_never_points_at_the_real_data_dir():
 
 
 def test_max_rps_default_clamp_and_garbage():
-    assert _resolve_max_rps({}) == 10.0
-    assert _resolve_max_rps({"KALSHI_MAX_RPS": "5"}) == 5.0
+    # 5 requests/s is what the keyless candlestick endpoints sustain (measured 2026-09-17)
+    assert _resolve_max_rps({}) == 5.0 == config.DEFAULT_MAX_RPS
+    assert _resolve_max_rps({"KALSHI_MAX_RPS": "10"}) == 10.0
     # 20 requests/s is the documented Basic-tier read budget; never exceed it
     assert _resolve_max_rps({"KALSHI_MAX_RPS": "500"}) == 20.0
     assert _resolve_max_rps({"KALSHI_MAX_RPS": "0.5"}) == 0.5
     # Non-positive or unparsable values fall back to the default
-    assert _resolve_max_rps({"KALSHI_MAX_RPS": "0"}) == 10.0
-    assert _resolve_max_rps({"KALSHI_MAX_RPS": "-3"}) == 10.0
-    assert _resolve_max_rps({"KALSHI_MAX_RPS": "fast"}) == 10.0
+    assert _resolve_max_rps({"KALSHI_MAX_RPS": "0"}) == 5.0
+    assert _resolve_max_rps({"KALSHI_MAX_RPS": "-3"}) == 5.0
+    assert _resolve_max_rps({"KALSHI_MAX_RPS": "fast"}) == 5.0
 
 
 def test_focus_universe_is_a_rule_not_a_ticker_list():

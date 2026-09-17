@@ -4,7 +4,7 @@ kalshi_io/config.py — Paths, constants, and the focus universe rule.
 Two settings come from the process environment (never from .env, which is
 only read lazily for credentials):
     KALSHI_DATA_DIR  — data root override (default: <repo>/kalshi_data)
-    KALSHI_MAX_RPS   — client-side request rate cap (default 10, max 20)
+    KALSHI_MAX_RPS   — client-side request rate cap (default 5, max 20)
 """
 
 import os
@@ -22,14 +22,17 @@ def _resolve_data_dir(env=os.environ) -> Path:
     return PROJECT_ROOT / "kalshi_data"
 
 
+DEFAULT_MAX_RPS = 5.0
+
+
 def _resolve_max_rps(env=os.environ) -> float:
-    """Request rate cap: KALSHI_MAX_RPS, at most 20; default 10 when unset or invalid."""
+    """Request rate cap: KALSHI_MAX_RPS, at most 20; default 5 when unset or invalid."""
     try:
-        rps = float(env.get("KALSHI_MAX_RPS") or 10)
+        rps = float(env.get("KALSHI_MAX_RPS") or DEFAULT_MAX_RPS)
     except ValueError:
-        return 10.0
+        return DEFAULT_MAX_RPS
     if rps <= 0:
-        return 10.0
+        return DEFAULT_MAX_RPS
     return min(rps, 20.0)
 
 
@@ -88,7 +91,10 @@ DEDUPE_COLS_TRADES: list[str] = ["trade_id"]
 # ============================================================
 # Kalshi documents rate limits as token buckets per authenticated account:
 # 10 tokens per request, Basic tier read budget 200 tokens/s = 20 requests/s.
-# Limits for keyless requests are undocumented, so the default is half of Basic.
+# Limits for keyless requests are undocumented. Measured on 2026-09-17, the
+# candlestick endpoints sustain 4 to 5 requests/s without a key (one 429 in
+# 1,344 requests at 4/s, about 5 percent at 6/s, 8 to 12 percent at 10/s), so
+# the default is 5.
 MAX_REQUESTS_PER_SECOND: float = _resolve_max_rps()
 
 # Minimum spacing between requests, enforced centrally in client.request_json
