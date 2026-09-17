@@ -32,7 +32,7 @@ def _patch_wire(monkeypatch):
     monkeypatch.setattr(
         trades_mod,
         "_paginate_trades",
-        lambda endpoint, ticker: list(WIRE) if endpoint == "/markets/trades" else [],
+        lambda endpoint, ticker, min_ts=None: list(WIRE) if endpoint == "/markets/trades" else [],
     )
 
 
@@ -62,3 +62,41 @@ def test_created_time_iso_to_int64_epoch_ms(monkeypatch):
     assert df.loc[df["trade_id"] == "t-1", "ts_ms"].iloc[0] == 1659015067618
     # Sorted ascending by ts_ms — the earlier trade comes first
     assert df.iloc[0]["trade_id"] == "t-2"
+
+
+def test_taker_side_falls_back_to_taker_outcome_side_when_the_deprecated_field_is_gone(monkeypatch):
+    # Kalshi deprecated taker_side in May 2026; taker_outcome_side carries the same yes/no
+    wire = [{k: v for k, v in t.items() if k != "taker_side"} for t in WIRE]
+    wire[0]["taker_outcome_side"] = "yes"
+    wire[1]["taker_outcome_side"] = "no"
+    monkeypatch.setattr(
+        trades_mod, "_paginate_trades",
+        lambda endpoint, ticker, min_ts=None: list(wire) if endpoint == "/markets/trades" else [],
+    )
+    df = fetch_trades("TEST-26")
+    assert list(df.columns) == TRADE_COLUMNS
+    assert df.loc[df["trade_id"] == "t-1", "taker_side"].iloc[0] == "yes"
+    assert df.loc[df["trade_id"] == "t-2", "taker_side"].iloc[0] == "no"
+
+
+def test_present_taker_side_is_never_overwritten_and_absent_sides_stay_missing(monkeypatch):
+    wire = [dict(WIRE[0], taker_outcome_side="no"), {k: v for k, v in WIRE[1].items() if k != "taker_side"}]
+    monkeypatch.setattr(
+        trades_mod, "_paginate_trades",
+        lambda endpoint, ticker, min_ts=None: list(wire) if endpoint == "/markets/trades" else [],
+    )
+    df = fetch_trades("TEST-26")
+    assert df.loc[df["trade_id"] == "t-1", "taker_side"].iloc[0] == "yes"
+    # Neither field present: missing stays missing, nothing is invented
+    assert df.loc[df["trade_id"] == "t-2", "taker_side"].isna().all()
+
+
+def test_legacy_since_trade_id_keeps_same_timestamp_siblings(monkeypatch):
+    # Several fills of one sweep share a timestamp; the old strict ">" dropped the siblings
+    wire = [dict(WIRE[0], trade_id=f"t-{i}") for i in (1, 2, 3)]
+    monkeypatch.setattr(
+        trades_mod, "_paginate_trades",
+        lambda endpoint, ticker, min_ts=None: list(wire) if endpoint == "/markets/trades" else [],
+    )
+    df = fetch_trades("TEST-26", since_trade_id="t-2")
+    assert sorted(df["trade_id"]) == ["t-1", "t-3"]

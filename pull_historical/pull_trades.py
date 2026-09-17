@@ -23,26 +23,40 @@ import pandas as pd
 
 from kalshi_io.candles import resolve_ticker_meta
 from kalshi_io.client import is_outage
-from kalshi_io.config import DATA_DIR, DEDUPE_COLS_TRADES, MAX_CONSECUTIVE_OUTAGES
+from kalshi_io.config import (
+    DATA_DIR,
+    DEDUPE_COLS_TRADES,
+    MAX_CONSECUTIVE_OUTAGES,
+    TRADES_RESUME_OVERLAP_S,
+)
 from kalshi_io.runlog import get_logger, get_skip_recorder, run_logging
-from kalshi_io.storage import append_parquet, get_output_path
+from kalshi_io.storage import append_parquet, get_last_timestamp, get_output_path
 from kalshi_io.tickers import load_tickers
 from kalshi_io.trades import fetch_trades
 
 logger = get_logger("pull_trades")
 
 
-def _get_last_trade_id(series: str, ticker: str) -> str | None:
-    """Find the last trade_id from the newest monthly parquet for a ticker."""
+def _get_last_trade_ts(series: str, ticker: str) -> int | None:
+    """Max ts_ms in the newest monthly parquet for a ticker, or None if nothing is stored."""
     base = DATA_DIR / "trades" / series / ticker
-    matches = sorted(base.glob("*.parquet"))
+    # yyyy-mm names sort chronologically; skip a temp file left by a killed write
+    matches = sorted(p for p in base.glob("*.parquet") if not p.name.endswith(".tmp.parquet"))
     if not matches:
         return None
-    df = pd.read_parquet(matches[-1], columns=["trade_id", "ts_ms"], engine="pyarrow")
-    if df.empty:
-        return None
-    # File is sorted by ts_ms — last row is the latest trade
-    return str(df.sort_values("ts_ms").iloc[-1]["trade_id"])
+    return get_last_timestamp(matches[-1])
+
+
+def _drop_stored(df: pd.DataFrame, path: Path) -> pd.DataFrame:
+    """Remove trades whose trade_id is already in the parquet at path.
+
+    The resume window overlaps the stored tape on purpose; dropping the
+    overlap here means a cycle without new trades writes nothing at all.
+    """
+    if not path.exists():
+        return df
+    stored = pd.read_parquet(path, columns=["trade_id"], engine="pyarrow")["trade_id"]
+    return df[~df["trade_id"].isin(set(stored))]
 
 
 def run(
@@ -55,7 +69,7 @@ def run(
 
     Args:
         tickers: source for load_tickers (path, series name, list, or single ticker)
-        since:   optional "YYYY-MM-DD" — only keep trades after this date
+        since:   optional "YYYY-MM-DD" — only request and keep trades from this date on
         limit:   optional max number of tickers to process
 
     Returns:
@@ -120,13 +134,19 @@ def _run(
             # Resolve series for output path
             series_ticker, _ = resolve_ticker_meta(ticker)
 
-            # Resume: find last trade_id
-            last_trade_id = _get_last_trade_id(series_ticker, ticker)
-            if last_trade_id:
-                logger.info(f"[{i+1}/{len(ticker_list)}] {ticker}: resuming from trade_id={last_trade_id}")
+            # Resume: ask the API only for trades since the last stored one,
+            # minus an overlap that _drop_stored removes again
+            min_ts: int | None = None
+            last_ts_ms = _get_last_trade_ts(series_ticker, ticker)
+            if last_ts_ms is not None:
+                min_ts = max(0, last_ts_ms // 1000 - TRADES_RESUME_OVERLAP_S)
+                logger.info(f"[{i+1}/{len(ticker_list)}] {ticker}: resuming from min_ts={min_ts}")
+            if since_ts_ms is not None:
+                since_s = since_ts_ms // 1000
+                min_ts = since_s if min_ts is None else max(min_ts, since_s)
 
-            # Fetch
-            df = fetch_trades(ticker, since_trade_id=last_trade_id)
+            # Fetch (raises on any failed page; nothing partial is written)
+            df = fetch_trades(ticker, min_ts=min_ts)
 
             # Apply since filter if provided
             if since_ts_ms is not None and not df.empty:
@@ -146,6 +166,9 @@ def _run(
             for (year, month), grp in df.groupby(["_year", "_month"]):
                 ts = pd.Timestamp(year=year, month=month, day=1)
                 out_path = get_output_path("trades", None, series_ticker, ticker, ts=ts)
+                grp = _drop_stored(grp, out_path)
+                if grp.empty:
+                    continue
                 n = append_parquet(
                     grp.drop(columns=["_year", "_month"]),
                     out_path,
