@@ -1,45 +1,16 @@
-"""Runs every historical puller in sequence over ALL tickers in
-get_ticker_info/kalshi_tickers/all_tickers.txt (several thousand tickers) — including
-minute candles and trades, NOT just the focus universe.
+"""Every historical layer over ALL cataloged tickers: metadata, daily, hourly,
+trades and minute candles, NOT just the focus universe.
 
-WARNING: at full scale this is a multi-hour (potentially multi-day) job that
-makes tens of thousands of API calls. For a bounded run, use the individual
-pullers with --tickers / --limit / --since instead.
+This is pull_historical/backfill.py run without arguments: it prints an
+estimate first (about 245,000 requests and 14 to 16 hours on the 2026-09-17
+catalog), walks the catalog in priority order, journals what is final, writes
+failure lists, and resumes with the same command. For a bounded run use
+backfill.py with --tickers or --layers, or the individual pullers.
 """
 
-from kalshi_io.config import TICKERS_DIR
+import sys
 
-from pull_historical.pull_daily import run as run_daily
-from pull_historical.pull_hourly import run as run_hourly
-from pull_historical.pull_minute import run as run_minute
-from pull_historical.pull_trades import run as run_trades
-
-TICKERS = str(TICKERS_DIR / "all_tickers.txt")
-
-
-def main() -> None:
-    print("=" * 60)
-    print("DAILY CANDLES (all tickers)")
-    print("=" * 60)
-    print(run_daily(TICKERS))
-
-    print("=" * 60)
-    print("HOURLY CANDLES (all tickers)")
-    print("=" * 60)
-    print(run_hourly(TICKERS))
-
-    print("=" * 60)
-    print("MINUTE CANDLES (all tickers)")
-    print("=" * 60)
-    print(run_minute(TICKERS))
-
-    print("=" * 60)
-    print("TRADES (all tickers)")
-    print("=" * 60)
-    print(run_trades(TICKERS))
-
-    print("\nAll pulls complete.")
-
+from pull_historical.backfill import main
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main([]))

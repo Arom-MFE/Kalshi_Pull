@@ -150,3 +150,19 @@ def get_output_path(
         )
 
     raise ValueError(f"Unknown kind: {kind!r}. Must be 'candles', 'trades', or 'orderbook'.")
+
+
+def duckdb_connect():
+    """
+    In-memory DuckDB connection for counting and checking over the parquet
+    store without loading it. Extension download is switched off (a missing
+    extension must fail, not fetch), and spill files go under the data root
+    instead of the working directory.
+    """
+    import duckdb
+
+    con = duckdb.connect()
+    con.execute("SET autoinstall_known_extensions = false")
+    con.execute("SET autoload_known_extensions = false")
+    con.execute(f"SET temp_directory = '{(DATA_DIR / '.duckdb_tmp').as_posix()}'")
+    return con

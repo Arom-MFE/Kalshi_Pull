@@ -287,18 +287,36 @@ def upsert_market_metadata(rows: list[dict], *, keep_existing: list[dict] | None
     }
 
 
-def refresh_market_metadata(tickers: list[str], *, now: datetime | None = None) -> dict:
+# Up to this many events of one series are looked up one by one
+# (GET /events/{event}); more than that and one listing of the series is cheaper
+_EVENT_LOOKUPS_PER_SERIES = 2
+
+
+def refresh_market_metadata(
+    tickers: list[str],
+    *,
+    now: datetime | None = None,
+    event_flags: dict[str, bool | None] | None = None,
+) -> dict:
     """
     Read the given markets from the API and merge them into the store.
 
     Requests: GET /markets?tickers= in batches of 100, then
     GET /historical/markets?tickers= for what the live tier did not return,
-    plus one GET /events?series_ticker= listing per series for the
-    mutually_exclusive flag. The committed catalog is not touched.
+    plus the events' mutually_exclusive flag: GET /events/{event} for a
+    series with one or two events in the batch, one GET /events?series_ticker=
+    listing otherwise. The committed catalog is not touched.
+
+    Args:
+        tickers:     market tickers
+        now:         built_at override (tests)
+        event_flags: {event_ticker: mutually_exclusive} cache shared between
+                     calls, so a caller working in chunks lists a series once
 
     Returns:
         {"requested", "found", "missing": [tickers in neither tier], "markets":
-         {ticker: payload with "tier"}, **upsert_market_metadata() result}
+         {ticker: payload with "tier"}, "series": {ticker: series},
+         **upsert_market_metadata() result}
 
     Raises:
         kalshi_io.client.KalshiAPIError: a request failed; nothing is written.
@@ -314,18 +332,30 @@ def refresh_market_metadata(tickers: list[str], *, now: datetime | None = None) 
         except Exception:
             series_of[ticker] = resolve_ticker_meta(ticker, allow_api=False)[0]
 
-    exclusive: dict[str, bool | None] = {}
-    for series in sorted({s for s in series_of.values() if s}):
-        for event in discovery.list_events(series):
-            exclusive[event["event_ticker"]] = event.get("mutually_exclusive")
+    flags = event_flags if event_flags is not None else {}
+    events_by_series: dict[str, set[str]] = {}
+    for ticker, payload in found.items():
+        event = payload.get("event_ticker")
+        if event and event not in flags and series_of[ticker]:
+            events_by_series.setdefault(series_of[ticker], set()).add(event)
+    for series, events in sorted(events_by_series.items()):
+        if len(events) <= _EVENT_LOOKUPS_PER_SERIES:
+            for event_ticker in sorted(events):
+                flags[event_ticker] = (discovery.get_event(event_ticker) or {}).get("mutually_exclusive")
+        else:
+            for event in discovery.list_events(series):
+                flags[event["event_ticker"]] = event.get("mutually_exclusive")
+            for event_ticker in events:
+                flags.setdefault(event_ticker, None)          # not listed (delisted duplicate): unknown
 
     rows = [
         market_row(payload, series=series_of[ticker], tier=payload["tier"], built_at=built_at,
-                   mutually_exclusive=exclusive.get(payload.get("event_ticker")))
+                   mutually_exclusive=flags.get(payload.get("event_ticker")))
         for ticker, payload in found.items()
     ]
     missing = [t for t in wanted if t not in found]
     if missing:
         logger.warning(f"metadata: {len(missing)} of {len(wanted)} tickers are in neither API tier: {missing[:10]}")
     summary = upsert_market_metadata(rows) if rows else {"path": metadata_path(), "rows": 0, "added": 0, "updated": 0, "kept": 0}
-    return {"requested": len(wanted), "found": len(found), "missing": missing, "markets": found, **summary}
+    return {"requested": len(wanted), "found": len(found), "missing": missing, "markets": found,
+            "series": series_of, **summary}

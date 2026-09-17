@@ -39,6 +39,9 @@ def test_429_is_retried_with_backoff_and_a_one_second_floor(fake_api, clock):
     assert len(fake_api.calls) == 3
     # Exponential ceilings would be 0.5 s and 1 s; a 429 never waits less than 1 s
     assert clock.sleeps == [1.0, 1.0]
+    # Reports read these: every attempt, the 429s among them, and how many attempts were retries
+    import kalshi_io.client as client_mod
+    assert client_mod.stats == {"requests": 3, "http_429": 2, "retries": 2}
 
 
 def test_retry_after_header_is_honored_capped_and_garbage_ignored(fake_api, clock):
