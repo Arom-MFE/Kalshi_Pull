@@ -38,8 +38,15 @@ def _fmt_vol(v: float) -> str:
 
 def _audit_ticker(ticker: str) -> dict | None:
     """Read daily parquet for one ticker and return stats, or None if no file."""
-    series_ticker, _ = resolve_ticker_meta(ticker)
+    # Offline on purpose: an uncataloged ticker gets a prefix-derived series
+    series_ticker, _ = resolve_ticker_meta(ticker, allow_api=False)
     path = get_output_path("candles", 1440, series_ticker, ticker)
+    if not path.exists():
+        # The puller may have filed it under the series the API reported
+        matches = sorted((DATA_DIR / "candles" / "daily").glob(f"*/{ticker}.parquet"))
+        if matches:
+            path = matches[0]
+            series_ticker = path.parent.name
 
     df = read_parquet_safe(path)
     if df is None:
