@@ -2,7 +2,10 @@
 Kalshi Economics Series Lister — Print Only
 ===========================================
 Fetches every series on Kalshi, prints categories, and prints full info
-for every Economics series. No files saved.
+for every Economics series. No files saved. Keyless.
+
+For targeted searches (by category, tag, keyword, status) use
+get_ticker_info/find_events.py.
 """
 
 import sys
@@ -12,17 +15,18 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 import pandas as pd
-import requests
 
-from kalshi_io.client import BASE_URL
+from kalshi_io import discovery
+from kalshi_io.runlog import configure_logging
 
 
 def main() -> None:
+    configure_logging()
+
     # ============================================================
-    # 1. PULL ALL SERIES
+    # 1. PULL ALL SERIES (rate limited, retried, fails loudly)
     # ============================================================
-    resp = requests.get(f"{BASE_URL}/series")
-    series_list = resp.json().get("series", [])
+    series_list = discovery.list_series()
 
     print(f"Total series on Kalshi: {len(series_list)}")
 
@@ -35,7 +39,9 @@ def main() -> None:
             "title":     s.get("title"),
             "category":  s.get("category"),
             "frequency": s.get("frequency"),
-            "tags":      ", ".join(s.get("tags") or []),
+            "tags":      ", ".join(s["tags"]),
+            # True for a dead pre-KX spelling (CPIYOY) whose KX series exists
+            "legacy":    s["legacy_twin"],
         }
         for s in series_list
     ])

@@ -269,6 +269,34 @@ def list_historical_markets(
     return _list_markets("/historical/markets", event_ticker, series_ticker, tickers)
 
 
+def find_markets(
+    event_ticker: str | None = None,
+    series_ticker: str | None = None,
+    status: str | None = None,
+) -> list[dict]:
+    """
+    List the markets of one event or one series across both tiers.
+
+    The live tier is asked with the status filter. The historical tier has no
+    status filter and holds settled markets only, so it is added when status
+    is None or "settled". The tiers overlap near the cutoff; the live record
+    wins.
+
+    Returns:
+        Market dicts, each with "tier" ("live" or "historical"), sorted by
+        event ticker and market ticker.
+    """
+    _check_status(status, MARKET_STATUS_FILTERS, "/markets")
+    _one_selector(event_ticker, series_ticker, None)
+    found: dict[str, dict] = {}
+    if status in (None, "settled"):
+        for m in list_historical_markets(event_ticker=event_ticker, series_ticker=series_ticker):
+            found[m["ticker"]] = {**m, "tier": "historical"}
+    for m in list_markets(event_ticker=event_ticker, series_ticker=series_ticker, status=status):
+        found[m["ticker"]] = {**m, "tier": "live"}
+    return sorted(found.values(), key=lambda m: (m.get("event_ticker") or "", m["ticker"]))
+
+
 def get_market(ticker: str) -> dict | None:
     """
     Fetch one market, trying the live tier and then the historical tier.

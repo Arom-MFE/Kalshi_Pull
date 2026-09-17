@@ -200,6 +200,29 @@ def test_list_historical_markets(exchange):
     assert all("series_ticker" not in m for m in rows)
 
 
+def test_find_markets_spans_both_tiers_and_the_live_record_wins(exchange):
+    every = discovery.find_markets(series_ticker="KXCPIYOY")
+    assert [m["ticker"] for m in every] == sorted(m["ticker"] for m in every) and len(every) == 7
+    tiers = {m["ticker"]: m["tier"] for m in every}
+    assert tiers["CPIYOY-22DEC-T6.5"] == "historical" and tiers["KXCPIYOY-26SEP-T3.0"] == "live"
+    assert tiers["KXCPIYOY-26JUN-T3.0"] == "live"                       # served by both tiers
+
+    settled = discovery.find_markets(series_ticker="KXCPIYOY", status="settled")
+    assert {m["ticker"] for m in settled} == {"KXCPIYOY-26AUG-T3.0", "KXCPIYOY-26JUN-T3.0", "CPIYOY-22DEC-T6.5"}
+
+    # Every other status exists in the live tier only: the historical tier is not asked
+    exchange.calls.clear()
+    assert len(discovery.find_markets(event_ticker="KXCPIYOY-26SEP", status="open")) == 3
+    assert exchange.requests_to("/historical") == []
+    # A settled event whose markets left the live tier is still found
+    assert [m["ticker"] for m in discovery.find_markets(event_ticker="CPIYOY-22DEC")] == ["CPIYOY-22DEC-T6.5"]
+
+    with pytest.raises(ValueError, match="Omit status"):
+        discovery.find_markets(series_ticker="KXCPIYOY", status="all")
+    with pytest.raises(ValueError, match="exactly one"):
+        discovery.find_markets()
+
+
 def test_get_market_tries_live_then_historical_then_none(exchange):
     assert discovery.get_market("KXCPIYOY-26SEP-T3.0")["tier"] == "live"
     assert discovery.get_market("CPIYOY-22DEC-T6.5")["tier"] == "historical"
