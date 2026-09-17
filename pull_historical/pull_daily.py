@@ -23,7 +23,8 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 import pandas as pd
 
 from kalshi_io.candles import fetch_candles, resolve_ticker_meta
-from kalshi_io.config import DATA_DIR, DEDUPE_COLS_CANDLES, TICKERS_DIR
+from kalshi_io.client import is_outage
+from kalshi_io.config import DATA_DIR, DEDUPE_COLS_CANDLES, MAX_CONSECUTIVE_OUTAGES, TICKERS_DIR
 from kalshi_io.resolve import get_market_metadata
 from kalshi_io.runlog import get_logger, get_skip_recorder, run_logging
 from kalshi_io.storage import append_parquet, get_last_timestamp, get_output_path
@@ -46,10 +47,12 @@ def run(
         limit:   optional max number of tickers to process
 
     Returns:
-        {"processed": int, "skipped": int, "failed": int, "rows_written": int,
-         "elapsed_sec": float}. "skipped" counts every ticker that was not
-        processed; "failed" is the subset that raised (logged at ERROR and
-        recorded in this process's skip file).
+        {"processed": int, "skipped": int, "failed": int, "aborted": bool,
+         "rows_written": int, "elapsed_sec": float}. "skipped" counts every
+        ticker that was not processed; "failed" is the subset that raised
+        (logged at ERROR and recorded in this process's skip file); "aborted"
+        is True when the run stopped early because MAX_CONSECUTIVE_OUTAGES
+        tickers in a row exhausted their retries.
     """
     with run_logging("pull_daily"):
         return _run(tickers, since=since, limit=limit)
@@ -81,9 +84,22 @@ def _run(
     skipped = 0
     failed = 0
     rows_written = 0
+    outages_in_a_row = 0
+    aborted = False
     t0 = time.time()
 
     for i, ticker in enumerate(ticker_list):
+        if outages_in_a_row >= MAX_CONSECUTIVE_OUTAGES:
+            remaining = len(ticker_list) - i
+            reason = (f"run aborted: {outages_in_a_row} tickers in a row failed after all retries "
+                      f"(API down or throttling); {remaining} tickers not attempted")
+            logger.error(reason)
+            skips.record("*", reason, code="aborted")
+            skipped += remaining
+            aborted = True
+            break
+
+        hit_outage = False
         try:
             # Resolve series for output path
             series_ticker, _ = resolve_ticker_meta(ticker)
@@ -134,12 +150,17 @@ def _run(
             skips.record(ticker, reason, code=type(e).__name__)
             skipped += 1
             failed += 1
+            hit_outage = is_outage(e)
+        finally:
+            # finally also runs on the `continue` exits above
+            outages_in_a_row = outages_in_a_row + 1 if hit_outage else 0
 
     elapsed = round(time.time() - t0, 1)
     summary = {
         "processed": processed,
         "skipped": skipped,
         "failed": failed,
+        "aborted": aborted,
         "rows_written": rows_written,
         "elapsed_sec": elapsed,
     }

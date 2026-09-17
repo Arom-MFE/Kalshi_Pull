@@ -111,8 +111,33 @@ def data_dir(tmp_path) -> Path:
     return tmp_path / "kalshi_data"
 
 
+class VirtualClock:
+    """Stand-in for time.monotonic/time.sleep: sleeping just advances the clock."""
+
+    def __init__(self):
+        self.now = 1000.0
+        self.sleeps: list[float] = []
+
+    def monotonic(self) -> float:
+        return self.now
+
+    def sleep(self, seconds: float) -> None:
+        self.sleeps.append(seconds)
+        self.now += seconds
+
+
 @pytest.fixture
-def fake_api(monkeypatch) -> FakeKalshi:
+def clock(monkeypatch) -> VirtualClock:
+    """Virtual clock for the HTTP layer; jitter always takes its upper bound."""
+    c = VirtualClock()
+    monkeypatch.setattr(client_mod, "_sleep", c.sleep)
+    monkeypatch.setattr(client_mod, "_monotonic", c.monotonic)
+    monkeypatch.setattr(client_mod, "_uniform", lambda low, high: high)
+    return c
+
+
+@pytest.fixture
+def fake_api(monkeypatch, clock) -> FakeKalshi:
     """Route every REST call of the code under test to an in-memory fake exchange."""
     api = FakeKalshi()
     patch_everywhere(monkeypatch, "get_session", lambda: api)

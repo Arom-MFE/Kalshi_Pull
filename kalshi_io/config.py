@@ -131,6 +131,10 @@ HTTP_BACKOFF_BASE_S = 0.5
 HTTP_BACKOFF_CAP_S = 30.0
 HTTP_RETRY_AFTER_CAP_S = 120.0
 
+# A run stops after this many tickers in a row exhausted their retries:
+# the API is down or throttling, and grinding on helps nobody.
+MAX_CONSECUTIVE_OUTAGES = 3
+
 # Trades resume re-requests this many seconds before the last stored trade;
 # the overlap is dropped again by trade_id, so it can never leave a gap.
 TRADES_RESUME_OVERLAP_S = 60
