@@ -6,7 +6,7 @@ import pandas as pd
 import pytest
 
 import kalshi_io.client as client
-from kalshi_io.orderbook import append_orderbook_snapshot, snapshot_orderbook
+from kalshi_io.orderbook import append_orderbook_snapshot, snapshot_orderbook, snapshot_orderbooks
 from fakes import FakeResponse, make_event, make_market
 
 TICKER = "TEST-26SEP-T1"
@@ -69,3 +69,40 @@ def test_a_body_without_orderbook_fp_raises(exchange):
     exchange.inject(r"/orderbook$", [FakeResponse(200, {"orderbook": {}})])
     with pytest.raises(KeyError):
         snapshot_orderbook(TICKER)
+
+
+# ------------------------------------------------------------------ batch snapshots
+
+def test_batch_snapshot_returns_one_frame_per_ticker_with_one_timestamp(exchange):
+    exchange.add_event(make_event("TEST-26OCT", "TEST"), [make_market("TEST-26OCT-T1", "TEST-26OCT")])
+    exchange.orderbooks["TEST-26OCT-T1"] = {"yes_dollars": [["0.4000", "5.00"]], "no_dollars": []}
+    exchange.add_markets(make_market("TEST-26SEP-T9", "TEST-26SEP", status="finalized"))
+
+    books = snapshot_orderbooks([TICKER, "TEST-26OCT-T1", "TEST-26SEP-T9", "TEST-NOPE", TICKER])
+
+    assert set(books) == {TICKER, "TEST-26OCT-T1", "TEST-26SEP-T9"}           # unknown ticker absent, duplicate folded
+    assert list(books[TICKER].columns) == COLUMNS and books["TEST-26SEP-T9"].empty
+    assert books[TICKER]["ts_ms"].iloc[0] == books["TEST-26OCT-T1"]["ts_ms"].iloc[0]
+    # The same rows as the single-ticker call, apart from the timestamp
+    single = snapshot_orderbook(TICKER).drop(columns="ts_ms")
+    assert single.equals(books[TICKER].drop(columns="ts_ms"))
+    # One request for the whole universe, tickers as repeated parameters, no auth header
+    (path, params, headers), *_ = [c for c in exchange.calls if c[0] == "/markets/orderbooks"]
+    assert params["tickers"] == [TICKER, "TEST-26OCT-T1", "TEST-26SEP-T9", "TEST-NOPE"] and "KALSHI-ACCESS-KEY" not in headers
+    assert len([c for c in exchange.calls if c[0] == "/markets/orderbooks"]) == 1
+
+
+def test_batch_snapshot_chunks_at_one_hundred_tickers(exchange):
+    tickers = [f"TEST-26SEP-B{i}" for i in range(150)]
+    exchange.add_markets(*[make_market(t, "TEST-26SEP") for t in tickers])
+    books = snapshot_orderbooks(tickers)
+    assert len(books) == 150
+    sizes = [len(params["tickers"]) for path, params, _ in exchange.calls if path == "/markets/orderbooks"]
+    assert sizes == [100, 50]
+
+
+def test_batch_snapshot_uses_the_given_attempts_and_timeout(exchange, clock):
+    exchange.inject(r"^/markets/orderbooks$", [FakeResponse(503, {"error": {"message": "down"}})] * 6)
+    with pytest.raises(Exception, match="gave up after 2 attempts"):
+        snapshot_orderbooks([TICKER], max_attempts=2, timeout=(2, 5))
+    assert len([c for c in exchange.calls if c[0] == "/markets/orderbooks"]) == 2

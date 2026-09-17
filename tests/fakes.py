@@ -19,6 +19,9 @@ Its behavior mirrors what was verified against the live API on 2026-09-17:
   historical one
 - trades come back newest-first, min_ts is inclusive at second granularity,
   and the end of pagination is an empty cursor string
+- /markets/orderbooks answers one book per requested ticker (repeated
+  `tickers` parameters, at most 100), empty books for settled markets, and
+  leaves unknown tickers out
 """
 
 import json
@@ -258,6 +261,8 @@ class FakeKalshi:
         m = re.fullmatch(r"/events/([^/]+)", path)
         if m:
             return self._event(m.group(1), p)
+        if path == "/markets/orderbooks":
+            return self._orderbooks(p)
         m = re.fullmatch(r"/markets/([^/]+)/orderbook", path)
         if m:
             return self._orderbook(m.group(1))
@@ -383,6 +388,23 @@ class FakeKalshi:
             return FakeResponse(404, NOT_FOUND)
         book = self.orderbooks.get(ticker, {"yes_dollars": [], "no_dollars": []})
         return FakeResponse(200, {"orderbook_fp": book})
+
+    def _orderbooks(self, p):
+        """GET /markets/orderbooks: `tickers` must be repeated parameters (a list here);
+        the real API takes a comma-joined string as one ticker name."""
+        tickers = p.get("tickers")
+        if isinstance(tickers, str):
+            tickers = [tickers]
+        if not tickers:
+            return FakeResponse(400, {"error": {"code": "bad_request", "message": "tickers is required"}})
+        if len(tickers) > 100:
+            return FakeResponse(400, {"error": {"code": "bad_request", "message": "at most 100 tickers"}})
+        out = []
+        for ticker in tickers:
+            if ticker in self.markets:                       # unknown tickers are silently absent
+                book = self.orderbooks.get(ticker, {"yes_dollars": [], "no_dollars": []})
+                out.append({"ticker": ticker, "orderbook_fp": book})
+        return FakeResponse(200, {"orderbooks": out})
 
     def _candles(self, ticker, p, tier):
         m = self.markets.get(ticker)

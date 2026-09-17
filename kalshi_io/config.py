@@ -80,6 +80,26 @@ FOCUS_OVERRIDE: list[str] = []
 # Seconds between universe refreshes inside poll_focus (0 = never refresh)
 FOCUS_REFRESH_SECONDS = 3600
 
+# ============================================================
+# Release windows (kalshi_io/releases.py, pull_live/poll_focus.py)
+# ============================================================
+# Around a release the books are polled every RELEASE_POLL_SECONDS instead
+# of every minute (one batch request per sweep). The window runs from
+# RELEASE_WINDOW_BEFORE_S before to RELEASE_WINDOW_AFTER_S after the release,
+# whose anchor is the close_time of the event (Kalshi closes a market one to
+# five minutes before the number it settles on comes out). Release times come
+# from the polled events, from every cataloged event that can still trade, and
+# from RELEASE_CALENDAR: extra ISO-8601 UTC times such as "2026-10-30T12:30:00Z".
+RELEASE_POLL_SECONDS = 5
+RELEASE_WINDOW_BEFORE_S = 300
+RELEASE_WINDOW_AFTER_S = 900
+RELEASE_CALENDAR: list[str] = []
+
+# A ticker that joins the universe without stored history is backfilled by a
+# child process (pull_historical/backfill.py) at this request rate, while the
+# poller keeps capturing its books; together they stay under the keyless limit.
+BACKGROUND_HISTORY_RPS = 3
+
 # Canonical timestamp column across all parquet files (int64 UTC milliseconds)
 TS_COL = "ts_ms"
 

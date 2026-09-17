@@ -87,6 +87,13 @@ def _isolation(tmp_path, monkeypatch):
         if clear:
             clear()
 
+    # --- process guard: the poller's history pull is a child process that the
+    # socket guard cannot reach; a test that needs one fakes _spawn_history
+    def _no_child(*args, **kwargs):
+        raise RuntimeError("poll_focus tried to start a real history pull inside a test")
+
+    monkeypatch.setattr(pull_live.poll_focus, "_spawn_history", _no_child)
+
     # --- network guard
     violations: list[str] = []
 
