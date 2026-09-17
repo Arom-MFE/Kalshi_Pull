@@ -1,10 +1,12 @@
 """
 pull_historical/pull_minute.py — Minute candle puller (period_interval=1).
 
-CLI (minute pulls are expensive — --tickers defaults to ALL tickers with
---since 2025-01-01; prefer an explicit --tickers/--limit for bounded runs):
-    python pull_historical/pull_minute.py --tickers KXRECSSNBER-26 --since 2026-04-20
+CLI (minute pulls are expensive: --tickers defaults to ALL tickers, each from
+its market open or from its last stored candle; prefer an explicit --tickers
+or --limit for bounded runs, and pull_historical/backfill.py for the catalog):
+    python pull_historical/pull_minute.py --tickers KXRECSSNBER-26
     python pull_historical/pull_minute.py --tickers KXRECSSNBER --limit 5
+    python pull_historical/pull_minute.py --tickers KXRECSSNBER-26 --since 2026-04-20
 
 Importable:
     from pull_historical.pull_minute import run
@@ -25,7 +27,7 @@ import pandas as pd
 from kalshi_io.candles import PartialCandlesError, candles_frame, fetch_candles, resolve_ticker_meta
 from kalshi_io.client import is_outage
 from kalshi_io.config import DATA_DIR, DEDUPE_COLS_CANDLES, MAX_CONSECUTIVE_OUTAGES, TICKERS_DIR
-from kalshi_io.resolve import get_market_metadata
+from kalshi_io.resolve import candle_end_ts, market_window
 from kalshi_io.runlog import get_logger, get_skip_recorder, run_logging
 from kalshi_io.storage import append_parquet, get_last_timestamp, get_output_path
 from kalshi_io.tickers import load_tickers, validate_tickers
@@ -53,7 +55,10 @@ def run(
     Args:
         tickers: source for load_tickers: path, series name, "focus", ticker(s)
                  separated by whitespace or commas, or a list of those
-        since:   optional "YYYY-MM-DD" — override start date for all tickers
+        since:   optional "YYYY-MM-DD" — override start date for all tickers.
+                 Default: resume from the last stored candle, or from market
+                 open. A settled market is pulled up to its close_time plus
+                 one period, never through empty windows up to today
         limit:   optional max number of tickers to process
 
     Returns:
@@ -120,6 +125,8 @@ def _run(
         try:
             # Resolve series for output path
             series_ticker, _ = resolve_ticker_meta(ticker)
+            # Open, close and status from the catalog or an earlier API answer: no request
+            window = market_window(ticker, allow_api=False)
 
             # Determine start_ts (seconds)
             if since_ts is not None:
@@ -129,18 +136,22 @@ def _run(
                 if last_ts_ms is not None:
                     start_ts = last_ts_ms // 1000
                 else:
-                    # Cold start: need metadata for open_ts_ms
-                    meta = get_market_metadata(ticker)
-                    if meta["open_ts_ms"] is None:
+                    # Cold start: from the market's open time. The catalog knows it;
+                    # only an uncataloged ticker costs a lookup
+                    if window["open_ts"] is None:
+                        window = market_window(ticker)
+                    if window["open_ts"] is None:
                         reason = "could not resolve open_ts_ms"
                         logger.warning(f"[{i+1}/{len(ticker_list)}] {ticker}: SKIP — {reason}")
                         skips.record(ticker, reason, code="no_open_ts")
                         skipped += 1
                         continue
-                    start_ts = meta["open_ts_ms"] // 1000
+                    start_ts = window["open_ts"]
 
-            now_ts = int(time.time())
-            if start_ts >= now_ts:
+            # A market that can no longer trade is pulled up to its close (plus the
+            # period that holds the closing candle), not through empty windows up to today
+            end_ts = candle_end_ts(window, 1, int(time.time()))
+            if start_ts >= end_ts:
                 logger.info(f"[{i+1}/{len(ticker_list)}] {ticker}: up-to-date")
                 processed += 1
                 continue
@@ -149,7 +160,7 @@ def _run(
             # prefix is still saved below, then the failure is raised.
             partial: PartialCandlesError | None = None
             try:
-                rows = fetch_candles(ticker, 1, start_ts, now_ts)
+                rows = fetch_candles(ticker, 1, start_ts, end_ts)
             except PartialCandlesError as e:
                 partial, rows = e, e.rows
 
@@ -213,8 +224,15 @@ def main(argv: list[str] | None = None) -> int:
              "or tickers separated by spaces or commas",
     )
     parser.add_argument("--limit", type=int, default=None, help="Max tickers to process")
-    parser.add_argument("--since", default="2025-01-01", help="Start date override (YYYY-MM-DD)")
+    parser.add_argument("--since", default=None,
+                        help="Start date override (YYYY-MM-DD). Default: resume from the last stored candle, "
+                             "or from market open for a ticker without data. A --since later than market open "
+                             "leaves the earlier history unpulled: later runs resume from the newest candle")
     args = parser.parse_args(argv)
+    if isinstance(args.tickers, str) and not args.limit:
+        print("pull_minute: no --tickers given, pulling minute candles for EVERY cataloged ticker from market open "
+              "(about 200,000 requests). For the whole catalog prefer: python -m pull_historical.backfill "
+              "(estimate, priority order, resume journal, failure list).", file=sys.stderr)
 
     result = run(args.tickers, since=args.since, limit=args.limit)
     print(result)

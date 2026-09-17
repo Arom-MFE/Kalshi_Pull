@@ -21,8 +21,8 @@ def _stub_puller(monkeypatch):
     monkeypatch.setattr(pull_daily, "validate_tickers", lambda tickers, **kw: (list(tickers), []), raising=False)
     monkeypatch.setattr(pull_daily, "resolve_ticker_meta", lambda ticker: ("TEST", "TEST-26"))
     monkeypatch.setattr(
-        pull_daily, "get_market_metadata",
-        lambda ticker: {"open_ts_ms": 0, "expiration_time": "unknown", "status": "active"},
+        pull_daily, "market_window",
+        lambda ticker, allow_api=True: {"open_ts": 0, "close_ts": None, "status": "active", "source": "stub"},
     )
     monkeypatch.setattr(pull_daily, "fetch_candles", lambda *args: [])
 

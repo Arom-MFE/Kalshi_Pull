@@ -1,10 +1,12 @@
 """
 kalshi_io/candles.py — Candle fetching and normalization, plus the
-market_ticker → (series_ticker, event_ticker) lookup every puller uses.
+market_ticker → (series_ticker, event_ticker) lookup every puller uses and
+what the catalog knows about a market's life (open, close, status).
 """
 
 import json
 from datetime import datetime, timezone
+from typing import NamedTuple
 
 import pandas as pd
 import requests
@@ -21,7 +23,18 @@ logger = get_logger("candles")
 # Catalog first (loaded lazily, once), then tickers registered by the focus
 # universe, then the API. Never guessed from the ticker text.
 # ============================================================
+class MarketWindow(NamedTuple):
+    """What is known about a market's life without asking the API."""
+    open_ts: int | None       # Unix seconds
+    close_ts: int | None      # Unix seconds
+    status: str               # API status when recorded ("active", "finalized", ...), "" if unknown
+    tier: str = ""            # "live", "historical" (settled before the cutoff), or "" if unknown
+
+
 _ticker_meta: dict[str, tuple[str, str]] = {}
+# market_ticker → MarketWindow: from the catalog, overridden by fresher API
+# answers (register_market_windows)
+_ticker_windows: dict[str, MarketWindow] = {}
 _unknown_tickers: set[str] = set()
 _catalog_loaded = False
 
@@ -42,7 +55,21 @@ def _ensure_ticker_meta() -> None:
             continue    # all_tickers.json: "series" is a list there
         for m in data.get("markets", []):
             _ticker_meta[m["market_ticker"]] = (series, m["event_ticker"])
+            # setdefault: an API answer registered before the catalog loaded is fresher
+            _ticker_windows.setdefault(m["market_ticker"], MarketWindow(
+                iso_to_ts(m.get("open_time")), iso_to_ts(m.get("close_time")), m.get("status") or "",
+                m.get("source") if m.get("source") in ("live", "historical") else ""))
     _catalog_loaded = True
+
+
+def iso_to_ts(value) -> int | None:
+    """API ISO time → Unix seconds (int). Missing or unparsable → None."""
+    if not value:
+        return None
+    try:
+        return int(datetime.fromisoformat(str(value).replace("Z", "+00:00")).timestamp())
+    except ValueError:
+        return None
 
 
 def canonical_series(series_ticker: str) -> str:
@@ -78,6 +105,23 @@ def register_ticker_meta(mapping: dict[str, tuple[str, str]]) -> None:
     for ticker, (series, event) in mapping.items():
         _ticker_meta.setdefault(ticker, (canonical_series(series), event))
         _unknown_tickers.discard(ticker)
+
+
+def register_market_windows(windows: dict[str, MarketWindow]) -> None:
+    """
+    Record {market_ticker: MarketWindow} read from the API just now. Unlike
+    register_ticker_meta this overrides the catalog: a status or close_time
+    from the API is newer than the committed snapshot.
+    """
+    _ensure_ticker_meta()
+    _ticker_windows.update({t: MarketWindow(*w) for t, w in windows.items()})
+
+
+def known_market_window(market_ticker: str) -> MarketWindow | None:
+    """The MarketWindow from the catalog or a registered API answer, or None
+    if neither knows the ticker. Never calls the API."""
+    _ensure_ticker_meta()
+    return _ticker_windows.get(market_ticker)
 
 
 def resolve_ticker_meta(market_ticker: str, allow_api: bool = True) -> tuple[str, str | None]:
@@ -126,6 +170,7 @@ def _reset_state() -> None:
     """Forget the loaded catalog and API answers (test isolation)."""
     global _catalog_loaded
     _ticker_meta.clear()
+    _ticker_windows.clear()
     _unknown_tickers.clear()
     _catalog_loaded = False
 

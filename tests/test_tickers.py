@@ -116,8 +116,8 @@ def test_an_api_outage_never_turns_a_ticker_into_unknown(catalog, exchange):
 
 def _stub_fetch(monkeypatch, seen):
     monkeypatch.setattr(
-        pull_daily, "get_market_metadata",
-        lambda ticker: {"open_ts_ms": 0, "expiration_time": "unknown", "status": "active"},
+        pull_daily, "market_window",
+        lambda ticker, allow_api=True: {"open_ts": 0, "close_ts": None, "status": "active", "source": "stub"},
     )
     monkeypatch.setattr(pull_daily, "fetch_candles", lambda ticker, *a: seen.append(ticker) or [])
 
