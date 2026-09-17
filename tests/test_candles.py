@@ -87,3 +87,34 @@ def test_absent_keys_become_nan_never_zero():
     df = pd.DataFrame([c])
     assert df["volume"].isna().all()
     assert df["open"].isna().all()
+
+
+# Shape and values mirror a real live REST candlestick (same names as the SDK attributes)
+LIVE_WIRE = {
+    "end_period_ts": 1789617600,
+    "open_interest_fp": "4728.12",
+    "volume_fp": "5934.86",
+    "price": {
+        "open_dollars": "0.9900", "high_dollars": "0.9900", "low_dollars": "0.1400",
+        "close_dollars": "0.9700", "mean_dollars": "0.6758", "previous_dollars": "0.9900",
+    },
+    "yes_bid": {"open_dollars": "0.9800", "high_dollars": "0.9800", "low_dollars": "0.0800", "close_dollars": "0.9700"},
+    "yes_ask": {"open_dollars": "0.9900", "high_dollars": "0.9900", "low_dollars": "0.1400", "close_dollars": "0.9800"},
+}
+
+
+def test_live_rest_dict_parses_like_the_object_shape():
+    c = parse_candle(LIVE_WIRE, is_historical=False)
+    assert c["ts_ms"] == 1789617600000
+    assert (c["open"], c["high"], c["low"], c["close"], c["mean"]) == (0.99, 0.99, 0.14, 0.97, 0.6758)
+    assert c["volume"] == 5934.86 and c["open_interest"] == 4728.12
+    assert parse_candle(_live_raw(), is_historical=False)["close"] == 0.06
+
+
+def test_live_candle_without_trades_has_nan_prices_never_zero():
+    # A minute without trades carries only previous_dollars: no OHLC keys at all
+    raw = {**LIVE_WIRE, "price": {"previous_dollars": "0.9700"}, "volume_fp": "0.00"}
+    c = parse_candle(raw, is_historical=False)
+    assert c["open"] is None and c["close"] is None and c["mean"] is None
+    assert c["volume"] == 0.0
+    assert pd.DataFrame([c])["close"].isna().all()

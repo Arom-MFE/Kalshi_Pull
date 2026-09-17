@@ -22,7 +22,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 import pandas as pd
 
-from kalshi_io.candles import fetch_candles, resolve_ticker_meta
+from kalshi_io.candles import PartialCandlesError, fetch_candles, resolve_ticker_meta
 from kalshi_io.client import is_outage
 from kalshi_io.config import DATA_DIR, DEDUPE_COLS_CANDLES, MAX_CONSECUTIVE_OUTAGES, TICKERS_DIR
 from kalshi_io.resolve import get_market_metadata
@@ -137,8 +137,13 @@ def _run(
                 processed += 1
                 continue
 
-            # Fetch
-            rows = fetch_candles(ticker, 1, start_ts, now_ts)
+            # Fetch. If a chunk fails after earlier ones arrived, the contiguous
+            # prefix is still saved below, then the failure is raised.
+            partial: PartialCandlesError | None = None
+            try:
+                rows = fetch_candles(ticker, 1, start_ts, now_ts)
+            except PartialCandlesError as e:
+                partial, rows = e, e.rows
 
             if not rows:
                 logger.info(f"[{i+1}/{len(ticker_list)}] {ticker}: 0 candles returned")
@@ -159,6 +164,8 @@ def _run(
                 n_ticker += n
 
             rows_written += n_ticker
+            if partial is not None:
+                raise partial
             processed += 1
             logger.info(f"[{i+1}/{len(ticker_list)}] {ticker}: {n_ticker} new rows ({len(df)} fetched)")
 

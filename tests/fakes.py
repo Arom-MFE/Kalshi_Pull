@@ -159,7 +159,7 @@ class FakeKalshi:
         self.auth_required: set[str] = set()      # path prefixes that answer 401 keyless
         self.valid_key_ids: set[str] = {"test-key"}
         self.calls: list[tuple[str, dict, dict]] = []
-        self._injected: list[tuple[re.Pattern, list]] = []
+        self._injected: list[list] = []          # [pattern, queue, pass-through count]
 
     # ---------------------------------------------------------- setup helpers
     def add_event(self, event: dict, markets=()):
@@ -172,10 +172,11 @@ class FakeKalshi:
         for m in markets:
             self.markets[m["ticker"]] = m
 
-    def inject(self, path_regex: str, responses: list):
+    def inject(self, path_regex: str, responses: list, after: int = 0):
         """Queue forced outcomes for matching paths: FakeResponse or Exception
-        instances, consumed one per matching request, then normal service."""
-        self._injected.append((re.compile(path_regex), list(responses)))
+        instances, consumed one per matching request, then normal service.
+        The first `after` matching requests are served normally."""
+        self._injected.append([re.compile(path_regex), list(responses), after])
 
     def requests_to(self, path_prefix: str) -> list[tuple[str, dict, dict]]:
         return [c for c in self.calls if c[0].startswith(path_prefix)]
@@ -188,12 +189,17 @@ class FakeKalshi:
         headers = dict(headers or {})
         self.calls.append((path, dict(params), headers))
 
-        for pattern, queue in self._injected:
-            if queue and pattern.search(path):
-                outcome = queue.pop(0)
-                if isinstance(outcome, BaseException):
-                    raise outcome
-                return outcome
+        for entry in self._injected:
+            pattern, queue, after = entry
+            if not queue or not pattern.search(path):
+                continue
+            if after > 0:
+                entry[2] = after - 1
+                continue
+            outcome = queue.pop(0)
+            if isinstance(outcome, BaseException):
+                raise outcome
+            return outcome
 
         if any(path.startswith(p) for p in self.auth_required):
             if headers.get("KALSHI-ACCESS-KEY") not in self.valid_key_ids:

@@ -4,19 +4,13 @@ market_ticker → (series_ticker, event_ticker) lookup every puller uses.
 """
 
 import json
-import time
+from datetime import datetime, timezone
 
-from kalshi_python_sync.exceptions import NotFoundException
+import requests
 
-from kalshi_io import discovery
-from kalshi_io.client import BASE_URL, get_client, get_session
-from kalshi_io.config import (
-    CHUNK_SECONDS,
-    MAX_CANDLES_PER_CALL,
-    RATE_LIMIT_SECONDS,
-    SERIES_LIST,
-    TICKERS_DIR,
-)
+from kalshi_io import client, discovery
+from kalshi_io.client import KalshiAPIError, KalshiNotFound, path_part
+from kalshi_io.config import CHUNK_SECONDS, SERIES_LIST, TICKERS_DIR
 from kalshi_io.runlog import get_logger
 
 logger = get_logger("candles")
@@ -145,18 +139,29 @@ def _first_not_none(*vals):
     return None
 
 
+def _get(obj, key):
+    """Read key from a wire dict, or the attribute of that name from an object."""
+    if isinstance(obj, dict):
+        return obj.get(key)
+    return getattr(obj, key, None)
+
+
 def parse_candle(raw: object, is_historical: bool) -> dict:
     """
-    Normalize one candle from either historical REST (dict) or live SDK (object).
+    Normalize one candle from the historical or the live endpoint.
 
-    Both API paths serialize numerics as decimal strings; everything is cast
+    Both endpoints serialize numerics as decimal strings; everything is cast
     to float here. Returns dict with ts_ms (int64 UTC ms) and float values:
     open/high/low/close/mean are dollar prices in [0, 1]; volume and
     open_interest are contract counts exactly as the API reports them
     (fractional on markets with fractional-contract support), unscaled.
-    None (→ NaN) marks values the API did not provide.
+    None (→ NaN) marks values the API did not provide; a candle without
+    trades has no OHLC keys at all on the live endpoint.
 
-    Historical path falls back to yes_bid.* when price.* is null.
+    Historical shape: price.close, volume, open_interest; falls back to
+    yes_bid.* when price.* is null.
+    Live shape: price.close_dollars, volume_fp, open_interest_fp. Accepts the
+    REST dict as well as an object with the same attribute names.
     """
     if is_historical:
         price = raw.get("price", {})
@@ -173,17 +178,17 @@ def parse_candle(raw: object, is_historical: bool) -> dict:
             "open_interest": _to_float(raw.get("open_interest")),
         }
 
-    # Live SDK object
-    p = raw.price
+    # Live shape
+    p = _get(raw, "price") or {}
     return {
-        "ts_ms":         int(raw.end_period_ts * 1000),
-        "open":          _to_float(p.open_dollars),
-        "high":          _to_float(p.high_dollars),
-        "low":           _to_float(p.low_dollars),
-        "close":         _to_float(p.close_dollars),
-        "mean":          _to_float(p.mean_dollars),
-        "volume":        _to_float(raw.volume_fp),
-        "open_interest": _to_float(raw.open_interest_fp),
+        "ts_ms":         int(_get(raw, "end_period_ts") * 1000),
+        "open":          _to_float(_get(p, "open_dollars")),
+        "high":          _to_float(_get(p, "high_dollars")),
+        "low":           _to_float(_get(p, "low_dollars")),
+        "close":         _to_float(_get(p, "close_dollars")),
+        "mean":          _to_float(_get(p, "mean_dollars")),
+        "volume":        _to_float(_get(raw, "volume_fp")),
+        "open_interest": _to_float(_get(raw, "open_interest_fp")),
     }
 
 
@@ -191,48 +196,56 @@ def parse_candle(raw: object, is_historical: bool) -> dict:
 # fetch_candles
 # ============================================================
 
-def _fetch_historical_chunk(
+class PartialCandlesError(Exception):
+    """
+    A fetch failed after some chunks had already arrived.
+
+    Chunks are fetched oldest first and windows are inclusive, so .rows is a
+    gap-free prefix starting at the requested start_ts. Saving it is safe:
+    the next run resumes from its last candle. .next_start_ts is where the
+    fetch stopped. The original error is the __cause__.
+    """
+
+    def __init__(self, rows: list[dict], next_start_ts: int, cause: Exception):
+        self.rows = rows
+        self.next_start_ts = next_start_ts
+        stopped = datetime.fromtimestamp(next_start_ts, timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+        super().__init__(
+            f"fetch stopped at {stopped} after {len(rows)} candles ({type(cause).__name__}: {cause}); "
+            f"the candles before that point were saved, the rest is retried on the next run"
+        )
+
+
+def _fetch_chunk(
     market_ticker: str,
+    series_ticker: str,
     start_ts: int,
     end_ts: int,
     interval: int,
-) -> list[dict]:
+    use_historical: bool,
+) -> tuple[list[dict], bool]:
     """
-    Fetch candles from the historical REST endpoint.
+    Fetch one window of raw candles. Windows must span at most 5,000 candles:
+    both tiers reject larger ones with HTTP 400 (there is no truncation and
+    no continuation token), which CHUNK_SECONDS guarantees.
 
-    Handles pagination via adjustedEndTs when response hits 5000 candles.
+    Returns:
+        (raw candles, is_historical). A 404 from the live endpoint means the
+        market settled before the historical cutoff; the historical endpoint
+        is used from then on.
     """
-    all_candles: list[dict] = []
-    chunk_start = start_ts
-
-    while chunk_start < end_ts:
-        resp = get_session().get(
-            f"{BASE_URL}/historical/markets/{market_ticker}/candlesticks",
-            params={
-                "start_ts": chunk_start,
-                "end_ts": end_ts,
-                "period_interval": interval,
-            },
-        )
-        if resp.status_code != 200:
-            break
-
-        data = resp.json()
-        candles = data.get("candlesticks", [])
-        all_candles.extend(candles)
-
-        if len(candles) < MAX_CANDLES_PER_CALL:
-            break
-
-        # Pagination: API returns adjustedEndTs when truncated
-        adjusted = data.get("adjustedEndTs")
-        if adjusted and adjusted > chunk_start:
-            chunk_start = adjusted
-            time.sleep(RATE_LIMIT_SECONDS)
-        else:
-            break
-
-    return all_candles
+    params = {"start_ts": start_ts, "end_ts": end_ts, "period_interval": interval}
+    if not use_historical:
+        try:
+            data = client.request_json(
+                f"/series/{path_part(series_ticker)}/markets/{path_part(market_ticker)}/candlesticks",
+                params,
+            )
+            return data.get("candlesticks") or [], False
+        except KalshiNotFound:
+            pass
+    data = client.request_json(f"/historical/markets/{path_part(market_ticker)}/candlesticks", params)
+    return data.get("candlesticks") or [], True
 
 
 def fetch_candles(
@@ -242,7 +255,7 @@ def fetch_candles(
     end_ts: int,
 ) -> list[dict]:
     """
-    Fetch candles for a single market ticker at a given interval.
+    Fetch candles for a single market ticker at a given interval. Keyless REST.
 
     Args:
         market_ticker: market ticker (e.g. "KXRECSSNBER-26")
@@ -252,54 +265,41 @@ def fetch_candles(
 
     Returns:
         List of dicts, each with ts_ms (int64 UTC ms), OHLCMV fields,
-        and market_ticker/event_ticker/series_ticker metadata.
+        and market_ticker/event_ticker/series_ticker metadata. Ascending,
+        one row per candle (window edges are inclusive on both sides, so a
+        candle on a chunk boundary arrives twice and is kept once).
+
+    Raises:
+        PartialCandlesError: a chunk failed after earlier chunks succeeded;
+                             carries the contiguous rows fetched so far.
+        kalshi_io.client.KalshiAPIError: the very first chunk failed.
     """
     series_ticker, event_ticker = resolve_ticker_meta(market_ticker)
     chunk_seconds = CHUNK_SECONDS[interval]
 
-    rows: list[dict] = []
+    rows: dict[int, dict] = {}
     chunk_start = start_ts
     use_historical = False
 
     while chunk_start < end_ts:
         chunk_end = min(chunk_start + chunk_seconds, end_ts)
 
-        if use_historical:
-            for c in _fetch_historical_chunk(
-                market_ticker, chunk_start, chunk_end, interval
-            ):
-                candle = parse_candle(c, is_historical=True)
-                candle["market_ticker"] = market_ticker
-                candle["event_ticker"] = event_ticker
-                candle["series_ticker"] = series_ticker
-                rows.append(candle)
-        else:
-            try:
-                result = get_client().get_market_candlesticks(
-                    series_ticker=series_ticker,
-                    ticker=market_ticker,
-                    start_ts=chunk_start,
-                    end_ts=chunk_end,
-                    period_interval=interval,
-                )
-                for c in result.candlesticks:
-                    candle = parse_candle(c, is_historical=False)
-                    candle["market_ticker"] = market_ticker
-                    candle["event_ticker"] = event_ticker
-                    candle["series_ticker"] = series_ticker
-                    rows.append(candle)
-            except NotFoundException:
-                use_historical = True
-                for c in _fetch_historical_chunk(
-                    market_ticker, chunk_start, chunk_end, interval
-                ):
-                    candle = parse_candle(c, is_historical=True)
-                    candle["market_ticker"] = market_ticker
-                    candle["event_ticker"] = event_ticker
-                    candle["series_ticker"] = series_ticker
-                    rows.append(candle)
+        try:
+            raw, use_historical = _fetch_chunk(
+                market_ticker, series_ticker, chunk_start, chunk_end, interval, use_historical
+            )
+        except (KalshiAPIError, requests.RequestException) as e:
+            if rows:
+                raise PartialCandlesError(list(rows.values()), chunk_start, e) from e
+            raise
+
+        for c in raw:
+            candle = parse_candle(c, is_historical=use_historical)
+            candle["market_ticker"] = market_ticker
+            candle["event_ticker"] = event_ticker
+            candle["series_ticker"] = series_ticker
+            rows[candle["ts_ms"]] = candle
 
         chunk_start = chunk_end
-        time.sleep(RATE_LIMIT_SECONDS)
 
-    return rows
+    return list(rows.values())
