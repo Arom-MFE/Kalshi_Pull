@@ -23,6 +23,7 @@ Exports:
     request_json()  — GET one JSON document
     paginate()      — iterate a cursor-paginated list endpoint
     KalshiAPIError, KalshiNotFound, RetriesExhausted, is_outage()
+    stats           — {"requests": n} HTTP attempts made by this process
     get_client()    — authenticated SDK client (signing only), cached
     get_session()   — shared requests.Session, cached
     BASE_URL        — API base URL
@@ -62,6 +63,9 @@ _uniform = random.uniform
 
 _next_request_at = 0.0    # rate limiter state (single-threaded use)
 _use_signing = False      # sticky once a signed request was needed and worked
+
+# HTTP attempts made by this process (retries included); reports read it
+stats = {"requests": 0}
 
 
 class KalshiAPIError(Exception):
@@ -241,6 +245,7 @@ def request_json(
         _throttle()
         retry_after = None
         headers = _auth_headers(url) if signed else None
+        stats["requests"] += 1
         try:
             resp = get_session().get(url, params=params, headers=headers, timeout=timeout)
         except (requests.ConnectionError, requests.Timeout,
@@ -329,3 +334,4 @@ def _reset_state() -> None:
     global _next_request_at, _use_signing
     _next_request_at = 0.0
     _use_signing = False
+    stats["requests"] = 0

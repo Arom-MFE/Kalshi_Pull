@@ -1,11 +1,16 @@
 """
-Kalshi Series Discovery — Reusable Module
-=========================================
-Discovers all events, markets, and tickers for any Kalshi series.
-Saves tickers as JSON + TXT (easy to consume in downstream scripts).
+Kalshi Series Discovery — rebuilds the committed ticker catalog
+================================================================
+Discovers all events, markets, and tickers for any Kalshi series and saves
+them as JSON + TXT under get_ticker_info/kalshi_tickers/. Keyless: public
+REST endpoints only. The logic lives in kalshi_io/catalog.py; this file keeps
+the script entry point and the original function names.
 
-USAGE AS A SCRIPT:
-    Change SERIES at bottom and run.
+USAGE AS A SCRIPT (rebuilds every series in kalshi_io.config.SERIES_LIST):
+    python get_ticker_info/get_tickers.py
+
+    For a report of what changed plus the next focus universe, use
+    get_ticker_info/roll.py instead.
 
 USAGE AS A MODULE:
     from get_tickers import discover_series, load_tickers
@@ -15,188 +20,58 @@ USAGE AS A MODULE:
 
 OUTPUT FILES (per series, in get_ticker_info/kalshi_tickers/):
     {SERIES}_tickers.txt      — one market_ticker per line
-    {SERIES}_tickers.json     — structured: events + markets + tickers
+    {SERIES}_tickers.json     — structured: events + markets + tickers,
+                                with status, open/close/expiration times
+                                and a built_at timestamp
 """
 
 import json
 import sys
-import time
 from pathlib import Path
 
 # Ensure kalshi_io is importable when running as a script
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-import requests
+from kalshi_io import catalog
+from kalshi_io.config import SERIES_LIST, TICKERS_DIR
+from kalshi_io.runlog import configure_logging
 
-from kalshi_io.client import BASE_URL, get_client
-from kalshi_io.config import TICKERS_DIR
-
-# ============================================================
-# SETUP
-# ============================================================
-# The authenticated SDK client comes from kalshi_io.client.get_client(),
-# which reads credentials lazily on first call — importing this module
-# performs no credential read and no network call.
 OUTPUT_DIR = TICKERS_DIR
 
-# ============================================================
-# INTERNAL HELPERS
-# ============================================================
-
-def _paginate(url, params, result_key="markets"):
-    """Fetch all pages with cursor pagination."""
-    results = []
-    cursor  = ""
-    while True:
-        p = {**params, "limit": 1000}
-        if cursor:
-            p["cursor"] = cursor
-        resp = requests.get(url, params=p)
-        if resp.status_code != 200:
-            break
-        data = resp.json()
-        results.extend(data.get(result_key, []))
-        cursor = data.get("cursor", "")
-        if not cursor:
-            break
-        time.sleep(0.2)
-    return results
-
-
-def _series_variants(series):
-    """Return [KX version, non-KX version] to catch both old and new tickers."""
-    if series.startswith("KX"):
-        return [series, series[2:]]
-    return ["KX" + series, series]
-
-
-def _find_events(series):
-    """Collect all events for a series via 3-method union across both variants."""
-    events = {}  # event_ticker -> title
-
-    for variant in _series_variants(series):
-        try:
-            resp = get_client().get_events(series_ticker=variant)
-            for e in resp.events:
-                events.setdefault(e.event_ticker, e.title)
-        except Exception:
-            pass
-
-        hist = _paginate(f"{BASE_URL}/historical/markets", {"series_ticker": variant})
-        for m in hist:
-            et = m.get("event_ticker")
-            if et:
-                events.setdefault(et, m.get("title", ""))
-
-        live = _paginate(f"{BASE_URL}/markets", {"series_ticker": variant})
-        for m in live:
-            et = m.get("event_ticker")
-            if et:
-                events.setdefault(et, m.get("title", ""))
-
-    return events
-
-
-def _find_markets_for_event(event_ticker):
-    """Get all markets for a single event via 3-method fallback."""
-    markets = []
-
-    try:
-        event = get_client().get_event(event_ticker=event_ticker)
-        for m in event.markets:
-            markets.append({
-                "event_ticker":  event_ticker,
-                "market_ticker": m.ticker,
-                "title":         m.title,
-                "status":        m.status,
-                "source":        "live_event",
-            })
-    except Exception:
-        pass
-
-    if not markets:
-        live = _paginate(f"{BASE_URL}/markets", {"event_ticker": event_ticker, "status": "all"})
-        for m in live:
-            markets.append({
-                "event_ticker":  event_ticker,
-                "market_ticker": m["ticker"],
-                "title":         m.get("title", ""),
-                "status":        m.get("status", ""),
-                "source":        "live_markets",
-            })
-
-    if not markets:
-        hist = _paginate(f"{BASE_URL}/historical/markets", {"event_ticker": event_ticker})
-        for m in hist:
-            markets.append({
-                "event_ticker":  event_ticker,
-                "market_ticker": m["ticker"],
-                "title":         m.get("title", ""),
-                "status":        m.get("status", ""),
-                "source":        "historical",
-            })
-
-    return markets
-
-
-# ============================================================
-# PUBLIC API
-# ============================================================
 
 def discover_series(series, verbose=True, save=True):
     """
-    Full discovery for a Kalshi series.
+    Full discovery for a Kalshi series (see kalshi_io.catalog.discover_series).
 
     Args:
-        series:  series ticker (e.g. "KXCPIYOY"). KX prefix auto-handled.
+        series:  series ticker (e.g. "KXCPIYOY"). Pre-KX events are included.
         verbose: print progress
         save:    write JSON + TXT to OUTPUT_DIR
 
     Returns:
         dict with keys:
             'events'  — list of {event_ticker, title}
-            'markets' — list of {event_ticker, market_ticker, title, status, source}
+            'markets' — list of {event_ticker, market_ticker, title, status,
+                        open_time, close_time, expected_expiration_time,
+                        latest_expiration_time, source}
             'tickers' — sorted list of unique market_tickers
+            plus 'series', 'built_at', 'status_counts', 'historical_cutoff'
+
+    Raises:
+        On any failed request or implausible result; the previous files are
+        left untouched in that case.
     """
     if verbose:
         print(f"\n=== Discovering {series} ===")
 
-    events_dict = _find_events(series)
-    events_list = sorted(
-        [{"event_ticker": k, "title": v} for k, v in events_dict.items()],
-        key=lambda x: x["event_ticker"],
-    )
+    result = catalog.discover_series(series, save=save, out_dir=OUTPUT_DIR)
 
     if verbose:
-        print(f"Events found: {len(events_list)}")
-
-    markets_list = []
-    for e in events_list:
-        markets_list.extend(_find_markets_for_event(e["event_ticker"]))
-
-    if verbose:
-        print(f"Markets found: {len(markets_list)}")
-
-    tickers = sorted({m["market_ticker"] for m in markets_list})
-
-    result = {
-        "series":  series,
-        "events":  events_list,
-        "markets": markets_list,
-        "tickers": tickers,
-    }
-
-    if save:
-        OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
-        json_path = OUTPUT_DIR / f"{series}_tickers.json"
-        txt_path  = OUTPUT_DIR / f"{series}_tickers.txt"
-
-        json_path.write_text(json.dumps(result, indent=2))
-        txt_path.write_text("\n".join(tickers) + ("\n" if tickers else ""))
-
-        if verbose:
-            print(f"Saved: {json_path}")
-            print(f"Saved: {txt_path}")
+        print(f"Events found: {len(result['events'])}")
+        print(f"Markets found: {len(result['markets'])}  {result['status_counts']}")
+        if save:
+            print(f"Saved: {OUTPUT_DIR / f'{series}_tickers.json'}")
+            print(f"Saved: {OUTPUT_DIR / f'{series}_tickers.txt'}")
 
     return result
 
@@ -205,56 +80,28 @@ def build_combined(verbose=True):
     """
     Scan OUTPUT_DIR for all {SERIES}_tickers.json files and combine
     into one master file with all tickers across all series you've discovered.
+    Safe to run repeatedly.
 
     Creates:
         all_tickers.txt   — every unique market_ticker, one per line
-        all_tickers.json  — structured, with series attribution
+        all_tickers.json  — structured, with series attribution, status
+                            counts and the build timestamp
     """
-    combined = {
-        "series":       [],
-        "total_events":  0,
-        "total_markets": 0,
-        "tickers":       [],
-        "by_series":     {},
-    }
-
-    all_tickers = set()
-
-    # Scan all per-series json files
-    for json_path in sorted(OUTPUT_DIR.glob("*_tickers.json")):
-        series = json_path.stem.replace("_tickers", "")
-        data = json.loads(json_path.read_text())
-
-        combined["series"].append(series)
-        combined["total_events"]  += len(data["events"])
-        combined["total_markets"] += len(data["markets"])
-        combined["by_series"][series] = {
-            "events":  len(data["events"]),
-            "markets": len(data["markets"]),
-            "tickers": data["tickers"],
-        }
-        all_tickers.update(data["tickers"])
-
-    combined["tickers"] = sorted(all_tickers)
-
-    # Save
-    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
-    json_path = OUTPUT_DIR / "all_tickers.json"
-    txt_path  = OUTPUT_DIR / "all_tickers.txt"
-
-    json_path.write_text(json.dumps(combined, indent=2))
-    txt_path.write_text("\n".join(combined["tickers"]) + "\n")
+    combined = catalog.build_combined(OUTPUT_DIR)
 
     if verbose:
-        print(f"\n=== Combined ===")
+        print("\n=== Combined ===")
         print(f"Series included:  {len(combined['series'])}")
         print(f"Total events:     {combined['total_events']}")
         print(f"Total markets:    {combined['total_markets']}")
         print(f"Unique tickers:   {len(combined['tickers'])}")
-        print(f"Saved: {json_path}")
-        print(f"Saved: {txt_path}")
+        print(f"By status:        {combined['status_counts']}")
+        print(f"Built at:         {combined['built_at']}")
+        print(f"Saved: {OUTPUT_DIR / 'all_tickers.json'}")
+        print(f"Saved: {OUTPUT_DIR / 'all_tickers.txt'}")
 
     return combined
+
 
 def load_tickers(series, key="tickers"):
     """
@@ -280,42 +127,32 @@ def load_tickers(series, key="tickers"):
     raise ValueError(f"key must be 'tickers', 'events', 'markets', or 'all', got '{key}'")
 
 
-if __name__ == "__main__":
-    SERIES_LIST = [
-        # Inflation
-        "KXCPI",
-        "KXCPIYOY",
-        "KXACPI",
-        "KXCPICORE",
-        "KXPCECORE",
-        "KXCPICOREYOY",
-        # Labor
-        "KXU3",
-        "KXJOBLESS",
-        "KXPAYROLLS",
-        # Growth
-        "KXGDP",
-        "KXGDPYEAR",
-        "KXRECSSNBER",
-        # Fed
-        "KXFEDDECISION",
-        "KXFED",
-        "KXFEDMEET",
-    ]
-
+def main() -> int:
+    """Rebuild the catalog for SERIES_LIST. Exit code 1 if any series failed."""
+    configure_logging()
     all_results = {}
+    failed = {}
     for series in SERIES_LIST:
         try:
             all_results[series] = discover_series(series)
         except Exception as ex:
-            print(f"  {series} failed: {ex}")
+            failed[series] = ex
+            print(f"  {series} failed, previous files kept: {type(ex).__name__}: {ex}")
 
     # Summary table
     print("\n" + "=" * 60)
     print("SUMMARY")
     print("=" * 60)
-    print(f"{'Series':<20} {'Events':>8} {'Markets':>8} {'Tickers':>8}")
+    print(f"{'Series':<20} {'Events':>8} {'Markets':>8} {'Active':>8}")
     for series, result in all_results.items():
-        print(f"{series:<20} {len(result['events']):>8} {len(result['markets']):>8} {len(result['tickers']):>8}")
+        print(f"{series:<20} {len(result['events']):>8} {len(result['markets']):>8} "
+              f"{result['status_counts'].get('active', 0):>8}")
+    for series in failed:
+        print(f"{series:<20} {'FAILED':>8}")
 
     build_combined()
+    return 1 if failed else 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

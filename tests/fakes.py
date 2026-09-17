@@ -157,6 +157,7 @@ class FakeKalshi:
         self.cutoff = "2026-07-19T00:00:00Z"
         self.page_size: int | None = None        # force small pages in tests
         self.auth_required: set[str] = set()      # path prefixes that answer 401 keyless
+        self.hidden_from_series_listing: set[str] = set()   # tickers only event/ticker lookups return
         self.valid_key_ids: set[str] = {"test-key"}
         self.calls: list[tuple[str, dict, dict]] = []
         self._injected: list[list] = []          # [pattern, queue, pass-through count]
@@ -340,7 +341,8 @@ class FakeKalshi:
         if "event_ticker" in p:
             rows = [m for m in rows if m["event_ticker"] == p["event_ticker"]]
         if "series_ticker" in p:
-            rows = [m for m in rows if self._series_of(m) == p["series_ticker"]]
+            rows = [m for m in rows if self._series_of(m) == p["series_ticker"]
+                    and m["ticker"] not in self.hidden_from_series_listing]
         if "tickers" in p:
             wanted = set(p["tickers"].split(","))
             rows = [m for m in rows if m["ticker"] in wanted]
