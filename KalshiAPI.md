@@ -1,4 +1,4 @@
-# Kalshi API field guide
+# Kalshi API guide
 
 How Kalshi structures its markets and API, in the order you need it to pull data. Everything here is verified against the official documentation and against the code in this repo.
 
