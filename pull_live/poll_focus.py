@@ -21,7 +21,9 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from kalshi_io.config import DATA_DIR, FOCUS_UNIVERSE
 from kalshi_io.orderbook import append_orderbook_snapshot, snapshot_orderbook
-from kalshi_io.runlog import get_logger, run_logging
+from kalshi_io.client import is_outage
+from kalshi_io.config import MAX_CONSECUTIVE_OUTAGES
+from kalshi_io.runlog import get_logger, get_skip_recorder, run_logging
 
 from pull_historical.pull_daily import run as run_daily
 from pull_historical.pull_hourly import run as run_hourly
@@ -32,20 +34,42 @@ logger = get_logger("poll_focus")
 
 
 def _run_orderbook(tickers: list[str]) -> dict:
-    """Snapshot orderbook for each ticker in the focus universe."""
+    """
+    Snapshot the orderbook of each ticker.
+
+    Returns:
+        {"processed": int, "skipped": int, "failed": int, "rows_written": int}.
+        A failed snapshot is logged at ERROR and recorded in this process's
+        skip_orderbook file; after MAX_CONSECUTIVE_OUTAGES exhausted-retry
+        failures in a row the sweep stops (API down).
+    """
+    skips = get_skip_recorder("orderbook")
     processed = 0
     skipped = 0
+    failed = 0
     rows_written = 0
-    for ticker in tickers:
+    outages_in_a_row = 0
+    for i, ticker in enumerate(tickers):
+        if outages_in_a_row >= MAX_CONSECUTIVE_OUTAGES:
+            remaining = len(tickers) - i
+            logger.error(f"orderbook sweep aborted after {outages_in_a_row} outages in a row; "
+                         f"{remaining} tickers not attempted")
+            skipped += remaining
+            break
         try:
             df_book = snapshot_orderbook(ticker)
             n = append_orderbook_snapshot(ticker, df_book)
             rows_written += n
             processed += 1
+            outages_in_a_row = 0
         except Exception as e:
-            logger.warning(f"orderbook {ticker}: {e}")
+            reason = f"{type(e).__name__}: {e}"
+            logger.error(f"orderbook {ticker}: FAILED — {reason}")
+            skips.record(ticker, reason, code=type(e).__name__)
             skipped += 1
-    return {"processed": processed, "skipped": skipped, "rows_written": rows_written}
+            failed += 1
+            outages_in_a_row = outages_in_a_row + 1 if is_outage(e) else 0
+    return {"processed": processed, "skipped": skipped, "failed": failed, "rows_written": rows_written}
 
 
 def main():
