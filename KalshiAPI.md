@@ -87,7 +87,9 @@ Observed on 2026-09-17:
 
 `GET /markets/trades` and `GET /historical/trades` take `ticker`, `min_ts`, `max_ts` (Unix seconds), `limit` and `cursor`. Fields: `trade_id`, `ticker`, `count_fp`, `yes_price_dollars`, `no_price_dollars`, `taker_side`, `taker_outcome_side`, `taker_book_side`, `created_time`, `is_block_trade`.
 
-- `taker_side` is deprecated in favor of `taker_outcome_side` (same `yes` or `no` value) and `taker_book_side`. The spec says it will not be removed before 2026-05-14. It was still sent on 2026-09-17. This repo reads `taker_outcome_side` when `taker_side` is missing.
+- `taker_side` is deprecated in favor of `taker_outcome_side` (same `yes` or `no` value) and `taker_book_side` (`bid` is yes, `ask` is no). In the spec `taker_side` is no longer a required field, while the other two are. The removal date is stated twice and differently: not before 2026-05-14 in the spec, not before 2026-05-28 in the changelog and the order direction guide. Both dates have passed and the field is still there: on 2026-09-17 both trade tiers sent all three fields, and all 80,110 trades stored by this repo between 2022-07 and 2026-09 carry a `taker_side` (44,953 yes, 35,157 no, none missing).
+- The stored `taker_side` column is the first of the three fields the API sent, so it stays an exchange field. Nothing is inferred from prices. `pull_audit` counts missing, yes and no per month, so a removal would show up there.
+- A taker who buys YES, or sells NO, is `yes` and `bid`. The direction does not change the price: both sides of a trade see the same `yes_price`.
 - Observed: pages arrive newest first. `min_ts` is inclusive at second granularity. Several trades can share one microsecond. The end of pagination is an empty cursor string.
 - This repo resumes with `min_ts` set 60 seconds before the last stored trade and drops the overlap by `trade_id`.
 

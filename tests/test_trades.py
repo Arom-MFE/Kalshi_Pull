@@ -91,6 +91,21 @@ def test_present_taker_side_is_never_overwritten_and_absent_sides_stay_missing(m
     assert df.loc[df["trade_id"] == "t-2", "taker_side"].isna().all()
 
 
+def test_taker_side_falls_back_to_taker_book_side_last(monkeypatch):
+    # The spec's other required direction field: "bid" is equivalent to yes, "ask" to no
+    base = [{k: v for k, v in t.items() if k != "taker_side"} for t in WIRE]
+    wire = [dict(base[0], taker_book_side="bid"), dict(base[1], taker_book_side="ask"),
+            dict(base[0], trade_id="t-3", taker_outcome_side="no", taker_book_side="bid"),   # outcome side wins
+            dict(base[0], trade_id="t-4", taker_book_side="sideways")]                       # unknown value: stays missing
+    monkeypatch.setattr(
+        trades_mod, "_paginate_trades",
+        lambda endpoint, ticker, min_ts=None: list(wire) if endpoint == "/markets/trades" else [],
+    )
+    df = fetch_trades("TEST-26").set_index("trade_id")
+    assert list(df.loc[["t-1", "t-2", "t-3"], "taker_side"]) == ["yes", "no", "no"]
+    assert df.loc[["t-4"], "taker_side"].isna().all()
+
+
 def test_legacy_since_trade_id_keeps_same_timestamp_siblings(monkeypatch):
     # Several fills of one sweep share a timestamp; the old strict ">" dropped the siblings
     wire = [dict(WIRE[0], trade_id=f"t-{i}") for i in (1, 2, 3)]

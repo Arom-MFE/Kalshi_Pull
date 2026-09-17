@@ -21,6 +21,10 @@ TRADE_COLUMNS = [
     "yes_price", "no_price", "count", "taker_side",
 ]
 
+# Order direction in the API's two vocabularies: a taker who buys YES (or sells
+# NO) is "yes" and "bid"; a taker who buys NO (or sells YES) is "no" and "ask".
+TAKER_BOOK_TO_OUTCOME = {"bid": "yes", "ask": "no"}
+
 # The cutoff only moves forward, slowly; a poller runs for weeks
 CUTOFF_TTL_SECONDS = 3600
 
@@ -88,9 +92,10 @@ def fetch_trades(
         yes_price, no_price, count, taker_side. Sorted by ts_ms ascending.
         yes_price/no_price are float64 dollars in [0, 1]; count is float64
         contracts exactly as the API reports it (fractional on markets with
-        fractional-contract support), unscaled. taker_side comes from the
-        deprecated wire field of that name, or from taker_outcome_side once
-        Kalshi removes it.
+        fractional-contract support), unscaled. taker_side ("yes" or "no")
+        comes from the deprecated wire field of that name, else from
+        taker_outcome_side, else from taker_book_side (bid = yes, ask = no):
+        the first one the API sent.
 
     Raises:
         kalshi_io.client.KalshiAPIError on any failed page. Nothing partial is
@@ -117,12 +122,17 @@ def fetch_trades(
         "count_fp": "count",
     })
 
-    # taker_side is deprecated on the wire; taker_outcome_side carries the
-    # same yes/no value. None-aware: a present value is never overwritten.
+    # taker_side is deprecated on the wire (still sent on 2026-09-17). The spec
+    # makes taker_outcome_side (same yes/no value) and taker_book_side ("bid"
+    # is yes, "ask" is no) the required fields. All three are exchange data,
+    # nothing is inferred. None-aware: a present value is never overwritten.
     if "taker_side" not in df.columns:
         df["taker_side"] = None
     if "taker_outcome_side" in df.columns:
         df["taker_side"] = df["taker_side"].where(df["taker_side"].notna(), df["taker_outcome_side"])
+    if "taker_book_side" in df.columns:
+        from_book = df["taker_book_side"].map(TAKER_BOOK_TO_OUTCOME)
+        df["taker_side"] = df["taker_side"].where(df["taker_side"].notna(), from_book)
 
     # Keep only the columns we need
     df = df[TRADE_COLUMNS]
