@@ -124,11 +124,23 @@ def test_market_in_the_historical_tier_switches_endpoint_once(exchange, data_dir
     assert summary["failed"] == 0 and summary["rows_written"] == len(_candles(3600))
     live = [c for c in _candle_requests(exchange) if c[0].startswith("/series/")]
     hist = [c for c in _candle_requests(exchange) if c[0].startswith("/historical/")]
-    # One live 404, then every window goes straight to /historical/
-    assert len(live) == 1 and len(hist) == 7
+    # The cold-start lookup found the market on /historical/, so every window goes straight there
+    assert len(live) == 0 and len(hist) == 7
     # The historical shape (price.close, volume) normalizes into the same columns
     stored = _stored(data_dir, CASES["minute"][3])
     assert stored["close"].eq(0.5).all() and stored["volume"].eq(10.0).all()
+
+
+def test_without_a_tier_hint_the_live_endpoint_is_asked_once_then_historical(exchange):
+    from kalshi_io.candles import fetch_candles, register_ticker_meta
+
+    exchange.markets[TICKER]["_tier"] = "historical"
+    register_ticker_meta({TICKER: ("TEST", "TEST-26JAN")})          # placed without a market lookup: no tier known
+    rows = fetch_candles(TICKER, 1, int(iso_to_ts(OPEN)), int(iso_to_ts(NOW)))
+    assert len(rows) == len(_candles(3600))
+    paths = [c[0] for c in _candle_requests(exchange)]
+    # One live 404, then every window goes straight to /historical/
+    assert [p.startswith("/series/") for p in paths] == [True] + [False] * 7
 
 
 def test_ticker_unknown_to_the_api_is_reported_and_recorded_not_fetched(exchange, data_dir):

@@ -22,8 +22,8 @@ NOW = "2026-01-10T00:00:00Z"            # five days after the close
 PULLERS = {"daily": (pull_daily, 1440), "hourly": (pull_hourly, 60), "minute": (pull_minute, 1)}
 
 
-def _write_catalog(catalog_dir, status="finalized", close_time=CLOSE, with_times=True):
-    record = {"event_ticker": EVENT, "market_ticker": TICKER, "title": "t", "status": status, "source": "live"}
+def _write_catalog(catalog_dir, status="finalized", close_time=CLOSE, with_times=True, source="live"):
+    record = {"event_ticker": EVENT, "market_ticker": TICKER, "title": "t", "status": status, "source": source}
     if with_times:
         record.update(open_time=OPEN, close_time=close_time,
                       expected_expiration_time=None, latest_expiration_time=None)
@@ -109,6 +109,25 @@ def test_rerun_on_a_settled_ticker_never_looks_past_its_close(exchange, catalog_
     assert len(requests) <= 3
     assert all(r["end_ts"] <= close_ts + resolve.CLOSE_PAD_PERIODS * r["period_interval"] * 60 for r in requests)
     assert all(r["end_ts"] - r["start_ts"] <= resolve.CLOSE_PAD_PERIODS * r["period_interval"] * 60 for r in requests)
+
+
+def test_market_the_catalog_files_under_the_historical_tier_never_asks_the_live_endpoint(exchange, catalog_dir):
+    """3,932 of the 4,840 cataloged markets are historical: one wasted 404 each, per interval, until 0.3.0."""
+    exchange.markets[TICKER]["_tier"] = "historical"
+    _write_catalog(catalog_dir, source="historical")
+    for puller, _ in PULLERS.values():
+        assert puller.run([TICKER])["failed"] == 0
+    paths = [path for path, _, _ in exchange.calls if path.endswith("/candlesticks")]
+    assert paths and all(path.startswith("/historical/") for path in paths)
+
+
+def test_a_stale_tier_hint_costs_one_request_and_no_data(exchange, catalog_dir, data_dir):
+    # The catalog says historical, but the market is (still) served by the live tier only
+    _write_catalog(catalog_dir, source="historical")
+    summary = pull_daily.run([TICKER])
+    assert summary["failed"] == 0 and summary["rows_written"] == len(_life_candles(1440))
+    paths = [path for path, _, _ in exchange.calls if path.endswith("/candlesticks")]
+    assert [path.startswith("/historical/") for path in paths] == [True, False]
 
 
 def test_market_the_catalog_calls_active_is_pulled_up_to_now(exchange, catalog_dir):

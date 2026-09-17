@@ -317,23 +317,31 @@ def _fetch_chunk(
     both tiers reject larger ones with HTTP 400 (there is no truncation and
     no continuation token), which CHUNK_SECONDS guarantees.
 
+    Args:
+        use_historical: the tier to ask first. A 404 there means the market
+                        is in the other tier, which is then asked: a market
+                        that settled before the historical cutoff 404s on the
+                        live endpoint, and one that did not 404s on
+                        /historical/.
+
     Returns:
-        (raw candles, is_historical). A 404 from the live endpoint means the
-        market settled before the historical cutoff; the historical endpoint
-        is used from then on.
+        (raw candles, is_historical): the tier that answered, which the
+        caller keeps using for the remaining windows.
+
+    Raises:
+        KalshiNotFound: neither tier knows the market.
     """
     params = {"start_ts": start_ts, "end_ts": end_ts, "period_interval": interval}
-    if not use_historical:
-        try:
-            data = client.request_json(
-                f"/series/{path_part(series_ticker)}/markets/{path_part(market_ticker)}/candlesticks",
-                params,
-            )
-            return data.get("candlesticks") or [], False
-        except KalshiNotFound:
-            pass
-    data = client.request_json(f"/historical/markets/{path_part(market_ticker)}/candlesticks", params)
-    return data.get("candlesticks") or [], True
+    paths = {
+        False: f"/series/{path_part(series_ticker)}/markets/{path_part(market_ticker)}/candlesticks",
+        True: f"/historical/markets/{path_part(market_ticker)}/candlesticks",
+    }
+    try:
+        data = client.request_json(paths[use_historical], params)
+        return data.get("candlesticks") or [], use_historical
+    except KalshiNotFound:
+        data = client.request_json(paths[not use_historical], params)
+        return data.get("candlesticks") or [], not use_historical
 
 
 def fetch_candles(
@@ -369,7 +377,12 @@ def fetch_candles(
 
     rows: dict[int, dict] = {}
     chunk_start = start_ts
-    use_historical = False
+    # Start on the tier the catalog recorded: a market that moved to the
+    # historical tier never comes back, so asking the live endpoint first
+    # would cost one 404 per ticker and interval. A wrong or missing hint only
+    # costs that one request: _fetch_chunk falls through to the other tier.
+    known = known_market_window(market_ticker)
+    use_historical = known is not None and known.tier == "historical"
 
     while chunk_start < end_ts:
         chunk_end = min(chunk_start + chunk_seconds, end_ts)
