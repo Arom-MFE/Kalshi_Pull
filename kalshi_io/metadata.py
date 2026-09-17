@@ -59,6 +59,7 @@ import pandas as pd
 from kalshi_io import config, discovery
 from kalshi_io.candles import resolve_ticker_meta
 from kalshi_io.runlog import get_logger
+from kalshi_io.storage import file_lock, temp_path_for
 
 logger = get_logger("metadata")
 
@@ -255,27 +256,29 @@ def upsert_market_metadata(rows: list[dict], *, keep_existing: list[dict] | None
         {"path", "rows" (stored after the merge), "added", "updated", "kept"}
     """
     path = metadata_path()
-    existing = load_market_metadata()
     fresh = metadata_frame(rows)
     fresh = fresh.drop_duplicates(subset="market_ticker", keep="last")
 
-    known = set(existing["market_ticker"]) if existing is not None else set()
-    fallback = [r for r in (keep_existing or [])
-                if r["market_ticker"] not in known and r["market_ticker"] not in set(fresh["market_ticker"])]
-    parts = [fresh]
-    if fallback:
-        parts.append(metadata_frame(fallback))
-    if existing is not None:
-        parts.insert(0, existing[~existing["market_ticker"].isin(set(fresh["market_ticker"]))])
-    parts = [part for part in parts if not part.empty]
+    # Read, merge and replace under the file's lock: roll.py and a backfill may both refresh the store
+    with file_lock(path):
+        existing = load_market_metadata()
+        known = set(existing["market_ticker"]) if existing is not None else set()
+        fallback = [r for r in (keep_existing or [])
+                    if r["market_ticker"] not in known and r["market_ticker"] not in set(fresh["market_ticker"])]
+        parts = [fresh]
+        if fallback:
+            parts.append(metadata_frame(fallback))
+        if existing is not None:
+            parts.insert(0, existing[~existing["market_ticker"].isin(set(fresh["market_ticker"]))])
+        parts = [part for part in parts if not part.empty]
 
-    combined = metadata_frame(pd.concat(parts, ignore_index=True) if parts else [])
-    combined = combined.sort_values(_SORT_COLUMNS, na_position="last").reset_index(drop=True)
+        combined = metadata_frame(pd.concat(parts, ignore_index=True) if parts else [])
+        combined = combined.sort_values(_SORT_COLUMNS, na_position="last").reset_index(drop=True)
 
-    path.parent.mkdir(parents=True, exist_ok=True)
-    tmp = path.with_suffix(".tmp.parquet")
-    combined.to_parquet(tmp, engine="pyarrow", compression="zstd", index=False)
-    os.replace(tmp, path)
+        path.parent.mkdir(parents=True, exist_ok=True)
+        tmp = temp_path_for(path)
+        combined.to_parquet(tmp, engine="pyarrow", compression="zstd", index=False)
+        os.replace(tmp, path)
 
     updated = len(set(fresh["market_ticker"]) & known)
     return {

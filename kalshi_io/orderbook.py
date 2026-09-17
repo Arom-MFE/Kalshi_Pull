@@ -12,6 +12,7 @@ import pandas as pd
 
 from kalshi_io import client
 from kalshi_io.client import path_part
+from kalshi_io.config import ORDERBOOK_LOCK_TIMEOUT_S
 from kalshi_io.storage import append_parquet, get_output_path
 
 
@@ -86,4 +87,7 @@ def append_orderbook_snapshot(market_ticker: str, df_book: pd.DataFrame) -> int:
         return 0
     ts = pd.Timestamp(int(df_book["ts_ms"].iloc[0]), unit="ms", tz="UTC")
     path = get_output_path("orderbook", None, "", market_ticker, ts=ts)
-    return append_parquet(df_book, path, ["ts_ms", "side", "price"], sort_by="ts_ms")
+    # A snapshot is perishable and the next one is seconds away: wait briefly for a
+    # backfill that holds the same lock stripe, never the full default
+    return append_parquet(df_book, path, ["ts_ms", "side", "price"], sort_by="ts_ms",
+                          lock_timeout=ORDERBOOK_LOCK_TIMEOUT_S)

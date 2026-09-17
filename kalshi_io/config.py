@@ -110,6 +110,16 @@ HTTP_RETRY_AFTER_CAP_S = 120.0
 # the API is down or throttling, and grinding on helps nobody.
 MAX_CONSECUTIVE_OUTAGES = 3
 
+# ============================================================
+# Concurrent writers (kalshi_io/storage.py)
+# ============================================================
+# The poller and a backfill may run at the same time. A writer waits this long
+# for another process to finish with the same parquet file, then fails the
+# ticker (it is retried on the next cycle or run). Holds last milliseconds.
+LOCK_TIMEOUT_S: float = 120.0
+# Orderbook snapshots are perishable and frequent: rather lose one than stall the sweep
+ORDERBOOK_LOCK_TIMEOUT_S: float = 5.0
+
 # Trades resume re-requests this many seconds before the last stored trade;
 # the overlap is dropped again by trade_id, so it can never leave a gap.
 TRADES_RESUME_OVERLAP_S = 60

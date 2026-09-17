@@ -297,3 +297,25 @@ def test_carried_forward_ticker_is_reported_gone_and_never_requested(exchange, d
 def test_pull_all_freq_is_the_driver_over_the_whole_catalog():
     import pull_historical.pull_all_freq as pull_all_freq
     assert pull_all_freq.main is backfill.main
+
+
+# ------------------------------------------------------------------ locks
+
+def test_a_second_full_catalog_run_is_refused_with_exit_75(exchange, data_dir, waits, capsys):
+    from test_storage import _hold_in_child
+
+    child = _hold_in_child(data_dir / ".locks" / f"{backfill.FULL_RUN_LOCK}.lock", 1.5)
+    try:
+        assert backfill.main(["--no-audit"]) == backfill.EXIT_LOCKED
+        assert "another run holds the lock 'backfill_full'" in capsys.readouterr().err
+        assert not any(_layer_of(c) for c in exchange.calls)
+        # A ticker list is not the full run and takes no lock unless asked to
+        assert backfill.main(["--no-audit", "--layers", "daily", "--tickers", "KXA-26JUL-T1"]) == 0
+    finally:
+        child.wait(5)
+    child = _hold_in_child(data_dir / ".locks" / "focus_history.lock", 1.0)
+    try:
+        assert backfill.main(["--no-audit", "--layers", "daily", "--tickers", "KXA-26JUL-T1",
+                              "--lock-name", "focus_history"]) == backfill.EXIT_LOCKED
+    finally:
+        child.wait(5)

@@ -37,7 +37,8 @@ CLI:
     python -m pull_historical.backfill --retry-failed
 
 Exit codes: 0 complete · 1 some tickers failed (see the failure lists) ·
-2 stopped because the API was down · 130 interrupted (Ctrl+C finishes the
+2 stopped because the API was down · 75 another run holds the lock (a second
+full-catalog run, or --lock-name) · 130 interrupted (Ctrl+C finishes the
 current ticker, a second Ctrl+C stops at once)
 """
 
@@ -47,6 +48,7 @@ import math
 import signal
 import sys
 import time
+from contextlib import nullcontext
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
 from pathlib import Path
@@ -60,7 +62,9 @@ from kalshi_io.config import CHUNK_SECONDS, MAX_CONSECUTIVE_OUTAGES, MAX_REQUEST
 from kalshi_io.discovery import POLLABLE_BUCKETS, status_bucket
 from kalshi_io.resolve import candle_end_ts
 from kalshi_io.runlog import get_logger, run_logging
-from kalshi_io.storage import atomic_write_text, duckdb_connect, get_last_timestamp, get_output_path
+from kalshi_io.storage import (
+    LockTimeout, atomic_write_text, duckdb_connect, file_lock, get_last_timestamp, get_output_path, named_lock,
+)
 from kalshi_io.tickers import load_tickers, validate_tickers
 
 from pull_historical import pull_hourly, pull_minute, pull_trades
@@ -74,7 +78,10 @@ logger = get_logger("backfill")
 LAYERS: tuple[str, ...] = ("metadata", "daily", "hourly", "trades", "minute")
 CANDLE_INTERVALS = {"daily": 1440, "hourly": 60, "minute": 1}
 
-EXIT_OK, EXIT_FAILED, EXIT_API_DOWN, EXIT_INTERRUPTED = 0, 1, 2, 130
+EXIT_OK, EXIT_FAILED, EXIT_API_DOWN, EXIT_LOCKED, EXIT_INTERRUPTED = 0, 1, 2, 75, 130
+
+# A run over the whole catalog holds this lock, so it cannot be started twice by accident
+FULL_RUN_LOCK = "backfill_full"
 
 # Waits between attempts while the API is down (three tickers in a row ran out of retries)
 OUTAGE_WAITS_S: tuple[int, ...] = (60, 120, 240, 480, 960)
@@ -259,9 +266,10 @@ class Journal:
     def _append(self, record: dict) -> None:
         self.path.parent.mkdir(parents=True, exist_ok=True)
         # A torn last line (kill -9 mid-write) must not swallow this record
-        torn = self.path.exists() and self.path.stat().st_size > 0 and not self.path.read_bytes().endswith(b"\n")
-        with open(self.path, "a") as f:
-            f.write(("\n" if torn else "") + json.dumps(record, sort_keys=True) + "\n")
+        with file_lock(self.path):                        # the poller's history pull may journal at the same time
+            torn = self.path.exists() and self.path.stat().st_size > 0 and not self.path.read_bytes().endswith(b"\n")
+            with open(self.path, "a") as f:
+                f.write(("\n" if torn else "") + json.dumps(record, sort_keys=True) + "\n")
 
 
 # ============================================================
@@ -687,6 +695,9 @@ def _build_parser() -> argparse.ArgumentParser:
                         help="Do not skip pairs the journal calls final (they are pulled again and resume from disk)")
     parser.add_argument("--no-audit", action="store_true", help="Skip the data-quality checks after the run")
     parser.add_argument("--log-name", default="backfill", help="Prefix of the log file in DATA_DIR/logs")
+    parser.add_argument("--lock-name", default=None,
+                        help=f"Hold DATA_DIR/.locks/NAME.lock for the run and exit {EXIT_LOCKED} if another process "
+                             f"holds it. A run over the whole catalog always holds {FULL_RUN_LOCK!r}")
     return parser
 
 
@@ -729,8 +740,15 @@ def main(argv: list[str] | None = None) -> int:
     if args.estimate_only:
         return EXIT_OK
 
-    with run_logging(args.log_name, stamp_fmt="%Y%m%d_%H%M%S") as log_path:
-        return _run(args, layers, items, uncataloged, journal, est, per_layer_tickers, log_path)
+    lock_name = args.lock_name or (FULL_RUN_LOCK if args.tickers is None and not args.retry_failed else None)
+    try:
+        with named_lock(lock_name) if lock_name else nullcontext():
+            with run_logging(args.log_name, stamp_fmt="%Y%m%d_%H%M%S") as log_path:
+                return _run(args, layers, items, uncataloged, journal, est, per_layer_tickers, log_path)
+    except LockTimeout:
+        print(f"backfill: another run holds the lock {lock_name!r} on {config.DATA_DIR}; not starting a second one",
+              file=sys.stderr)
+        return EXIT_LOCKED
 
 
 def _run(args, layers, items, uncataloged, journal, est, per_layer_tickers, log_path: Path) -> int:
