@@ -54,3 +54,34 @@ def test_ordinary_errors_never_abort_the_run(monkeypatch):
     _stub_puller(monkeypatch, dict.fromkeys(tickers, "bug"))
     summary = pull_daily.run(tickers)
     assert summary["aborted"] is False and summary["failed"] == 5
+
+
+# ------------------------------------------------------------------ per-ticker outcomes for a caller that asks
+
+SUMMARY_KEYS = {"processed", "skipped", "failed", "aborted", "unknown", "rows_written", "elapsed_sec"}
+
+
+def test_results_collector_gets_one_outcome_per_ticker_and_the_summary_stays_as_it_was(monkeypatch):
+    outcomes = {"T-1": "ok", "T-2": "bug", "T-3": "outage", "T-4": "outage", "T-5": "outage", "T-6": "ok"}
+    _stub_puller(monkeypatch, outcomes)
+    results: dict = {}
+    summary = pull_daily.run(list(outcomes), results=results)
+
+    # The summary only counts; the poller logs it every minute, so it must stay small
+    assert set(summary) == SUMMARY_KEYS and summary["aborted"] is True
+    assert {t: r["status"] for t, r in results.items()} == {
+        "T-1": "empty", "T-2": "failed", "T-3": "failed", "T-4": "failed", "T-5": "failed", "T-6": "not_attempted"}
+    # An outage is told apart from an ordinary error: the driver backs off on the first, not on the second
+    assert [results[t]["outage"] for t in outcomes] == [False, False, True, True, True, False]
+    assert results["T-2"]["error"] == "ValueError: unexpected payload" and "gave up after 6 attempts" in results["T-3"]["error"]
+    assert pull_daily.run(["T-1"])["processed"] == 1                       # the collector is optional
+
+
+def test_should_stop_leaves_the_remaining_tickers_unattempted(monkeypatch):
+    tickers = ["T-1", "T-2", "T-3"]
+    _stub_puller(monkeypatch, dict.fromkeys(tickers, "ok"))
+    seen: list[int] = []
+    results: dict = {}
+    summary = pull_daily.run(tickers, results=results, should_stop=lambda: seen.append(1) or len(seen) > 1)
+    assert summary["processed"] == 1 and summary["skipped"] == 2 and summary["aborted"] is False
+    assert [results[t]["status"] for t in tickers] == ["empty", "not_attempted", "not_attempted"]

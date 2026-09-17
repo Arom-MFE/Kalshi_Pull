@@ -34,8 +34,10 @@ def _stored(data_dir) -> pd.DataFrame:
 
 
 def test_cold_start_pulls_both_tiers_and_partitions_by_month(exchange, data_dir):
-    summary = pull_trades.run([TICKER])
+    results: dict = {}
+    summary = pull_trades.run([TICKER], results=results)
     assert summary["rows_written"] == 5 and summary["failed"] == 0
+    assert results == {TICKER: {"status": "ok", "rows": 5, "error": None, "outage": False}} and "results" not in summary
     files = sorted(p.name for p in (data_dir / "trades" / "TEST" / TICKER).glob("*.parquet"))
     assert files == ["2026-07.parquet", "2026-08.parquet", "2026-09.parquet"]
     # No min_ts on a cold start: the complete tape from both tiers

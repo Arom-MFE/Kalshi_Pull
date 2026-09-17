@@ -26,7 +26,7 @@ from kalshi_io.candles import PartialCandlesError, candles_frame, fetch_candles,
 from kalshi_io.client import is_outage
 from kalshi_io.config import DATA_DIR, DEDUPE_COLS_CANDLES, MAX_CONSECUTIVE_OUTAGES, TICKERS_DIR
 from kalshi_io.resolve import candle_end_ts, market_window
-from kalshi_io.runlog import get_logger, get_skip_recorder, run_logging
+from kalshi_io.runlog import get_logger, get_skip_recorder, note_result, run_logging
 from kalshi_io.storage import append_parquet, get_last_timestamp, get_output_path
 from kalshi_io.tickers import load_tickers, validate_tickers
 
@@ -46,6 +46,9 @@ def run(
     tickers: str | list[str],
     since: str | None = None,
     limit: int | None = None,
+    *,
+    results: dict | None = None,
+    should_stop=None,
 ) -> dict:
     """
     Pull hourly candles for every ticker in the input list.
@@ -58,6 +61,10 @@ def run(
                  open. A settled market is pulled up to its close_time plus
                  one period, never through empty windows up to today
         limit:   optional max number of tickers to process
+        results: optional dict, filled with the outcome per ticker
+                 (see kalshi_io.runlog.note_result)
+        should_stop: optional callable checked before every ticker; when it
+                 returns True the remaining tickers are left unattempted
 
     Returns:
         {"processed": int, "skipped": int, "failed": int, "aborted": bool,
@@ -71,13 +78,15 @@ def run(
         tickers in a row exhausted their retries.
     """
     with run_logging("pull_hourly"):
-        return _run(tickers, since=since, limit=limit)
+        return _run(tickers, since=since, limit=limit, results=results, should_stop=should_stop)
 
 
 def _run(
     tickers: str | list[str],
     since: str | None = None,
     limit: int | None = None,
+    results: dict | None = None,
+    should_stop=None,
 ) -> dict:
     """Body of run(); logging is already set up by the caller."""
     logger.info(f"pull_hourly starting (data root: {DATA_DIR})")
@@ -92,6 +101,7 @@ def _run(
     for ticker in unknown:
         logger.warning(f"{ticker}: SKIP — unknown ticker (not in the catalog, not found on the API)")
         skips.record(ticker, "unknown ticker: not in the catalog and not found on the API", code="unknown")
+        note_result(results, ticker, "unknown")
     logger.info(f"Tickers: {len(ticker_list)} (limit={limit}, unknown={len(unknown)})")
 
     # Parse since
@@ -115,11 +125,22 @@ def _run(
                       f"(API down or throttling); {remaining} tickers not attempted")
             logger.error(reason)
             skips.record("*", reason, code="aborted")
+            for left in ticker_list[i:]:
+                note_result(results, left, "not_attempted")
             skipped += remaining
             aborted = True
             break
 
+        if should_stop is not None and should_stop():
+            remaining = len(ticker_list) - i
+            logger.info(f"stop requested: {remaining} tickers not attempted")
+            for left in ticker_list[i:]:
+                note_result(results, left, "not_attempted")
+            skipped += remaining
+            break
+
         hit_outage = False
+        n_ticker = 0
         try:
             # Resolve series for output path
             series_ticker, _ = resolve_ticker_meta(ticker)
@@ -142,6 +163,7 @@ def _run(
                         reason = "could not resolve open_ts_ms"
                         logger.warning(f"[{i+1}/{len(ticker_list)}] {ticker}: SKIP — {reason}")
                         skips.record(ticker, reason, code="no_open_ts")
+                        note_result(results, ticker, "skipped", error=reason)
                         skipped += 1
                         continue
                     start_ts = window["open_ts"]
@@ -151,6 +173,7 @@ def _run(
             end_ts = candle_end_ts(window, 60, int(time.time()))
             if start_ts >= end_ts:
                 logger.info(f"[{i+1}/{len(ticker_list)}] {ticker}: up-to-date")
+                note_result(results, ticker, "up_to_date")
                 processed += 1
                 continue
 
@@ -164,6 +187,7 @@ def _run(
 
             if not rows:
                 logger.info(f"[{i+1}/{len(ticker_list)}] {ticker}: 0 candles returned")
+                note_result(results, ticker, "empty")
                 processed += 1
                 continue
 
@@ -171,7 +195,6 @@ def _run(
             df = candles_frame(rows)
             df["_year"] = pd.to_datetime(df["ts_ms"], unit="ms", utc=True).dt.year
 
-            n_ticker = 0
             for year, grp in df.groupby("_year"):
                 ts = pd.Timestamp(year=year, month=1, day=1)
                 out_path = get_output_path("candles", 60, series_ticker, ticker, ts=ts)
@@ -182,6 +205,7 @@ def _run(
             if partial is not None:
                 raise partial
             processed += 1
+            note_result(results, ticker, "ok", rows=n_ticker)
             logger.info(f"[{i+1}/{len(ticker_list)}] {ticker}: {n_ticker} new rows ({len(df)} fetched)")
 
         except Exception as e:
@@ -191,6 +215,7 @@ def _run(
             skipped += 1
             failed += 1
             hit_outage = is_outage(e)
+            note_result(results, ticker, "failed", rows=n_ticker, error=reason, outage=hit_outage)
         finally:
             # finally also runs on the `continue` exits above
             outages_in_a_row = outages_in_a_row + 1 if hit_outage else 0

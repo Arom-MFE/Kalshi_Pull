@@ -81,16 +81,34 @@ def test_cold_start_then_rerun_adds_zero_rows(kind, exchange, data_dir):
     assert len(_stored(data_dir, files)) == expected
 
 
+@pytest.mark.parametrize("kind", CASES)
+def test_results_collector_reports_rows_then_up_to_date_and_unknown(kind, exchange, data_dir):
+    puller, _, step, _ = CASES[kind]
+    results: dict = {}
+    puller.run([TICKER, "TEST-26JAN-NOPE"], results=results)
+    assert results[TICKER] == {"status": "ok", "rows": len(_candles(step)), "error": None, "outage": False}
+    assert results["TEST-26JAN-NOPE"]["status"] == "unknown"
+    exchange.markets[TICKER]["status"] = "finalized"                # settled since: nothing can be newer
+    exchange.markets[TICKER]["close_time"] = "2026-01-09T12:00:00Z"
+    results.clear()
+    puller.run([TICKER], results=results)
+    assert results[TICKER]["status"] in ("ok", "up_to_date") and results[TICKER]["rows"] == 0
+
+
 def test_failure_mid_backfill_saves_the_prefix_records_the_gap_and_the_next_run_completes(exchange, data_dir):
     _, _, step, files = CASES["minute"]
     expected = len(_candles(step))
     # 21 days = seven 3-day windows; the third one fails on every attempt
     exchange.inject(r"/candlesticks$", [FakeResponse(503, {"error": {"message": "down"}})] * 6, after=2)
 
-    summary = pull_minute.run([TICKER])
+    results: dict = {}
+    summary = pull_minute.run([TICKER], results=results)
 
     assert summary["failed"] == 1 and summary["processed"] == 0
     assert 0 < summary["rows_written"] < expected
+    # The caller sees a failure with a saved prefix, caused by exhausted retries
+    assert results[TICKER]["status"] == "failed" and results[TICKER]["rows"] == summary["rows_written"]
+    assert results[TICKER]["outage"] is True and "fetch stopped at" in results[TICKER]["error"]
     saved = pd.read_parquet(data_dir / files[0])
     # The saved rows are the gap-free prefix: everything up to the failed window's start
     fail_start_ms = (int(iso_to_ts(OPEN)) + 2 * 3 * 86400) * 1000

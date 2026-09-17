@@ -154,6 +154,27 @@ class SkipRecorder:
         return True
 
 
+def note_result(results: dict | None, ticker: str, status: str, *, rows: int = 0,
+                error: str | None = None, outage: bool = False) -> None:
+    """
+    Record what a puller did with one ticker, for a caller that asked.
+
+    The pullers' summaries only count. A caller that needs the outcome per
+    ticker (pull_historical/backfill.py) passes a dict as `results=`; it is
+    filled with {ticker: {"status", "rows", "error", "outage"}}:
+        ok             fetched and stored; rows = new rows
+        up_to_date     nothing to ask: the stored data reaches the end of the window
+        empty          the API returned no rows for the window
+        failed         raised; error says why, outage is True when retries ran
+                       out (API down or throttling), rows counts a saved prefix
+        skipped        the market's open time could not be resolved
+        unknown        not in the catalog and not found on the API
+        not_attempted  the run stopped first (outage breaker or stop request)
+    """
+    if results is not None:
+        results[ticker] = {"status": status, "rows": rows, "error": error, "outage": outage}
+
+
 _recorders: dict[str, SkipRecorder] = {}
 
 
