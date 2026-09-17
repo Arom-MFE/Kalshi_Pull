@@ -1,13 +1,40 @@
 """
 kalshi_io/config.py — Paths, constants, and universe definitions.
+
+Two settings come from the process environment (never from .env, which is
+only read lazily for credentials):
+    KALSHI_DATA_DIR  — data root override (default: <repo>/kalshi_data)
+    KALSHI_MAX_RPS   — client-side request rate cap (default 10, max 20)
 """
 
+import os
 from pathlib import Path
 
 # Anchor all paths to the repo root so they work regardless of CWD
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
-DATA_DIR     = PROJECT_ROOT / "kalshi_data"
+
+def _resolve_data_dir(env=os.environ) -> Path:
+    """Data root: KALSHI_DATA_DIR if set and non-empty, else <repo>/kalshi_data."""
+    override = (env.get("KALSHI_DATA_DIR") or "").strip()
+    if override:
+        return Path(override).expanduser().resolve()
+    return PROJECT_ROOT / "kalshi_data"
+
+
+def _resolve_max_rps(env=os.environ) -> float:
+    """Request rate cap: KALSHI_MAX_RPS, at most 20; default 10 when unset or invalid."""
+    try:
+        rps = float(env.get("KALSHI_MAX_RPS") or 10)
+    except ValueError:
+        return 10.0
+    if rps <= 0:
+        return 10.0
+    return min(rps, 20.0)
+
+
+# Resolved at import time: modules bind DATA_DIR by value
+DATA_DIR     = _resolve_data_dir()
 TICKERS_DIR  = PROJECT_ROOT / "get_ticker_info" / "kalshi_tickers"
 
 # Chunk sizes per period_interval (seconds per API call window)
@@ -87,4 +114,23 @@ TS_COL = "ts_ms"
 DEDUPE_COLS_CANDLES: list[str] = ["ts_ms", "market_ticker"]
 DEDUPE_COLS_TRADES: list[str] = ["trade_id"]
 
-RATE_LIMIT_SECONDS = 0.2
+# ============================================================
+# HTTP behavior (kalshi_io/client.py)
+# ============================================================
+# Kalshi documents rate limits as token buckets per authenticated account:
+# 10 tokens per request, Basic tier read budget 200 tokens/s = 20 requests/s.
+# Limits for keyless requests are undocumented, so the default is half of Basic.
+MAX_REQUESTS_PER_SECOND: float = _resolve_max_rps()
+
+# Minimum spacing between requests, enforced centrally in client.request_json
+RATE_LIMIT_SECONDS = 1.0 / MAX_REQUESTS_PER_SECOND
+
+HTTP_TIMEOUT: tuple[float, float] = (5.0, 30.0)   # (connect, read) seconds
+HTTP_MAX_ATTEMPTS = 6
+HTTP_BACKOFF_BASE_S = 0.5
+HTTP_BACKOFF_CAP_S = 30.0
+HTTP_RETRY_AFTER_CAP_S = 120.0
+
+# Trades resume re-requests this many seconds before the last stored trade;
+# the overlap is dropped again by trade_id, so it can never leave a gap.
+TRADES_RESUME_OVERLAP_S = 60
