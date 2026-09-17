@@ -35,3 +35,14 @@ def test_max_rps_default_clamp_and_garbage():
     assert _resolve_max_rps({"KALSHI_MAX_RPS": "0"}) == 10.0
     assert _resolve_max_rps({"KALSHI_MAX_RPS": "-3"}) == 10.0
     assert _resolve_max_rps({"KALSHI_MAX_RPS": "fast"}) == 10.0
+
+
+def test_focus_universe_is_a_rule_not_a_ticker_list():
+    import kalshi_io
+
+    assert config.FOCUS_SERIES and set(config.FOCUS_SERIES) <= set(config.SERIES_LIST)
+    assert config.FOCUS_EVENTS_PER_SERIES >= 1
+    # The committed override stays empty: a hand-written list is what went stale in 2026-09
+    assert config.FOCUS_OVERRIDE == []
+    assert not hasattr(config, "FOCUS_UNIVERSE") and not hasattr(kalshi_io, "FOCUS_UNIVERSE")
+    assert kalshi_io.FOCUS_SERIES is config.FOCUS_SERIES

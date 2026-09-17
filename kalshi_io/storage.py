@@ -5,11 +5,21 @@ All parquet files use pyarrow engine with zstd compression.
 Writes are atomic (temp file + rename).
 """
 
+import os
 from pathlib import Path
 
 import pandas as pd
 
 from kalshi_io.config import DATA_DIR
+
+
+def atomic_write_text(path: Path, text: str) -> None:
+    """Write a text file via temp file + rename, so a reader or a crash never
+    sees it half-written. Creates the parent directory."""
+    path.parent.mkdir(parents=True, exist_ok=True)
+    tmp = path.with_name(path.name + ".tmp")
+    tmp.write_text(text)
+    os.replace(tmp, path)
 
 
 def append_parquet(

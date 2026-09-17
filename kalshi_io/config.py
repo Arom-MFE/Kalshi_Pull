@@ -1,5 +1,5 @@
 """
-kalshi_io/config.py — Paths, constants, and universe definitions.
+kalshi_io/config.py — Paths, constants, and the focus universe rule.
 
 Two settings come from the process environment (never from .env, which is
 only read lazily for credentials):
@@ -58,56 +58,25 @@ SERIES_LIST: list[str] = [
     "KXFEDDECISION", "KXFED", "KXFEDMEET",
 ]
 
-# Refreshed 2026-08-09; every ticker verified active via GET /markets/{ticker}.
-# Update per macro cycle (see README Maintenance).
-FOCUS_UNIVERSE: list[str] = [
-    # Fed funds rate level — September 2026 FOMC (next meeting), liquid core
-    "KXFED-26SEP-T2.75",
-    "KXFED-26SEP-T3.00",
-    "KXFED-26SEP-T3.25",
-    "KXFED-26SEP-T3.50",
-    "KXFED-26SEP-T3.75",
-    "KXFED-26SEP-T4.00",
-    "KXFED-26SEP-T4.25",
-    "KXFED-26SEP-T4.50",
+# ============================================================
+# Focus universe (kalshi_io/universe.py, pull_live/poll_focus.py)
+# ============================================================
+# The tickers poll_focus polls are derived, not listed: for every series below,
+# the nearest FOCUS_EVENTS_PER_SERIES events that still have open markets,
+# ranked by the earliest close_time of those markets. The universe is resolved
+# at startup and refreshed while polling, so it moves to the next event cycle
+# on its own. Nothing here needs editing per cycle.
+FOCUS_SERIES: list[str] = ["KXFED", "KXFEDDECISION", "KXCPIYOY", "KXPAYROLLS", "KXU3"]
+FOCUS_EVENTS_PER_SERIES = 1
 
-    # Fed decision action — September 2026 FOMC
-    "KXFEDDECISION-26SEP-C25",
-    "KXFEDDECISION-26SEP-C26",
-    "KXFEDDECISION-26SEP-H0",
-    "KXFEDDECISION-26SEP-H25",
-    "KXFEDDECISION-26SEP-H26",
+# Manual override: market tickers. A non-empty list replaces the derived
+# universe entirely and is never rolled forward; tickers that stopped trading
+# are dropped, and poll_focus refuses to start once none is left.
+FOCUS_OVERRIDE: list[str] = []
 
-    # CPI YoY — July 2026 data, releases 2026-08-12 (liquid core of ladder)
-    "KXCPIYOY-26JUL-T3.2",
-    "KXCPIYOY-26JUL-T3.3",
-    "KXCPIYOY-26JUL-T3.4",
-    "KXCPIYOY-26JUL-T3.5",
-    "KXCPIYOY-26JUL-T3.6",
-    "KXCPIYOY-26JUL-T3.7",
-    "KXCPIYOY-26JUL-T3.8",
-    "KXCPIYOY-26JUL-T3.9",
-    "KXCPIYOY-26JUL-T4.0",
+# Seconds between universe refreshes inside poll_focus (0 = never refresh)
+FOCUS_REFRESH_SECONDS = 3600
 
-    # Payrolls — August 2026 data, releases 2026-09-04
-    "KXPAYROLLS-26AUG-T-25000",
-    "KXPAYROLLS-26AUG-T0",
-    "KXPAYROLLS-26AUG-T50000",
-    "KXPAYROLLS-26AUG-T60000",
-    "KXPAYROLLS-26AUG-T70000",
-    "KXPAYROLLS-26AUG-T80000",
-    "KXPAYROLLS-26AUG-T90000",
-    "KXPAYROLLS-26AUG-T100000",
-
-    # Unemployment — August 2026 data, releases 2026-09-04
-    "KXU3-26AUG-T3.9",
-    "KXU3-26AUG-T4.0",
-    "KXU3-26AUG-T4.1",
-    "KXU3-26AUG-T4.2",
-    "KXU3-26AUG-T4.3",
-    "KXU3-26AUG-T4.4",
-    "KXU3-26AUG-T4.5",
-]
 # Canonical timestamp column across all parquet files (int64 UTC milliseconds)
 TS_COL = "ts_ms"
 

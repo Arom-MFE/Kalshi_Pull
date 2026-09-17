@@ -24,13 +24,13 @@ its previous file stays untouched.
 """
 
 import json
-import os
 from datetime import datetime, timezone
 from pathlib import Path
 
 from kalshi_io import client, discovery
 from kalshi_io.config import SERIES_LIST, TICKERS_DIR
 from kalshi_io.runlog import get_logger
+from kalshi_io.storage import atomic_write_text as _atomic_write
 
 logger = get_logger("catalog")
 
@@ -77,13 +77,6 @@ def status_counts(markets: list[dict]) -> dict[str, int]:
         key = m.get("status") or "unknown"
         counts[key] = counts.get(key, 0) + 1
     return dict(sorted(counts.items()))
-
-
-def _atomic_write(path: Path, text: str) -> None:
-    path.parent.mkdir(parents=True, exist_ok=True)
-    tmp = path.with_name(path.name + ".tmp")
-    tmp.write_text(text)
-    os.replace(tmp, path)
 
 
 # ============================================================
