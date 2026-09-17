@@ -4,15 +4,20 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "kalshi-pipeline"
-version = "0.1.0"
+version = "0.2.0"
+# kalshi-python-sync itself requires Python >=3.13, so this floor is forced.
 requires-python = ">=3.13"
 dependencies = [
-    "pandas>=2.0",
-    "pyarrow>=15.0",
-    "requests>=2.31",
+    # Stored parquet files carry the pandas 3 string dtype.
+    "pandas>=3.0,<4",
+    # 18 is the first pyarrow release with Python 3.13 wheels.
+    "pyarrow>=18",
+    "requests>=2.32",
     "python-dotenv>=1.0",
-    "kalshi-python-sync",
-    "duckdb>=0.9",
+    # 3.27 crashes on every event call since Kalshi removed
+    # available_on_brokers from event payloads (2026-09-10); 3.30.0 drops it.
+    "kalshi-python-sync>=3.30.0,<4",
+    "duckdb>=1.0",
 ]
 
 [project.optional-dependencies]
@@ -21,3 +26,8 @@ dev = ["pytest>=8"]
 [tool.setuptools.packages.find]
 include = ["kalshi_io*", "pull_historical*", "pull_live*"]
 exclude = ["get_ticker_info*", "kalshi_data*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+# "." makes the script-only get_ticker_info/ importable; "tests" exposes fakes.py
+pythonpath = [".", "tests"]
