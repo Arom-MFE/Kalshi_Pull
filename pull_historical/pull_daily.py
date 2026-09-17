@@ -12,7 +12,6 @@ Importable:
 """
 
 import argparse
-import logging
 import sys
 import time
 from datetime import datetime, timezone
@@ -26,33 +25,11 @@ import pandas as pd
 from kalshi_io.candles import fetch_candles, resolve_ticker_meta
 from kalshi_io.config import DATA_DIR, DEDUPE_COLS_CANDLES, TICKERS_DIR
 from kalshi_io.resolve import get_market_metadata
+from kalshi_io.runlog import get_logger, run_logging
 from kalshi_io.storage import append_parquet, get_last_timestamp, get_output_path
 from kalshi_io.tickers import load_tickers
 
-logger = logging.getLogger("pull_daily")
-
-
-def _setup_logging() -> Path:
-    """Configure file + stderr logging. Returns log file path."""
-    log_dir = DATA_DIR / "logs"
-    log_dir.mkdir(parents=True, exist_ok=True)
-
-    stamp = datetime.now(timezone.utc).strftime("%Y%m%d_%H%M")
-    log_path = log_dir / f"pull_daily_{stamp}.log"
-
-    fmt = logging.Formatter("%(asctime)s %(levelname)s %(message)s")
-
-    fh = logging.FileHandler(log_path)
-    fh.setFormatter(fmt)
-
-    sh = logging.StreamHandler()
-    sh.setFormatter(fmt)
-
-    logger.setLevel(logging.INFO)
-    logger.addHandler(fh)
-    logger.addHandler(sh)
-
-    return log_path
+logger = get_logger("pull_daily")
 
 
 def run(
@@ -71,8 +48,17 @@ def run(
     Returns:
         {"processed": int, "skipped": int, "rows_written": int, "elapsed_sec": float}
     """
-    _setup_logging()
-    logger.info("pull_daily starting")
+    with run_logging("pull_daily"):
+        return _run(tickers, since=since, limit=limit)
+
+
+def _run(
+    tickers: str | list[str],
+    since: str | None = None,
+    limit: int | None = None,
+) -> dict:
+    """Body of run(); logging is already set up by the caller."""
+    logger.info(f"pull_daily starting (data root: {DATA_DIR})")
 
     # Skip file
     skip_path = DATA_DIR / "logs" / "skip_daily.txt"

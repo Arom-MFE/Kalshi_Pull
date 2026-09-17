@@ -11,11 +11,9 @@ CLI:
 """
 
 import argparse
-import logging
 import signal
 import sys
 import time
-from datetime import datetime, timezone
 from pathlib import Path
 
 # Ensure kalshi_io and pull_historical are importable when running as a script
@@ -23,36 +21,14 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 from kalshi_io.config import DATA_DIR, FOCUS_UNIVERSE
 from kalshi_io.orderbook import append_orderbook_snapshot, snapshot_orderbook
+from kalshi_io.runlog import get_logger, run_logging
 
 from pull_historical.pull_daily import run as run_daily
 from pull_historical.pull_hourly import run as run_hourly
 from pull_historical.pull_minute import run as run_minute
 from pull_historical.pull_trades import run as run_trades
 
-logger = logging.getLogger("poll_focus")
-
-
-def _setup_logging() -> Path:
-    """Configure file + stderr logging. Returns log file path."""
-    log_dir = DATA_DIR / "logs"
-    log_dir.mkdir(parents=True, exist_ok=True)
-
-    stamp = datetime.now(timezone.utc).strftime("%Y%m%d")
-    log_path = log_dir / f"poll_focus_{stamp}.log"
-
-    fmt = logging.Formatter("%(asctime)s %(levelname)s %(message)s")
-
-    fh = logging.FileHandler(log_path)
-    fh.setFormatter(fmt)
-
-    sh = logging.StreamHandler()
-    sh.setFormatter(fmt)
-
-    logger.setLevel(logging.INFO)
-    logger.addHandler(fh)
-    logger.addHandler(sh)
-
-    return log_path
+logger = get_logger("poll_focus")
 
 
 def _run_orderbook(tickers: list[str]) -> dict:
@@ -91,8 +67,15 @@ def main():
         print("FOCUS_UNIVERSE is empty — populate kalshi_io/config.py first.")
         sys.exit(1)
 
-    _setup_logging()
-    logger.info(f"poll_focus starting — {len(FOCUS_UNIVERSE)} tickers in FOCUS_UNIVERSE")
+    # One log file per UTC day for the whole process; the pullers called from
+    # the loop log into it instead of opening a file per run.
+    with run_logging("poll_focus", stamp_fmt="%Y%m%d"):
+        _poll(args)
+
+
+def _poll(args) -> None:
+    """Scheduler loop; logging is already set up by main()."""
+    logger.info(f"poll_focus starting — {len(FOCUS_UNIVERSE)} tickers in FOCUS_UNIVERSE (data root: {DATA_DIR})")
 
     # Build schedule
     schedule: list[tuple[str, int, object]] = []
