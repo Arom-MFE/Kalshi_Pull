@@ -1,15 +1,19 @@
 """
-kalshi_io/runlog.py — Logging for pipeline runs.
+kalshi_io/runlog.py — Logging and skip-file recording for pipeline runs.
 
 Every logger in the repo is a child of one parent logger, "kalshi". Logging is
 configured once per process (a single stderr handler on the parent); each
 run() attaches its own log file for exactly as long as it runs and detaches
 it again on the way out, so repeated run() calls in one process (poll_focus
 calls the pullers every minute) never pile up handlers.
+
+Tickers a run could not process go to a skip file that is new for every
+process (skip_{kind}_{process start}.txt), one timestamped line per problem.
 """
 
 import logging
 import sys
+import time
 from contextlib import contextmanager
 from datetime import datetime, timezone
 from pathlib import Path
@@ -18,6 +22,12 @@ from kalshi_io import config
 
 PARENT_LOGGER = "kalshi"
 LOG_FORMAT = "%(asctime)s %(levelname)s %(message)s"
+
+# One stamp per process: every skip file this process writes shares it
+PROCESS_STAMP = datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%S")
+
+# A long-running poller would otherwise repeat the same line every cycle
+SKIP_DEDUPE_SECONDS = 6 * 3600
 
 # Log file owned by the outermost active run_logging() block, if any
 _active_run_file: Path | None = None
@@ -97,7 +107,66 @@ def run_logging(name: str, stamp_fmt: str = "%Y%m%d_%H%M"):
         _active_run_file = None
 
 
+class SkipRecorder:
+    """
+    Append-only record of tickers a run could not process.
+
+    File: DATA_DIR/logs/skip_{kind}_{PROCESS_STAMP}.txt, created on the first
+    record. Line: "{iso utc}<TAB>{ticker}<TAB>{reason}". Skip files written by
+    earlier processes (including the legacy skip_{kind}.txt) are never opened.
+    """
+
+    def __init__(self, kind: str):
+        self.kind = kind
+        self._last_written: dict[tuple[str, str], float] = {}
+
+    @property
+    def path(self) -> Path:
+        return config.DATA_DIR / "logs" / f"skip_{self.kind}_{PROCESS_STAMP}.txt"
+
+    def record(self, ticker: str, reason: str, code: str | None = None) -> bool:
+        """
+        Record one skipped ticker.
+
+        Args:
+            ticker: market ticker (or the raw token that could not be resolved)
+            reason: human-readable cause; tabs and newlines are flattened
+            code:   short stable key for deduping; defaults to the reason.
+                    Pass it when the reason embeds changing text.
+
+        Returns:
+            True if a line was written, False if the same (ticker, code) was
+            already recorded within SKIP_DEDUPE_SECONDS by this process.
+        """
+        key = (ticker, code or reason)
+        now = time.time()
+        last = self._last_written.get(key)
+        if last is not None and now - last < SKIP_DEDUPE_SECONDS:
+            return False
+        self._last_written[key] = now
+
+        stamp = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+        clean_ticker = " ".join(str(ticker).split())
+        clean_reason = " ".join(str(reason).split())
+        self.path.parent.mkdir(parents=True, exist_ok=True)
+        with open(self.path, "a") as f:
+            f.write(f"{stamp}\t{clean_ticker}\t{clean_reason}\n")
+        return True
+
+
+_recorders: dict[str, SkipRecorder] = {}
+
+
+def get_skip_recorder(kind: str) -> SkipRecorder:
+    """Process-wide recorder for a kind ("daily", "trades", ...), so dedupe
+    survives across run() calls in one process."""
+    if kind not in _recorders:
+        _recorders[kind] = SkipRecorder(kind)
+    return _recorders[kind]
+
+
 def _reset_state() -> None:
-    """Forget the active run (test isolation)."""
+    """Forget the active run and all skip recorders (test isolation)."""
     global _active_run_file
     _active_run_file = None
+    _recorders.clear()

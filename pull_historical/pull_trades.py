@@ -23,7 +23,7 @@ import pandas as pd
 
 from kalshi_io.candles import resolve_ticker_meta
 from kalshi_io.config import DATA_DIR, DEDUPE_COLS_TRADES
-from kalshi_io.runlog import get_logger, run_logging
+from kalshi_io.runlog import get_logger, get_skip_recorder, run_logging
 from kalshi_io.storage import append_parquet, get_output_path
 from kalshi_io.tickers import load_tickers
 from kalshi_io.trades import fetch_trades
@@ -58,7 +58,10 @@ def run(
         limit:   optional max number of tickers to process
 
     Returns:
-        {"processed": int, "skipped": int, "rows_written": int, "elapsed_sec": float}
+        {"processed": int, "skipped": int, "failed": int, "rows_written": int,
+         "elapsed_sec": float}. "skipped" counts every ticker that was not
+        processed; "failed" is the subset that raised (logged at ERROR and
+        recorded in this process's skip file).
     """
     with run_logging("pull_trades"):
         return _run(tickers, since=since, limit=limit)
@@ -72,9 +75,7 @@ def _run(
     """Body of run(); logging is already set up by the caller."""
     logger.info(f"pull_trades starting (data root: {DATA_DIR})")
 
-    # Skip file
-    skip_path = DATA_DIR / "logs" / "skip_trades.txt"
-    skip_path.parent.mkdir(parents=True, exist_ok=True)
+    skips = get_skip_recorder("trades")
 
     # Resolve tickers
     ticker_list = load_tickers(tickers)
@@ -94,6 +95,7 @@ def _run(
 
     processed = 0
     skipped = 0
+    failed = 0
     rows_written = 0
     t0 = time.time()
 
@@ -142,15 +144,16 @@ def _run(
 
         except Exception as e:
             reason = f"{type(e).__name__}: {e}"
-            logger.warning(f"[{i+1}/{len(ticker_list)}] {ticker}: SKIP — {reason}")
-            with open(skip_path, "a") as f:
-                f.write(f"{ticker}\t{reason}\n")
+            logger.error(f"[{i+1}/{len(ticker_list)}] {ticker}: FAILED — {reason}")
+            skips.record(ticker, reason, code=type(e).__name__)
             skipped += 1
+            failed += 1
 
     elapsed = round(time.time() - t0, 1)
     summary = {
         "processed": processed,
         "skipped": skipped,
+        "failed": failed,
         "rows_written": rows_written,
         "elapsed_sec": elapsed,
     }
@@ -158,7 +161,8 @@ def _run(
     return summary
 
 
-if __name__ == "__main__":
+def main(argv: list[str] | None = None) -> int:
+    """CLI entry point. Exit code 1 when any ticker failed."""
     parser = argparse.ArgumentParser(description="Pull trades for Kalshi tickers.")
     parser.add_argument(
         "--tickers",
@@ -167,7 +171,12 @@ if __name__ == "__main__":
     )
     parser.add_argument("--limit", type=int, default=None, help="Max tickers to process")
     parser.add_argument("--since", default=None, help="Start date override (YYYY-MM-DD)")
-    args = parser.parse_args()
+    args = parser.parse_args(argv)
 
     result = run(args.tickers, since=args.since, limit=args.limit)
     print(result)
+    return 1 if result["failed"] else 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

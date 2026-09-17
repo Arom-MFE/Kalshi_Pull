@@ -25,7 +25,7 @@ import pandas as pd
 from kalshi_io.candles import fetch_candles, resolve_ticker_meta
 from kalshi_io.config import DATA_DIR, DEDUPE_COLS_CANDLES, TICKERS_DIR
 from kalshi_io.resolve import get_market_metadata
-from kalshi_io.runlog import get_logger, run_logging
+from kalshi_io.runlog import get_logger, get_skip_recorder, run_logging
 from kalshi_io.storage import append_parquet, get_last_timestamp, get_output_path
 from kalshi_io.tickers import load_tickers
 
@@ -55,7 +55,10 @@ def run(
         limit:   optional max number of tickers to process
 
     Returns:
-        {"processed": int, "skipped": int, "rows_written": int, "elapsed_sec": float}
+        {"processed": int, "skipped": int, "failed": int, "rows_written": int,
+         "elapsed_sec": float}. "skipped" counts every ticker that was not
+        processed; "failed" is the subset that raised (logged at ERROR and
+        recorded in this process's skip file).
     """
     with run_logging("pull_minute"):
         return _run(tickers, since=since, limit=limit)
@@ -69,9 +72,7 @@ def _run(
     """Body of run(); logging is already set up by the caller."""
     logger.info(f"pull_minute starting (data root: {DATA_DIR})")
 
-    # Skip file
-    skip_path = DATA_DIR / "logs" / "skip_minute.txt"
-    skip_path.parent.mkdir(parents=True, exist_ok=True)
+    skips = get_skip_recorder("minute")
 
     # Resolve tickers
     ticker_list = load_tickers(tickers)
@@ -87,6 +88,7 @@ def _run(
 
     processed = 0
     skipped = 0
+    failed = 0
     rows_written = 0
     t0 = time.time()
 
@@ -108,8 +110,7 @@ def _run(
                     if meta["open_ts_ms"] is None:
                         reason = "could not resolve open_ts_ms"
                         logger.warning(f"[{i+1}/{len(ticker_list)}] {ticker}: SKIP — {reason}")
-                        with open(skip_path, "a") as f:
-                            f.write(f"{ticker}\t{reason}\n")
+                        skips.record(ticker, reason, code="no_open_ts")
                         skipped += 1
                         continue
                     start_ts = meta["open_ts_ms"] // 1000
@@ -147,10 +148,10 @@ def _run(
 
         except Exception as e:
             reason = f"{type(e).__name__}: {e}"
-            logger.warning(f"[{i+1}/{len(ticker_list)}] {ticker}: SKIP — {reason}")
-            with open(skip_path, "a") as f:
-                f.write(f"{ticker}\t{reason}\n")
+            logger.error(f"[{i+1}/{len(ticker_list)}] {ticker}: FAILED — {reason}")
+            skips.record(ticker, reason, code=type(e).__name__)
             skipped += 1
+            failed += 1
 
         # Inter-ticker rate limit (on top of RATE_LIMIT_SECONDS inside fetch_candles)
         time.sleep(0.1)
@@ -159,6 +160,7 @@ def _run(
     summary = {
         "processed": processed,
         "skipped": skipped,
+        "failed": failed,
         "rows_written": rows_written,
         "elapsed_sec": elapsed,
     }
@@ -166,7 +168,8 @@ def _run(
     return summary
 
 
-if __name__ == "__main__":
+def main(argv: list[str] | None = None) -> int:
+    """CLI entry point. Exit code 1 when any ticker failed."""
     parser = argparse.ArgumentParser(description="Pull minute candles for Kalshi tickers.")
     parser.add_argument(
         "--tickers",
@@ -175,7 +178,12 @@ if __name__ == "__main__":
     )
     parser.add_argument("--limit", type=int, default=None, help="Max tickers to process")
     parser.add_argument("--since", default="2025-01-01", help="Start date override (YYYY-MM-DD)")
-    args = parser.parse_args()
+    args = parser.parse_args(argv)
 
     result = run(args.tickers, since=args.since, limit=args.limit)
     print(result)
+    return 1 if result["failed"] else 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
