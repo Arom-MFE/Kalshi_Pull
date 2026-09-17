@@ -22,7 +22,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 import pandas as pd
 
-from kalshi_io.candles import PartialCandlesError, fetch_candles, resolve_ticker_meta
+from kalshi_io.candles import PartialCandlesError, candles_frame, fetch_candles, resolve_ticker_meta
 from kalshi_io.client import is_outage
 from kalshi_io.config import DATA_DIR, DEDUPE_COLS_CANDLES, MAX_CONSECUTIVE_OUTAGES, TICKERS_DIR
 from kalshi_io.resolve import get_market_metadata
@@ -159,7 +159,7 @@ def _run(
                 continue
 
             # Write — group by year for partitioned output
-            df = pd.DataFrame(rows)
+            df = candles_frame(rows)
             df["_year"] = pd.to_datetime(df["ts_ms"], unit="ms", utc=True).dt.year
 
             n_ticker = 0

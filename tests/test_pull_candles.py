@@ -3,12 +3,14 @@
 import time
 
 import pandas as pd
+import pyarrow.parquet as pq
 import pytest
 
 import pull_historical.pull_daily as pull_daily
 import pull_historical.pull_hourly as pull_hourly
 import pull_historical.pull_minute as pull_minute
 from kalshi_io import runlog
+from kalshi_io.candles import CANDLE_COLUMNS, QUOTE_COLUMNS
 from fakes import FakeResponse, iso_to_ts, make_candle, make_event, make_market
 
 TICKER = "TEST-26JAN-T1"
@@ -136,3 +138,68 @@ def test_ticker_unknown_to_the_api_is_reported_and_recorded_not_fetched(exchange
     assert _candle_requests(exchange) == []
     line = (data_dir / "logs" / f"skip_daily_{runlog.PROCESS_STAMP}.txt").read_text()
     assert "TEST-26JAN-NOPE\tunknown ticker" in line
+
+
+# ------------------------------------------------------------------ yes_bid / yes_ask columns
+
+@pytest.mark.parametrize("kind", CASES)
+def test_stored_candles_carry_the_quote_columns(kind, exchange, data_dir):
+    puller, _, _, files = CASES[kind]
+    puller.run([TICKER])
+    for f in files:
+        assert tuple(pq.read_schema(data_dir / f).names) == CANDLE_COLUMNS
+    stored = _stored(data_dir, files)
+    assert {str(stored[c].dtype) for c in QUOTE_COLUMNS} == {"float64"}
+    # Bid and ask are kept apart from each other and from the traded price
+    assert stored[[c for c in QUOTE_COLUMNS if "bid" in c]].eq(0.49).all().all()
+    assert stored[[c for c in QUOTE_COLUMNS if "ask" in c]].eq(0.51).all().all()
+    assert stored["close"].eq(0.5).all()
+
+
+def test_appending_to_a_file_from_before_the_quote_columns_keeps_its_rows(exchange, data_dir):
+    path = data_dir / CASES["daily"][3][0]
+    candles = _candles(86400)
+    legacy = pd.DataFrame([{
+        "ts_ms": c["end_period_ts"] * 1000, "open": 0.5, "high": 0.5, "low": 0.5, "close": 0.5, "mean": 0.5,
+        "volume": 10.0, "open_interest": 100.0,
+        "market_ticker": TICKER, "event_ticker": "TEST-26JAN", "series_ticker": "TEST",
+    } for c in candles[:10]])
+    path.parent.mkdir(parents=True)
+    legacy.to_parquet(path, engine="pyarrow", compression="zstd", index=False)
+
+    summary = pull_daily.run([TICKER])
+
+    assert summary["failed"] == 0 and summary["rows_written"] == len(candles) - 10
+    assert tuple(pq.read_schema(path).names) == CANDLE_COLUMNS     # new columns land after the old eleven
+    stored = pd.read_parquet(path)
+    assert list(stored["ts_ms"]) == [c["end_period_ts"] * 1000 for c in candles]
+    # Rows stored before the change have no quotes (NaN, never 0). The resume window is inclusive,
+    # so the last old row was fetched again and now has them, like every new row.
+    assert stored[list(QUOTE_COLUMNS)].iloc[:9].isna().all().all()
+    assert stored["yes_bid_close"].iloc[9:].eq(0.49).all() and stored["yes_ask_close"].iloc[9:].eq(0.51).all()
+    assert stored[list(CANDLE_COLUMNS[1:8])].iloc[:10].equals(legacy[list(CANDLE_COLUMNS[1:8])])
+
+    exchange.now += 600
+    assert pull_daily.run([TICKER])["rows_written"] == 0
+
+
+@pytest.mark.parametrize("tier", ["live", "historical"])
+def test_batch_without_any_trade_is_stored_as_float64_nan_with_quotes(tier, exchange, data_dir):
+    exchange.candles[TICKER][1] = [make_candle(c["end_period_ts"], traded=False, volume="0.00")
+                                   for c in _candles(3600)]
+    if tier == "historical":
+        exchange.markets[TICKER]["_tier"] = "historical"
+        exchange.markets[TICKER]["status"] = "finalized"
+    assert pull_minute.run([TICKER])["failed"] == 0
+    files = CASES["minute"][3]
+    for f in files:
+        schema = pq.read_schema(data_dir / f)
+        assert {str(schema.field(c).type) for c in ("open", "close", "mean", *QUOTE_COLUMNS)} == {"double"}
+    stored = _stored(data_dir, files)
+    assert stored["mean"].isna().all() and stored["volume"].eq(0.0).all()
+    assert stored["yes_bid_close"].eq(0.49).all() and stored["yes_ask_close"].eq(0.51).all()
+    if tier == "live":
+        assert stored["close"].isna().all()
+    else:
+        # Legacy behavior of the historical tier, unchanged: OHLC falls back to the bid
+        assert stored["close"].eq(0.49).all()

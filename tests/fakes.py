@@ -14,6 +14,9 @@ Its behavior mirrors what was verified against the live API on 2026-09-17:
   markets between the top level and the event depending on the flag
 - candle windows are inclusive on both ends and windows over 5,000 candles
   are rejected with 400, on both tiers
+- every candle carries yes_bid and yes_ask OHLC; a candle without trades
+  omits the price OHLC keys on the live tier and sends them as null on the
+  historical one
 - trades come back newest-first, min_ts is inclusive at second granularity,
   and the end of pagination is an empty cursor string
 """
@@ -128,14 +131,17 @@ def make_trade(trade_id, ticker, created_time, yes_price="0.5000", count="10.00"
 
 
 def make_candle(end_period_ts, close="0.5000", volume="10.00", open_interest="100.00",
-                traded=True):
-    """Canonical candle; rendered into the live or historical wire shape on serve."""
+                traded=True, bid="0.4900", ask="0.5100"):
+    """Canonical candle; rendered into the live or historical wire shape on serve.
+    Quotes are always served, trade prices only when `traded`."""
     return {
         "end_period_ts": end_period_ts,
         "close": close,
         "volume": volume,
         "open_interest": open_interest,
         "traded": traded,
+        "bid": bid,
+        "ask": ask,
     }
 
 
@@ -384,18 +390,18 @@ class FakeKalshi:
         price = {"previous_dollars": c["close"]}
         if c["traded"]:                       # no-trade candles omit the OHLC keys
             price.update({k + "_dollars": c["close"] for k in ("open", "high", "low", "close", "mean")})
-        quote = {k + "_dollars": c["close"] for k in ("open", "high", "low", "close")}
-        return {"end_period_ts": c["end_period_ts"], "price": price, "yes_bid": quote,
-                "yes_ask": quote, "volume_fp": c["volume"], "open_interest_fp": c["open_interest"]}
+        bid, ask = ({k + "_dollars": c[side] for k in ("open", "high", "low", "close")} for side in ("bid", "ask"))
+        return {"end_period_ts": c["end_period_ts"], "price": price, "yes_bid": bid,
+                "yes_ask": ask, "volume_fp": c["volume"], "open_interest_fp": c["open_interest"]}
 
     @staticmethod
     def _hist_candle(c):
-        price = {"previous": c["close"]}
-        if c["traded"]:
-            price.update({k: c["close"] for k in ("open", "high", "low", "close", "mean")})
-        quote = {k: c["close"] for k in ("open", "high", "low", "close")}
-        return {"end_period_ts": c["end_period_ts"], "price": price, "yes_bid": quote,
-                "yes_ask": quote, "volume": c["volume"], "open_interest": c["open_interest"]}
+        # no-trade candles carry the OHLC keys with null values on this tier
+        traded = c["close"] if c["traded"] else None
+        price = {"previous": c["close"], **{k: traded for k in ("open", "high", "low", "close", "mean")}}
+        bid, ask = ({k: c[side] for k in ("open", "high", "low", "close")} for side in ("bid", "ask"))
+        return {"end_period_ts": c["end_period_ts"], "price": price, "yes_bid": bid,
+                "yes_ask": ask, "volume": c["volume"], "open_interest": c["open_interest"]}
 
     def _trades(self, p, tier):
         cutoff = iso_to_ts(self.cutoff)

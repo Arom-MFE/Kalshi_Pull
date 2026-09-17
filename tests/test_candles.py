@@ -4,7 +4,7 @@ from types import SimpleNamespace
 
 import pandas as pd
 
-from kalshi_io.candles import parse_candle
+from kalshi_io.candles import CANDLE_COLUMNS, QUOTE_COLUMNS, candles_frame, parse_candle
 
 # Shape and values mirror a real /historical/markets/.../candlesticks response
 HIST_RAW = {
@@ -17,6 +17,9 @@ HIST_RAW = {
     },
     "yes_bid": {
         "open": "0.7900", "high": "0.7900", "low": "0.2500", "close": "0.6500",
+    },
+    "yes_ask": {
+        "open": "0.8100", "high": "0.8200", "low": "0.6000", "close": "0.7000",
     },
 }
 
@@ -118,3 +121,80 @@ def test_live_candle_without_trades_has_nan_prices_never_zero():
     assert c["open"] is None and c["close"] is None and c["mean"] is None
     assert c["volume"] == 0.0
     assert pd.DataFrame([c])["close"].isna().all()
+
+
+# ------------------------------------------------------------------ yes_bid / yes_ask OHLC
+
+def test_historical_candle_carries_bid_and_ask_ohlc():
+    c = parse_candle(HIST_RAW, is_historical=True)
+    assert (c["yes_bid_open"], c["yes_bid_high"], c["yes_bid_low"], c["yes_bid_close"]) == (0.79, 0.79, 0.25, 0.65)
+    assert (c["yes_ask_open"], c["yes_ask_high"], c["yes_ask_low"], c["yes_ask_close"]) == (0.81, 0.82, 0.60, 0.70)
+    # The traded prices stay what they were: quotes never leak into them when a trade exists
+    assert (c["open"], c["high"], c["low"], c["close"]) == (0.79, 0.79, 0.59, 0.69)
+
+
+def test_live_candle_carries_bid_and_ask_ohlc():
+    c = parse_candle(LIVE_WIRE, is_historical=False)
+    assert (c["yes_bid_open"], c["yes_bid_high"], c["yes_bid_low"], c["yes_bid_close"]) == (0.98, 0.98, 0.08, 0.97)
+    assert (c["yes_ask_open"], c["yes_ask_high"], c["yes_ask_low"], c["yes_ask_close"]) == (0.99, 0.99, 0.14, 0.98)
+    assert all(isinstance(c[k], float) for k in QUOTE_COLUMNS)
+
+
+def test_candle_without_trades_still_has_its_quotes_on_both_tiers():
+    live = parse_candle({**LIVE_WIRE, "price": {"previous_dollars": "0.9700"}, "volume_fp": "0.00"},
+                        is_historical=False)
+    assert live["close"] is None
+    assert (live["yes_bid_close"], live["yes_ask_close"]) == (0.97, 0.98)
+
+    # The historical tier sends the trade prices as explicit nulls
+    nulls = {k: None for k in ("open", "high", "low", "close", "mean")}
+    hist = parse_candle({**HIST_RAW, "price": {**nulls, "previous": "0.6900"}, "volume": "0.00"},
+                        is_historical=True)
+    assert hist["mean"] is None and hist["volume"] == 0.0
+    assert (hist["yes_bid_close"], hist["yes_ask_close"]) == (0.65, 0.70)
+    # Unchanged legacy behavior on this tier: open/high/low/close fall back to the bid
+    assert hist["close"] == hist["yes_bid_close"]
+
+
+def test_empty_book_sides_are_stored_as_the_api_quotes_them():
+    # No resting bid is quoted as 0, no resting ask as 1; both are real values, not gaps
+    raw = {**LIVE_WIRE,
+           "yes_bid": {k + "_dollars": "0.0000" for k in ("open", "high", "low", "close")},
+           "yes_ask": {k + "_dollars": "1.0000" for k in ("open", "high", "low", "close")}}
+    c = parse_candle(raw, is_historical=False)
+    assert c["yes_bid_close"] == 0.0 and c["yes_ask_close"] == 1.0
+
+
+def test_absent_quotes_become_nan_never_zero():
+    for raw, historical in (
+        ({"end_period_ts": 1658980800, "price": {}, "yes_bid": {}}, True),      # empty / missing objects
+        ({"end_period_ts": 1658980800, "price": None, "yes_bid": None, "yes_ask": None}, True),
+        (_live_raw(), False),                                                  # object shape without quotes
+    ):
+        c = parse_candle(raw, is_historical=historical)
+        assert [c[k] for k in QUOTE_COLUMNS] == [None] * 8
+        assert pd.DataFrame([c])[list(QUOTE_COLUMNS)].isna().all().all()
+
+
+def _row(candle: dict) -> dict:
+    return {**candle, "market_ticker": "T-1", "event_ticker": "T", "series_ticker": "S"}
+
+
+def test_candles_frame_has_the_stored_column_order_and_dtypes():
+    df = candles_frame([_row(parse_candle(LIVE_WIRE, is_historical=False))])
+    assert tuple(df.columns) == CANDLE_COLUMNS
+    # The eleven columns of files written before the quote columns existed come first, unchanged
+    assert CANDLE_COLUMNS[:11] == ("ts_ms", "open", "high", "low", "close", "mean", "volume", "open_interest",
+                                   "market_ticker", "event_ticker", "series_ticker")
+    assert CANDLE_COLUMNS[11:] == QUOTE_COLUMNS
+    assert str(df["ts_ms"].dtype) == "int64"
+    assert {str(df[c].dtype) for c in ("close", "volume", *QUOTE_COLUMNS)} == {"float64"}
+
+
+def test_candles_frame_types_a_batch_without_any_trade_as_float64():
+    no_trade = {**LIVE_WIRE, "price": {"previous_dollars": "0.9700"}, "volume_fp": "0.00"}
+    rows = [_row(parse_candle({**no_trade, "end_period_ts": ts}, is_historical=False)) for ts in (60, 120)]
+    assert str(pd.DataFrame(rows)["close"].dtype) == "object"        # what reached parquet as an untyped column
+    df = candles_frame(rows)
+    assert str(df["close"].dtype) == "float64" and df["close"].isna().all()
+    assert df["yes_bid_close"].eq(0.97).all()

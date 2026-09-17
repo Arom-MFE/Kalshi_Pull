@@ -6,6 +6,7 @@ market_ticker → (series_ticker, event_ticker) lookup every puller uses.
 import json
 from datetime import datetime, timezone
 
+import pandas as pd
 import requests
 
 from kalshi_io import client, discovery
@@ -133,6 +134,26 @@ def _reset_state() -> None:
 # parse_candle
 # ============================================================
 
+_OHLC = ("open", "high", "low", "close")
+
+# Best YES bid and YES ask over the period, from the API's yes_bid / yes_ask
+# objects. Unlike trade prices they exist for every candle, traded or not.
+QUOTE_COLUMNS: tuple[str, ...] = tuple(f"{side}_{k}" for side in ("yes_bid", "yes_ask") for k in _OHLC)
+
+# Stored column order. The first eleven are the schema every file has had
+# since 2026-08; the quote columns follow them, which is also where an append
+# puts them in a file written before they existed. Old and new files therefore
+# share one layout, and rows stored before the change read as NaN there.
+CANDLE_COLUMNS: tuple[str, ...] = (
+    "ts_ms", "open", "high", "low", "close", "mean", "volume", "open_interest",
+    "market_ticker", "event_ticker", "series_ticker",
+    *QUOTE_COLUMNS,
+)
+CANDLE_FLOAT_COLUMNS: tuple[str, ...] = (
+    "open", "high", "low", "close", "mean", "volume", "open_interest", *QUOTE_COLUMNS,
+)
+
+
 def _to_float(v) -> float | None:
     """Cast an API decimal string (or number) to float. None stays None (→ NaN)."""
     return None if v is None else float(v)
@@ -153,26 +174,46 @@ def _get(obj, key):
     return getattr(obj, key, None)
 
 
+def _quotes(raw: object, suffix: str) -> dict:
+    """The eight QUOTE_COLUMNS of one raw candle. The OHLC keys of yes_bid and
+    yes_ask are bare on the historical endpoint and end in "_dollars" on the
+    live one."""
+    out = {}
+    for side in ("yes_bid", "yes_ask"):
+        book = _get(raw, side) or {}
+        for k in _OHLC:
+            out[f"{side}_{k}"] = _to_float(_get(book, k + suffix))
+    return out
+
+
 def parse_candle(raw: object, is_historical: bool) -> dict:
     """
     Normalize one candle from the historical or the live endpoint.
 
     Both endpoints serialize numerics as decimal strings; everything is cast
     to float here. Returns dict with ts_ms (int64 UTC ms) and float values:
-    open/high/low/close/mean are dollar prices in [0, 1]; volume and
+    open/high/low/close/mean are traded dollar prices in [0, 1]; volume and
     open_interest are contract counts exactly as the API reports them
-    (fractional on markets with fractional-contract support), unscaled.
-    None (→ NaN) marks values the API did not provide; a candle without
-    trades has no OHLC keys at all on the live endpoint.
+    (fractional on markets with fractional-contract support), unscaled;
+    yes_bid_* and yes_ask_* (QUOTE_COLUMNS) are the OHLC of the best YES bid
+    and YES ask in dollars. None (→ NaN) marks values the API did not
+    provide, never an invented 0.
 
-    Historical shape: price.close, volume, open_interest; falls back to
-    yes_bid.* when price.* is null.
-    Live shape: price.close_dollars, volume_fp, open_interest_fp. Accepts the
-    REST dict as well as an object with the same attribute names.
+    Quotes exist for every candle. Trade prices exist only when the period
+    had a trade: the live endpoint then omits the OHLC keys, the historical
+    one sends them as null. An empty side of the book is quoted by the API as
+    "0.0000" (no bid) or "1.0000" (no ask) and is stored as sent.
+
+    Historical shape: price.close, yes_bid.close, volume, open_interest;
+    open/high/low/close fall back to yes_bid.* when price.* is null (kept
+    from the original schema; yes_bid_* holds the same values unmixed).
+    Live shape: price.close_dollars, yes_bid.close_dollars, volume_fp,
+    open_interest_fp. Accepts the REST dict as well as an object with the
+    same attribute names.
     """
     if is_historical:
-        price = raw.get("price", {})
-        yes_bid = raw.get("yes_bid", {})
+        price = raw.get("price") or {}
+        yes_bid = raw.get("yes_bid") or {}
 
         return {
             "ts_ms":         int(raw["end_period_ts"] * 1000),
@@ -183,6 +224,7 @@ def parse_candle(raw: object, is_historical: bool) -> dict:
             "mean":          _to_float(price.get("mean")),
             "volume":        _to_float(raw.get("volume")),
             "open_interest": _to_float(raw.get("open_interest")),
+            **_quotes(raw, ""),
         }
 
     # Live shape
@@ -196,7 +238,24 @@ def parse_candle(raw: object, is_historical: bool) -> dict:
         "mean":          _to_float(_get(p, "mean_dollars")),
         "volume":        _to_float(_get(raw, "volume_fp")),
         "open_interest": _to_float(_get(raw, "open_interest_fp")),
+        **_quotes(raw, "_dollars"),
     }
+
+
+def candles_frame(rows: list[dict]) -> pd.DataFrame:
+    """
+    Build the DataFrame the candle pullers store from fetch_candles() rows.
+
+    Columns come out in CANDLE_COLUMNS order. Every numeric column is forced
+    to float64 and ts_ms to int64: a batch in which no candle had a trade
+    holds only None prices, and would otherwise reach parquet as an untyped
+    all-null column instead of float64 NaN.
+    """
+    df = pd.DataFrame(rows, columns=list(CANDLE_COLUMNS))
+    floats = list(CANDLE_FLOAT_COLUMNS)
+    df[floats] = df[floats].astype("float64")
+    df["ts_ms"] = df["ts_ms"].astype("int64")
+    return df
 
 
 # ============================================================
@@ -271,10 +330,12 @@ def fetch_candles(
         end_ts:        end timestamp in UTC seconds (API convention)
 
     Returns:
-        List of dicts, each with ts_ms (int64 UTC ms), OHLCMV fields,
-        and market_ticker/event_ticker/series_ticker metadata. Ascending,
-        one row per candle (window edges are inclusive on both sides, so a
-        candle on a chunk boundary arrives twice and is kept once).
+        List of dicts, each with ts_ms (int64 UTC ms), OHLCMV fields, the
+        yes_bid_* / yes_ask_* quote OHLC, and market_ticker/event_ticker/
+        series_ticker metadata (see parse_candle; candles_frame() turns the
+        list into the stored DataFrame). Ascending, one row per candle
+        (window edges are inclusive on both sides, so a candle on a chunk
+        boundary arrives twice and is kept once).
 
     Raises:
         PartialCandlesError: a chunk failed after earlier chunks succeeded;
