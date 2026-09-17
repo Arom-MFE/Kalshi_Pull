@@ -86,8 +86,24 @@ def make_market(ticker, event_ticker, status="active", tier="live",
         "latest_expiration_time": "2027-01-13T14:00:00Z",
         "expiration_time": "2027-01-13T14:00:00Z",
         "result": "" if status not in ("determined", "finalized") else "no",
+        "market_type": "binary",
+        "yes_sub_title": "Above 3.0%",
+        "no_sub_title": "Above 3.0%",
+        "strike_type": "greater",
+        "floor_strike": 3,
+        "can_close_early": True,
+        "expiration_value": "" if status not in ("determined", "finalized") else "2.9",
+        "rules_primary": "If the value is above 3.0%, then the market resolves to Yes.",
+        "rules_secondary": "",
+        "volume_fp": "18042.75",
+        "open_interest_fp": "4728.12",
+        "last_price_dollars": "0.9700",
         "_tier": tier,
     }
+    if status in ("determined", "finalized"):       # only filled once a market is determined
+        market["settlement_value_dollars"] = "0.0000"
+    if status == "finalized":
+        market["settlement_ts"] = "2026-08-12T13:15:19.078753Z"
     market.update(extra)
     return market
 

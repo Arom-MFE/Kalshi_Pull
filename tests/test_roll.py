@@ -2,6 +2,7 @@
 
 import json
 
+import pandas as pd
 import pytest
 
 import get_ticker_info.get_Econ_Info as get_econ_info
@@ -70,9 +71,15 @@ def test_roll_writes_the_catalog_the_focus_files_a_log_and_the_report(exchange, 
     assert "PROPOSED FOCUS UNIVERSE\n  3 tickers, derived: nearest 1 open event(s) per series" in out
     assert "KXTEST-26SEP             closes 2026-10-14T12:29:00Z    3 markets  Test in September 2026" in out
     for check in ("every series refreshed: 2 series", "active markets present: 5 active markets",
-                  "no previously cataloged ticker lost", "focus universe can be polled: 3 tickers in 1 events (open=3)",
+                  "no previously cataloged ticker lost", "market metadata stored: 7 rows (0 refreshed, 7 new)",
+                  "focus universe can be polled: 3 tickers in 1 events (open=3)",
                   "focus tickers are in the refreshed catalog: 3 of 3"):
         assert f"[ok] {check}" in out
+    # The same payloads fill the market metadata store next to the candles
+    assert "Market metadata: 7 rows in " in out and "metadata/markets.parquet (0 refreshed, 7 new, 0 kept)" in out
+    stored = pd.read_parquet(data_dir / "metadata" / "markets.parquet").set_index("market_ticker")
+    assert len(stored) == 7 and stored.loc["KXTEST-26AUG-T1", "result"] == "no"
+    assert stored.loc["KXTEST-26SEP-T1", "series_ticker"] == "KXTEST" and pd.isna(stored.loc["KXTEST-26SEP-T1", "result"])
     assert "[FAIL]" not in out
     assert "python -m pull_historical.pull_trades --tickers focus" in out and "pull_minute --tickers focus --since 20" in out
 
@@ -88,6 +95,7 @@ def test_dry_run_reports_and_writes_nothing_at_all(exchange, catalog_dir, data_d
     assert code == 0
     assert list(catalog_dir.iterdir()) == [] and not data_dir.exists()
     assert "(dry run: nothing was written)" in out and "NEW EVENTS (4)" in out
+    assert "Market metadata: 7 rows would be refreshed" in out
     assert "focus_universe.txt" not in out                  # nothing was written, so nothing is announced
     assert "python get_ticker_info/roll.py                      # same run, written to disk" in out
 

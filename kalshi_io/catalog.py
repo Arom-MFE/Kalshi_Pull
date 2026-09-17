@@ -21,13 +21,17 @@ previous catalog, no longer returned by the API).
 Discovery is keyless REST through kalshi_io.discovery. A series is written
 only if every request succeeded and the result passes validation; otherwise
 its previous file stays untouched.
+
+The same API payloads also feed the market metadata store
+(kalshi_io/metadata.py, DATA_DIR/metadata/markets.parquet): strikes, results,
+settlement values and rules text live there, not in the committed JSON.
 """
 
 import json
 from datetime import datetime, timezone
 from pathlib import Path
 
-from kalshi_io import client, discovery
+from kalshi_io import client, discovery, metadata
 from kalshi_io.config import SERIES_LIST, TICKERS_DIR
 from kalshi_io.runlog import get_logger
 from kalshi_io.storage import atomic_write_text as _atomic_write
@@ -44,6 +48,10 @@ MARKET_FIELDS = (
 # A market that ever reached one of these may have trades and stored data;
 # it is carried forward rather than dropped if the API stops returning it.
 _OPENED_STATUSES = frozenset({"active", "inactive", "closed", "determined", "disputed", "amended", "finalized"})
+
+
+# Keys discover_series() returns that never go into the per-series JSON
+_NOT_STORED = ("removed_upstream", "carried_forward", "metadata_rows", "metadata_fallback")
 
 
 class CatalogValidationError(RuntimeError):
@@ -163,8 +171,11 @@ def discover_series(
         now:          build timestamp override (tests)
 
     Returns:
-        The per-series dict (see module docstring), plus "removed_upstream":
-        tickers of the previous file that are gone and were never opened.
+        The per-series dict (see module docstring), plus keys that are never
+        written to the JSON: "removed_upstream" (tickers of the previous file
+        that are gone and were never opened), "carried_forward",
+        "metadata_rows" (one kalshi_io.metadata row per API payload) and
+        "metadata_fallback" (minimal rows for carried-forward tickers).
 
     Raises:
         CatalogValidationError: an event listed as open has no active market
@@ -178,27 +189,37 @@ def discover_series(
 
     events: dict[str, str] = {}
     markets: dict[str, dict] = {}
+    payloads: dict[str, tuple[dict, str]] = {}      # ticker → (API payload, tier) for the metadata store
+    exclusive: dict[str, bool | None] = {}          # event → mutually_exclusive
+
+    def take(m: dict, source: str, *, overwrite: bool = True) -> None:
+        if overwrite or m["ticker"] not in markets:
+            markets[m["ticker"]] = _market_record(m, source)
+            payloads[m["ticker"]] = (m, source)
+
     for spelling in spellings:
         for e in discovery.list_events(spelling):
             events.setdefault(e["event_ticker"], e.get("title") or "")
+            exclusive.setdefault(e["event_ticker"], e.get("mutually_exclusive"))
         for m in discovery.list_historical_markets(series_ticker=spelling):
-            markets[m["ticker"]] = _market_record(m, "historical")
+            take(m, "historical")
         for m in discovery.list_markets(series_ticker=spelling):
-            markets[m["ticker"]] = _market_record(m, "live")
+            take(m, "live")
 
     # Events that only show up on markets
     for event_ticker in sorted({m["event_ticker"] for m in markets.values()} - set(events)):
         event = discovery.get_event(event_ticker)
         fallback = next(m["title"] for m in markets.values() if m["event_ticker"] == event_ticker)
         events[event_ticker] = (event or {}).get("title") or fallback
+        exclusive.setdefault(event_ticker, (event or {}).get("mutually_exclusive"))
 
     # Events the series listings returned no market for
     covered = {m["event_ticker"] for m in markets.values()}
     for event_ticker in sorted(set(events) - covered):
         for m in discovery.list_historical_markets(event_ticker=event_ticker):
-            markets.setdefault(m["ticker"], _market_record(m, "historical"))
+            take(m, "historical", overwrite=False)
         for m in discovery.list_markets(event_ticker=event_ticker):
-            markets[m["ticker"]] = _market_record(m, "live")
+            take(m, "live")
 
     # Never lose a ticker the previous catalog had
     previous = load_series(series, out_dir) or {}
@@ -210,8 +231,7 @@ def discover_series(
         found = discovery.lookup_markets(missing)
         for ticker in missing:
             if ticker in found:
-                source = "live" if found[ticker]["tier"] == "live" else "historical"
-                markets[ticker] = _market_record(found[ticker], source)
+                take(found[ticker], "live" if found[ticker]["tier"] == "live" else "historical")
             elif old_markets[ticker].get("status") in _OPENED_STATUSES:
                 markets[ticker] = {**dict.fromkeys(MARKET_FIELDS), **old_markets[ticker], "source": "carried_forward"}
                 carried.append(ticker)
@@ -249,14 +269,23 @@ def discover_series(
     }
     if save:
         write_series(result, out_dir)
-    return {**result, "removed_upstream": removed_upstream, "carried_forward": carried}
+
+    built_at = result["built_at"]
+    metadata_rows = [
+        metadata.market_row({k: v for k, v in m.items() if k != "tier"}, series=series, tier=tier,
+                            built_at=built_at, mutually_exclusive=exclusive.get(m.get("event_ticker")))
+        for m, tier in payloads.values()
+    ]
+    metadata_fallback = [metadata.catalog_row(markets[t], series=series, built_at=built_at) for t in carried]
+    return {**result, "removed_upstream": removed_upstream, "carried_forward": carried,
+            "metadata_rows": metadata_rows, "metadata_fallback": metadata_fallback}
 
 
 def write_series(result: dict, out_dir: Path | None = None) -> None:
     """Write {series}_tickers.json and .txt atomically (temp file + rename)."""
     out_dir = out_dir or TICKERS_DIR
     series = result["series"]
-    stored = {k: v for k, v in result.items() if k not in ("removed_upstream", "carried_forward")}
+    stored = {k: v for k, v in result.items() if k not in _NOT_STORED}
     _atomic_write(out_dir / f"{series}_tickers.json", json.dumps(stored, indent=2))
     tickers = stored["tickers"]
     _atomic_write(out_dir / f"{series}_tickers.txt", "\n".join(tickers) + ("\n" if tickers else ""))
@@ -410,19 +439,24 @@ def refresh_catalog(
     out_dir: Path | None = None,
     dry_run: bool = False,
     now: datetime | None = None,
+    write_metadata: bool = True,
 ) -> dict:
     """
     Rediscover the given series (default SERIES_LIST), rebuild the combined
     files and report what changed since the previous build.
 
     A series that fails keeps its previous file and is reported; the others
-    are still written. With dry_run nothing is written at all.
+    are still written. The market payloads of the refreshed series are merged
+    into the metadata store (DATA_DIR/metadata/markets.parquet) unless
+    write_metadata is False. With dry_run nothing is written at all.
 
     Returns:
         {"built_at", "previous_built_at": (iso | None, basis), "series_ok",
          "series_failed": {series: error}, "diff" (see diff_catalog),
          "combined" (see build_combined), "removed_upstream": [tickers],
-         "checks": [{"name", "ok", "detail"}], "api_requests", "elapsed_sec"}
+         "metadata": {"rows", "written", and when written "path", "added",
+         "updated", "kept"}, "checks": [{"name", "ok", "detail"}],
+         "api_requests", "elapsed_sec"}
     """
     out_dir = out_dir or TICKERS_DIR
     series_list = list(series_list or SERIES_LIST)
@@ -435,6 +469,8 @@ def refresh_catalog(
     ok: list[str] = []
     failed: dict[str, str] = {}
     removed_upstream: list[str] = []
+    metadata_rows: list[dict] = []
+    metadata_fallback: list[dict] = []
 
     for series in series_list:
         try:
@@ -445,6 +481,8 @@ def refresh_catalog(
             continue
         removed_upstream += result.pop("removed_upstream")
         result.pop("carried_forward")
+        metadata_rows += result.pop("metadata_rows")
+        metadata_fallback += result.pop("metadata_fallback")
         new[series] = result
         ok.append(series)
         logger.info(f"{series}: {len(result['events'])} events, {len(result['markets'])} markets "
@@ -452,6 +490,17 @@ def refresh_catalog(
 
     combined = build_combined(out_dir, save=not dry_run, now=now, catalog=new)
     diff = diff_catalog(old, new)
+
+    # The same payloads refresh the market metadata store (results fill in as markets settle)
+    stored_metadata: dict = {"rows": len(metadata_rows) + len(metadata_fallback), "written": False}
+    metadata_error = None
+    if write_metadata and not dry_run and (metadata_rows or metadata_fallback):
+        try:
+            stored_metadata = {**metadata.upsert_market_metadata(metadata_rows, keep_existing=metadata_fallback),
+                               "written": True}
+        except Exception as e:
+            metadata_error = f"{type(e).__name__}: {e}"
+            logger.error(f"market metadata could not be stored ({metadata_error})")
 
     lost = sorted({m["market_ticker"] for m in diff["removed_markets"]} - set(removed_upstream))
     checks = [
@@ -463,6 +512,10 @@ def refresh_catalog(
          "detail": f"lost: {lost[:10]}" if lost else
                    f"{len(removed_upstream)} never-opened tickers removed upstream"},
     ]
+    if stored_metadata["written"] or metadata_error:
+        checks.append({"name": "market metadata stored", "ok": metadata_error is None,
+                       "detail": metadata_error or f"{stored_metadata['rows']:,} rows "
+                                 f"({stored_metadata['updated']:,} refreshed, {stored_metadata['added']:,} new)"})
     return {
         "built_at": combined["built_at"],
         "previous_built_at": (previous_stamp.strftime("%Y-%m-%dT%H:%M:%SZ") if previous_stamp else None, basis),
@@ -471,6 +524,7 @@ def refresh_catalog(
         "diff": diff,
         "combined": combined,
         "removed_upstream": sorted(removed_upstream),
+        "metadata": stored_metadata,
         "checks": checks,
         "api_requests": client.stats["requests"] - requests_before,
         "elapsed_sec": round((datetime.now(timezone.utc) - started).total_seconds(), 1),

@@ -15,6 +15,10 @@ USAGE:
 
 WRITES (nothing with --dry-run):
     {out-dir}/{SERIES}_tickers.json/.txt, all_tickers.json/.txt   the catalog
+    DATA_DIR/metadata/markets.parquet     one row per market: strikes, times,
+                                          status, result, settlement value,
+                                          rules (kalshi_io/metadata.py); every
+                                          roll fills in what has settled since
     {out-dir}/focus_universe.json/.txt    the proposed universe; the pullers
                                           read the .txt as `--tickers focus`
     DATA_DIR/logs/roll_{stamp}.log and roll_report_{stamp}.txt
@@ -77,6 +81,16 @@ def _previous_build_line(previous: tuple[str | None, str], now: datetime) -> str
     return f"{stamp}, {age_days:.1f} days ago{note}"
 
 
+def _metadata_line(stored: dict, dry_run: bool) -> str:
+    """What the refresh did to DATA_DIR/metadata/markets.parquet."""
+    if stored.get("written"):
+        return (f"{stored['rows']:,} rows in {_display_path(stored['path'])} "
+                f"({stored['updated']:,} refreshed, {stored['added']:,} new, {stored['kept']:,} kept)")
+    if dry_run:
+        return f"{stored.get('rows', 0):,} rows would be refreshed"
+    return "not written"
+
+
 def focus_checks(report: dict, focus: dict | None, focus_error: str | None) -> list[dict]:
     """Checks on the proposed universe, in the same shape as refresh_catalog's."""
     if focus is None:
@@ -120,6 +134,7 @@ def format_report(
         f"Catalog dir:     {_display_path(out_dir)}",
         f"Previous build:  {_previous_build_line(report['previous_built_at'], now)}",
         f"API requests:    {report['api_requests']} in {report['elapsed_sec']} s",
+        f"Market metadata: {_metadata_line(report.get('metadata') or {}, dry_run)}",
         "",
         f"{'TOTALS':<12}{'before':>10}{'after':>10}",
     ]
