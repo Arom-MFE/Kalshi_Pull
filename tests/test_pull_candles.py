@@ -198,8 +198,26 @@ def test_batch_without_any_trade_is_stored_as_float64_nan_with_quotes(tier, exch
     stored = _stored(data_dir, files)
     assert stored["mean"].isna().all() and stored["volume"].eq(0.0).all()
     assert stored["yes_bid_close"].eq(0.49).all() and stored["yes_ask_close"].eq(0.51).all()
-    if tier == "live":
-        assert stored["close"].isna().all()
-    else:
-        # Legacy behavior of the historical tier, unchanged: OHLC falls back to the bid
-        assert stored["close"].eq(0.49).all()
+    # No trade, no price, on either tier: the quotes are the only prices of these rows
+    assert stored[["open", "high", "low", "close"]].isna().all().all()
+
+
+def test_every_interval_and_both_tiers_store_one_schema(exchange, data_dir):
+    """Column names, order and types are identical across daily, hourly and
+    minute files, whether the candles came from the live or the historical tier."""
+    schemas = {}
+    for tier in ("live", "historical"):
+        exchange.markets[TICKER]["_tier"] = tier
+        exchange.markets[TICKER]["status"] = "active" if tier == "live" else "finalized"
+        for kind, (puller, _, _, files) in CASES.items():
+            assert puller.run([TICKER])["failed"] == 0
+            for f in files:
+                schema = pq.read_schema(data_dir / f)
+                schemas[(tier, kind, f)] = [(field.name, str(field.type)) for field in schema]
+        for f in (data_dir / "candles").rglob("*.parquet"):
+            f.unlink()
+    (first, *rest) = schemas.values()
+    assert [name for name, _ in first] == list(CANDLE_COLUMNS)
+    assert {typ for name, typ in first if name not in ("ts_ms", "market_ticker", "event_ticker", "series_ticker")} == {"double"}
+    assert dict(first)["ts_ms"] == "int64"
+    assert all(schema == first for schema in rest) and len(schemas) == 10

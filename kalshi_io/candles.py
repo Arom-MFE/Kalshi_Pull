@@ -140,10 +140,9 @@ _OHLC = ("open", "high", "low", "close")
 # objects. Unlike trade prices they exist for every candle, traded or not.
 QUOTE_COLUMNS: tuple[str, ...] = tuple(f"{side}_{k}" for side in ("yes_bid", "yes_ask") for k in _OHLC)
 
-# Stored column order. The first eleven are the schema every file has had
-# since 2026-08; the quote columns follow them, which is also where an append
-# puts them in a file written before they existed. Old and new files therefore
-# share one layout, and rows stored before the change read as NaN there.
+# Stored column order, the same for daily, hourly and minute files and for both
+# API tiers: timestamp, trade prices, volume and open interest, the three
+# identifiers, then the quote columns.
 CANDLE_COLUMNS: tuple[str, ...] = (
     "ts_ms", "open", "high", "low", "close", "mean", "volume", "open_interest",
     "market_ticker", "event_ticker", "series_ticker",
@@ -157,14 +156,6 @@ CANDLE_FLOAT_COLUMNS: tuple[str, ...] = (
 def _to_float(v) -> float | None:
     """Cast an API decimal string (or number) to float. None stays None (→ NaN)."""
     return None if v is None else float(v)
-
-
-def _first_not_none(*vals):
-    """Return the first non-None value (unlike `or`, keeps legitimate 0 prices)."""
-    for v in vals:
-        if v is not None:
-            return v
-    return None
 
 
 def _get(obj, key):
@@ -192,7 +183,7 @@ def parse_candle(raw: object, is_historical: bool) -> dict:
 
     Both endpoints serialize numerics as decimal strings; everything is cast
     to float here. Returns dict with ts_ms (int64 UTC ms) and float values:
-    open/high/low/close/mean are traded dollar prices in [0, 1]; volume and
+    open/high/low/close/mean are TRADE prices in dollars in [0, 1]; volume and
     open_interest are contract counts exactly as the API reports them
     (fractional on markets with fractional-contract support), unscaled;
     yes_bid_* and yes_ask_* (QUOTE_COLUMNS) are the OHLC of the best YES bid
@@ -201,44 +192,30 @@ def parse_candle(raw: object, is_historical: bool) -> dict:
 
     Quotes exist for every candle. Trade prices exist only when the period
     had a trade: the live endpoint then omits the OHLC keys, the historical
-    one sends them as null. An empty side of the book is quoted by the API as
-    "0.0000" (no bid) or "1.0000" (no ask) and is stored as sent.
+    one sends them as null, and both come out as None. A price column never
+    holds a quote; the quote of a period without trades is in yes_bid_* and
+    yes_ask_*. An empty side of the book is quoted by the API as "0.0000"
+    (no bid) or "1.0000" (no ask) and is stored as sent.
 
-    Historical shape: price.close, yes_bid.close, volume, open_interest;
-    open/high/low/close fall back to yes_bid.* when price.* is null (kept
-    from the original schema; yes_bid_* holds the same values unmixed).
-    Live shape: price.close_dollars, yes_bid.close_dollars, volume_fp,
-    open_interest_fp. Accepts the REST dict as well as an object with the
-    same attribute names.
+    The two tiers send the same candle under different key names, and that
+    is the only difference handled here:
+        historical   price.close, yes_bid.close, volume, open_interest
+        live         price.close_dollars, yes_bid.close_dollars, volume_fp,
+                     open_interest_fp
+    Accepts the REST dict as well as an object with the same attribute names.
     """
-    if is_historical:
-        price = raw.get("price") or {}
-        yes_bid = raw.get("yes_bid") or {}
-
-        return {
-            "ts_ms":         int(raw["end_period_ts"] * 1000),
-            "open":          _to_float(_first_not_none(price.get("open"), yes_bid.get("open"))),
-            "high":          _to_float(_first_not_none(price.get("high"), yes_bid.get("high"))),
-            "low":           _to_float(_first_not_none(price.get("low"), yes_bid.get("low"))),
-            "close":         _to_float(_first_not_none(price.get("close"), yes_bid.get("close"))),
-            "mean":          _to_float(price.get("mean")),
-            "volume":        _to_float(raw.get("volume")),
-            "open_interest": _to_float(raw.get("open_interest")),
-            **_quotes(raw, ""),
-        }
-
-    # Live shape
-    p = _get(raw, "price") or {}
+    suffix, count_suffix = ("", "") if is_historical else ("_dollars", "_fp")
+    price = _get(raw, "price") or {}
     return {
         "ts_ms":         int(_get(raw, "end_period_ts") * 1000),
-        "open":          _to_float(_get(p, "open_dollars")),
-        "high":          _to_float(_get(p, "high_dollars")),
-        "low":           _to_float(_get(p, "low_dollars")),
-        "close":         _to_float(_get(p, "close_dollars")),
-        "mean":          _to_float(_get(p, "mean_dollars")),
-        "volume":        _to_float(_get(raw, "volume_fp")),
-        "open_interest": _to_float(_get(raw, "open_interest_fp")),
-        **_quotes(raw, "_dollars"),
+        "open":          _to_float(_get(price, "open" + suffix)),
+        "high":          _to_float(_get(price, "high" + suffix)),
+        "low":           _to_float(_get(price, "low" + suffix)),
+        "close":         _to_float(_get(price, "close" + suffix)),
+        "mean":          _to_float(_get(price, "mean" + suffix)),
+        "volume":        _to_float(_get(raw, "volume" + count_suffix)),
+        "open_interest": _to_float(_get(raw, "open_interest" + count_suffix)),
+        **_quotes(raw, suffix),
     }
 
 

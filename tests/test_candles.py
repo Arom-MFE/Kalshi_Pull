@@ -4,7 +4,7 @@ from types import SimpleNamespace
 
 import pandas as pd
 
-from kalshi_io.candles import CANDLE_COLUMNS, QUOTE_COLUMNS, candles_frame, parse_candle
+from kalshi_io.candles import CANDLE_COLUMNS, CANDLE_FLOAT_COLUMNS, QUOTE_COLUMNS, candles_frame, parse_candle
 
 # Shape and values mirror a real /historical/markets/.../candlesticks response
 HIST_RAW = {
@@ -58,7 +58,7 @@ def test_live_candle_fractional_volume_unscaled_passthrough():
     assert c["open_interest"] == 897507.46
 
 
-def test_zero_price_does_not_trigger_yes_bid_fallback():
+def test_zero_price_is_a_trade_price_and_stays_zero():
     raw = {
         **HIST_RAW,
         "price": {"open": "0.0000", "close": "0.0000"},
@@ -69,15 +69,19 @@ def test_zero_price_does_not_trigger_yes_bid_fallback():
     assert c["close"] == 0.0
 
 
-def test_null_price_falls_back_to_yes_bid():
+def test_missing_trade_price_stays_missing_and_never_takes_the_bid():
+    """Until 0.3.0 the historical tier filled open/high/low/close from yes_bid."""
     raw = {
         **HIST_RAW,
-        "price": {"mean": "0.5000"},
+        "price": {"open": None, "high": None, "low": None, "close": None, "mean": None, "previous": "0.5000"},
         "yes_bid": {"open": "0.4000", "high": "0.6000", "low": "0.3000", "close": "0.5500"},
     }
     c = parse_candle(raw, is_historical=True)
-    assert c["open"] == 0.40
-    assert c["close"] == 0.55
+    assert [c[k] for k in ("open", "high", "low", "close", "mean")] == [None] * 5
+    # The quote is where it belongs
+    assert (c["yes_bid_open"], c["yes_bid_high"], c["yes_bid_low"], c["yes_bid_close"]) == (0.40, 0.60, 0.30, 0.55)
+    # Absent keys behave like explicit nulls
+    assert parse_candle({**raw, "price": {}}, is_historical=True)["close"] is None
 
 
 def test_absent_keys_become_nan_never_zero():
@@ -152,8 +156,31 @@ def test_candle_without_trades_still_has_its_quotes_on_both_tiers():
                         is_historical=True)
     assert hist["mean"] is None and hist["volume"] == 0.0
     assert (hist["yes_bid_close"], hist["yes_ask_close"]) == (0.65, 0.70)
-    # Unchanged legacy behavior on this tier: open/high/low/close fall back to the bid
-    assert hist["close"] == hist["yes_bid_close"]
+    # Same on this tier: no trade, no price. The bid is never copied into the price columns
+    assert [hist[k] for k in ("open", "high", "low", "close")] == [None] * 4
+
+
+def _as_live(hist: dict) -> dict:
+    """The live wire shape of a historical candle: *_dollars keys, *_fp counts,
+    and no OHLC keys at all when the period had no trade."""
+    price = {k + "_dollars": v for k, v in hist["price"].items() if v is not None}
+    return {
+        "end_period_ts": hist["end_period_ts"],
+        "price": price,
+        "yes_bid": {k + "_dollars": v for k, v in hist["yes_bid"].items()},
+        "yes_ask": {k + "_dollars": v for k, v in hist["yes_ask"].items()},
+        "volume_fp": hist["volume"],
+        "open_interest_fp": hist["open_interest"],
+    }
+
+
+def test_both_tiers_parse_the_same_candle_to_the_same_row():
+    nulls = {k: None for k in ("open", "high", "low", "close", "mean")}
+    no_trade = {**HIST_RAW, "price": {**nulls, "previous": "0.6900"}, "volume": "0.00"}
+    for hist in (HIST_RAW, no_trade):
+        assert parse_candle(_as_live(hist), is_historical=False) == parse_candle(hist, is_historical=True)
+    # and the row has exactly the numeric columns of the stored schema
+    assert list(parse_candle(HIST_RAW, is_historical=True)) == ["ts_ms", *CANDLE_FLOAT_COLUMNS]
 
 
 def test_empty_book_sides_are_stored_as_the_api_quotes_them():
@@ -183,7 +210,7 @@ def _row(candle: dict) -> dict:
 def test_candles_frame_has_the_stored_column_order_and_dtypes():
     df = candles_frame([_row(parse_candle(LIVE_WIRE, is_historical=False))])
     assert tuple(df.columns) == CANDLE_COLUMNS
-    # The eleven columns of files written before the quote columns existed come first, unchanged
+    # Timestamp, trade prices, counts, identifiers, then the quotes: one fixed order for every file
     assert CANDLE_COLUMNS[:11] == ("ts_ms", "open", "high", "low", "close", "mean", "volume", "open_interest",
                                    "market_ticker", "event_ticker", "series_ticker")
     assert CANDLE_COLUMNS[11:] == QUOTE_COLUMNS

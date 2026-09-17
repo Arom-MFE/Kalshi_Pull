@@ -199,9 +199,9 @@ Candles (daily, hourly, minute):
 | `yes_bid_open`, `yes_bid_high`, `yes_bid_low`, `yes_bid_close` | float64 | Best YES bid over the period, in dollars |
 | `yes_ask_open`, `yes_ask_high`, `yes_ask_low`, `yes_ask_close` | float64 | Best YES ask over the period, in dollars |
 
-The quote columns exist for every candle, traded or not. On a quiet strike most minute candles have quotes and no trade, so the quotes are the only price information there. An empty side of the book is quoted by the API as 0.0 (no bid) or 1.0 (no ask) and stored as sent. The quote columns were added on 2026-09-17 and come last in every file. Rows stored before that date read as NaN in them, and a file written before that date gains the columns on its next append.
+Every candle file has exactly these 19 columns in this order, with the same types, for daily, hourly and minute candles and for both API tiers.
 
-On the historical endpoint, `open`, `high`, `low` and `close` of a period without trades fall back to the bid, as they always have in this repo. On the live endpoint they stay NaN. `yes_bid_close` is the same series on both.
+The price columns hold trade prices only. A period without a trade has NaN in `open`, `high`, `low`, `close` and `mean`, and `volume` 0. The quote columns exist for every candle, traded or not. On a quiet strike most minute candles have quotes and no trade, so the quotes are the only price information there. An empty side of the book is quoted by the API as 0.0 (no bid) or 1.0 (no ask) and stored as sent. Until version 0.2.0 the historical tier copied the bid into the price columns of a period without trades; since 0.3.0 no price column ever holds a quote.
 
 Trades:
 
