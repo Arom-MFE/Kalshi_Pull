@@ -1,5 +1,11 @@
 {
+  "schema_version": 2,
   "series": "KXJOBLESS",
+  "built_at": "2026-09-17T20:45:55Z",
+  "historical_cutoff": "2026-07-19T00:00:00Z",
+  "status_counts": {
+    "finalized": 74
+  },
   "events": [
     {
       "event_ticker": "JOBLESS-21AUG07",
@@ -280,10 +286,25 @@
   ],
   "markets": [
     {
+      "event_ticker": "JOBLESS-21AUG07",
+      "market_ticker": "JOBLESS-21AUG07-C370",
+      "title": "Will initial jobless claims be higher than 370,000 for the week ending August 7?",
+      "status": "finalized",
+      "open_time": "2021-08-05T20:30:00Z",
+      "close_time": "2021-08-11T23:00:00Z",
+      "expected_expiration_time": "2021-08-05T20:30:00Z",
+      "latest_expiration_time": "2021-08-12T22:00:00Z",
+      "source": "historical"
+    },
+    {
       "event_ticker": "JOBLESS-21AUG14",
       "market_ticker": "JOBLESS-21AUG14-C365",
       "title": "Will initial jobless claims be higher than 365,000 for the week ending August 14, 2021?",
       "status": "finalized",
+      "open_time": "2021-08-12T20:50:00Z",
+      "close_time": "2021-08-18T23:00:00Z",
+      "expected_expiration_time": "2021-08-12T20:50:00Z",
+      "latest_expiration_time": "2021-08-19T22:00:00Z",
       "source": "historical"
     },
     {
@@ -291,6 +312,10 @@
       "market_ticker": "JOBLESS-21AUG21-C335",
       "title": "Will initial jobless claims be higher than 335,000 for the week ending August 21st?",
       "status": "finalized",
+      "open_time": "2021-08-19T21:47:00Z",
+      "close_time": "2021-08-25T23:00:00Z",
+      "expected_expiration_time": "2021-08-19T21:47:00Z",
+      "latest_expiration_time": "2021-08-26T22:00:00Z",
       "source": "historical"
     },
     {
@@ -298,6 +323,10 @@
       "market_ticker": "JOBLESS-21AUG28-C350",
       "title": "Will initial jobless claims be higher than 350,000 for the week ending August 28, 2021?",
       "status": "finalized",
+      "open_time": "2021-08-26T20:30:00Z",
+      "close_time": "2021-09-01T23:00:00Z",
+      "expected_expiration_time": "2033-08-26T20:19:00Z",
+      "latest_expiration_time": "2021-09-02T22:00:00Z",
       "source": "historical"
     },
     {
@@ -305,6 +334,10 @@
       "market_ticker": "JOBLESS-21DEC04-C220",
       "title": "Will **initial jobless claims** be higher than 220,000 for the week ending December 04, 2021?",
       "status": "finalized",
+      "open_time": "2021-12-02T15:00:00Z",
+      "close_time": "2021-12-09T00:00:00Z",
+      "expected_expiration_time": "2021-12-02T15:00:00Z",
+      "latest_expiration_time": "2021-12-09T23:00:00Z",
       "source": "historical"
     },
     {
@@ -312,6 +345,10 @@
       "market_ticker": "JOBLESS-21DEC11-C185",
       "title": "Will initial **jobless claims** be higher than 185,000 for the week ending December 11, 2021?",
       "status": "finalized",
+      "open_time": "2021-12-09T15:00:00Z",
+      "close_time": "2021-12-16T00:00:00Z",
+      "expected_expiration_time": "2021-12-09T15:00:00Z",
+      "latest_expiration_time": "2021-12-16T23:00:00Z",
       "source": "historical"
     },
     {
@@ -319,6 +356,10 @@
       "market_ticker": "JOBLESS-21DEC18-C200",
       "title": "Will **initial jobless** claims be higher than 200,000 for the week ending December 18, 2021?",
       "status": "finalized",
+      "open_time": "2021-12-16T15:00:00Z",
+      "close_time": "2021-12-23T00:00:00Z",
+      "expected_expiration_time": "2021-12-16T15:00:00Z",
+      "latest_expiration_time": "2021-12-23T23:00:00Z",
       "source": "historical"
     },
     {
@@ -326,6 +367,10 @@
       "market_ticker": "JOBLESS-21DEC25-C200",
       "title": "Will **initial jobless claims** be higher than 200,000 for the week ending December 25, 2021?",
       "status": "finalized",
+      "open_time": "2021-12-28T15:00:00Z",
+      "close_time": "2021-12-30T00:00:00Z",
+      "expected_expiration_time": "2021-12-28T15:00:00Z",
+      "latest_expiration_time": "2021-12-30T23:00:00Z",
       "source": "historical"
     },
     {
@@ -333,6 +378,10 @@
       "market_ticker": "JOBLESS-21JUL17-C350",
       "title": "Will initial jobless claims be higher than 350,000 for the week ending July 17?",
       "status": "finalized",
+      "open_time": "2021-07-15T14:00:00Z",
+      "close_time": "2021-07-21T23:00:00Z",
+      "expected_expiration_time": "2021-07-15T14:00:00Z",
+      "latest_expiration_time": "2021-07-22T22:00:00Z",
       "source": "historical"
     },
     {
@@ -340,6 +389,10 @@
       "market_ticker": "JOBLESS-21JUL24-C380",
       "title": "Will initial jobless claims be higher than 380,000 for the week ending July 24?",
       "status": "finalized",
+      "open_time": "2021-07-22T17:00:00Z",
+      "close_time": "2021-07-28T23:00:00Z",
+      "expected_expiration_time": "2021-07-22T17:00:00Z",
+      "latest_expiration_time": "2021-07-29T22:00:00Z",
       "source": "historical"
     },
     {
@@ -347,6 +400,10 @@
       "market_ticker": "JOBLESS-21JUL31-C380",
       "title": "Will initial jobless claims be higher than 380,000 for the week ending July 31?",
       "status": "finalized",
+      "open_time": "2021-07-29T17:30:00Z",
+      "close_time": "2021-08-04T23:00:00Z",
+      "expected_expiration_time": "2021-07-29T17:30:00Z",
+      "latest_expiration_time": "2021-08-05T22:00:00Z",
       "source": "historical"
     },
     {
@@ -354,6 +411,10 @@
       "market_ticker": "JOBLESS-21NOV13-C265",
       "title": "Will initial jobless claims be higher than 265,000 for the week ending November 13, 2021?",
       "status": "finalized",
+      "open_time": "2021-11-15T15:30:00Z",
+      "close_time": "2021-11-18T00:00:00Z",
+      "expected_expiration_time": "2021-11-15T15:30:00Z",
+      "latest_expiration_time": "2021-11-18T23:00:00Z",
       "source": "historical"
     },
     {
@@ -361,13 +422,10 @@
       "market_ticker": "JOBLESS-21NOV20-C265",
       "title": "Will initial **jobless claims** be higher than 265,000 for the week ending November 20, 2021?",
       "status": "finalized",
-      "source": "historical"
-    },
-    {
-      "event_ticker": "JOBLESS-21NOV27",
-      "market_ticker": "JOBLESS-21NOV27-C240",
-      "title": "Will initial jobless claims be higher than 240,000 for the week ending November 27, 2021?",
-      "status": "finalized",
+      "open_time": "2021-11-18T15:00:00Z",
+      "close_time": "2021-11-24T04:59:00Z",
+      "expected_expiration_time": "2021-11-18T15:00:00Z",
+      "latest_expiration_time": "2021-11-24T20:00:00Z",
       "source": "historical"
     },
     {
@@ -375,6 +433,21 @@
       "market_ticker": "JOBLESS-21NOV27-C200",
       "title": "Will **initial jobless claims** be higher than 200,000 for the week ending November 27, 2021?",
       "status": "finalized",
+      "open_time": "2021-11-24T15:00:00Z",
+      "close_time": "2021-12-02T00:00:00Z",
+      "expected_expiration_time": "2021-11-24T15:00:00Z",
+      "latest_expiration_time": "2021-12-02T20:00:00Z",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "JOBLESS-21NOV27",
+      "market_ticker": "JOBLESS-21NOV27-C240",
+      "title": "Will initial jobless claims be higher than 240,000 for the week ending November 27, 2021?",
+      "status": "finalized",
+      "open_time": "2021-11-24T15:00:00Z",
+      "close_time": "2021-12-02T00:00:00Z",
+      "expected_expiration_time": "2021-11-24T15:00:00Z",
+      "latest_expiration_time": "2021-12-02T20:00:00Z",
       "source": "historical"
     },
     {
@@ -382,6 +455,21 @@
       "market_ticker": "JOBLESS-21OCT02-C350",
       "title": "Will initial jobless claims be higher than 350,000 for the week ending October 02, 2021?",
       "status": "finalized",
+      "open_time": "2021-09-30T14:00:00Z",
+      "close_time": "2021-10-06T22:00:00Z",
+      "expected_expiration_time": "2021-09-30T14:00:00Z",
+      "latest_expiration_time": "2021-10-07T21:00:00Z",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "JOBLESS-21OCT09",
+      "market_ticker": "JOBLESS-21OCT09-C320",
+      "title": "Will initial jobless claims be higher than 320,000 for the week ending October 09, 2021?",
+      "status": "finalized",
+      "open_time": "2021-10-07T14:00:00Z",
+      "close_time": "2021-10-13T22:00:00Z",
+      "expected_expiration_time": "2021-10-07T14:00:00Z",
+      "latest_expiration_time": "2021-10-14T21:00:00Z",
       "source": "historical"
     },
     {
@@ -389,6 +477,10 @@
       "market_ticker": "JOBLESS-21OCT16-C300",
       "title": "Will initial jobless claims be higher than 300,000 for the week ending October 16, 2021?",
       "status": "finalized",
+      "open_time": "2021-10-14T14:00:00Z",
+      "close_time": "2021-10-20T22:00:00Z",
+      "expected_expiration_time": "2021-10-14T14:00:00Z",
+      "latest_expiration_time": "2021-10-21T21:00:00Z",
       "source": "historical"
     },
     {
@@ -396,6 +488,10 @@
       "market_ticker": "JOBLESS-21OCT23-C290",
       "title": "Will initial jobless claims be higher than 290,000 for the week ending October 23, 2021?",
       "status": "finalized",
+      "open_time": "2021-10-21T14:00:00Z",
+      "close_time": "2021-10-28T02:00:00Z",
+      "expected_expiration_time": "2021-10-21T14:00:00Z",
+      "latest_expiration_time": "2021-10-28T19:00:00Z",
       "source": "historical"
     },
     {
@@ -403,6 +499,10 @@
       "market_ticker": "JOBLESS-21OCT30-C280",
       "title": "Will initial jobless claims be higher than 280,000 for the week ending October 30, 2021?",
       "status": "finalized",
+      "open_time": "2021-10-28T14:00:00Z",
+      "close_time": "2021-11-03T23:00:00Z",
+      "expected_expiration_time": "2021-10-28T14:00:00Z",
+      "latest_expiration_time": "2021-11-04T22:00:00Z",
       "source": "historical"
     },
     {
@@ -410,20 +510,10 @@
       "market_ticker": "JOBLESS-21SEP04-C330",
       "title": "Will initial jobless claims be higher than 330,000 for the week ending September 4, 2021?",
       "status": "finalized",
-      "source": "historical"
-    },
-    {
-      "event_ticker": "JOBLESS-21SEP11",
-      "market_ticker": "JOBLESS-21SEP11-C320",
-      "title": "Will initial jobless claims be higher than 320,000 for the week ending September 11, 2021?",
-      "status": "finalized",
-      "source": "historical"
-    },
-    {
-      "event_ticker": "JOBLESS-21SEP11",
-      "market_ticker": "JOBLESS-21SEP11-C310",
-      "title": "Will initial jobless claims be higher than 310,000 for the week ending September 11, 2021?",
-      "status": "finalized",
+      "open_time": "2021-09-03T00:45:00Z",
+      "close_time": "2021-09-08T23:00:00Z",
+      "expected_expiration_time": "2021-09-03T00:45:00Z",
+      "latest_expiration_time": "2021-09-09T22:00:00Z",
       "source": "historical"
     },
     {
@@ -431,6 +521,32 @@
       "market_ticker": "JOBLESS-21SEP11-C300",
       "title": "Will initial jobless claims be higher than 300,000 for the week ending September 11, 2021?",
       "status": "finalized",
+      "open_time": "2021-09-09T14:00:00Z",
+      "close_time": "2021-09-15T23:00:00Z",
+      "expected_expiration_time": "2021-09-09T15:00:00Z",
+      "latest_expiration_time": "2021-09-16T22:00:00Z",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "JOBLESS-21SEP11",
+      "market_ticker": "JOBLESS-21SEP11-C310",
+      "title": "Will initial jobless claims be higher than 310,000 for the week ending September 11, 2021?",
+      "status": "finalized",
+      "open_time": "2021-09-09T15:00:00Z",
+      "close_time": "2021-09-15T23:00:00Z",
+      "expected_expiration_time": "2021-09-09T15:00:00Z",
+      "latest_expiration_time": "2021-09-16T22:00:00Z",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "JOBLESS-21SEP11",
+      "market_ticker": "JOBLESS-21SEP11-C320",
+      "title": "Will initial jobless claims be higher than 320,000 for the week ending September 11, 2021?",
+      "status": "finalized",
+      "open_time": "2021-09-09T15:00:00Z",
+      "close_time": "2021-09-15T23:00:00Z",
+      "expected_expiration_time": "2021-09-09T15:00:00Z",
+      "latest_expiration_time": "2021-09-16T22:00:00Z",
       "source": "historical"
     },
     {
@@ -438,6 +554,21 @@
       "market_ticker": "JOBLESS-21SEP18-C300",
       "title": "Will initial jobless claims be higher than 300,000 for the week ending September 18, 2021?",
       "status": "finalized",
+      "open_time": "2021-09-20T21:47:00Z",
+      "close_time": "2021-09-22T23:00:00Z",
+      "expected_expiration_time": "2021-09-20T21:47:00Z",
+      "latest_expiration_time": "2021-09-23T22:00:00Z",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "JOBLESS-21SEP25",
+      "market_ticker": "JOBLESS-21SEP25-C340",
+      "title": "Will initial jobless claims be higher than 340,000 for the week ending September 25, 2021?",
+      "status": "finalized",
+      "open_time": "2021-09-23T14:00:00Z",
+      "close_time": "2021-09-29T22:00:00Z",
+      "expected_expiration_time": "2021-09-23T14:00:00Z",
+      "latest_expiration_time": "2021-09-30T21:00:00Z",
       "source": "historical"
     },
     {
@@ -445,6 +576,10 @@
       "market_ticker": "JOBLESS-22APR02-C200K",
       "title": "Will **initial jobless claims** be higher than 200,000 for the week ending April 02, 2022?",
       "status": "finalized",
+      "open_time": "2022-03-31T14:00:00Z",
+      "close_time": "2022-04-06T23:00:00Z",
+      "expected_expiration_time": "2022-03-31T14:00:00Z",
+      "latest_expiration_time": "2022-04-07T22:00:00Z",
       "source": "historical"
     },
     {
@@ -452,6 +587,10 @@
       "market_ticker": "JOBLESS-22APR09-C160",
       "title": "Will **initial jobless claims** be higher than 160,000 for the week ending April 09, 2022?",
       "status": "finalized",
+      "open_time": "2022-04-07T14:00:00Z",
+      "close_time": "2022-04-13T23:00:00Z",
+      "expected_expiration_time": "2022-04-07T14:00:00Z",
+      "latest_expiration_time": "2022-04-14T22:00:00Z",
       "source": "historical"
     },
     {
@@ -459,6 +598,10 @@
       "market_ticker": "JOBLESS-22APR16-C185",
       "title": "Will **initial jobless claims** be higher than 185,000 for the week ending April 16, 2022?",
       "status": "finalized",
+      "open_time": "2022-04-14T14:00:00Z",
+      "close_time": "2022-04-20T23:00:00Z",
+      "expected_expiration_time": "2022-04-14T14:00:00Z",
+      "latest_expiration_time": "2022-04-21T22:00:00Z",
       "source": "historical"
     },
     {
@@ -466,6 +609,10 @@
       "market_ticker": "JOBLESS-22APR23-C185",
       "title": "Will **initial jobless claims** be higher than 185,000 for the week ending April 23, 2022?",
       "status": "finalized",
+      "open_time": "2022-04-21T14:00:00Z",
+      "close_time": "2022-04-27T23:00:00Z",
+      "expected_expiration_time": "2022-04-21T14:00:00Z",
+      "latest_expiration_time": "2022-04-28T22:00:00Z",
       "source": "historical"
     },
     {
@@ -473,20 +620,10 @@
       "market_ticker": "JOBLESS-22APR30-C180",
       "title": "Will **initial jobless claims** be higher than 180,000 for the week ending April 30, 2022?",
       "status": "finalized",
-      "source": "historical"
-    },
-    {
-      "event_ticker": "JOBLESS-22AUG06",
-      "market_ticker": "JOBLESS-22AUG06-C270",
-      "title": "Will **initial jobless claims** be higher than 270,000 for the week ending August 06, 2022?",
-      "status": "finalized",
-      "source": "historical"
-    },
-    {
-      "event_ticker": "JOBLESS-22AUG06",
-      "market_ticker": "JOBLESS-22AUG06-C260",
-      "title": "Will **initial jobless claims** be higher than 260,000 for the week ending August 06, 2022?",
-      "status": "finalized",
+      "open_time": "2022-04-28T14:00:00Z",
+      "close_time": "2022-05-04T23:00:00Z",
+      "expected_expiration_time": "2022-05-05T14:00:00Z",
+      "latest_expiration_time": "2022-05-05T22:00:00Z",
       "source": "historical"
     },
     {
@@ -494,6 +631,32 @@
       "market_ticker": "JOBLESS-22AUG06-C250",
       "title": "Will **initial jobless claims** be higher than 250,000 for the week ending August 06, 2022?",
       "status": "finalized",
+      "open_time": "2022-08-04T14:00:00Z",
+      "close_time": "2022-08-10T23:00:00Z",
+      "expected_expiration_time": "2022-08-11T22:00:00Z",
+      "latest_expiration_time": "2022-08-11T22:00:00Z",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "JOBLESS-22AUG06",
+      "market_ticker": "JOBLESS-22AUG06-C260",
+      "title": "Will **initial jobless claims** be higher than 260,000 for the week ending August 06, 2022?",
+      "status": "finalized",
+      "open_time": "2022-08-04T14:00:00Z",
+      "close_time": "2022-08-10T23:00:00Z",
+      "expected_expiration_time": "2022-08-11T22:00:00Z",
+      "latest_expiration_time": "2022-08-11T22:00:00Z",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "JOBLESS-22AUG06",
+      "market_ticker": "JOBLESS-22AUG06-C270",
+      "title": "Will **initial jobless claims** be higher than 270,000 for the week ending August 06, 2022?",
+      "status": "finalized",
+      "open_time": "2022-08-04T14:00:00Z",
+      "close_time": "2022-08-10T23:00:00Z",
+      "expected_expiration_time": "2022-08-11T22:00:00Z",
+      "latest_expiration_time": "2022-08-11T22:00:00Z",
       "source": "historical"
     },
     {
@@ -501,6 +664,10 @@
       "market_ticker": "JOBLESS-22AUG13-C265",
       "title": "Will **initial jobless claims** be higher than 265,000 for the week ending August 13, 2022?",
       "status": "finalized",
+      "open_time": "2022-08-11T14:00:00Z",
+      "close_time": "2022-08-17T23:00:00Z",
+      "expected_expiration_time": "2022-08-18T22:00:00Z",
+      "latest_expiration_time": "2022-08-18T22:00:00Z",
       "source": "historical"
     },
     {
@@ -508,6 +675,10 @@
       "market_ticker": "JOBLESS-22AUG20-C250",
       "title": "Will **initial jobless claims** be higher than 250,000 for the week ending August 20, 2022?",
       "status": "finalized",
+      "open_time": "2022-08-18T14:00:00Z",
+      "close_time": "2022-08-24T23:00:00Z",
+      "expected_expiration_time": "2022-08-25T22:00:00Z",
+      "latest_expiration_time": "2022-08-25T22:00:00Z",
       "source": "historical"
     },
     {
@@ -515,6 +686,21 @@
       "market_ticker": "JOBLESS-22AUG27-C245",
       "title": "Will **initial jobless claims** be higher than 245,000 for the week ending August 27, 2022?",
       "status": "finalized",
+      "open_time": "2022-08-25T14:00:00Z",
+      "close_time": "2022-08-31T23:00:00Z",
+      "expected_expiration_time": "2022-09-01T22:00:00Z",
+      "latest_expiration_time": "2022-09-01T22:00:00Z",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "JOBLESS-22FEB05",
+      "market_ticker": "JOBLESS-22FEB05-C200",
+      "title": "Will **initial jobless claims** be higher than 200,000 for the week ending February 05, 2022?",
+      "status": "finalized",
+      "open_time": "2022-02-03T15:00:00Z",
+      "close_time": "2022-02-10T00:00:00Z",
+      "expected_expiration_time": "2022-02-03T15:00:00Z",
+      "latest_expiration_time": "2022-02-10T23:00:00Z",
       "source": "historical"
     },
     {
@@ -522,6 +708,10 @@
       "market_ticker": "JOBLESS-22FEB12-C220",
       "title": "Will **initial jobless claims** be higher than 220,000 for the week ending February 12, 2022?",
       "status": "finalized",
+      "open_time": "2022-02-10T15:00:00Z",
+      "close_time": "2022-02-17T00:00:00Z",
+      "expected_expiration_time": "2022-02-10T15:00:00Z",
+      "latest_expiration_time": "2022-02-17T23:00:00Z",
       "source": "historical"
     },
     {
@@ -529,6 +719,10 @@
       "market_ticker": "JOBLESS-22FEB19-C250",
       "title": "Will **initial jobless claims** be higher than 250,000 for the week ending February 19, 2022?",
       "status": "finalized",
+      "open_time": "2022-02-17T15:00:00Z",
+      "close_time": "2022-02-24T00:00:00Z",
+      "expected_expiration_time": "2022-02-17T15:00:00Z",
+      "latest_expiration_time": "2022-02-24T23:00:00Z",
       "source": "historical"
     },
     {
@@ -536,6 +730,10 @@
       "market_ticker": "JOBLESS-22FEB26-C230",
       "title": "Will **initial jobless claims** be higher than 230,000 for the week ending February 26, 2022?",
       "status": "finalized",
+      "open_time": "2022-02-24T15:00:00Z",
+      "close_time": "2022-03-03T00:00:00Z",
+      "expected_expiration_time": "2022-02-24T15:00:00Z",
+      "latest_expiration_time": "2022-03-03T23:00:00Z",
       "source": "historical"
     },
     {
@@ -543,6 +741,10 @@
       "market_ticker": "JOBLESS-22JAN01-C200",
       "title": "Will **initial jobless claims** be higher than 200,000 for the week ending January 01, 2022?",
       "status": "finalized",
+      "open_time": "2021-12-30T15:00:00Z",
+      "close_time": "2022-01-06T00:00:00Z",
+      "expected_expiration_time": "2021-12-30T15:00:00Z",
+      "latest_expiration_time": "2022-01-06T23:00:00Z",
       "source": "historical"
     },
     {
@@ -550,6 +752,10 @@
       "market_ticker": "JOBLESS-22JAN08-C200",
       "title": "Will **initial jobless claims** be higher than 200,000 for the week ending January 08, 2022?",
       "status": "finalized",
+      "open_time": "2022-01-06T15:00:00Z",
+      "close_time": "2022-01-13T00:00:00Z",
+      "expected_expiration_time": "2022-01-06T15:00:00Z",
+      "latest_expiration_time": "2022-01-13T23:00:00Z",
       "source": "historical"
     },
     {
@@ -557,6 +763,10 @@
       "market_ticker": "JOBLESS-22JAN15-C225",
       "title": "Will **initial jobless claims** be higher than 225,000 for the week ending January 15, 2022?",
       "status": "finalized",
+      "open_time": "2022-01-13T15:00:00Z",
+      "close_time": "2022-01-20T00:00:00Z",
+      "expected_expiration_time": "2022-01-13T15:00:00Z",
+      "latest_expiration_time": "2022-01-20T23:00:00Z",
       "source": "historical"
     },
     {
@@ -564,6 +774,10 @@
       "market_ticker": "JOBLESS-22JAN22-C300",
       "title": "Will **initial jobless claims** be higher than 300,000 for the week ending January 22, 2022?",
       "status": "finalized",
+      "open_time": "2022-01-20T15:00:00Z",
+      "close_time": "2022-01-27T00:00:00Z",
+      "expected_expiration_time": "2022-01-20T15:00:00Z",
+      "latest_expiration_time": "2022-01-27T23:00:00Z",
       "source": "historical"
     },
     {
@@ -571,6 +785,10 @@
       "market_ticker": "JOBLESS-22JAN29-C250",
       "title": "Will **initial jobless claims** be higher than 250,000 for the week ending January 29, 2022?",
       "status": "finalized",
+      "open_time": "2022-01-27T15:00:00Z",
+      "close_time": "2022-02-03T00:00:00Z",
+      "expected_expiration_time": "2022-01-27T15:00:00Z",
+      "latest_expiration_time": "2022-02-03T23:00:00Z",
       "source": "historical"
     },
     {
@@ -578,6 +796,10 @@
       "market_ticker": "JOBLESS-22JUL02-C230",
       "title": "Will **initial jobless claims** be higher than 230,000 for the week ending July 02, 2022?",
       "status": "finalized",
+      "open_time": "2022-06-30T14:00:00Z",
+      "close_time": "2022-07-06T23:00:00Z",
+      "expected_expiration_time": "2022-07-07T22:00:00Z",
+      "latest_expiration_time": "2022-07-07T22:00:00Z",
       "source": "historical"
     },
     {
@@ -585,6 +807,10 @@
       "market_ticker": "JOBLESS-22JUL09-C230",
       "title": "Will initial jobless claims be higher than 230,000 for the week ending July 09, 2022?",
       "status": "finalized",
+      "open_time": "2022-07-07T14:00:00Z",
+      "close_time": "2022-07-13T23:00:00Z",
+      "expected_expiration_time": "2022-07-14T22:00:00Z",
+      "latest_expiration_time": "2022-07-14T22:00:00Z",
       "source": "historical"
     },
     {
@@ -592,6 +818,21 @@
       "market_ticker": "JOBLESS-22JUL16-C250",
       "title": "Will **initial jobless claims** be higher than 250,000 for the week ending July 16, 2022?",
       "status": "finalized",
+      "open_time": "2022-07-14T14:00:00Z",
+      "close_time": "2022-07-20T23:00:00Z",
+      "expected_expiration_time": "2022-07-21T22:00:00Z",
+      "latest_expiration_time": "2022-07-21T22:00:00Z",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "JOBLESS-22JUL23",
+      "market_ticker": "JOBLESS-22JUL23-C250,000",
+      "title": "Will **initial jobless claims** be higher than 250,000 for the week ending July 23, 2022?",
+      "status": "finalized",
+      "open_time": "2022-07-21T14:00:00Z",
+      "close_time": "2022-07-27T23:00:00Z",
+      "expected_expiration_time": "2022-07-28T22:00:00Z",
+      "latest_expiration_time": "2022-07-28T22:00:00Z",
       "source": "historical"
     },
     {
@@ -599,6 +840,10 @@
       "market_ticker": "JOBLESS-22JUL30-C250",
       "title": "Will **initial jobless claims** be higher than 250,000 for the week ending July 30, 2022?",
       "status": "finalized",
+      "open_time": "2022-07-28T14:00:00Z",
+      "close_time": "2022-08-03T23:00:00Z",
+      "expected_expiration_time": "2022-08-04T22:00:00Z",
+      "latest_expiration_time": "2022-08-04T22:00:00Z",
       "source": "historical"
     },
     {
@@ -606,6 +851,10 @@
       "market_ticker": "JOBLESS-22JUN04-C200",
       "title": "Will **initial jobless claims** be higher than 200,000 for the week ending June 04, 2022?",
       "status": "finalized",
+      "open_time": "2022-06-02T14:00:00Z",
+      "close_time": "2022-06-08T23:00:00Z",
+      "expected_expiration_time": "2022-06-09T22:00:00Z",
+      "latest_expiration_time": "2022-06-09T22:00:00Z",
       "source": "historical"
     },
     {
@@ -613,6 +862,21 @@
       "market_ticker": "JOBLESS-22JUN11-C225",
       "title": "Will **initial jobless claims** be higher than 225,000 for the week ending June 11, 2022?",
       "status": "finalized",
+      "open_time": "2022-06-09T14:00:00Z",
+      "close_time": "2022-06-15T23:00:00Z",
+      "expected_expiration_time": "2022-06-16T22:00:00Z",
+      "latest_expiration_time": "2022-06-16T22:00:00Z",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "JOBLESS-22JUN18",
+      "market_ticker": "JOBLESS-22JUN18-C225",
+      "title": "Will **initial jobless claims** be higher than 225,000 for the week ending June 18, 2022?",
+      "status": "finalized",
+      "open_time": "2022-06-16T14:00:00Z",
+      "close_time": "2022-06-22T23:00:00Z",
+      "expected_expiration_time": "2022-06-23T22:00:00Z",
+      "latest_expiration_time": "2022-06-23T22:00:00Z",
       "source": "historical"
     },
     {
@@ -620,6 +884,10 @@
       "market_ticker": "JOBLESS-22JUN25-C225",
       "title": "Will **initial jobless claims** be higher than 225,000 for the week ending June 25, 2022?",
       "status": "finalized",
+      "open_time": "2022-06-23T14:00:00Z",
+      "close_time": "2022-06-29T23:00:00Z",
+      "expected_expiration_time": "2022-06-30T22:00:00Z",
+      "latest_expiration_time": "2022-06-30T22:00:00Z",
       "source": "historical"
     },
     {
@@ -627,6 +895,10 @@
       "market_ticker": "JOBLESS-22MAR05-C230",
       "title": "Will **initial jobless claims** be higher than 230,000 for the week ending March 05, 2022?",
       "status": "finalized",
+      "open_time": "2022-03-03T15:00:00Z",
+      "close_time": "2022-03-10T00:00:00Z",
+      "expected_expiration_time": "2022-03-03T15:00:00Z",
+      "latest_expiration_time": "2022-03-10T23:00:00Z",
       "source": "historical"
     },
     {
@@ -634,6 +906,10 @@
       "market_ticker": "JOBLESS-22MAR12-C220",
       "title": "Will **initial jobless claims** be higher than 220,000 for the week ending March 12, 2022?",
       "status": "finalized",
+      "open_time": "2022-03-10T15:00:00Z",
+      "close_time": "2022-03-16T23:00:00Z",
+      "expected_expiration_time": "2022-03-10T15:00:00Z",
+      "latest_expiration_time": "2022-03-17T22:00:00Z",
       "source": "historical"
     },
     {
@@ -641,6 +917,21 @@
       "market_ticker": "JOBLESS-22MAR26-C185",
       "title": "Will **initial jobless claims** be higher than 185,000 for the week ending March 26, 2022?",
       "status": "finalized",
+      "open_time": "2022-03-24T14:00:00Z",
+      "close_time": "2022-03-30T23:00:00Z",
+      "expected_expiration_time": "2022-03-24T14:00:00Z",
+      "latest_expiration_time": "2022-03-31T22:00:00Z",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "JOBLESS-22MAY07",
+      "market_ticker": "JOBLESS-22MAY07-C200",
+      "title": "Will **initial jobless claims** be higher than 200,000 for the week ending May 07, 2022?",
+      "status": "finalized",
+      "open_time": "2022-05-05T14:00:00Z",
+      "close_time": "2022-05-11T23:00:00Z",
+      "expected_expiration_time": "2022-05-13T02:00:00Z",
+      "latest_expiration_time": "2022-05-12T22:00:00Z",
       "source": "historical"
     },
     {
@@ -648,6 +939,10 @@
       "market_ticker": "JOBLESS-22MAY14-C200",
       "title": "Will **initial jobless claims** be higher than 200,000 for the week ending May 14, 2022?",
       "status": "finalized",
+      "open_time": "2022-05-12T14:00:00Z",
+      "close_time": "2022-05-18T23:00:00Z",
+      "expected_expiration_time": "2022-05-19T22:00:00Z",
+      "latest_expiration_time": "2022-05-19T22:00:00Z",
       "source": "historical"
     },
     {
@@ -655,6 +950,10 @@
       "market_ticker": "JOBLESS-22MAY21-C215",
       "title": "Will initial jobless claims be higher than 215,000 for the week ending May 21, 2022?",
       "status": "finalized",
+      "open_time": "2022-05-19T14:00:00Z",
+      "close_time": "2022-05-25T23:00:00Z",
+      "expected_expiration_time": "2022-05-26T22:00:00Z",
+      "latest_expiration_time": "2022-05-26T22:00:00Z",
       "source": "historical"
     },
     {
@@ -662,6 +961,10 @@
       "market_ticker": "JOBLESS-22MAY28-C210",
       "title": "Will **initial jobless claims** be higher than 210,000 for the week ending May 28, 2022?",
       "status": "finalized",
+      "open_time": "2022-05-26T14:00:00Z",
+      "close_time": "2022-06-01T23:00:00Z",
+      "expected_expiration_time": "2022-06-02T22:00:00Z",
+      "latest_expiration_time": "2022-06-02T22:00:00Z",
       "source": "historical"
     },
     {
@@ -669,6 +972,10 @@
       "market_ticker": "JOBLESS-22NOV05-C215",
       "title": "Will **initial jobless claims** be higher than 215,000 for the week ending Nov 5, 2022?",
       "status": "finalized",
+      "open_time": "2022-11-03T14:00:00Z",
+      "close_time": "2022-11-10T00:00:00Z",
+      "expected_expiration_time": "2022-11-10T22:00:00Z",
+      "latest_expiration_time": "2022-11-10T23:00:00Z",
       "source": "historical"
     },
     {
@@ -676,6 +983,10 @@
       "market_ticker": "JOBLESS-22NOV12-C225",
       "title": "Will **initial jobless claims** be higher than 225,000 for the week ending Nov 12, 2022?",
       "status": "finalized",
+      "open_time": "2022-11-10T15:00:00Z",
+      "close_time": "2022-11-17T00:00:00Z",
+      "expected_expiration_time": "2022-11-17T23:00:00Z",
+      "latest_expiration_time": "2022-11-17T23:00:00Z",
       "source": "historical"
     },
     {
@@ -683,6 +994,10 @@
       "market_ticker": "JOBLESS-22NOV26-C240",
       "title": "Will **initial jobless claims** be higher than 240,000 for the week ending Nov 27, 2022?",
       "status": "finalized",
+      "open_time": "2022-11-25T15:00:00Z",
+      "close_time": "2022-12-01T00:00:00Z",
+      "expected_expiration_time": "2022-12-02T23:00:00Z",
+      "latest_expiration_time": "2022-12-01T23:00:00Z",
       "source": "historical"
     },
     {
@@ -690,6 +1005,10 @@
       "market_ticker": "JOBLESS-22OCT01-C200",
       "title": "Will **initial jobless claims** be higher than 200,000 for the week ending Oct 1, 2022?",
       "status": "finalized",
+      "open_time": "2022-09-29T14:00:00Z",
+      "close_time": "2022-10-05T23:00:00Z",
+      "expected_expiration_time": "2022-10-06T22:00:00Z",
+      "latest_expiration_time": "2022-10-06T22:00:00Z",
       "source": "historical"
     },
     {
@@ -697,6 +1016,10 @@
       "market_ticker": "JOBLESS-22OCT08-C215",
       "title": "Will **initial jobless claims** be higher than 215,000 for the week ending Oct 8, 2022?",
       "status": "finalized",
+      "open_time": "2022-10-06T14:00:00Z",
+      "close_time": "2022-10-12T23:00:00Z",
+      "expected_expiration_time": "2022-10-13T22:00:00Z",
+      "latest_expiration_time": "2022-10-13T22:00:00Z",
       "source": "historical"
     },
     {
@@ -704,6 +1027,10 @@
       "market_ticker": "JOBLESS-22OCT17-C230",
       "title": "Will **initial jobless claims** be higher than 230,000 for the week ending Oct 15, 2022?",
       "status": "finalized",
+      "open_time": "2022-10-15T14:00:00Z",
+      "close_time": "2022-10-19T23:00:00Z",
+      "expected_expiration_time": "2022-10-22T22:00:00Z",
+      "latest_expiration_time": "2022-10-20T22:00:00Z",
       "source": "historical"
     },
     {
@@ -711,6 +1038,10 @@
       "market_ticker": "JOBLESS-22OCT22-C215",
       "title": "Will **initial jobless claims** be higher than 215,000 for the week ending Oct 22, 2022?",
       "status": "finalized",
+      "open_time": "2022-10-20T14:00:00Z",
+      "close_time": "2022-10-26T23:00:00Z",
+      "expected_expiration_time": "2022-10-27T22:00:00Z",
+      "latest_expiration_time": "2022-10-27T22:00:00Z",
       "source": "historical"
     },
     {
@@ -718,6 +1049,10 @@
       "market_ticker": "JOBLESS-22OCT29-C220",
       "title": "Will **initial jobless claims** be higher than 220,000 for the week ending Oct 29, 2022?",
       "status": "finalized",
+      "open_time": "2022-10-27T14:00:00Z",
+      "close_time": "2022-11-02T23:00:00Z",
+      "expected_expiration_time": "2022-11-03T22:00:00Z",
+      "latest_expiration_time": "2022-11-03T22:00:00Z",
       "source": "historical"
     },
     {
@@ -725,6 +1060,10 @@
       "market_ticker": "JOBLESS-22SEP03-C230",
       "title": "Will **initial jobless claims** be higher than 230,000 for the week ending September 03, 2022?",
       "status": "finalized",
+      "open_time": "2022-09-01T14:00:00Z",
+      "close_time": "2022-09-07T23:00:00Z",
+      "expected_expiration_time": "2022-09-08T22:00:00Z",
+      "latest_expiration_time": "2022-09-08T22:00:00Z",
       "source": "historical"
     },
     {
@@ -732,6 +1071,10 @@
       "market_ticker": "JOBLESS-22SEP10-C220,000",
       "title": "Will **initial jobless claims** be higher than 220,000 for the week ending September 11, 2022?",
       "status": "finalized",
+      "open_time": "2022-09-09T14:00:00Z",
+      "close_time": "2022-09-14T23:00:00Z",
+      "expected_expiration_time": "2022-09-15T22:00:00Z",
+      "latest_expiration_time": "2022-09-15T22:00:00Z",
       "source": "historical"
     },
     {
@@ -739,6 +1082,10 @@
       "market_ticker": "JOBLESS-22SEP17-C215",
       "title": "Will **initial jobless claims** be higher than 215,000 for the week ending September 17, 2022?",
       "status": "finalized",
+      "open_time": "2022-09-15T14:00:00Z",
+      "close_time": "2022-09-21T23:00:00Z",
+      "expected_expiration_time": "2022-09-22T22:00:00Z",
+      "latest_expiration_time": "2022-09-22T22:00:00Z",
       "source": "historical"
     },
     {
@@ -746,10 +1093,15 @@
       "market_ticker": "JOBLESS-22SEP24-C215",
       "title": "Will **initial jobless claims** be higher than 215,000 for the week ending Sep 24, 2022?",
       "status": "finalized",
+      "open_time": "2022-09-22T14:00:00Z",
+      "close_time": "2022-09-28T23:00:00Z",
+      "expected_expiration_time": "2022-09-29T22:00:00Z",
+      "latest_expiration_time": "2022-09-29T22:00:00Z",
       "source": "historical"
     }
   ],
   "tickers": [
+    "JOBLESS-21AUG07-C370",
     "JOBLESS-21AUG14-C365",
     "JOBLESS-21AUG21-C335",
     "JOBLESS-21AUG28-C350",
@@ -765,6 +1117,7 @@
     "JOBLESS-21NOV27-C200",
     "JOBLESS-21NOV27-C240",
     "JOBLESS-21OCT02-C350",
+    "JOBLESS-21OCT09-C320",
     "JOBLESS-21OCT16-C300",
     "JOBLESS-21OCT23-C290",
     "JOBLESS-21OCT30-C280",
@@ -773,6 +1126,7 @@
     "JOBLESS-21SEP11-C310",
     "JOBLESS-21SEP11-C320",
     "JOBLESS-21SEP18-C300",
+    "JOBLESS-21SEP25-C340",
     "JOBLESS-22APR02-C200K",
     "JOBLESS-22APR09-C160",
     "JOBLESS-22APR16-C185",
@@ -784,6 +1138,7 @@
     "JOBLESS-22AUG13-C265",
     "JOBLESS-22AUG20-C250",
     "JOBLESS-22AUG27-C245",
+    "JOBLESS-22FEB05-C200",
     "JOBLESS-22FEB12-C220",
     "JOBLESS-22FEB19-C250",
     "JOBLESS-22FEB26-C230",
@@ -795,13 +1150,16 @@
     "JOBLESS-22JUL02-C230",
     "JOBLESS-22JUL09-C230",
     "JOBLESS-22JUL16-C250",
+    "JOBLESS-22JUL23-C250,000",
     "JOBLESS-22JUL30-C250",
     "JOBLESS-22JUN04-C200",
     "JOBLESS-22JUN11-C225",
+    "JOBLESS-22JUN18-C225",
     "JOBLESS-22JUN25-C225",
     "JOBLESS-22MAR05-C230",
     "JOBLESS-22MAR12-C220",
     "JOBLESS-22MAR26-C185",
+    "JOBLESS-22MAY07-C200",
     "JOBLESS-22MAY14-C200",
     "JOBLESS-22MAY21-C215",
     "JOBLESS-22MAY28-C210",

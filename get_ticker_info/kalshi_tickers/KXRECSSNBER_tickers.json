@@ -1,9 +1,20 @@
 {
+  "schema_version": 2,
   "series": "KXRECSSNBER",
+  "built_at": "2026-09-17T20:46:01Z",
+  "historical_cutoff": "2026-07-19T00:00:00Z",
+  "status_counts": {
+    "active": 2,
+    "finalized": 4
+  },
   "events": [
     {
       "event_ticker": "KXRECSSNBER-26",
       "title": "Recession this year?"
+    },
+    {
+      "event_ticker": "KXRECSSNBER-27",
+      "title": "Recession in 2027?"
     },
     {
       "event_ticker": "RECSSNBER-22",
@@ -28,13 +39,32 @@
       "market_ticker": "KXRECSSNBER-26",
       "title": "Will there be a recession in 2026?",
       "status": "active",
-      "source": "live_event"
+      "open_time": "2025-07-14T14:00:00Z",
+      "close_time": "2027-01-31T13:25:00Z",
+      "expected_expiration_time": "2027-01-31T15:00:00Z",
+      "latest_expiration_time": "2027-02-07T15:00:00Z",
+      "source": "live"
+    },
+    {
+      "event_ticker": "KXRECSSNBER-27",
+      "market_ticker": "KXRECSSNBER-27",
+      "title": "Will there be a recession in 2027?",
+      "status": "active",
+      "open_time": "2026-04-24T19:15:00Z",
+      "close_time": "2028-01-31T13:25:00Z",
+      "expected_expiration_time": "2028-01-31T15:00:00Z",
+      "latest_expiration_time": "2028-02-07T15:00:00Z",
+      "source": "live"
     },
     {
       "event_ticker": "RECSSNBER-22",
       "market_ticker": "RECSSNBER-22",
       "title": "Will there be a recession in 2022?",
       "status": "finalized",
+      "open_time": "2022-07-01T14:00:00Z",
+      "close_time": "2022-07-28T14:04:19.52295Z",
+      "expected_expiration_time": "2023-01-26T15:00:00Z",
+      "latest_expiration_time": "2023-02-02T15:00:00Z",
       "source": "historical"
     },
     {
@@ -42,6 +72,10 @@
       "market_ticker": "RECSSNBER-23",
       "title": "Will there be a recession in 2023?",
       "status": "finalized",
+      "open_time": "2022-11-07T16:00:00Z",
+      "close_time": "2024-01-25T13:25:00Z",
+      "expected_expiration_time": "2024-01-25T15:00:00Z",
+      "latest_expiration_time": "2024-02-01T15:00:00Z",
       "source": "historical"
     },
     {
@@ -49,6 +83,10 @@
       "market_ticker": "RECSSNBER-24",
       "title": "Will there be a recession by the end of 2024?",
       "status": "finalized",
+      "open_time": "2023-07-06T14:00:00Z",
+      "close_time": "2025-01-31T13:25:00Z",
+      "expected_expiration_time": "2025-01-31T15:00:00Z",
+      "latest_expiration_time": "2025-02-07T15:00:00Z",
       "source": "historical"
     },
     {
@@ -56,11 +94,16 @@
       "market_ticker": "RECSSNBER-25",
       "title": "Will there be a recession in 2025?",
       "status": "finalized",
-      "source": "live_event"
+      "open_time": "2024-08-05T12:00:00Z",
+      "close_time": "2026-01-31T13:25:00Z",
+      "expected_expiration_time": "2026-01-31T15:00:00Z",
+      "latest_expiration_time": "2026-02-07T15:00:00Z",
+      "source": "historical"
     }
   ],
   "tickers": [
     "KXRECSSNBER-26",
+    "KXRECSSNBER-27",
     "RECSSNBER-22",
     "RECSSNBER-23",
     "RECSSNBER-24",

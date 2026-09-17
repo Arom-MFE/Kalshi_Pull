@@ -1,5 +1,11 @@
 {
+  "schema_version": 2,
   "series": "KXACPI",
+  "built_at": "2026-09-17T20:45:47Z",
+  "historical_cutoff": "2026-07-19T00:00:00Z",
+  "status_counts": {
+    "finalized": 40
+  },
   "events": [
     {
       "event_ticker": "ACPI-2023",
@@ -21,65 +27,13 @@
   "markets": [
     {
       "event_ticker": "ACPI-2023",
-      "market_ticker": "ACPI-23-C10.0",
-      "title": "Will **inflation** in 2023 be above 10.0%?",
-      "status": "finalized",
-      "source": "historical"
-    },
-    {
-      "event_ticker": "ACPI-2023",
-      "market_ticker": "ACPI-23-B9.5",
-      "title": "Will **inflation** in 2023 be between 9.0% and 9.9%?",
-      "status": "finalized",
-      "source": "historical"
-    },
-    {
-      "event_ticker": "ACPI-2023",
-      "market_ticker": "ACPI-23-B8.5",
-      "title": "Will **inflation** in 2023 be between 8.0% and 8.9%?",
-      "status": "finalized",
-      "source": "historical"
-    },
-    {
-      "event_ticker": "ACPI-2023",
-      "market_ticker": "ACPI-23-B7.5",
-      "title": "Will **inflation** in 2023 be between 7.0% and 7.9%?",
-      "status": "finalized",
-      "source": "historical"
-    },
-    {
-      "event_ticker": "ACPI-2023",
       "market_ticker": "ACPI-23-A6.5",
       "title": "Will **inflation** in 2023 be between 6.0% and 6.9%?",
       "status": "finalized",
-      "source": "historical"
-    },
-    {
-      "event_ticker": "ACPI-2023",
-      "market_ticker": "ACPI-23-B5.0",
-      "title": "Will **inflation** in 2023 be between 5.0% and 5.9%?",
-      "status": "finalized",
-      "source": "historical"
-    },
-    {
-      "event_ticker": "ACPI-2023",
-      "market_ticker": "ACPI-23-B4.5",
-      "title": "Will **inflation** in 2023 be between 4.0% and 4.9%?",
-      "status": "finalized",
-      "source": "historical"
-    },
-    {
-      "event_ticker": "ACPI-2023",
-      "market_ticker": "ACPI-23-B3.5",
-      "title": "Will **inflation** in 2023 be between 3.0% and 3.9%?",
-      "status": "finalized",
-      "source": "historical"
-    },
-    {
-      "event_ticker": "ACPI-2023",
-      "market_ticker": "ACPI-23-B2.5",
-      "title": "Will **inflation** in 2023 be between 2.0% and 2.9%?",
-      "status": "finalized",
+      "open_time": "2022-07-07T14:00:00Z",
+      "close_time": "2024-01-11T15:00:23.183586Z",
+      "expected_expiration_time": "2024-01-12T15:00:00Z",
+      "latest_expiration_time": "2024-01-27T15:00:00Z",
       "source": "historical"
     },
     {
@@ -87,6 +41,87 @@
       "market_ticker": "ACPI-23-B1.5",
       "title": "Will **inflation** in 2023 be between 1.0% and 1.9%?",
       "status": "finalized",
+      "open_time": "2022-07-07T14:00:00Z",
+      "close_time": "2024-01-11T15:00:23.183586Z",
+      "expected_expiration_time": "2024-01-12T15:00:00Z",
+      "latest_expiration_time": "2024-01-27T15:00:00Z",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "ACPI-2023",
+      "market_ticker": "ACPI-23-B2.5",
+      "title": "Will **inflation** in 2023 be between 2.0% and 2.9%?",
+      "status": "finalized",
+      "open_time": "2022-07-07T14:00:00Z",
+      "close_time": "2024-01-11T15:00:23.183586Z",
+      "expected_expiration_time": "2024-01-12T15:00:00Z",
+      "latest_expiration_time": "2024-01-27T15:00:00Z",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "ACPI-2023",
+      "market_ticker": "ACPI-23-B3.5",
+      "title": "Will **inflation** in 2023 be between 3.0% and 3.9%?",
+      "status": "finalized",
+      "open_time": "2022-07-07T14:00:00Z",
+      "close_time": "2024-01-11T15:00:23.183586Z",
+      "expected_expiration_time": "2024-01-12T15:00:00Z",
+      "latest_expiration_time": "2024-01-27T15:00:00Z",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "ACPI-2023",
+      "market_ticker": "ACPI-23-B4.5",
+      "title": "Will **inflation** in 2023 be between 4.0% and 4.9%?",
+      "status": "finalized",
+      "open_time": "2022-07-07T14:00:00Z",
+      "close_time": "2024-01-11T15:00:23.183586Z",
+      "expected_expiration_time": "2024-01-12T15:00:00Z",
+      "latest_expiration_time": "2024-01-27T15:00:00Z",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "ACPI-2023",
+      "market_ticker": "ACPI-23-B5.0",
+      "title": "Will **inflation** in 2023 be between 5.0% and 5.9%?",
+      "status": "finalized",
+      "open_time": "2022-07-07T14:00:00Z",
+      "close_time": "2024-01-11T15:00:23.183586Z",
+      "expected_expiration_time": "2024-01-12T15:00:00Z",
+      "latest_expiration_time": "2024-01-27T15:00:00Z",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "ACPI-2023",
+      "market_ticker": "ACPI-23-B7.5",
+      "title": "Will **inflation** in 2023 be between 7.0% and 7.9%?",
+      "status": "finalized",
+      "open_time": "2022-07-07T14:00:00Z",
+      "close_time": "2024-01-11T15:00:23.183586Z",
+      "expected_expiration_time": "2024-01-12T15:00:00Z",
+      "latest_expiration_time": "2024-01-27T15:00:00Z",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "ACPI-2023",
+      "market_ticker": "ACPI-23-B8.5",
+      "title": "Will **inflation** in 2023 be between 8.0% and 8.9%?",
+      "status": "finalized",
+      "open_time": "2022-07-07T14:00:00Z",
+      "close_time": "2024-01-11T15:00:23.183586Z",
+      "expected_expiration_time": "2024-01-12T15:00:00Z",
+      "latest_expiration_time": "2024-01-27T15:00:00Z",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "ACPI-2023",
+      "market_ticker": "ACPI-23-B9.5",
+      "title": "Will **inflation** in 2023 be between 9.0% and 9.9%?",
+      "status": "finalized",
+      "open_time": "2022-07-07T14:00:00Z",
+      "close_time": "2024-01-11T15:00:23.183586Z",
+      "expected_expiration_time": "2024-01-12T15:00:00Z",
+      "latest_expiration_time": "2024-01-27T15:00:00Z",
       "source": "historical"
     },
     {
@@ -94,48 +129,21 @@
       "market_ticker": "ACPI-23-C1.0",
       "title": "Will **inflation** in 2023 be below 1.0%?",
       "status": "finalized",
+      "open_time": "2022-07-07T14:00:00Z",
+      "close_time": "2024-01-11T15:00:23.183586Z",
+      "expected_expiration_time": "2024-01-12T15:00:00Z",
+      "latest_expiration_time": "2024-01-27T15:00:00Z",
       "source": "historical"
     },
     {
-      "event_ticker": "ACPI-2024",
-      "market_ticker": "ACPI-24-C7.0",
-      "title": "Will **inflation** in 2024 be above_below_between 6.9?",
+      "event_ticker": "ACPI-2023",
+      "market_ticker": "ACPI-23-C10.0",
+      "title": "Will **inflation** in 2023 be above 10.0%?",
       "status": "finalized",
-      "source": "historical"
-    },
-    {
-      "event_ticker": "ACPI-2024",
-      "market_ticker": "ACPI-24-B6.5",
-      "title": "Will **inflation** in 2024 be above_below_between 6.0 and 6.9?",
-      "status": "finalized",
-      "source": "historical"
-    },
-    {
-      "event_ticker": "ACPI-2024",
-      "market_ticker": "ACPI-24-B5.5",
-      "title": "Will **inflation** in 2024 be above_below_between 5.0 and 5.9?",
-      "status": "finalized",
-      "source": "historical"
-    },
-    {
-      "event_ticker": "ACPI-2024",
-      "market_ticker": "ACPI-24-B4.5",
-      "title": "Will **inflation** in 2024 be above_below_between 4.0 and 4.9?",
-      "status": "finalized",
-      "source": "historical"
-    },
-    {
-      "event_ticker": "ACPI-2024",
-      "market_ticker": "ACPI-24-B3.5",
-      "title": "Will **inflation** in 2024 be above_below_between 3.0 and 3.9?",
-      "status": "finalized",
-      "source": "historical"
-    },
-    {
-      "event_ticker": "ACPI-2024",
-      "market_ticker": "ACPI-24-B2.5",
-      "title": "Will **inflation** in 2024 be above_below_between 2.0 and 2.9?",
-      "status": "finalized",
+      "open_time": "2022-07-07T14:00:00Z",
+      "close_time": "2024-01-11T15:00:23.183586Z",
+      "expected_expiration_time": "2024-01-12T15:00:00Z",
+      "latest_expiration_time": "2024-01-27T15:00:00Z",
       "source": "historical"
     },
     {
@@ -143,6 +151,65 @@
       "market_ticker": "ACPI-24-B1.5",
       "title": "Will **inflation** in 2024 be above_below_between 1.0 and 1.9?",
       "status": "finalized",
+      "open_time": "2023-11-17T21:31:00Z",
+      "close_time": "2025-01-13T13:25:00Z",
+      "expected_expiration_time": "2025-01-13T15:00:00Z",
+      "latest_expiration_time": "2025-01-27T15:00:00Z",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "ACPI-2024",
+      "market_ticker": "ACPI-24-B2.5",
+      "title": "Will **inflation** in 2024 be above_below_between 2.0 and 2.9?",
+      "status": "finalized",
+      "open_time": "2023-11-17T21:31:00Z",
+      "close_time": "2025-01-13T13:25:00Z",
+      "expected_expiration_time": "2025-01-13T15:00:00Z",
+      "latest_expiration_time": "2025-01-27T15:00:00Z",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "ACPI-2024",
+      "market_ticker": "ACPI-24-B3.5",
+      "title": "Will **inflation** in 2024 be above_below_between 3.0 and 3.9?",
+      "status": "finalized",
+      "open_time": "2023-11-17T21:31:00Z",
+      "close_time": "2025-01-13T13:25:00Z",
+      "expected_expiration_time": "2025-01-13T15:00:00Z",
+      "latest_expiration_time": "2025-01-27T15:00:00Z",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "ACPI-2024",
+      "market_ticker": "ACPI-24-B4.5",
+      "title": "Will **inflation** in 2024 be above_below_between 4.0 and 4.9?",
+      "status": "finalized",
+      "open_time": "2023-11-17T21:31:00Z",
+      "close_time": "2025-01-13T13:25:00Z",
+      "expected_expiration_time": "2025-01-13T15:00:00Z",
+      "latest_expiration_time": "2025-01-27T15:00:00Z",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "ACPI-2024",
+      "market_ticker": "ACPI-24-B5.5",
+      "title": "Will **inflation** in 2024 be above_below_between 5.0 and 5.9?",
+      "status": "finalized",
+      "open_time": "2023-11-17T21:31:00Z",
+      "close_time": "2025-01-13T13:25:00Z",
+      "expected_expiration_time": "2025-01-13T15:00:00Z",
+      "latest_expiration_time": "2025-01-27T15:00:00Z",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "ACPI-2024",
+      "market_ticker": "ACPI-24-B6.5",
+      "title": "Will **inflation** in 2024 be above_below_between 6.0 and 6.9?",
+      "status": "finalized",
+      "open_time": "2023-11-17T21:31:00Z",
+      "close_time": "2025-01-13T13:25:00Z",
+      "expected_expiration_time": "2025-01-13T15:00:00Z",
+      "latest_expiration_time": "2025-01-27T15:00:00Z",
       "source": "historical"
     },
     {
@@ -150,48 +217,21 @@
       "market_ticker": "ACPI-24-C1.0",
       "title": "Will **inflation** in 2024 be above_below_between 1.0?",
       "status": "finalized",
+      "open_time": "2023-11-17T21:31:00Z",
+      "close_time": "2025-01-13T13:25:00Z",
+      "expected_expiration_time": "2025-01-13T15:00:00Z",
+      "latest_expiration_time": "2025-01-27T15:00:00Z",
       "source": "historical"
     },
     {
-      "event_ticker": "ACPI-22",
-      "market_ticker": "ACPI-22-C8.9",
-      "title": "Will **inflation** in 2022 be above 8.9%?",
+      "event_ticker": "ACPI-2024",
+      "market_ticker": "ACPI-24-C7.0",
+      "title": "Will **inflation** in 2024 be above_below_between 6.9?",
       "status": "finalized",
-      "source": "historical"
-    },
-    {
-      "event_ticker": "ACPI-22",
-      "market_ticker": "ACPI-22-B8.5",
-      "title": "Will **inflation** in 2022 be between 8.0% and 8.9%?",
-      "status": "finalized",
-      "source": "historical"
-    },
-    {
-      "event_ticker": "ACPI-22",
-      "market_ticker": "ACPI-22-B7.5",
-      "title": "Will **inflation** in 2022 be between 7.0% and 7.9%?",
-      "status": "finalized",
-      "source": "historical"
-    },
-    {
-      "event_ticker": "ACPI-22",
-      "market_ticker": "ACPI-22-B6.5",
-      "title": "Will **inflation** in 2022 be between 6.0% and 6.9%?",
-      "status": "finalized",
-      "source": "historical"
-    },
-    {
-      "event_ticker": "ACPI-22",
-      "market_ticker": "ACPI-22-B5.5",
-      "title": "Will **inflation** in 2022 be between 5.0% and 5.9%?",
-      "status": "finalized",
-      "source": "historical"
-    },
-    {
-      "event_ticker": "ACPI-22",
-      "market_ticker": "ACPI-22-B4.5",
-      "title": "Will **inflation** in 2022 be between 4.0% and 4.9%?",
-      "status": "finalized",
+      "open_time": "2023-11-17T21:31:00Z",
+      "close_time": "2025-01-13T13:25:00Z",
+      "expected_expiration_time": "2025-01-13T15:00:00Z",
+      "latest_expiration_time": "2025-01-27T15:00:00Z",
       "source": "historical"
     },
     {
@@ -199,6 +239,65 @@
       "market_ticker": "ACPI-22-B3.5",
       "title": "Will **inflation** in 2022 be between 3.0% and 3.9%?",
       "status": "finalized",
+      "open_time": "2022-03-09T16:00:00Z",
+      "close_time": "2023-01-11T13:25:00Z",
+      "expected_expiration_time": "2023-01-11T15:00:00Z",
+      "latest_expiration_time": "2023-01-25T15:00:00Z",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "ACPI-22",
+      "market_ticker": "ACPI-22-B4.5",
+      "title": "Will **inflation** in 2022 be between 4.0% and 4.9%?",
+      "status": "finalized",
+      "open_time": "2022-03-09T16:00:00Z",
+      "close_time": "2023-01-11T13:25:00Z",
+      "expected_expiration_time": "2023-01-11T15:00:00Z",
+      "latest_expiration_time": "2023-01-25T15:00:00Z",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "ACPI-22",
+      "market_ticker": "ACPI-22-B5.5",
+      "title": "Will **inflation** in 2022 be between 5.0% and 5.9%?",
+      "status": "finalized",
+      "open_time": "2022-03-09T16:00:00Z",
+      "close_time": "2023-01-11T13:25:00Z",
+      "expected_expiration_time": "2023-01-11T15:00:00Z",
+      "latest_expiration_time": "2023-01-25T15:00:00Z",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "ACPI-22",
+      "market_ticker": "ACPI-22-B6.5",
+      "title": "Will **inflation** in 2022 be between 6.0% and 6.9%?",
+      "status": "finalized",
+      "open_time": "2022-03-09T16:00:00Z",
+      "close_time": "2023-01-11T13:25:00Z",
+      "expected_expiration_time": "2023-01-11T15:00:00Z",
+      "latest_expiration_time": "2023-01-25T15:00:00Z",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "ACPI-22",
+      "market_ticker": "ACPI-22-B7.5",
+      "title": "Will **inflation** in 2022 be between 7.0% and 7.9%?",
+      "status": "finalized",
+      "open_time": "2022-03-09T16:00:00Z",
+      "close_time": "2023-01-11T13:25:00Z",
+      "expected_expiration_time": "2023-01-11T15:00:00Z",
+      "latest_expiration_time": "2023-01-25T15:00:00Z",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "ACPI-22",
+      "market_ticker": "ACPI-22-B8.5",
+      "title": "Will **inflation** in 2022 be between 8.0% and 8.9%?",
+      "status": "finalized",
+      "open_time": "2022-03-09T16:00:00Z",
+      "close_time": "2023-01-11T13:25:00Z",
+      "expected_expiration_time": "2023-01-11T15:00:00Z",
+      "latest_expiration_time": "2023-01-25T15:00:00Z",
       "source": "historical"
     },
     {
@@ -206,90 +305,21 @@
       "market_ticker": "ACPI-22-C3.0",
       "title": "Will **inflation** in 2022 be below 3.0%?",
       "status": "finalized",
+      "open_time": "2022-03-09T16:00:00Z",
+      "close_time": "2023-01-11T13:25:00Z",
+      "expected_expiration_time": "2023-01-11T15:00:00Z",
+      "latest_expiration_time": "2023-01-25T15:00:00Z",
       "source": "historical"
     },
     {
-      "event_ticker": "KXACPI-2025",
-      "market_ticker": "KXACPI-2025-6.0",
-      "title": "Will **inflation** in 2025 be above_below_between ?",
+      "event_ticker": "ACPI-22",
+      "market_ticker": "ACPI-22-C8.9",
+      "title": "Will **inflation** in 2022 be above 8.9%?",
       "status": "finalized",
-      "source": "historical"
-    },
-    {
-      "event_ticker": "KXACPI-2025",
-      "market_ticker": "KXACPI-2025-5.75",
-      "title": "Will **inflation** in 2025 be above_below_between ?",
-      "status": "finalized",
-      "source": "historical"
-    },
-    {
-      "event_ticker": "KXACPI-2025",
-      "market_ticker": "KXACPI-2025-5.3",
-      "title": "Will **inflation** in 2025 be above_below_between ?",
-      "status": "finalized",
-      "source": "historical"
-    },
-    {
-      "event_ticker": "KXACPI-2025",
-      "market_ticker": "KXACPI-2025-4.8",
-      "title": "Will **inflation** in 2025 be above_below_between ?",
-      "status": "finalized",
-      "source": "historical"
-    },
-    {
-      "event_ticker": "KXACPI-2025",
-      "market_ticker": "KXACPI-2025-4.3",
-      "title": "Will **inflation** in 2025 be above_below_between ?",
-      "status": "finalized",
-      "source": "historical"
-    },
-    {
-      "event_ticker": "KXACPI-2025",
-      "market_ticker": "KXACPI-2025-3.8",
-      "title": "Will **inflation** in 2025 be above_below_between ?",
-      "status": "finalized",
-      "source": "historical"
-    },
-    {
-      "event_ticker": "KXACPI-2025",
-      "market_ticker": "KXACPI-2025-3.3",
-      "title": "Will **inflation** in 2025 be above_below_between ?",
-      "status": "finalized",
-      "source": "historical"
-    },
-    {
-      "event_ticker": "KXACPI-2025",
-      "market_ticker": "KXACPI-2025-2.8",
-      "title": "Will **inflation** in 2025 be above_below_between ?",
-      "status": "finalized",
-      "source": "historical"
-    },
-    {
-      "event_ticker": "KXACPI-2025",
-      "market_ticker": "KXACPI-2025-2.3",
-      "title": "Will **inflation** in 2025 be above_below_between ?",
-      "status": "finalized",
-      "source": "historical"
-    },
-    {
-      "event_ticker": "KXACPI-2025",
-      "market_ticker": "KXACPI-2025-1.8",
-      "title": "Will **inflation** in 2025 be above_below_between ?",
-      "status": "finalized",
-      "source": "historical"
-    },
-    {
-      "event_ticker": "KXACPI-2025",
-      "market_ticker": "KXACPI-2025-1.3",
-      "title": "Will **inflation** in 2025 be above_below_between ?",
-      "status": "finalized",
-      "source": "historical"
-    },
-    {
-      "event_ticker": "KXACPI-2025",
-      "market_ticker": "KXACPI-2025-0.8",
-      "title": "Will **inflation** in 2025 be above_below_between ?",
-      "status": "finalized",
+      "open_time": "2022-03-09T16:00:00Z",
+      "close_time": "2023-01-11T13:25:00Z",
+      "expected_expiration_time": "2023-01-11T15:00:00Z",
+      "latest_expiration_time": "2023-01-25T15:00:00Z",
       "source": "historical"
     },
     {
@@ -297,6 +327,142 @@
       "market_ticker": "KXACPI-2025-0.6",
       "title": "Will **inflation** in 2025 be above_below_between ?",
       "status": "finalized",
+      "open_time": "2024-12-20T15:00:00Z",
+      "close_time": "2026-01-13T13:25:00Z",
+      "expected_expiration_time": "2026-01-12T15:00:00Z",
+      "latest_expiration_time": "2026-01-26T15:00:00Z",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXACPI-2025",
+      "market_ticker": "KXACPI-2025-0.8",
+      "title": "Will **inflation** in 2025 be above_below_between ?",
+      "status": "finalized",
+      "open_time": "2024-12-20T15:00:00Z",
+      "close_time": "2026-01-13T13:25:00Z",
+      "expected_expiration_time": "2026-01-12T15:00:00Z",
+      "latest_expiration_time": "2026-01-26T15:00:00Z",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXACPI-2025",
+      "market_ticker": "KXACPI-2025-1.3",
+      "title": "Will **inflation** in 2025 be above_below_between ?",
+      "status": "finalized",
+      "open_time": "2024-12-20T15:00:00Z",
+      "close_time": "2026-01-13T13:25:00Z",
+      "expected_expiration_time": "2026-01-12T15:00:00Z",
+      "latest_expiration_time": "2026-01-26T15:00:00Z",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXACPI-2025",
+      "market_ticker": "KXACPI-2025-1.8",
+      "title": "Will **inflation** in 2025 be above_below_between ?",
+      "status": "finalized",
+      "open_time": "2024-12-20T15:00:00Z",
+      "close_time": "2026-01-13T13:25:00Z",
+      "expected_expiration_time": "2026-01-12T15:00:00Z",
+      "latest_expiration_time": "2026-01-26T15:00:00Z",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXACPI-2025",
+      "market_ticker": "KXACPI-2025-2.3",
+      "title": "Will **inflation** in 2025 be above_below_between ?",
+      "status": "finalized",
+      "open_time": "2024-12-20T15:00:00Z",
+      "close_time": "2026-01-13T13:25:00Z",
+      "expected_expiration_time": "2026-01-12T15:00:00Z",
+      "latest_expiration_time": "2026-01-26T15:00:00Z",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXACPI-2025",
+      "market_ticker": "KXACPI-2025-2.8",
+      "title": "Will **inflation** in 2025 be above_below_between ?",
+      "status": "finalized",
+      "open_time": "2024-12-20T15:00:00Z",
+      "close_time": "2026-01-13T13:25:00Z",
+      "expected_expiration_time": "2026-01-12T15:00:00Z",
+      "latest_expiration_time": "2026-01-26T15:00:00Z",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXACPI-2025",
+      "market_ticker": "KXACPI-2025-3.3",
+      "title": "Will **inflation** in 2025 be above_below_between ?",
+      "status": "finalized",
+      "open_time": "2024-12-20T15:00:00Z",
+      "close_time": "2026-01-13T13:25:00Z",
+      "expected_expiration_time": "2026-01-12T15:00:00Z",
+      "latest_expiration_time": "2026-01-26T15:00:00Z",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXACPI-2025",
+      "market_ticker": "KXACPI-2025-3.8",
+      "title": "Will **inflation** in 2025 be above_below_between ?",
+      "status": "finalized",
+      "open_time": "2024-12-20T15:00:00Z",
+      "close_time": "2026-01-13T13:25:00Z",
+      "expected_expiration_time": "2026-01-12T15:00:00Z",
+      "latest_expiration_time": "2026-01-26T15:00:00Z",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXACPI-2025",
+      "market_ticker": "KXACPI-2025-4.3",
+      "title": "Will **inflation** in 2025 be above_below_between ?",
+      "status": "finalized",
+      "open_time": "2024-12-20T15:00:00Z",
+      "close_time": "2026-01-13T13:25:00Z",
+      "expected_expiration_time": "2026-01-12T15:00:00Z",
+      "latest_expiration_time": "2026-01-26T15:00:00Z",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXACPI-2025",
+      "market_ticker": "KXACPI-2025-4.8",
+      "title": "Will **inflation** in 2025 be above_below_between ?",
+      "status": "finalized",
+      "open_time": "2024-12-20T15:00:00Z",
+      "close_time": "2026-01-13T13:25:00Z",
+      "expected_expiration_time": "2026-01-12T15:00:00Z",
+      "latest_expiration_time": "2026-01-26T15:00:00Z",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXACPI-2025",
+      "market_ticker": "KXACPI-2025-5.3",
+      "title": "Will **inflation** in 2025 be above_below_between ?",
+      "status": "finalized",
+      "open_time": "2024-12-20T15:00:00Z",
+      "close_time": "2026-01-13T13:25:00Z",
+      "expected_expiration_time": "2026-01-12T15:00:00Z",
+      "latest_expiration_time": "2026-01-26T15:00:00Z",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXACPI-2025",
+      "market_ticker": "KXACPI-2025-5.75",
+      "title": "Will **inflation** in 2025 be above_below_between ?",
+      "status": "finalized",
+      "open_time": "2024-12-20T15:00:00Z",
+      "close_time": "2026-01-13T13:25:00Z",
+      "expected_expiration_time": "2026-01-12T15:00:00Z",
+      "latest_expiration_time": "2026-01-26T15:00:00Z",
+      "source": "historical"
+    },
+    {
+      "event_ticker": "KXACPI-2025",
+      "market_ticker": "KXACPI-2025-6.0",
+      "title": "Will **inflation** in 2025 be above_below_between ?",
+      "status": "finalized",
+      "open_time": "2024-12-20T15:00:00Z",
+      "close_time": "2026-01-13T13:25:00Z",
+      "expected_expiration_time": "2026-01-12T15:00:00Z",
+      "latest_expiration_time": "2026-01-26T15:00:00Z",
       "source": "historical"
     }
   ],

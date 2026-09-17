@@ -307,7 +307,7 @@ FROM read_parquet('kalshi_data/candles/minute/**/*.parquet', union_by_name = tru
 
 ## Series covered
 
-15 series, 524 events, 4,065 unique tickers, per the committed `all_tickers.json`.
+15 series, 563 events, 4,840 unique tickers (611 of them open), per the committed `all_tickers.json`, built 2026-09-17.
 
 | Category | Series |
 |---|---|

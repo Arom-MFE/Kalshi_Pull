@@ -1,5 +1,12 @@
 {
+  "schema_version": 2,
   "series": "KXFEDMEET",
+  "built_at": "2026-09-17T20:46:07Z",
+  "historical_cutoff": "2026-07-19T00:00:00Z",
+  "status_counts": {
+    "active": 1,
+    "finalized": 3
+  },
   "events": [
     {
       "event_ticker": "FEDMEET-24",
@@ -20,6 +27,10 @@
       "market_ticker": "FEDMEET-24-25JAN01",
       "title": "Will the Fed have an emergency meeting before Jan 1, 2025?",
       "status": "finalized",
+      "open_time": "2024-08-06T12:00:01Z",
+      "close_time": "2025-01-01T04:59:00Z",
+      "expected_expiration_time": "2024-09-18T14:00:00Z",
+      "latest_expiration_time": "2025-01-01T15:00:00Z",
       "source": "historical"
     },
     {
@@ -27,6 +38,10 @@
       "market_ticker": "FEDMEET-24-SEP17",
       "title": "Will the Fed have an emergency meeting before Sep 17, 2024?",
       "status": "finalized",
+      "open_time": "2024-08-06T12:00:00Z",
+      "close_time": "2024-09-17T03:59:00Z",
+      "expected_expiration_time": "2024-09-18T14:00:00Z",
+      "latest_expiration_time": "2024-09-17T14:00:00Z",
       "source": "historical"
     },
     {
@@ -34,6 +49,10 @@
       "market_ticker": "KXFEDMEET-25-JAN01",
       "title": "Will the Fed have an emergency meeting before Jan 1, 2026?",
       "status": "finalized",
+      "open_time": "2024-11-05T15:00:00Z",
+      "close_time": "2026-01-01T04:59:00Z",
+      "expected_expiration_time": "2026-01-02T15:00:00Z",
+      "latest_expiration_time": "2026-01-01T15:00:00Z",
       "source": "historical"
     },
     {
@@ -41,7 +60,11 @@
       "market_ticker": "KXFEDMEET-27-JAN01",
       "title": "Will the Fed have an emergency meeting before Jan 1, 2027?",
       "status": "active",
-      "source": "live_event"
+      "open_time": "2026-01-01T05:01:00Z",
+      "close_time": "2027-01-01T04:59:00Z",
+      "expected_expiration_time": "2027-01-02T15:00:00Z",
+      "latest_expiration_time": "2027-01-01T15:00:00Z",
+      "source": "live"
     }
   ],
   "tickers": [

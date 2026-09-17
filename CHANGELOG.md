@@ -47,6 +47,7 @@ Two changes on Kalshi's side broke ticker discovery, and the hand-maintained foc
 - Every data call is plain REST through `client.request_json`, without a key. The SDK is only the request signer for a 401 or 403 fallback, and it is imported lazily.
 - `get_ticker_info/get_tickers.py` is a thin wrapper around `kalshi_io/catalog.py`. A rebuild of all 15 series takes about 125 requests instead of more than 1,000.
 - `get_ticker_info/get_Econ_Info.py` lists series through the discovery module.
+- The committed catalog was rebuilt on 2026-09-17 in format version 2: 524 to 563 events and 4,065 to 4,840 markets, 611 of them open. All 29 events that had no market in the old catalog now have theirs, and no cataloged ticker was lost. `focus_universe.json` and `.txt` hold the proposed universe.
 - Packaging: version 0.2.0, `pandas>=3.0,<4`, `pyarrow>=18`, `requests>=2.32`, `python-dotenv>=1.0`, `duckdb>=1.0`, `kalshi-python-sync>=3.30.0,<4`. `requires-python >=3.13` stays, because the SDK requires it.
 
 ### Removed
