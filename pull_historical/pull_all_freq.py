@@ -1,5 +1,5 @@
 """Runs every historical puller in sequence over ALL tickers in
-get_ticker_info/kalshi_tickers/all_tickers.txt (~4,065 tickers) — including
+get_ticker_info/kalshi_tickers/all_tickers.txt (several thousand tickers) — including
 minute candles and trades, NOT just the focus universe.
 
 WARNING: at full scale this is a multi-hour (potentially multi-day) job that
