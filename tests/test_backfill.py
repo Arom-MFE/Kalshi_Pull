@@ -144,6 +144,17 @@ def test_layers_run_in_order_and_events_by_priority(exchange, data_dir, waits, c
     assert waits == []
 
 
+def test_run_ends_with_the_data_quality_checks_unless_no_audit(exchange, data_dir, waits, capsys):
+    assert backfill.main([]) == 0
+    out = capsys.readouterr().out
+    assert out.index("Result: complete") < out.index("=== Data-quality checks")
+    # Every file the run wrote passes its own schema; the metadata store feeds the ladder checks
+    assert "0 of " in out and " files rejected" in out and "ladder:             0 inverted mids" in out
+    assert "no metadata store" not in out
+    (csv_path,) = (data_dir / "logs").glob("quality_*.csv")
+    assert set(pd.read_csv(csv_path)["check"]) >= {"coverage"}
+
+
 def test_summary_journal_and_store_counts_are_written(exchange, data_dir, waits):
     assert backfill.main(["--no-audit"]) == 0
     (summary_path,) = (data_dir / "logs").glob("backfill_summary_*.json")

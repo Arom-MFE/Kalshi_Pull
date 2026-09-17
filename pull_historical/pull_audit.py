@@ -10,10 +10,16 @@ only: when the ticker catalog was built, how many of the audited tickers the
 catalog calls open or settled, and what the focus universe holds (the
 poller's snapshot, or the file written by get_ticker_info/roll.py).
 
+After the coverage it runs the data-quality checks of kalshi_io/quality.py
+over the whole store (schema, duplicates, order, ladders, mutually exclusive
+events, stale and missing strikes, coverage per series; counts only) and
+writes them to kalshi_data/logs/quality_{YYYYMMDD}.csv. --no-checks skips them.
+
 CLI:
     python pull_historical/pull_audit.py --tickers KXRECSSNBER
     python pull_historical/pull_audit.py --tickers focus
     python pull_historical/pull_audit.py                        # all tickers
+    python pull_historical/pull_audit.py --no-checks            # coverage only
 """
 
 import argparse
@@ -26,7 +32,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
 import pandas as pd
 
-from kalshi_io import catalog, universe
+from kalshi_io import catalog, quality, universe
 from kalshi_io.candles import resolve_ticker_meta
 from kalshi_io.config import DATA_DIR, TICKERS_DIR
 from kalshi_io.discovery import status_bucket
@@ -225,6 +231,8 @@ def main(argv: list[str] | None = None) -> int:
              "or tickers separated by spaces or commas",
     )
     parser.add_argument("--limit", type=int, default=None, help="Max tickers to audit")
+    parser.add_argument("--no-checks", action="store_true",
+                        help="Skip the data-quality checks over the whole store (kalshi_io/quality.py)")
     args = parser.parse_args(argv)
 
     ticker_list = load_tickers(args.tickers)
@@ -287,6 +295,12 @@ def main(argv: list[str] | None = None) -> int:
         if len(missing) <= 20:
             for t in missing:
                 print(f"  {t}")
+
+    # The checks cover the whole store, not only the audited tickers: a ladder
+    # or a mutually exclusive event is only readable with all its strikes
+    if not args.no_checks:
+        print()
+        print(quality.format_report(quality.run_checks()))
     return 0
 
 
