@@ -140,3 +140,10 @@ def test_audit_prints_both_headers_adds_status_columns_and_makes_no_request(fake
     assert rows.loc["KXZ-26JUL-T9", "total_volume"] == 12.5
 
     assert fake_api.calls == []                                           # offline by design
+
+
+def test_volume_sums_print_at_the_contract_granularity():
+    assert pull_audit._fmt_vol(77762.0) == "77762"
+    assert pull_audit._fmt_vol(208059.78) == "208059.78"
+    assert pull_audit._fmt_vol(0.1 + 0.2) == "0.30"
+    assert pull_audit._fmt_vol(496409.50000000006) == "496409.50"      # float noise from summing a column

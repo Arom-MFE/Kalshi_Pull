@@ -144,9 +144,11 @@ def focus_header(index: dict[str, dict], now: datetime | None = None) -> list[st
 
 
 def _fmt_vol(v: float) -> str:
-    """Format a volume sum: whole numbers bare, fractional at full precision."""
-    v = float(v)
-    return str(int(v)) if v == int(v) else str(v)
+    """Format a volume sum: whole numbers bare, fractional ones at two decimals.
+    Contract counts have a granularity of 0.01, so anything beyond that in a
+    sum is floating-point noise (496409.50000000006)."""
+    v = round(float(v), 2)
+    return str(int(v)) if v == int(v) else f"{v:.2f}"
 
 
 def _audit_ticker(ticker: str, index: dict[str, dict] | None = None) -> dict | None:
