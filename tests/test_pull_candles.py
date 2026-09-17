@@ -129,8 +129,10 @@ def test_market_in_the_historical_tier_switches_endpoint_once(exchange, data_dir
     assert stored["close"].eq(0.5).all() and stored["volume"].eq(10.0).all()
 
 
-def test_ticker_unknown_to_the_api_is_a_recorded_failure(exchange, data_dir):
+def test_ticker_unknown_to_the_api_is_reported_and_recorded_not_fetched(exchange, data_dir):
     summary = pull_daily.run(["TEST-26JAN-NOPE"])
-    assert summary["failed"] == 1 and summary["rows_written"] == 0
+    assert summary["unknown"] == ["TEST-26JAN-NOPE"] and summary["skipped"] == 1
+    assert summary["failed"] == 0 and summary["rows_written"] == 0
+    assert _candle_requests(exchange) == []
     line = (data_dir / "logs" / f"skip_daily_{runlog.PROCESS_STAMP}.txt").read_text()
-    assert "UnknownTickerError" in line
+    assert "TEST-26JAN-NOPE\tunknown ticker" in line

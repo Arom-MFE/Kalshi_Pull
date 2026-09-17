@@ -98,8 +98,10 @@ def main():
     parser = argparse.ArgumentParser(description="Audit daily candle coverage (read-only).")
     parser.add_argument(
         "--tickers",
+        nargs="+",
         default=str(TICKERS_DIR / "all_tickers.txt"),
-        help="Ticker source: .txt path, .json path, series name, or single ticker",
+        help="Ticker source(s): .txt/.json path, series name, 'focus', "
+             "or tickers separated by spaces or commas",
     )
     parser.add_argument("--limit", type=int, default=None, help="Max tickers to audit")
     args = parser.parse_args()

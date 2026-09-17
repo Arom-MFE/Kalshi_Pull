@@ -28,7 +28,7 @@ from kalshi_io.config import DATA_DIR, DEDUPE_COLS_CANDLES, MAX_CONSECUTIVE_OUTA
 from kalshi_io.resolve import get_market_metadata
 from kalshi_io.runlog import get_logger, get_skip_recorder, run_logging
 from kalshi_io.storage import append_parquet, get_last_timestamp, get_output_path
-from kalshi_io.tickers import load_tickers
+from kalshi_io.tickers import load_tickers, validate_tickers
 
 logger = get_logger("pull_hourly")
 
@@ -51,14 +51,18 @@ def run(
     Pull hourly candles for every ticker in the input list.
 
     Args:
-        tickers: source for load_tickers (path, series name, list, or single ticker)
+        tickers: source for load_tickers: path, series name, "focus", ticker(s)
+                 separated by whitespace or commas, or a list of those
         since:   optional "YYYY-MM-DD" — override start date for all tickers
         limit:   optional max number of tickers to process
 
     Returns:
         {"processed": int, "skipped": int, "failed": int, "aborted": bool,
-         "rows_written": int, "elapsed_sec": float}. "skipped" counts every
-        ticker that was not processed; "failed" is the subset that raised
+         "unknown": list[str], "rows_written": int, "elapsed_sec": float}.
+        "skipped" counts every ticker that was not processed; "unknown" lists
+        the tickers found neither in the catalog nor on the API (they are
+        recorded in the skip file and not attempted); "failed" is the subset
+        that raised
         (logged at ERROR and recorded in this process's skip file); "aborted"
         is True when the run stopped early because MAX_CONSECUTIVE_OUTAGES
         tickers in a row exhausted their retries.
@@ -81,7 +85,11 @@ def _run(
     ticker_list = load_tickers(tickers)
     if limit:
         ticker_list = ticker_list[:limit]
-    logger.info(f"Tickers: {len(ticker_list)} (limit={limit})")
+    ticker_list, unknown = validate_tickers(ticker_list)
+    for ticker in unknown:
+        logger.warning(f"{ticker}: SKIP — unknown ticker (not in the catalog, not found on the API)")
+        skips.record(ticker, "unknown ticker: not in the catalog and not found on the API", code="unknown")
+    logger.info(f"Tickers: {len(ticker_list)} (limit={limit}, unknown={len(unknown)})")
 
     # Parse since
     since_ts: int | None = None
@@ -90,7 +98,7 @@ def _run(
         logger.info(f"Since override: {since} ({since_ts}s)")
 
     processed = 0
-    skipped = 0
+    skipped = len(unknown)
     failed = 0
     rows_written = 0
     outages_in_a_row = 0
@@ -184,6 +192,7 @@ def _run(
         "skipped": skipped,
         "failed": failed,
         "aborted": aborted,
+        "unknown": unknown,
         "rows_written": rows_written,
         "elapsed_sec": elapsed,
     }
@@ -196,8 +205,10 @@ def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description="Pull hourly candles for Kalshi tickers.")
     parser.add_argument(
         "--tickers",
+        nargs="+",
         default=str(TICKERS_DIR / "all_tickers.txt"),
-        help="Ticker source: .txt path, .json path, series name, or single ticker",
+        help="Ticker source(s): .txt/.json path, series name, 'focus', "
+             "or tickers separated by spaces or commas",
     )
     parser.add_argument("--limit", type=int, default=None, help="Max tickers to process")
     parser.add_argument("--since", default=None, help="Start date override (YYYY-MM-DD)")

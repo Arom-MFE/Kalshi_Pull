@@ -60,6 +60,13 @@ def _derive_series(market_ticker: str) -> str:
     return canonical_series(market_ticker.split("-")[0])
 
 
+def is_cataloged(market_ticker: str) -> bool:
+    """True if the ticker's event and series are known without asking the API
+    (committed catalog, or registered by the focus universe)."""
+    _ensure_ticker_meta()
+    return market_ticker in _ticker_meta
+
+
 def register_ticker_meta(mapping: dict[str, tuple[str, str]]) -> None:
     """
     Pre-register {market_ticker: (series_ticker, event_ticker)} for tickers
