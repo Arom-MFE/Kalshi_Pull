@@ -30,7 +30,7 @@ EXIT CODES: 0 every series refreshed and every check passed; 1 otherwise
 
 import argparse
 import sys
-from datetime import datetime, timedelta, timezone
+from datetime import datetime, timezone
 from pathlib import Path
 
 # Ensure kalshi_io is importable when running as a script
@@ -46,9 +46,6 @@ logger = get_logger("roll")
 
 # Lines shown per report section before "... and N more" (--full shows all)
 SECTION_LIMIT = 40
-
-# Minute candles are the expensive backfill; the report suggests this window
-MINUTE_BACKFILL_DAYS = 60
 
 
 # ============================================================
@@ -186,7 +183,6 @@ def format_report(
     lines += ["", "CHECKS"]
     lines += [f"  [{'ok' if c['ok'] else 'FAIL'}] {c['name']}: {c['detail']}" for c in checks]
 
-    since = (now - timedelta(days=MINUTE_BACKFILL_DAYS)).strftime("%Y-%m-%d")
     lines += ["", "NEXT STEPS"]
     if dry_run:
         lines.append("  python get_ticker_info/roll.py                      # same run, written to disk")
@@ -196,7 +192,7 @@ def format_report(
         lines += [
             "  python -m pull_historical.pull_daily  --tickers focus",
             "  python -m pull_historical.pull_hourly --tickers focus",
-            f"  python -m pull_historical.pull_minute --tickers focus --since {since}",
+            "  python -m pull_historical.pull_minute --tickers focus   # from market open; the API has no depth limit",
             "  python -m pull_historical.pull_trades --tickers focus",
             "  python -m pull_live.poll_focus                       # derives the same universe itself",
         ]

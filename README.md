@@ -110,7 +110,7 @@ It rediscovers the 15 series (about 125 requests, under a minute), rewrites the 
 ```bash
 python -m pull_historical.pull_daily  --tickers focus
 python -m pull_historical.pull_hourly --tickers focus
-python -m pull_historical.pull_minute --tickers focus --since 2026-07-19
+python -m pull_historical.pull_minute --tickers focus
 python -m pull_historical.pull_trades --tickers focus
 ```
 
