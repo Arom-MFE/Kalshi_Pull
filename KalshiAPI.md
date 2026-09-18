@@ -55,7 +55,7 @@ Kalshi runs two API surfaces. Settled markets, their candles, and their trades a
 
 - A market settled before the cutoff is missing from `/markets`, from `/markets/{ticker}` (404), and from the nested markets of `/events`. It is on `/historical/markets`.
 - The two tiers overlap near the cutoff (observed). This repo unions them by ticker and lets the live record win, because its status is current.
-- `/historical/markets` takes `tickers`, `event_ticker` or `series_ticker`, one at a time. Both `/markets?tickers=` and `/historical/markets?tickers=` take up to 100 tickers per request, which is how the metadata store is refreshed.
+- `/historical/markets` takes `tickers`, `event_ticker` or `series_ticker`, one at a time. Both `/markets?tickers=` and `/historical/markets?tickers=` take a comma separated list; this repo sends 100 tickers per request, which is how the metadata store is refreshed. The specification states no maximum, and 150 tickers in one request were answered in full on 2026-09-18.
 - With `with_nested_markets=true`, an event whose markets are all historical has no `markets` key at all, not an empty list (observed). `GET /events/{ticker}` puts the markets at the top level or inside the event depending on that flag.
 - The two surfaces name the same values differently: a live candle carries `price.close_dollars` and `volume_fp`, while the historical version of that candle carries `price.close` and `volume`. The market payloads have the same schema on both tiers. This repo asks the tier the catalog recorded for a market first, falls back to the other on 404, and normalizes both candle shapes into one schema.
 - The OpenAPI description of `trades_created_ts` says trades before it must be read from `GET /historical/fills`, an authenticated endpoint for the caller's own fills; the historical-data guide, and the live API, serve the public tape before the cutoff on `GET /historical/trades`.
@@ -72,7 +72,7 @@ A ticker that worked against the live API last quarter may need the historical e
 | `floor_strike`, `cap_strike` | The threshold(s) as numbers. A `greater` market asks whether the value exceeds `floor_strike`, a `less` market whether it stays below `cap_strike`, a `between` market both |
 | `custom_strike` | An object for markets such as a Fed decision, for example `{"Cut": "25"}` |
 | `functional_strike` | Formula text |
-| `result` | `yes`, `no` or a scalar once determined; `""` until then |
+| `result` | `yes`, `no` or `scalar` once determined; `""` until then |
 | `settlement_value_dollars`, `settlement_ts` | Present once the market is determined |
 | `expiration_value` | The underlying print the market settled on, as text: `"3.4"` for July 2026 CPI; `""` until known |
 | `open_time`, `close_time`, `expected_expiration_time`, `latest_expiration_time` | ISO times. `expiration_time` is deprecated and may disappear |
@@ -102,8 +102,9 @@ Observed on 2026-09-17:
 - An empty side of the book is quoted as `0.0000` (no bid) or `1.0000` (no ask).
 - Candles are sparse at every interval: a candle exists only for a period in which something happened, a trade or a quote change. That strike had 233 minute candles in 2,880 minutes. Across the catalog a market has roughly 0.3 to 1 daily, 1 to 13 hourly and 1 to 85 minute candles per day of its life. Only completed periods are served.
 - **No depth limit for minute candles.** Neither the specification nor any guide page limits how far back a `period_interval` reaches or how long candles are kept, on either tier. Observed: `/historical/` served minute candles from 2022-11 for `RECSSNBER-23`, the live tier served them from market open (2025-07) for `KXRECSSNBER-26`, and for a market that both tiers hold (`KXCPIYOY-26JUN-T3.5`) the two returned the same 543 minute candles for the same window. Minute pulls in this repo therefore start at market open. (Version 0.2.0 suggested a 60 day window; that was a default of this repo, not a limit of the API.)
-- Windows are inclusive on both ends, so a candle on a window boundary arrives twice.
+- Windows are inclusive on both ends, so a candle on a window boundary arrives twice. The specification says as much: a request returns the candlesticks ending on or after `start_ts` and on or before `end_ts`.
 - **The closing candle.** The period that contains `close_time` has one last candle and nothing after it: for a 12:29:00Z close the last minute candle ends 12:30:00Z, the last hourly candle 13:00Z, the last daily candle at the next midnight Eastern time. A window that ends exactly at `close_time` loses it. This repo pulls a finalized market to `close_time` plus two periods (the ET day on which daylight saving ends is 25 hours long, so one daily period is not enough).
+- **A quiet close has no closing hourly or minute candle.** On the historical tier a market with no activity in its closing period gets a closing daily candle but no closing hourly or minute candle; a market that traded into its close has all three. Observed on 2026-09-18: `RECSSNBER-23` (historical tier, closed 2024-01-25 13:25Z) has a closing daily candle that ends 2024-01-26 05:00Z and carries no trade price, its last hourly candle ends 2023-12-21 19:00Z, and the three days before its close hold no minute candle. `KXCPIYOY-26JUL-T3.5` (closed 2026-08-12 12:29Z, settled after the cutoff and therefore still on the live tier) has a minute candle ending 12:30Z, an hourly one ending 13:00Z and a daily one ending 2026-08-13 04:00Z; the hourly and daily ones carry a trade price, the closing minute candle carries quotes only. The last hourly or minute candle of a settled market can therefore lie weeks before its close, and that is its complete history, not a gap.
 - **Daily candles end at midnight Eastern time**, 04:00Z in summer and 05:00Z in winter, not at 00:00Z.
 - **Batch candlesticks.** `GET /markets/candlesticks` returns candles for several markets in one request (10,000 candles in total). Its spec declares `period_interval` as `minimum: 1` without the 1, 60, 1440 enum the per-market endpoints have. This repo does not use it yet; it would turn the poller's minute sweep of 64 requests into one.
 - **5,000 candle cap.** A request whose window spans more than 5,000 candles is rejected with HTTP 400 `max candlesticks: 5000`, on both tiers. The documentation describes a cap only for event candlesticks (the response carries `adjusted_end_ts` when a request is too large) and for the batch endpoint (10,000 candlesticks in total). For the per-market endpoints the cap is observed behavior, and the API rejects the request instead of truncating it. This repo sizes windows to stay under it: 3 days of minute candles, 30 days of hourly, 365 days of daily.
@@ -125,7 +126,7 @@ Observed on 2026-09-17:
 
 `GET /markets/orderbooks` returns the books of several markets in one request, up to 100 per call. The tickers must be repeated parameters (`?tickers=A&tickers=B`); a comma-joined value is read as one ticker name and answers with nothing (observed 2026-09-17). All 64 books of the focus universe come back in one 0.12 second response, and the response is throttled as one request (12 calls at one per second drew no 429), although the rate-limits page says batch endpoints cost per item. `poll_focus` takes every sweep this way, so every book of a sweep carries one timestamp, and falls back to per-ticker requests on an error.
 
-The OpenAPI spec declares authentication on both orderbook routes, the orderbook guide and the quick start page list them as public, and both answered without a key on 2026-09-17. A settled market answers 200 with empty books, so an empty snapshot is not an error and a stale ticker list fails silently. That is why `poll_focus` checks its universe before it starts. There is no keyless WebSocket, so REST polling is the only way to a book history.
+The OpenAPI spec declares authentication on both orderbook routes, the orderbook guide and the quick start page list them as public, and both answered without a key on 2026-09-17. A settled market answers 200 with empty books, so an empty snapshot is not an error and a stale ticker list fails silently. Observed on 2026-09-18: a ticker that does not exist is answered the same way on both routes (200 with empty books; the batch route returns an entry for it), so an empty book does not show that a ticker is valid. That is why `poll_focus` checks its universe before it starts. There is no keyless WebSocket, so REST polling is the only way to a book history.
 
 ## Rate limits and retries
 
@@ -166,15 +167,15 @@ All are plain REST and answer without a key today. The base URL is `https://api.
 | `GET /series` | List series, by category and tags | `kalshi_io/discovery.py` |
 | `GET /search/tags_by_categories` | Categories with their tags | `kalshi_io/discovery.py` |
 | `GET /events` | List events of a series, by status | `kalshi_io/discovery.py` (catalog, universe, `find_events`) |
-| `GET /events/{event_ticker}` | One event with its markets and its series | `kalshi_io/discovery.py` (resolving uncataloged tickers) |
-| `GET /markets` | List markets by series, event, tickers and status; up to 100 tickers per request for the metadata store | `kalshi_io/discovery.py` (catalog, universe, `find_events`, `kalshi_io/metadata.py`) |
+| `GET /events/{event_ticker}` | One event with its markets, its series and its `mutually_exclusive` flag | `kalshi_io/discovery.py` (resolving uncataloged tickers, events the catalog sees only on markets, the event flag of the metadata store) |
+| `GET /markets` | List markets by series, event, tickers and status; 100 tickers per request for the metadata store | `kalshi_io/discovery.py` (catalog, universe, `find_events`, `kalshi_io/metadata.py`) |
 | `GET /markets/{ticker}` | One market's metadata | `kalshi_io/discovery.py`, `kalshi_io/resolve.py` |
 | `GET /series/{series}/markets/{ticker}/candlesticks` | Live candles | `kalshi_io/candles.py` |
 | `GET /markets/trades` | Live trade tape | `kalshi_io/trades.py` |
 | `GET /markets/{ticker}/orderbook` | One orderbook (the poller's fallback) | `kalshi_io/orderbook.py` |
 | `GET /markets/orderbooks` | The orderbooks of up to 100 markets in one request | `kalshi_io/orderbook.py` (`poll_focus`) |
 | `GET /historical/cutoff` | Live and historical boundary | `kalshi_io/discovery.py`, `kalshi_io/trades.py` |
-| `GET /historical/markets` | List settled markets; up to 100 tickers per request for the metadata store | `kalshi_io/discovery.py`, `kalshi_io/metadata.py` |
+| `GET /historical/markets` | List settled markets; 100 tickers per request for the metadata store | `kalshi_io/discovery.py`, `kalshi_io/metadata.py` |
 | `GET /historical/markets/{ticker}` | One settled market's metadata | `kalshi_io/discovery.py` |
 | `GET /historical/markets/{ticker}/candlesticks` | Candles for settled markets | `kalshi_io/candles.py` |
 | `GET /historical/trades` | Trade tape before the cutoff | `kalshi_io/trades.py` |

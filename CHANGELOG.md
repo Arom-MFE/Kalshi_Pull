@@ -55,7 +55,7 @@ Two changes on Kalshi's side broke ticker discovery, and the hand-maintained foc
 - Run `pip install -e .` again. `kalshi-python-sync` 3.30.0 or newer is now required.
 - `FOCUS_UNIVERSE` is gone from `kalshi_io/config.py`. The universe is derived from `FOCUS_SERIES`. Put tickers in `FOCUS_OVERRIDE` only to pin a universe by hand.
 - Candle files gain eight quote columns. Existing files are not rewritten; they gain the columns on their next append, with NaN for the old rows. DuckDB queries that name the new columns across old and new files need `union_by_name = true`.
-- `poll_focus` writes one log file per day and the pullers it calls log into that file. Skip files are now `logs/skip_{kind}_{process start}.txt`; the old `skip_daily.txt` and `skip_hourly.txt` are no longer written or read.
+- `poll_focus` writes one log file per process, named after the UTC day it started, and the pullers it calls log into that file. Skip files are now `logs/skip_{kind}_{process start}.txt`; the old `skip_daily.txt` and `skip_hourly.txt` are no longer written or read.
 - No API key is needed for anything. Credentials are read only if an endpoint answers 401 or 403.
 
 ### Fixed
