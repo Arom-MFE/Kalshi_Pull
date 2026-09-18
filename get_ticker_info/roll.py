@@ -190,11 +190,10 @@ def format_report(
         lines.append(f"  git diff --stat {_display_path(out_dir)}   # review, then commit the catalog")
     if focus is not None:
         lines += [
-            "  python -m pull_historical.pull_daily  --tickers focus",
-            "  python -m pull_historical.pull_hourly --tickers focus",
-            "  python -m pull_historical.pull_minute --tickers focus   # from market open; the API has no depth limit",
-            "  python -m pull_historical.pull_trades --tickers focus",
-            "  python -m pull_live.poll_focus                       # derives the same universe itself",
+            "  python -m pull_historical.backfill --tickers focus   # metadata, daily, hourly, trades, minute from "
+            "market open; resumes; the API has no depth limit",
+            "  python -m pull_live.poll_focus                       # derives the same universe itself and pulls "
+            "missing history in the background",
         ]
     return "\n".join(lines)
 

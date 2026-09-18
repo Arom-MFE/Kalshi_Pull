@@ -1,6 +1,6 @@
 # Kalshi Market Data Pipeline
 
-Kalshi_Pull turns Kalshi's prediction market API into clean, research-ready market data. Kalshi is an exchange where contracts trade on real-world events, so every price reads as a probability, and a full price history is a record of what the market believed, day by day. Getting that history out of the raw API is the hard part: data is split across live and historical endpoints that name the same fields differently, prices and volumes arrive as text rather than numbers, candle requests are capped at 5,000 per call, and settled markets drop off the live endpoints entirely. Kalshi_Pull handles all of it, pulling price history at three speeds (daily, hourly, minute) with the bid and ask quotes of every period, every individual trade, and order book snapshots into partitioned zstd Parquet that dedupes on write and resumes where it stopped. It ships with a committed catalog of 15 US macro series, from CPI and Fed decisions to payrolls and GDP, and it can pull any ticker on the exchange. A search CLI finds series, events and markets, and a roll command moves the catalog and the polled universe to the next event cycle. Every data endpoint it uses is public, so no API key is needed. There is no analysis code here: downstream research reads the Parquet output.
+Kalshi_Pull turns Kalshi's prediction market API into clean, research-ready market data. Kalshi is an exchange where contracts trade on real-world events, so every price reads as a probability, and a full price history is a record of what the market believed, day by day. Getting that history out of the raw API is the hard part: data is split across live and historical endpoints that name the same fields differently, prices and volumes arrive as text rather than numbers, candle requests are capped at 5,000 per call, and settled markets drop off the live endpoints entirely. Kalshi_Pull handles all of it, pulling price history at three speeds (daily, hourly, minute) with the bid and ask quotes of every period, every individual trade, and order book snapshots into partitioned zstd Parquet that dedupes on write and resumes where it stopped. A metadata store keeps what each market was: its strike, its open and close, and once it settled, its result and the value it settled on. A bulk driver downloads the whole catalog in one resumable run, and a poller captures the order books of the markets that matter every few seconds around an economic release. It ships with a committed catalog of 15 US macro series, from CPI and Fed decisions to payrolls and GDP, and it can pull any ticker on the exchange. A search CLI finds series, events and markets, and a roll command moves the catalog and the polled universe to the next event cycle. Every data endpoint it uses is public, so no API key is needed. There is no analysis code here: downstream research reads the Parquet output.
 
 ## Quickstart
 
@@ -51,16 +51,17 @@ The SDK `kalshi-python-sync` is used only to sign requests. Version 3.30.0 or ne
 | Script | What it does | Network |
 |---|---|---|
 | `get_ticker_info/find_events.py` | Search series, events and markets by category, tag, keyword and status | Keyless REST |
-| `get_ticker_info/roll.py` | Refresh the catalog, report what changed, propose the next focus universe | Keyless REST |
+| `get_ticker_info/roll.py` | Refresh the catalog and the market metadata store, report what changed, propose the next focus universe | Keyless REST |
 | `get_ticker_info/get_tickers.py` | Rebuild the catalog without the report | Keyless REST |
 | `get_ticker_info/get_Econ_Info.py` | List every series on Kalshi by category | Keyless REST |
-| `pull_historical/pull_daily.py` | Daily candles, resuming from the last stored row | Keyless REST |
+| `pull_historical/backfill.py` | Bulk driver: metadata, daily, hourly, trades and minute candles over the catalog or a ticker list, with an estimate, priority order, a journal and failure lists; resumes with the same command | Keyless REST |
+| `pull_historical/pull_daily.py` | Daily candles, from market open to close, resuming from the last stored row | Keyless REST |
 | `pull_historical/pull_hourly.py` | Hourly candles, partitioned by year | Keyless REST |
 | `pull_historical/pull_minute.py` | Minute candles, partitioned by year and month | Keyless REST |
 | `pull_historical/pull_trades.py` | Every individual trade for a ticker, resuming from the last stored trade | Keyless REST |
-| `pull_historical/pull_all_freq.py` | All four pullers over every cataloged ticker | Keyless REST |
-| `pull_historical/pull_audit.py` | Coverage report over stored daily files, with catalog age and focus universe status | None, offline |
-| `pull_live/poll_focus.py` | Scheduled pulls plus orderbook snapshots over the derived focus universe | Keyless REST |
+| `pull_historical/pull_all_freq.py` | The driver over every cataloged ticker, without arguments | Keyless REST |
+| `pull_historical/pull_audit.py` | Coverage report over stored daily files, catalog age and focus universe status, then the data-quality checks over the whole store | None, offline |
+| `pull_live/poll_focus.py` | Order books of the focus universe every minute, every 5 seconds around a release, plus scheduled candle and trade pulls; missing history is pulled in the background | Keyless REST |
 
 Every request goes through one helper, `kalshi_io/client.py`, which rate limits, retries and fails loudly. See [Design notes](#design-notes).
 
@@ -105,16 +106,13 @@ python get_ticker_info/roll.py --dry-run     # report only, write nothing
 python get_ticker_info/roll.py               # refresh, write, report
 ```
 
-It rediscovers the 15 series (about 125 requests, under a minute), rewrites the catalog, and derives the focus universe with the same rule `poll_focus` uses. The report lists the previous build and its age, totals before and after, new events, new markets in existing events, status changes per event, removed and carried-forward tickers, the proposed universe, sanity checks marked `[ok]` or `[FAIL]`, and the backfill commands to run next. The universe is written to `kalshi_tickers/focus_universe.json` and `.txt`, and every puller reads it as `--tickers focus`:
+It rediscovers the 15 series (about 125 requests, under a minute), rewrites the catalog, refreshes the market metadata store from the same payloads (so results fill in as markets settle, at no extra request), and derives the focus universe with the same rule `poll_focus` uses. The report lists the previous build and its age, totals before and after, new events, new markets in existing events, status changes per event, removed and carried-forward tickers, the metadata rows written, the proposed universe, sanity checks marked `[ok]` or `[FAIL]`, and the backfill command to run next. The universe is written to `kalshi_tickers/focus_universe.json` and `.txt`, and every puller reads it as `--tickers focus`:
 
 ```bash
-python -m pull_historical.pull_daily  --tickers focus
-python -m pull_historical.pull_hourly --tickers focus
-python -m pull_historical.pull_minute --tickers focus
-python -m pull_historical.pull_trades --tickers focus
+python -m pull_historical.backfill --tickers focus    # every layer, from market open, resumable
 ```
 
-Safety rules of a refresh: a series is written only if every request succeeded. An event the API lists as open must have an active market in the result, or nothing is written for that series. A ticker of the previous catalog that the API no longer returns is carried forward, so stored data always stays resolvable. A failed series keeps its previous files, the others are still written, and the exit code is 1. Other options: `--series`, `--events-per-series`, `--out-dir` (work on a catalog copy), `--no-focus`, `--full`.
+Safety rules of a refresh: a series is written only if every request succeeded. An event the API lists as open must have an active market in the result, or nothing is written for that series. A ticker of the previous catalog that the API no longer returns is carried forward, so stored data always stays resolvable. A failed series keeps its previous files, the others are still written, and the exit code is 1. Other options: `--series`, `--events-per-series`, `--out-dir` (work on a catalog copy; the metadata store still goes to the data root, because it is API truth, not catalog state), `--no-focus`, `--full`.
 
 ## The focus universe
 
@@ -133,7 +131,7 @@ Before any pull, a preflight checks the universe. If it is empty, or nothing in 
 
 While polling, the universe is refreshed every hour and 90 seconds after the nearest `close_time`. Tickers that left the selection are looked up before anything is dropped. What can still trade stays (a paused market, or an event pushed out by a nearer one). The rest get one final candle and trade sweep and are dropped, and the change is logged as `universe roll KXCPIYOY: KXCPIYOY-26SEP -> KXCPIYOY-26NOV`. A refresh that fails or finds nothing keeps the last good universe and logs an error. The polled universe is written to `kalshi_data/logs/focus_universe_live.json`.
 
-One known limit: an event rolled to inside the loop starts its minute history cold, from market open, inside the loop. Running `roll.py --events-per-series 2` and the backfill ahead of a close avoids that stall.
+A ticker that joins the universe without stored daily or minute candles (a fresh store, or the event the poller just rolled to) is backfilled by a child process, `backfill.py --tickers ...` at `BACKGROUND_HISTORY_RPS` (3 requests per second), while the loop keeps capturing its books. Until that child has finished the loop pulls no candles or trades for the ticker, so the stored range stays contiguous from market open; a pull that fails is retried after 10 minutes, and after three failures the ticker rejoins the loop anyway. Together the two processes stay under the keyless rate limit. `--no-background-history` turns this off.
 
 ## Usage
 
@@ -145,11 +143,29 @@ python -m pull_historical.pull_trades --tickers KXCPIYOY-26SEP-T3.4 KXCPIYOY-26S
 python -m pull_historical.pull_audit --tickers focus
 ```
 
-`--tickers` accepts a file path (`.txt` or `.json`), a series name, `focus`, or market tickers. Several values may be given, separated by spaces or commas, also inside one quoted string. Each ticker is checked against the catalog and then the API. Unknown tickers are reported, recorded in the skip file and not fetched. `--limit` caps how many tickers a run processes. The candle and trade pullers also accept `--since YYYY-MM-DD`. A puller exits with code 1 when any ticker failed.
+`--tickers` accepts a file path (`.txt` or `.json`), a series name, `focus`, or market tickers. Several values may be given, separated by spaces or commas, also inside one quoted string. Each ticker is checked against the catalog and then the API. Unknown tickers are reported, recorded in the skip file and not fetched. `--limit` caps how many tickers a run processes. The candle and trade pullers also accept `--since YYYY-MM-DD`; without it a pull starts at the market's open time on a cold start and resumes from the last stored row afterwards. A market that can no longer trade is pulled up to its close and never again past it. A puller exits with code 1 when any ticker failed.
 
-`pull_all_freq` runs daily, hourly, minute, and trade pulls over every cataloged ticker in one shot. At that scale it is a multi-hour to multi-day job making tens of thousands of API calls; prefer the individual pullers with `--tickers` and `--limit` for bounded runs.
+### The bulk driver
 
-Live polling runs every puller on a cadence against the focus universe. Defaults: minute candles, trades, and orderbook snapshots every 60 seconds; hourly candles every 900; daily candles every 21600. Ctrl+C or SIGTERM finishes the current task, then exits cleanly.
+`backfill.py` pulls every layer over the whole catalog, or over a ticker list, in one resumable run:
+
+```bash
+python -m pull_historical.backfill --estimate-only                 # requests, runtime, rows and disk; no request made
+python -m pull_historical.backfill                                 # the whole catalog (pull_all_freq.py does the same)
+python -m pull_historical.backfill --tickers focus
+python -m pull_historical.backfill --tickers KXCPIYOY-26JUL --layers daily,trades
+python -m pull_historical.backfill --retry-failed                  # only what the newest failure lists hold
+```
+
+The layers run one after the other: metadata (a lookup of every ticker in batches of 100, which also refreshes status and close times so nothing below relies on a stale catalog), daily, hourly, trades, minute. Within a layer the tickers go event by event, events that can still trade first (nearest close first), then settled events, newest first. The estimate is printed before anything starts: on the 2026-09-17 catalog the whole download is 245,134 requests, at least 13.6 hours at the default rate (17 hours at 80 percent of it), 0.6 to 1.1 GB. A journal, `kalshi_data/state/backfill_journal.jsonl`, records every (ticker, layer) pair pulled completely while the market was finalized; such a pair can never change again, so a rerun skips it without a request, and everything else resumes from the last stored row. A ticker that fails is retried once at the end of its layer; what still fails goes to `logs/backfill_failed_{stamp}_{layer}.txt`. When the API is down (three tickers in a row ran out of retries) the run waits 1, 2, 4, 8 and 16 minutes between attempts, then exits with code 2; the same command resumes. Ctrl+C finishes the current ticker. The summary lists rows, requests, the share of 429 answers and the store's counts, then the data-quality checks (`--no-audit` skips them). A run over the whole catalog holds a lock, so a second one exits with code 75 instead of competing for the rate limit.
+
+Exit codes: 0 complete, 1 some tickers failed, 2 the API stayed down, 75 another run holds the lock, 130 interrupted.
+
+### Live polling
+
+`poll_focus` polls the focus universe. Every cycle starts with one batch request for the order books of the whole universe, so every book of a sweep carries the same timestamp, once a minute. Then the scheduled pulls: minute candles and trades every 60 seconds, hourly candles every 900, daily candles every 21600. Ctrl+C or SIGTERM finishes the current task, then exits cleanly.
+
+Around a release the books are polled every 5 seconds. A release window runs from 5 minutes before to 15 minutes after a `close_time`: Kalshi closes a market one to five minutes before the number it settles on comes out (12:29Z for a 12:30Z BLS print, 17:55Z or 17:59Z for the 18:00Z Fed statement), so the close is the anchor. Windows come from the polled events, from every cataloged event that can still trade (a CPI print moves the Fed strikes too), and from `RELEASE_CALENDAR` in `config.py`; windows that overlap merge. Inside a window only the books are polled: candle and trade pulls, and the final sweep of an event that just closed, wait for the window to end, because they can be pulled from the API afterwards and the book cannot. Upcoming windows are logged at startup.
 
 ```bash
 python -m pull_live.poll_focus --show-universe          # derive, check, print, exit
@@ -157,7 +173,11 @@ python -m pull_live.poll_focus
 python -m pull_live.poll_focus --minute-interval 30 --no-daily
 python -m pull_live.poll_focus --iterations 1
 python -m pull_live.poll_focus --tickers KXCPIYOY-26SEP-T3.4 KXCPIYOY-26SEP-T3.5
+python -m pull_live.poll_focus --release-interval 2 --release-after 1800
+python -m pull_live.poll_focus --no-daily --no-hourly --no-minute --no-trades   # books only, one request a minute
 ```
+
+Flags: `--release-interval`, `--release-before`, `--release-after`, `--no-release-windows`, `--no-background-history`, plus the cadence flags shown. The books-only form is the one to run next to a full download: books cannot be backfilled, and it costs one request a minute.
 
 | `poll_focus` exit code | Meaning |
 |---|---|
@@ -180,7 +200,7 @@ result = run("KXRECSSNBER-26")
 | Variable | Default | Meaning |
 |---|---|---|
 | `KALSHI_DATA_DIR` | `<repo>/kalshi_data` | Data root. Point it at a scratch directory for test runs. Every run logs the data root it uses |
-| `KALSHI_MAX_RPS` | 10 | Client-side cap on requests per second, at most 20 |
+| `KALSHI_MAX_RPS` | 5 | Client-side cap on requests per second, at most 20. Without a key the candlestick endpoints sustain about 4 to 5; the poller's background history pull runs at 3 |
 
 Both are read from the process environment, never from `.env`.
 
@@ -228,6 +248,27 @@ Orderbook snapshots:
 
 The contract across every file: `ts_ms` is int64 UTC milliseconds. Prices are float64 dollars in [0.0, 1.0] and read directly as probabilities, because each contract settles at 1 dollar or 0. Volume, open interest, and count are float64 contract counts passed through unscaled; fractional values are genuine fractional contracts, not artifacts. NaN marks values the API did not provide; nothing is invented as 0.
 
+Market metadata, `kalshi_data/metadata/markets.parquet`, one row per market. The candle and trade files say what a market traded at; this file says what the market was. It is refreshed from API market payloads by every `roll.py` and by the driver's metadata layer, never from ticker text, and a refresh replaces the rows of the markets it saw and keeps every other row:
+
+| Column | Dtype | Meaning |
+|---|---|---|
+| `market_ticker`, `event_ticker`, `series_ticker` | str | Kalshi identifiers |
+| `title`, `yes_sub_title`, `no_sub_title`, `market_type` | str | Display text and `binary` |
+| `strike_type` | str | `greater`, `greater_or_equal`, `less`, `less_or_equal`, `between`, `functional`, `custom`, `structured`; null when the API sends none (single-outcome and some 2022 markets) |
+| `floor_strike`, `cap_strike` | float64 | The threshold(s); null when not applicable. A `greater` market asks whether the value exceeds `floor_strike`, a `less` market whether it stays below `cap_strike`, a `between` market both |
+| `custom_strike` | str | JSON text of the API object, for example `{"Cut": "25"}` on a Fed decision |
+| `functional_strike` | str | Formula text for `functional` markets |
+| `mutually_exclusive` | boolean | The event's flag: at most one market of the event resolves yes. It does not mean exhaustive |
+| `open_ts_ms`, `close_ts_ms`, `expected_expiration_ts_ms`, `expiration_ts_ms`, `latest_expiration_ts_ms`, `settlement_ts_ms` | Int64 | UTC milliseconds, like every `ts_ms`; null when the API sent none |
+| `status` | str | API status when the row was read: `initialized`, `active`, `inactive`, `closed`, `determined`, `disputed`, `amended`, `finalized` |
+| `result` | str | `yes`, `no` or a scalar; null until determined |
+| `settlement_value` | float64 | Dollars paid per YES contract; null until determined |
+| `expiration_value` | str | The value the market settled on, as text (`3.4` for July CPI); null until known |
+| `can_close_early`, `early_close_condition` | boolean, str | Early close rules |
+| `rules_primary`, `rules_secondary` | str | The rules text |
+| `volume`, `open_interest`, `last_price` | float64 | As of `built_at`; for a finalized market `volume` is its lifetime volume |
+| `tier`, `built_at` | str | `live`, `historical` or `carried_forward`; the UTC time the row was read |
+
 Catalog, `{SERIES}_tickers.json`, schema version 2:
 
 | Key | Meaning |
@@ -252,36 +293,45 @@ Kalshi_Pull/
 │   ├── catalog.py                # build, read and compare the ticker catalog
 │   ├── universe.py               # derive, check and refresh the focus universe
 │   ├── tickers.py                # ticker list loading and validation
-│   ├── resolve.py                # event, market, and metadata resolution with fallbacks
+│   ├── resolve.py                # event, market and window resolution: catalog first, API for the rest
 │   ├── candles.py                # candle fetch + normalization for both API shapes
 │   ├── trades.py                 # trade fetch with cursor pagination and resume
-│   ├── orderbook.py              # orderbook snapshot to DataFrame
+│   ├── orderbook.py              # orderbook snapshots, one market or the whole universe in one request
+│   ├── metadata.py               # the market metadata store
+│   ├── releases.py               # release windows from close times
+│   ├── quality.py                # data-quality checks over the store, counts only
 │   ├── runlog.py                 # per-run log files and skip files
-│   └── storage.py                # parquet append, dedupe, resume, path routing
-├── pull_historical/              # backfill CLIs (daily, hourly, minute, trades, audit, all_freq)
+│   └── storage.py                # parquet append, dedupe, resume, path routing, file locks
+├── pull_historical/              # backfill.py (the driver), pull_daily/hourly/minute/trades, pull_audit, pull_all_freq
 ├── pull_live/
-│   └── poll_focus.py             # cadence scheduler over the derived focus universe
+│   └── poll_focus.py             # books first, fast around releases, scheduled pulls over the focus universe
 ├── get_ticker_info/
 │   ├── find_events.py            # search series, events and markets
-│   ├── roll.py                   # refresh the catalog, propose the focus universe
+│   ├── roll.py                   # refresh the catalog and the metadata store, propose the focus universe
 │   ├── get_tickers.py            # per-series discovery, writes the catalog
 │   ├── get_Econ_Info.py          # list all series by category
 │   └── kalshi_tickers/           # committed catalog: per-series JSON + TXT, all_tickers.*, focus_universe.*
 ├── tests/                        # offline tests against a fake exchange
-└── kalshi_data/                  # output, gitignored
+└── kalshi_data/                  # output, gitignored (so is kalshi_data_old_*/, a previous store kept for reference)
     ├── candles/daily/{series}/{ticker}.parquet
     ├── candles/hourly/{series}/{year}/{ticker}.parquet
     ├── candles/minute/{series}/{year}/{month}/{ticker}.parquet
     ├── trades/{series}/{ticker}/{yyyy-mm}.parquet
     ├── orderbook/{ticker}/{yyyy-mm-dd}.parquet
+    ├── metadata/markets.parquet                # one row per market
+    ├── state/backfill_journal.jsonl            # (ticker, layer) pairs the driver will never pull again
+    ├── .locks/                                 # 256 striped lock files plus named locks; never deleted
     └── logs/
         ├── pull_daily_{yyyymmdd_hhmm}.log      # one per run, same for the other pullers
+        ├── backfill_{stamp}.log, backfill_summary_{stamp}.json, backfill_failed_{stamp}_{layer}.txt
         ├── poll_focus_{yyyymmdd}.log           # one per day; the pullers it calls log here
         ├── roll_{stamp}.log, roll_report_{stamp}.txt
         ├── skip_{kind}_{process start}.txt     # time, ticker, reason, tab separated
-        ├── audit_{yyyymmdd}.csv
+        ├── audit_{yyyymmdd}.csv, quality_{yyyymmdd}.csv
         └── focus_universe_live.json            # what poll_focus is polling
 ```
+
+A parquet file is written to `{name}.parquet.{pid}.tmp` and renamed into place, under a lock on the file, so a poller and a backfill can write the same store at once and a reader never sees a half-written file.
 
 ## Reading the data
 
@@ -298,12 +348,17 @@ GROUP BY market_ticker
 ORDER BY rows DESC;
 ```
 
-Files written before 2026-09-17 lack the quote columns. A query that names them across old and new files needs `union_by_name`, which fills the missing columns with NULL:
+Every candle file has the same 19 columns, so a glob over a whole layer needs no `union_by_name`. The metadata store joins on `market_ticker`, for example the daily closes of one CPI ladder next to its strikes and result:
 
 ```sql
-SELECT market_ticker, ts_ms, close, yes_bid_close, yes_ask_close
-FROM read_parquet('kalshi_data/candles/minute/**/*.parquet', union_by_name = true);
+SELECT d.market_ticker, m.floor_strike, m.result, m.expiration_value, d.ts_ms, d.close, d.yes_bid_close, d.yes_ask_close
+FROM read_parquet('kalshi_data/candles/daily/KXCPIYOY/*.parquet') d
+JOIN read_parquet('kalshi_data/metadata/markets.parquet') m USING (market_ticker)
+WHERE m.event_ticker = 'KXCPIYOY-26JUL'
+ORDER BY m.floor_strike, d.ts_ms;
 ```
+
+`pull_audit` runs the data-quality checks of `kalshi_io/quality.py` over the whole store and writes `logs/quality_{date}.csv`, one row per finding. They are counts, never repairs: a schema pass over every file (column set, order, dtypes), duplicate and out-of-order rows per file, bars whose volume and close disagree, `taker_side` per month, daily volume sums against the exchange's lifetime volume of finalized markets, threshold ladders whose adjacent strikes have inverted mids or strictly crossed quotes on the same day, mutually exclusive events whose mids do not sum to about one, tradable markets without a fresh bar, listed strikes without a bar per day, finer layers that start after the first daily bar, and coverage per series and layer. Several of these are natural for a thin market rather than a defect, and the report says which.
 
 ## Series covered
 
@@ -318,7 +373,7 @@ FROM read_parquet('kalshi_data/candles/minute/**/*.parquet', union_by_name = tru
 
 ## Tests
 
-238 offline tests run against an in-memory fake exchange that answers like the live API, including its error bodies. They cover normalization, the HTTP layer (retries, backoff, signed fallback), discovery, the catalog, the focus universe, every puller end to end, the poller, the CLIs, logging and the audit. Three guards are always on: data goes to a temp directory, opening a socket fails the test, and credentials cannot be read. Installing with `pip install -e ".[dev]"` provides pytest. Run with `pytest -q`.
+340 offline tests run against an in-memory fake exchange that answers like the live API, including its error bodies. They cover normalization, the HTTP layer (retries, backoff, signed fallback), discovery, the catalog, the metadata store, the focus universe, every puller end to end, the driver (estimate, order, journal, outage, failure lists), the file lock, release windows, the poller, the CLIs, logging, the audit and the data-quality checks. Four guards are always on: data goes to a temp directory, opening a socket fails the test, credentials cannot be read, and a test that would start a real background history pull fails. Installing with `pip install -e ".[dev]"` provides pytest. Run with `pytest -q`.
 
 ## Known API changes
 
@@ -329,8 +384,8 @@ Changes on Kalshi's side that this repo follows. The two from September 2026 bro
 | 2025-10-13 | `tags` on `/series` splits on commas only | Tags are joined with commas |
 | 2025-11-27 | `/markets` takes one `status` filter per request | One status per request is sent |
 | 2025-12-13 | `paused` added to the `/markets` status filters | Accepted by discovery and `find_events`; a paused market stays in the focus universe |
-| 2026-02-26 | Settled markets, their candles and older trades move to `/historical/` endpoints behind a moving cutoff | Live endpoint first, historical on 404; catalog and trades read both tiers |
-| 2026-05 | `taker_side` on trades deprecated in favor of `taker_outcome_side` | `taker_outcome_side` is read when `taker_side` is missing |
+| 2026-02-26 | Settled markets, their candles and older trades move to `/historical/` endpoints behind a moving cutoff | Candles ask the tier the catalog recorded and swap on 404; catalog, metadata and trades read both tiers |
+| 2026-05 | `taker_side` on trades deprecated in favor of `taker_outcome_side` and `taker_book_side`; removal "not before" 2026-05-14 (spec) or 2026-05-28 (changelog), still sent on 2026-09-17 | The stored `taker_side` is the first of the three the API sent; `pull_audit` counts it per month so a removal shows up |
 | 2026-05-07 | Dedicated hosts announced, `https://external-api.kalshi.com/trade-api/v2` | The shared host `https://api.elections.kalshi.com/trade-api/v2` remains supported and is still used |
 | 2026-09-10 | `available_on_brokers` removed from event payloads | `kalshi-python-sync` 3.27 and older raise a validation error on every event call. 3.30.0 or newer is required, and no SDK model sits in the data path anymore |
 | 2026-09-17 | `category` on `/series` matches any entry of a series' `categories` list | A listed series can show a different primary category |
@@ -344,28 +399,35 @@ Changes on Kalshi's side that this repo follows. The two from September 2026 bro
 - **A period without trades has quotes but no trade prices.** The live endpoint then omits the trade price keys, the historical endpoint sends them as null. Both always send `yes_bid` and `yes_ask`.
 - **Filter words are not status values.** Requests filter by `unopened`, `open`, `paused`, `closed`, `settled`. Responses carry `initialized`, `active`, `inactive`, `closed`, `determined`, `disputed`, `amended`, `finalized`.
 - **Market payloads carry no series.** A market names its event, and the event names its series. Resolving an uncataloged ticker therefore takes two lookups.
-- **Old markets 404 on live endpoints.** Settled markets age out of the live API onto `/historical/` endpoints. The two tiers overlap near the cutoff. The candle fetcher swaps to the historical endpoint when the live one returns 404.
+- **Old markets 404 on live endpoints.** Settled markets age out of the live API onto `/historical/` endpoints. The two tiers overlap near the cutoff. The candle fetcher asks the tier the catalog recorded for the market (3,932 of the 4,840 cataloged markets are historical) and swaps to the other on 404.
 - **5,000 candle cap per request.** The API rejects a request whose window spans more than 5,000 candles with the error `max candlesticks: 5000`. Chunk sizes in `kalshi_io/config.py` keep every window under the cap; a 3-day minute window is 4,320 candles.
-- **Rate limit responses carry no Retry-After.** A 429 has the body `{"error": "too many requests"}` and no headers to read. Backoff is the mechanism. Keyless bursts on the candlestick endpoints were throttled at 10 requests per second during verification; every one succeeded on the first retry.
+- **Rate limit responses carry no Retry-After.** A 429 has the body `{"error": "too many requests"}` and no headers to read. Backoff is the mechanism. Without a key the candlestick endpoints sustain about 4 to 5 requests per second (measured 2026-09-17: one 429 in 1,344 requests at 4 per second, about 5 percent at 6, 8 to 12 percent at 10); every one succeeded on the first retry. The default rate is 5.
+- **One request for every book.** `GET /markets/orderbooks` returns the books of up to 100 markets (repeated `tickers` parameters; a comma-joined value is read as one ticker) and is throttled as one request. The poller's minute sweep of 64 books is one request with one timestamp.
+- **The closing candle.** The period that contains `close_time` has one last candle and nothing after it. A window that ends exactly at `close_time` loses it, so a settled market is pulled to `close_time` plus two periods (two, because the ET day on which daylight saving ends is 25 hours long). Daily candles end at midnight Eastern time, 04:00Z or 05:00Z.
 - **Numbers arrive as decimal strings.** Prices, volumes, and counts are serialized as strings like `"0.6900"` and `"5247.00"`. Normalization casts them all to float64.
 - **Fractional contracts are real.** The API reports contract counts as fixed-point values with two decimals, and fractional volumes such as `11747.08` are genuine fills, never rounding noise. They pass through unscaled.
 - **Broken titles on some old markets.** 21 markets from the 2024 and 2025 KXACPI events carry unfilled template titles containing the literal text `above_below_between`. Titles are metadata only; prices are unaffected.
 
 ## Design notes
 
-- **One REST helper, keyless first.** `request_json` spaces requests (default 10 per second), retries 429, 5xx, timeouts, connection errors and a 200 that is not JSON, with exponential backoff and jitter, up to 6 attempts. Any other 4xx raises at once. A 401 or 403 repeats the call once with signed headers. When retries run out the failure is raised, logged at ERROR and recorded in the skip file. A run stops after 3 tickers in a row ran out of retries, because the API is down.
+- **One REST helper, keyless first.** `request_json` spaces requests (default 5 per second), retries 429, 5xx, timeouts, connection errors and a 200 that is not JSON, with exponential backoff and jitter, up to 6 attempts. Any other 4xx raises at once. A 401 or 403 repeats the call once with signed headers. When retries run out the failure is raised, logged at ERROR and recorded in the skip file. A run stops after 3 tickers in a row ran out of retries, because the API is down.
 - **Failures are loud.** A ticker that fails is logged at ERROR, counted under `failed` in the run summary, and written to `logs/skip_{kind}_{process start}.txt` with a timestamp and the reason. The same problem is recorded once per 6 hours per process, so a long poller does not repeat it every minute.
 - **Trades resume from the last stored trade.** The request carries `min_ts`, 60 seconds before the last stored trade. Stored `trade_id`s are dropped before the append, so a quiet cycle costs one request and writes nothing. The historical tier is asked only when the resume point lies before the cutoff. A trade fetch is all or nothing: pages arrive newest first, so saving a truncated fetch would move the resume point past trades that were never downloaded.
 - **Candles may save a partial prefix.** Windows are fetched oldest first and are inclusive on both ends. If a window fails after earlier ones arrived, the rows before it are gap-free and are saved, the failure is recorded, and the next run resumes from the last saved candle.
 - **Logging is configured once.** Every run attaches its own log file and detaches it when it ends. Pullers called by `poll_focus` log into its daily file, so a long run does not pile up handlers or duplicate lines.
 - **Uncataloged tickers get their true event.** A ticker missing from the catalog is resolved through the API (market, then event, then series). The event is never guessed from the ticker text.
-- **Minute backfill starts at market open.** The `pull_minute` CLI defaults `--since` to 2025-01-01, but `pull_all_freq` and `poll_focus` call the programmatic `run()` without it, so a cold-start ticker pulls minute candles from the market's open time and later runs resume from the last stored candle.
+- **Every candle pull starts at market open and stops at close.** The open and close come from the catalog, and from the API only for an uncataloged ticker. A market that can no longer trade (`finalized`) is pulled up to `close_time` plus two periods, which keeps its closing candle; a `closed` or `determined` market is pulled up to now, because it can be reopened with a later close. Minute candles have no depth limit on either API tier (observed back to 2022-11), so the minute layer starts at open like the others. The `pull_minute` CLI no longer defaults `--since`.
+- **One invariant everything relies on: a ticker's stored range is contiguous from market open.** Resume starts at the newest stored row, so a poller that stored today's bars for a ticker without history would make the driver skip that history. Hence the poller pulls candles and trades only for tickers whose history is in (the background pull), the driver never uses `--since`, and during a full download only a books-only poller should run next to it. The `history start` check of the audit compares each ticker's first minute, hourly and daily bar.
+- **Concurrent writers are safe.** An append is read, merge, write, rename under `flock` on one of 256 striped lock files in `kalshi_data/.locks`; the kernel releases a lock when its holder dies, so there are no stale locks. A writer waits up to 120 seconds (5 for an orderbook snapshot, which is perishable) and then fails the ticker for that cycle. A full-catalog driver run holds a named lock so it cannot be started twice.
+- **Books first, and only books around a release.** A 64-ticker candle and trade sweep takes about 26 seconds at 5 requests per second; running it inside a release window would punch holes into the 5-second book series. Candles and trades can be pulled from the API afterwards, the book cannot, so they wait.
 
 ## Maintenance
 
-- **Weekly:** run `python get_ticker_info/roll.py`, read the report, and commit the catalog. `pull_audit` warns when the catalog is older than 7 days.
-- **Per macro cycle:** nothing to edit. `poll_focus` derives and rolls its universe. To backfill a new cycle ahead of time, run the pullers with `--tickers focus` after a roll.
+- **Weekly:** run `python get_ticker_info/roll.py`, read the report, and commit the catalog. The same run refreshes the metadata store, so settled results fill in. `pull_audit` warns when the catalog is older than 7 days.
+- **Per macro cycle:** nothing to edit. `poll_focus` derives and rolls its universe and pulls the history of a new event in the background. To have it in before the close, run `roll.py --events-per-series 2` and `python -m pull_historical.backfill --tickers focus`.
+- **Catching up the whole store:** `python -m pull_historical.backfill`, resumable with the same command; `--estimate-only` first. Run only a books-only poller next to it.
 - **New series:** add it to `SERIES_LIST` in `kalshi_io/config.py` (and to `FOCUS_SERIES` to poll it), then run `roll.py`. `find_events.py` finds the series ticker.
+- **Extra release times:** add ISO-8601 UTC times to `RELEASE_CALENDAR` in `kalshi_io/config.py` for a release whose markets are not cataloged.
 
 ## API guide
 

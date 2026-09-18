@@ -2,8 +2,9 @@
 .env
 .venv/
 
-# Data output
+# Data output, and a previous store kept next to it after a full download
 kalshi_data/
+kalshi_data_old_*/
 
 # Python
 __pycache__/

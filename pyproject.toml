@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "kalshi-pipeline"
-version = "0.2.0"
+version = "0.3.0"
 # kalshi-python-sync itself requires Python >=3.13, so this floor is forced.
 requires-python = ">=3.13"
 dependencies = [

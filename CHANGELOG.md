@@ -1,5 +1,51 @@
 # Changelog
 
+## 0.3.0, 2026-09-17
+
+Version 0.2.0 fixed discovery but left the store with mixed conventions: historical no-trade bars carried the bid in the price columns, files written before the quote columns lacked them, minute history began on an arbitrary date, and a full-catalog minute pull would have scanned empty windows up to today. This release makes the schema uniform, adds a market metadata store, a resumable bulk driver, safe concurrent writers, a release-aware poller and data-quality checks, so that the whole catalog can be downloaded once, cleanly, and kept current.
+
+### Upgrade notes
+
+- **Rebuild the store.** A store written by 0.2.0 or earlier mixes conventions that no code path repairs (existing files are never rewritten). Rename it and download afresh: `mv kalshi_data kalshi_data_old_2026-09-17` (the pattern `kalshi_data_old_*/` is gitignored), then `python -m pull_historical.backfill --estimate-only` and `python -m pull_historical.backfill`. The run resumes with the same command after any stop.
+- `KALSHI_MAX_RPS` defaults to 5, the measured keyless limit, instead of 10.
+- `pull_minute --since` no longer defaults to 2025-01-01: without it a cold start pulls from market open and a later run resumes. `roll.py` no longer prints a `--since`.
+- `pull_all_freq.py` is the driver without arguments: it now prints an estimate first and pulls the metadata layer too.
+- Only one writer convention: a parquet file is written to `{name}.parquet.{pid}.tmp` and renamed under a lock. Lock files live in `kalshi_data/.locks` and are never deleted.
+- `poll_focus` no longer pulls candles or trades for a ticker whose history is not stored; a child `backfill.py` pulls it while the loop polls the books. During a full download run only a books-only poller (`--no-daily --no-hourly --no-minute --no-trades`) next to the driver.
+
+### Fixed
+
+- **Historical no-trade bars carried the bid in the price columns.** `parse_candle` is one code path for both tiers; `open`, `high`, `low`, `close` and `mean` hold trade prices only and are NaN for a period without a trade, on both tiers. The bid and ask of every period are in the quote columns.
+- **Minute history started 60 days back.** `roll.py` printed `--since <today minus 60 days>` from a repo constant and the backfill followed it. Neither API tier limits candle depth (observed back to 2022-11), so minute pulls start at market open.
+- **A settled market was pulled up to today.** Every candle pull now stops at `close_time` plus two periods once a market is finalized, which keeps the closing candle and saves about 1.1 million empty minute windows on the full catalog. A cold start takes `open_time` from the catalog instead of one metadata request per ticker.
+- **The candle fetcher cost one live 404 per settled market and interval.** It asks the tier the catalog recorded first (3,932 of 4,840 markets are historical) and swaps on 404.
+- **Two writers could lose rows.** An append is read, merge, write, rename; two processes doing that to one file lost the rows of whoever renamed first. Appends, the metadata upsert and the driver's journal now run under `flock`.
+- **A settled ticker in `pull_minute` walked every empty 3-day window to today** (82 seconds for a 2023 market). See the close cap above.
+
+### Added
+
+- **Market metadata store**, `kalshi_data/metadata/markets.parquet`, one row per market: strike type and strikes, `mutually_exclusive`, the six times as UTC milliseconds, status, result, settlement value, the value the market settled on, the rules, volume, open interest and last price. Filled by every `roll.py` from the payloads it fetches anyway and by the driver's metadata layer.
+- **Bulk driver**, `pull_historical/backfill.py`: metadata, daily, hourly, trades and minute layers over the catalog or a ticker list; events that can still trade first, then settled events newest first; an estimate of requests, runtime, rows and disk before the first request (`--estimate-only`); a journal of pairs that are final, so a rerun costs zero requests for them; failure lists and `--retry-failed`; outage waits of 1, 2, 4, 8 and 16 minutes then exit 2; Ctrl+C after the current ticker; a summary with the share of 429 answers and the store's counts; a lock against a second full-catalog run. The pullers gain a per-ticker outcome collector (`results=`) and a stop callback.
+- **Release-aware poller.** `GET /markets/orderbooks` takes every book of the universe in one request with one timestamp; the sweep runs first in each cycle. Around a release (5 minutes before to 15 minutes after the `close_time` of any polled or cataloged tradable event, plus `RELEASE_CALENDAR`) only the books are polled, every 5 seconds; candle and trade pulls wait for the window to end. Missing history is pulled by a background child process at 3 requests per second. Flags `--release-interval`, `--release-before`, `--release-after`, `--no-release-windows`, `--no-background-history`.
+- **Data-quality checks**, `kalshi_io/quality.py`, run by `pull_audit` (`--no-checks` skips them) and at the end of a driver run (`--no-audit`): a schema pass over every file, duplicate and out-of-order rows, volume against close, `taker_side` by month, daily volume against the exchange's lifetime volume, threshold ladders (inverted mids, strictly crossed quotes), mutually exclusive events, stale tradable markets, listed strikes without a bar, finer layers that start after the first daily bar, coverage per series and layer. Counts only, with `logs/quality_{date}.csv`.
+- `trades.py`: `taker_side` falls back to `taker_outcome_side`, then `taker_book_side` (bid is yes, ask is no). The exchange still sends all three; nothing is inferred.
+- `resolve.market_window()` and `resolve.candle_end_ts()`; `storage.file_lock()`, `named_lock()` and `LockTimeout`; `orderbook.snapshot_orderbooks()`; `kalshi_io/releases.py`.
+- 102 new offline tests (340 in total). A fourth guard fails any test that would start a real background history pull.
+- `.gitignore`: `kalshi_data_old_*/`.
+
+### Changed
+
+- `KALSHI_MAX_RPS` default 5. `client.stats` counts 429 answers.
+- Every candle file has the same 19 columns, in the same order and with the same types, for daily, hourly and minute candles and both tiers; `union_by_name` is no longer needed on a fresh store.
+- Metadata times are int64 UTC milliseconds (`open_ts_ms`, `close_ts_ms`, ...) like every `ts_ms`; the API's `""` result and expiration value are stored as null.
+- `roll.py` reports the metadata rows written and suggests the driver as the next step; `roll --out-dir` still writes the metadata store under the data root.
+- `pull_audit` writes `quality_{date}.csv` next to `audit_{date}.csv`.
+- Packaging: version 0.3.0.
+
+### Removed
+
+- `MINUTE_BACKFILL_DAYS` and the historical tier's bid fallback in the price columns.
+
 ## 0.2.0, 2026-09-17
 
 Two changes on Kalshi's side broke ticker discovery, and the hand-maintained focus universe had fully settled. This release fixes both, makes every data path keyless REST with retries, and adds the tools to move to a new event cycle without editing code.

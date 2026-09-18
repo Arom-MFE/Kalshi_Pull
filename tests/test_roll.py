@@ -81,9 +81,9 @@ def test_roll_writes_the_catalog_the_focus_files_a_log_and_the_report(exchange, 
     assert len(stored) == 7 and stored.loc["KXTEST-26AUG-T1", "result"] == "no"
     assert stored.loc["KXTEST-26SEP-T1", "series_ticker"] == "KXTEST" and pd.isna(stored.loc["KXTEST-26SEP-T1", "result"])
     assert "[FAIL]" not in out
-    assert "python -m pull_historical.pull_trades --tickers focus" in out
-    # Minute history is pulled from market open: no --since in the suggested command (it was today minus 60 days)
-    assert "pull_minute --tickers focus   #" in out and "--since" not in out
+    # One driver command for every layer, from market open: no --since (it was today minus 60 days until 0.2.0)
+    assert "python -m pull_historical.backfill --tickers focus   #" in out and "--since" not in out
+    assert "pull_minute" not in out and "python -m pull_live.poll_focus" in out
 
     logs = sorted(p.name for p in (data_dir / "logs").iterdir())
     assert len(logs) == 2 and logs[0].startswith("roll_2") and logs[1].startswith("roll_report_2")
