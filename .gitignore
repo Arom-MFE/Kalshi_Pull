@@ -13,5 +13,4 @@ __pycache__/
 
 # IDE and OS
 .idea/
-.claude/
 .DS_Store

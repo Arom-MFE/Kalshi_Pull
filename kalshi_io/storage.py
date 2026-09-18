@@ -249,7 +249,7 @@ def get_output_path(
     ts: pd.Timestamp | None = None,
 ) -> Path:
     """
-    Build the output parquet path per CLAUDE.md directory layout.
+    Build the output parquet path per the directory layout in README.md.
 
     Args:
         kind:     "candles", "trades", or "orderbook"

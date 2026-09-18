@@ -51,7 +51,7 @@ List endpoints are cursor based. The response carries a `cursor`; send it back a
 
 ## Live and historical
 
-Kalshi runs two API surfaces. Settled markets, their candles, and their trades age out of the live endpoints onto `/historical/` endpoints; events and series stay on the live side. `GET /historical/cutoff` returns the boundary: `market_settled_ts` for markets and their candles, `trades_created_ts` for trades. The cutoff advances over time. The historical-data page used to say the target window for live data is about three months; on 2026-09-17 it says that each data type has its own cutoff and that the windows differ, without a number (the stale `llms-full.txt` still carries the old sentence). On 2026-09-17 the cutoff stood at 2026-07-19 for both.
+Kalshi runs two API surfaces. Settled markets, their candles, and their trades age out of the live endpoints onto `/historical/` endpoints; events and series stay on the live side. `GET /historical/cutoff` returns the boundary: `market_settled_ts` for markets and their candles, `trades_created_ts` for trades. The cutoff advances over time. The historical-data page used to say the target window for live data is about three months; on 2026-09-17 it says that each data type has its own cutoff and that the windows differ, without a number. On 2026-09-17 the cutoff stood at 2026-07-19 for both.
 
 - A market settled before the cutoff is missing from `/markets`, from `/markets/{ticker}` (404), and from the nested markets of `/events`. It is on `/historical/markets`.
 - The two tiers overlap near the cutoff (observed). This repo unions them by ticker and lets the live record win, because its status is current.
