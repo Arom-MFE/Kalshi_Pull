@@ -1,10 +1,10 @@
 {
   "schema_version": 2,
   "series": "KXCPICORE",
-  "built_at": "2026-09-17T20:45:48Z",
-  "historical_cutoff": "2026-07-19T00:00:00Z",
+  "built_at": "2026-09-19T00:52:19Z",
+  "historical_cutoff": "2026-07-20T00:00:00Z",
   "status_counts": {
-    "active": 33,
+    "active": 44,
     "finalized": 456
   },
   "events": [
@@ -191,6 +191,10 @@
     {
       "event_ticker": "KXCPICORE-26AUG",
       "title": "CPI core in August"
+    },
+    {
+      "event_ticker": "KXCPICORE-26DEC",
+      "title": "CPI core in December 2026"
     },
     {
       "event_ticker": "KXCPICORE-26FEB",
@@ -4664,6 +4668,127 @@
       "source": "live"
     },
     {
+      "event_ticker": "KXCPICORE-26DEC",
+      "market_ticker": "KXCPICORE-26DEC-T0.0",
+      "title": "Will CPI Core rise more than 0.0% in December?",
+      "status": "active",
+      "open_time": "2026-09-18T16:00:00Z",
+      "close_time": "2027-01-13T13:25:00Z",
+      "expected_expiration_time": "2027-01-13T15:00:00Z",
+      "latest_expiration_time": "2027-01-20T15:00:00Z",
+      "source": "live"
+    },
+    {
+      "event_ticker": "KXCPICORE-26DEC",
+      "market_ticker": "KXCPICORE-26DEC-T0.1",
+      "title": "Will CPI Core rise more than 0.1% in December?",
+      "status": "active",
+      "open_time": "2026-09-18T16:00:00Z",
+      "close_time": "2027-01-13T13:25:00Z",
+      "expected_expiration_time": "2027-01-13T15:00:00Z",
+      "latest_expiration_time": "2027-01-20T15:00:00Z",
+      "source": "live"
+    },
+    {
+      "event_ticker": "KXCPICORE-26DEC",
+      "market_ticker": "KXCPICORE-26DEC-T0.2",
+      "title": "Will CPI Core rise more than 0.2% in December?",
+      "status": "active",
+      "open_time": "2026-09-18T16:00:00Z",
+      "close_time": "2027-01-13T13:25:00Z",
+      "expected_expiration_time": "2027-01-13T15:00:00Z",
+      "latest_expiration_time": "2027-01-20T15:00:00Z",
+      "source": "live"
+    },
+    {
+      "event_ticker": "KXCPICORE-26DEC",
+      "market_ticker": "KXCPICORE-26DEC-T0.3",
+      "title": "Will CPI Core rise more than 0.3% in December?",
+      "status": "active",
+      "open_time": "2026-09-18T16:00:00Z",
+      "close_time": "2027-01-13T13:25:00Z",
+      "expected_expiration_time": "2027-01-13T15:00:00Z",
+      "latest_expiration_time": "2027-01-20T15:00:00Z",
+      "source": "live"
+    },
+    {
+      "event_ticker": "KXCPICORE-26DEC",
+      "market_ticker": "KXCPICORE-26DEC-T0.4",
+      "title": "Will CPI Core rise more than 0.4% in December?",
+      "status": "active",
+      "open_time": "2026-09-18T16:00:00Z",
+      "close_time": "2027-01-13T13:25:00Z",
+      "expected_expiration_time": "2027-01-13T15:00:00Z",
+      "latest_expiration_time": "2027-01-20T15:00:00Z",
+      "source": "live"
+    },
+    {
+      "event_ticker": "KXCPICORE-26DEC",
+      "market_ticker": "KXCPICORE-26DEC-T0.5",
+      "title": "Will CPI Core rise more than 0.5% in December?",
+      "status": "active",
+      "open_time": "2026-09-18T16:00:00Z",
+      "close_time": "2027-01-13T13:25:00Z",
+      "expected_expiration_time": "2027-01-13T15:00:00Z",
+      "latest_expiration_time": "2027-01-20T15:00:00Z",
+      "source": "live"
+    },
+    {
+      "event_ticker": "KXCPICORE-26DEC",
+      "market_ticker": "KXCPICORE-26DEC-T0.6",
+      "title": "Will CPI Core rise more than 0.6% in December?",
+      "status": "active",
+      "open_time": "2026-09-18T16:00:00Z",
+      "close_time": "2027-01-13T13:25:00Z",
+      "expected_expiration_time": "2027-01-13T15:00:00Z",
+      "latest_expiration_time": "2027-01-20T15:00:00Z",
+      "source": "live"
+    },
+    {
+      "event_ticker": "KXCPICORE-26DEC",
+      "market_ticker": "KXCPICORE-26DEC-T0.7",
+      "title": "Will CPI Core rise more than 0.7% in December?",
+      "status": "active",
+      "open_time": "2026-09-18T16:00:00Z",
+      "close_time": "2027-01-13T13:25:00Z",
+      "expected_expiration_time": "2027-01-13T15:00:00Z",
+      "latest_expiration_time": "2027-01-20T15:00:00Z",
+      "source": "live"
+    },
+    {
+      "event_ticker": "KXCPICORE-26DEC",
+      "market_ticker": "KXCPICORE-26DEC-T0.8",
+      "title": "Will CPI Core rise more than 0.8% in December?",
+      "status": "active",
+      "open_time": "2026-09-18T16:00:00Z",
+      "close_time": "2027-01-13T13:25:00Z",
+      "expected_expiration_time": "2027-01-13T15:00:00Z",
+      "latest_expiration_time": "2027-01-20T15:00:00Z",
+      "source": "live"
+    },
+    {
+      "event_ticker": "KXCPICORE-26DEC",
+      "market_ticker": "KXCPICORE-26DEC-T0.9",
+      "title": "Will CPI Core rise more than 0.9% in December?",
+      "status": "active",
+      "open_time": "2026-09-18T16:00:00Z",
+      "close_time": "2027-01-13T13:25:00Z",
+      "expected_expiration_time": "2027-01-13T15:00:00Z",
+      "latest_expiration_time": "2027-01-20T15:00:00Z",
+      "source": "live"
+    },
+    {
+      "event_ticker": "KXCPICORE-26DEC",
+      "market_ticker": "KXCPICORE-26DEC-T1.0",
+      "title": "Will CPI Core rise more than 1.0% in December?",
+      "status": "active",
+      "open_time": "2026-09-18T16:00:00Z",
+      "close_time": "2027-01-13T13:25:00Z",
+      "expected_expiration_time": "2027-01-13T15:00:00Z",
+      "latest_expiration_time": "2027-01-20T15:00:00Z",
+      "source": "live"
+    },
+    {
       "event_ticker": "KXCPICORE-26FEB",
       "market_ticker": "KXCPICORE-26FEB-T0.0",
       "title": "Will CPI Core rise more than 0.0% in February?",
@@ -6014,6 +6139,17 @@
     "KXCPICORE-26AUG-T0.8",
     "KXCPICORE-26AUG-T0.9",
     "KXCPICORE-26AUG-T1.0",
+    "KXCPICORE-26DEC-T0.0",
+    "KXCPICORE-26DEC-T0.1",
+    "KXCPICORE-26DEC-T0.2",
+    "KXCPICORE-26DEC-T0.3",
+    "KXCPICORE-26DEC-T0.4",
+    "KXCPICORE-26DEC-T0.5",
+    "KXCPICORE-26DEC-T0.6",
+    "KXCPICORE-26DEC-T0.7",
+    "KXCPICORE-26DEC-T0.8",
+    "KXCPICORE-26DEC-T0.9",
+    "KXCPICORE-26DEC-T1.0",
     "KXCPICORE-26FEB-T0.0",
     "KXCPICORE-26FEB-T0.1",
     "KXCPICORE-26FEB-T0.2",

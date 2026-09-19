@@ -1,8 +1,8 @@
 {
   "schema_version": 2,
   "series": "KXRECSSNBER",
-  "built_at": "2026-09-17T20:46:01Z",
-  "historical_cutoff": "2026-07-19T00:00:00Z",
+  "built_at": "2026-09-19T00:52:32Z",
+  "historical_cutoff": "2026-07-20T00:00:00Z",
   "status_counts": {
     "active": 2,
     "finalized": 4

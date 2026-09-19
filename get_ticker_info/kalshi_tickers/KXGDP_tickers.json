@@ -1,8 +1,8 @@
 {
   "schema_version": 2,
   "series": "KXGDP",
-  "built_at": "2026-09-17T20:45:59Z",
-  "historical_cutoff": "2026-07-19T00:00:00Z",
+  "built_at": "2026-09-19T00:52:28Z",
+  "historical_cutoff": "2026-07-20T00:00:00Z",
   "status_counts": {
     "active": 36,
     "finalized": 183,

@@ -1,10 +1,10 @@
 {
   "schema_version": 2,
   "series": "KXCPI",
-  "built_at": "2026-09-17T20:45:44Z",
-  "historical_cutoff": "2026-07-19T00:00:00Z",
+  "built_at": "2026-09-19T00:52:14Z",
+  "historical_cutoff": "2026-07-20T00:00:00Z",
   "status_counts": {
-    "active": 39,
+    "active": 44,
     "finalized": 508
   },
   "events": [
@@ -6142,6 +6142,61 @@
       "source": "live"
     },
     {
+      "event_ticker": "KXCPI-26OCT",
+      "market_ticker": "KXCPI-26OCT-T0.6",
+      "title": "Will CPI rise more than 0.6% in October 2026?",
+      "status": "active",
+      "open_time": "2026-09-18T16:00:00Z",
+      "close_time": "2026-11-10T13:25:00Z",
+      "expected_expiration_time": "2026-11-10T14:56:00Z",
+      "latest_expiration_time": "2027-02-09T14:56:00Z",
+      "source": "live"
+    },
+    {
+      "event_ticker": "KXCPI-26OCT",
+      "market_ticker": "KXCPI-26OCT-T0.7",
+      "title": "Will CPI rise more than 0.7% in October 2026?",
+      "status": "active",
+      "open_time": "2026-09-18T16:00:00Z",
+      "close_time": "2026-11-10T13:25:00Z",
+      "expected_expiration_time": "2026-11-10T14:56:00Z",
+      "latest_expiration_time": "2027-02-09T14:56:00Z",
+      "source": "live"
+    },
+    {
+      "event_ticker": "KXCPI-26OCT",
+      "market_ticker": "KXCPI-26OCT-T0.8",
+      "title": "Will CPI rise more than 0.8% in October 2026?",
+      "status": "active",
+      "open_time": "2026-09-18T16:00:00Z",
+      "close_time": "2026-11-10T13:25:00Z",
+      "expected_expiration_time": "2026-11-10T14:56:00Z",
+      "latest_expiration_time": "2027-02-09T14:56:00Z",
+      "source": "live"
+    },
+    {
+      "event_ticker": "KXCPI-26OCT",
+      "market_ticker": "KXCPI-26OCT-T0.9",
+      "title": "Will CPI rise more than 0.9% in October 2026?",
+      "status": "active",
+      "open_time": "2026-09-18T16:00:00Z",
+      "close_time": "2026-11-10T13:25:00Z",
+      "expected_expiration_time": "2026-11-10T14:56:00Z",
+      "latest_expiration_time": "2027-02-09T14:56:00Z",
+      "source": "live"
+    },
+    {
+      "event_ticker": "KXCPI-26OCT",
+      "market_ticker": "KXCPI-26OCT-T1.0",
+      "title": "Will CPI rise more than 1.0% in October 2026?",
+      "status": "active",
+      "open_time": "2026-09-18T16:00:00Z",
+      "close_time": "2026-11-10T13:25:00Z",
+      "expected_expiration_time": "2026-11-10T14:56:00Z",
+      "latest_expiration_time": "2027-02-09T14:56:00Z",
+      "source": "live"
+    },
+    {
       "event_ticker": "KXCPI-26SEP",
       "market_ticker": "KXCPI-26SEP-T-0.1",
       "title": "Will CPI rise more than -0.1% in September 2026?",
@@ -6830,6 +6885,11 @@
     "KXCPI-26OCT-T0.3",
     "KXCPI-26OCT-T0.4",
     "KXCPI-26OCT-T0.5",
+    "KXCPI-26OCT-T0.6",
+    "KXCPI-26OCT-T0.7",
+    "KXCPI-26OCT-T0.8",
+    "KXCPI-26OCT-T0.9",
+    "KXCPI-26OCT-T1.0",
     "KXCPI-26SEP-T-0.1",
     "KXCPI-26SEP-T-0.2",
     "KXCPI-26SEP-T-0.3",
