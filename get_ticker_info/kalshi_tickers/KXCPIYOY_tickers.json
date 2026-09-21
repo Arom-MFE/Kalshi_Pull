@@ -1,8 +1,8 @@
 {
   "schema_version": 2,
   "series": "KXCPIYOY",
-  "built_at": "2026-09-19T00:52:15Z",
-  "historical_cutoff": "2026-07-20T00:00:00Z",
+  "built_at": "2026-09-21T23:04:36Z",
+  "historical_cutoff": "2026-07-23T00:00:00Z",
   "status_counts": {
     "active": 63,
     "finalized": 650
@@ -6815,7 +6815,7 @@
       "close_time": "2026-07-14T12:29:00Z",
       "expected_expiration_time": "2026-07-14T14:00:00Z",
       "latest_expiration_time": "2026-10-13T14:00:00Z",
-      "source": "live"
+      "source": "historical"
     },
     {
       "event_ticker": "KXCPIYOY-26JUN",
@@ -6826,7 +6826,7 @@
       "close_time": "2026-07-14T12:29:00Z",
       "expected_expiration_time": "2026-07-14T14:00:00Z",
       "latest_expiration_time": "2026-10-13T14:00:00Z",
-      "source": "live"
+      "source": "historical"
     },
     {
       "event_ticker": "KXCPIYOY-26JUN",
@@ -6837,7 +6837,7 @@
       "close_time": "2026-07-14T12:29:00Z",
       "expected_expiration_time": "2026-07-14T14:00:00Z",
       "latest_expiration_time": "2026-10-13T14:00:00Z",
-      "source": "live"
+      "source": "historical"
     },
     {
       "event_ticker": "KXCPIYOY-26JUN",
@@ -6848,7 +6848,7 @@
       "close_time": "2026-07-14T12:29:00Z",
       "expected_expiration_time": "2026-07-14T14:00:00Z",
       "latest_expiration_time": "2026-10-13T14:00:00Z",
-      "source": "live"
+      "source": "historical"
     },
     {
       "event_ticker": "KXCPIYOY-26JUN",
@@ -6859,7 +6859,7 @@
       "close_time": "2026-07-14T12:29:00Z",
       "expected_expiration_time": "2026-07-14T14:00:00Z",
       "latest_expiration_time": "2026-10-13T14:00:00Z",
-      "source": "live"
+      "source": "historical"
     },
     {
       "event_ticker": "KXCPIYOY-26JUN",
@@ -6870,7 +6870,7 @@
       "close_time": "2026-07-14T12:29:00Z",
       "expected_expiration_time": "2026-07-14T14:00:00Z",
       "latest_expiration_time": "2026-10-13T14:00:00Z",
-      "source": "live"
+      "source": "historical"
     },
     {
       "event_ticker": "KXCPIYOY-26JUN",
@@ -6881,7 +6881,7 @@
       "close_time": "2026-07-14T12:29:00Z",
       "expected_expiration_time": "2026-07-14T14:00:00Z",
       "latest_expiration_time": "2026-10-13T14:00:00Z",
-      "source": "live"
+      "source": "historical"
     },
     {
       "event_ticker": "KXCPIYOY-26JUN",
@@ -6892,7 +6892,7 @@
       "close_time": "2026-07-14T12:29:00Z",
       "expected_expiration_time": "2026-07-14T14:00:00Z",
       "latest_expiration_time": "2026-10-13T14:00:00Z",
-      "source": "live"
+      "source": "historical"
     },
     {
       "event_ticker": "KXCPIYOY-26JUN",
@@ -6903,7 +6903,7 @@
       "close_time": "2026-07-14T12:29:00Z",
       "expected_expiration_time": "2026-07-14T14:00:00Z",
       "latest_expiration_time": "2026-10-13T14:00:00Z",
-      "source": "live"
+      "source": "historical"
     },
     {
       "event_ticker": "KXCPIYOY-26JUN",
@@ -6914,7 +6914,7 @@
       "close_time": "2026-07-14T12:29:00Z",
       "expected_expiration_time": "2026-07-14T14:00:00Z",
       "latest_expiration_time": "2026-10-13T14:00:00Z",
-      "source": "live"
+      "source": "historical"
     },
     {
       "event_ticker": "KXCPIYOY-26JUN",
@@ -6925,7 +6925,7 @@
       "close_time": "2026-07-14T12:29:00Z",
       "expected_expiration_time": "2026-07-14T14:00:00Z",
       "latest_expiration_time": "2026-10-13T14:00:00Z",
-      "source": "live"
+      "source": "historical"
     },
     {
       "event_ticker": "KXCPIYOY-26JUN",
@@ -6936,7 +6936,7 @@
       "close_time": "2026-07-14T12:29:00Z",
       "expected_expiration_time": "2026-07-14T14:00:00Z",
       "latest_expiration_time": "2026-10-13T14:00:00Z",
-      "source": "live"
+      "source": "historical"
     },
     {
       "event_ticker": "KXCPIYOY-26JUN",
@@ -6947,7 +6947,7 @@
       "close_time": "2026-07-14T12:29:00Z",
       "expected_expiration_time": "2026-07-14T14:00:00Z",
       "latest_expiration_time": "2026-10-13T14:00:00Z",
-      "source": "live"
+      "source": "historical"
     },
     {
       "event_ticker": "KXCPIYOY-26JUN",
@@ -6958,7 +6958,7 @@
       "close_time": "2026-07-14T12:29:00Z",
       "expected_expiration_time": "2026-07-14T14:00:00Z",
       "latest_expiration_time": "2026-10-13T14:00:00Z",
-      "source": "live"
+      "source": "historical"
     },
     {
       "event_ticker": "KXCPIYOY-26JUN",
@@ -6969,7 +6969,7 @@
       "close_time": "2026-07-14T12:29:00Z",
       "expected_expiration_time": "2026-07-14T14:00:00Z",
       "latest_expiration_time": "2026-10-13T14:00:00Z",
-      "source": "live"
+      "source": "historical"
     },
     {
       "event_ticker": "KXCPIYOY-26JUN",
@@ -6980,7 +6980,7 @@
       "close_time": "2026-07-14T12:29:00Z",
       "expected_expiration_time": "2026-07-14T14:00:00Z",
       "latest_expiration_time": "2026-10-13T14:00:00Z",
-      "source": "live"
+      "source": "historical"
     },
     {
       "event_ticker": "KXCPIYOY-26JUN",
@@ -6991,7 +6991,7 @@
       "close_time": "2026-07-14T12:29:00Z",
       "expected_expiration_time": "2026-07-14T14:00:00Z",
       "latest_expiration_time": "2026-10-13T14:00:00Z",
-      "source": "live"
+      "source": "historical"
     },
     {
       "event_ticker": "KXCPIYOY-26JUN",
@@ -7002,7 +7002,7 @@
       "close_time": "2026-07-14T12:29:00Z",
       "expected_expiration_time": "2026-07-14T14:00:00Z",
       "latest_expiration_time": "2026-10-13T14:00:00Z",
-      "source": "live"
+      "source": "historical"
     },
     {
       "event_ticker": "KXCPIYOY-26JUN",
@@ -7013,7 +7013,7 @@
       "close_time": "2026-07-14T12:29:00Z",
       "expected_expiration_time": "2026-07-14T14:00:00Z",
       "latest_expiration_time": "2026-10-13T14:00:00Z",
-      "source": "live"
+      "source": "historical"
     },
     {
       "event_ticker": "KXCPIYOY-26JUN",
@@ -7024,7 +7024,7 @@
       "close_time": "2026-07-14T12:29:00Z",
       "expected_expiration_time": "2026-07-14T14:00:00Z",
       "latest_expiration_time": "2026-10-13T14:00:00Z",
-      "source": "live"
+      "source": "historical"
     },
     {
       "event_ticker": "KXCPIYOY-26JUN",
@@ -7035,7 +7035,7 @@
       "close_time": "2026-07-14T12:29:00Z",
       "expected_expiration_time": "2026-07-14T14:00:00Z",
       "latest_expiration_time": "2026-10-13T14:00:00Z",
-      "source": "live"
+      "source": "historical"
     },
     {
       "event_ticker": "KXCPIYOY-26MAR",
