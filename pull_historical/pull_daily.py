@@ -44,7 +44,10 @@ def run(
 
     Args:
         tickers: source for load_tickers: path, series name, "focus", ticker(s)
-                 separated by whitespace or commas, or a list of those
+                 separated by whitespace or commas, or a list of those. A
+                 ticker that holds a space or a comma: quote it on its own,
+                 or use a file (one ticker per line, never split). A list
+                 element that is a known ticker is taken whole
         since:   optional "YYYY-MM-DD" — override start date for all tickers.
                  Default: resume from the last stored candle, or from market
                  open. A settled market is pulled up to its close_time plus
@@ -225,7 +228,8 @@ def main(argv: list[str] | None = None) -> int:
         nargs="+",
         default=str(TICKERS_DIR / "all_tickers.txt"),
         help="Ticker source(s): .txt/.json path, series name, 'focus', "
-             "or tickers separated by spaces or commas",
+             "or tickers separated by spaces or commas. "
+             "A ticker that holds a space or a comma: quote it on its own, or use a file",
     )
     parser.add_argument("--limit", type=int, default=None, help="Max tickers to process")
     parser.add_argument("--since", default=None, help="Start date override (YYYY-MM-DD)")

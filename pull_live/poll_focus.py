@@ -323,7 +323,8 @@ def _build_parser() -> argparse.ArgumentParser:
     parser.add_argument(
         "--tickers", nargs="+", default=None,
         help="Poll exactly these tickers for this run instead of the derived universe: .txt/.json path, "
-             "series name, 'focus', or tickers separated by spaces or commas. Never rolls forward",
+             "series name, 'focus', or tickers separated by spaces or commas. A ticker that holds a space or a "
+             "comma: quote it on its own, or use a file. Never rolls forward",
     )
     parser.add_argument(
         "--series", nargs="+", default=None,

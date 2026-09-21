@@ -18,6 +18,8 @@ Status vocabulary (verified against the OpenAPI spec and the live API):
     its markets matches.
 """
 
+import re
+
 from kalshi_io import client
 from kalshi_io.client import KalshiNotFound, path_part
 from kalshi_io.runlog import get_logger
@@ -42,6 +44,12 @@ STATUS_BUCKET = {
 POLLABLE_BUCKETS = frozenset({"open", "paused", "unopened"})
 
 _TICKERS_PER_REQUEST = 100
+
+# The `tickers=` list form joins tickers with commas, so it cannot name a ticker
+# that holds one, and it returns nothing for a ticker that holds a space
+# ("GDP-232022 Q4-T0.0", "JOBLESS-22JUL23-C250,000"; observed 2026-09-21). The
+# single-market routes serve both once the ticker is URL-quoted in the path.
+_NOT_LISTABLE = re.compile(r"[\s,]")
 
 _event_series_cache: dict[str, str | None] = {}
 _market_meta_cache: dict[str, tuple[str | None, str] | None] = {}
@@ -320,20 +328,32 @@ def lookup_markets(tickers: list[str]) -> dict[str, dict]:
     """
     Batch lookup across both tiers.
 
+    Tickers go through the `tickers=` list form, 100 per request: the live
+    tier, then the historical tier for what the live tier did not return. A
+    ticker that holds whitespace or a comma cannot be found that way (the
+    list form answers 200 without it) and is looked up on its own through
+    get_market(): at most two requests for each such ticker.
+
     Returns:
         {ticker: market dict with "tier"}. Tickers that exist nowhere are
         simply absent (the API omits them without an error).
     """
     wanted = list(dict.fromkeys(tickers))
+    single = [t for t in wanted if _NOT_LISTABLE.search(t)]
+    listable = [t for t in wanted if not _NOT_LISTABLE.search(t)]
     found: dict[str, dict] = {}
     for tier, lister in (("live", list_markets), ("historical", list_historical_markets)):
-        missing = [t for t in wanted if t not in found]
+        missing = [t for t in listable if t not in found]
         if not missing:
             break
         for market in lister(tickers=missing):
             market = dict(market)
             market["tier"] = tier
             found.setdefault(market["ticker"], market)
+    for ticker in single:
+        market = get_market(ticker)
+        if market is not None:
+            found[ticker] = market
     return found
 
 

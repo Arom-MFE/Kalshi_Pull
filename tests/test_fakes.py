@@ -73,6 +73,44 @@ def test_candle_windows_are_inclusive_and_capped_at_5000():
     assert resp.status_code == 400 and "max candlesticks: 5000" in resp.json()["error"]["details"]
 
 
+def test_path_segments_are_url_decoded_and_the_list_form_cannot_name_a_ticker_with_a_separator():
+    api = _exchange()
+    spaced, comma = "GDP-232022 Q4-T0.0", "JOBLESS-22JUL23-C250,000"
+    api.add_event(make_event("GDP-232022 Q4", "TEST"), [
+        make_market(spaced, "GDP-232022 Q4", status="finalized", tier="historical"),
+    ])
+    api.add_event(make_event("JOBLESS-22JUL23", "TEST"), [
+        make_market(comma, "JOBLESS-22JUL23", status="finalized", tier="historical"),
+    ])
+    api.candles[spaced] = {1440: [make_candle(86400)]}
+    api.trades[comma] = [make_trade("t-1", comma, "2022-07-20T12:00:00Z")]
+
+    # Single routes: the quoted segment names the ticker; the recorder keeps the path as sent
+    resp = api.get(f"{BASE_URL}/historical/markets/GDP-232022%20Q4-T0.0")
+    assert resp.status_code == 200 and resp.json()["market"]["ticker"] == spaced
+    assert api.calls[-1][0] == "/historical/markets/GDP-232022%20Q4-T0.0"
+    resp = api.get(f"{BASE_URL}/historical/markets/JOBLESS-22JUL23-C250%2C000")
+    assert resp.status_code == 200 and resp.json()["market"]["ticker"] == comma
+    assert api.get(f"{BASE_URL}/markets/GDP-232022%20Q4-T0.0").status_code == 404    # historical only
+    assert api.get(f"{BASE_URL}/events/GDP-232022%20Q4").json()["event"]["event_ticker"] == "GDP-232022 Q4"
+    body = api.get(f"{BASE_URL}/historical/markets/GDP-232022%20Q4-T0.0/candlesticks",
+                   params={"start_ts": 0, "end_ts": 86400, "period_interval": 1440}).json()
+    assert body["ticker"] == spaced and len(body["candlesticks"]) == 1
+    # A query parameter is no path segment: it names the ticker as it is
+    body = api.get(f"{BASE_URL}/historical/trades", params={"ticker": comma}).json()
+    assert [t["trade_id"] for t in body["trades"]] == ["t-1"]
+
+    # The list form splits on commas and returns no ticker that holds a space
+    url = f"{BASE_URL}/historical/markets"
+    body = api.get(url, params={"tickers": f"TEST-24JAN-T1,{spaced},{comma}"}).json()
+    assert [m["ticker"] for m in body["markets"]] == ["TEST-24JAN-T1"]
+    assert api.get(url, params={"tickers": spaced}).json()["markets"] == []
+    assert api.get(url, params={"tickers": comma}).json()["markets"] == []
+    # The series listing is how such a market is found
+    body = api.get(url, params={"series_ticker": "TEST"}).json()
+    assert {m["ticker"] for m in body["markets"]} == {"TEST-24JAN-T1", spaced, comma}
+
+
 def test_trades_are_newest_first_with_inclusive_min_ts_and_cursor_paging():
     api = _exchange()
     api.trades["TEST-26SEP-T1"] = [

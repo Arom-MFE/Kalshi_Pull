@@ -8,7 +8,7 @@ import pyarrow.parquet as pq
 import pytest
 
 from kalshi_io import catalog, metadata
-from kalshi_io.metadata import METADATA_COLUMNS, market_row, metadata_frame, upsert_market_metadata
+from kalshi_io.metadata import METADATA_COLUMNS, derive_strikes, market_row, metadata_frame, upsert_market_metadata
 from fakes import FakeResponse, make_event, make_market
 
 NOW = datetime(2026, 9, 17, 18, 0, 0, tzinfo=timezone.utc)
@@ -87,8 +87,135 @@ def test_frame_has_fixed_columns_and_types_even_when_a_column_is_all_missing(dat
     assert {types[c] for c in ("floor_strike", "cap_strike", "settlement_value", "volume")} == {"double"}
     assert {types[c] for c in ("open_ts_ms", "close_ts_ms", "settlement_ts_ms")} == {"int64"}
     assert {types[c] for c in ("mutually_exclusive", "can_close_early")} == {"bool"}
-    assert {types[c] for c in ("market_ticker", "strike_type", "result", "rules_primary", "custom_strike")} <= {
-        "string", "large_string"}
+    assert {types[c] for c in ("market_ticker", "strike_type", "result", "rules_primary", "custom_strike",
+                               "strike_source")} <= {"string", "large_string"}
+    assert len(METADATA_COLUMNS) == 33
+    assert METADATA_COLUMNS[METADATA_COLUMNS.index("functional_strike") + 1] == "strike_source"
+
+
+# ------------------------------------------------------------------ strikes the exchange does not send
+
+def _untyped(ticker: str, subtitle: str | None) -> dict:
+    """A finalized threshold market as /historical/markets sends the 531: no strike_type, no floor_strike."""
+    payload = {k: v for k, v in SETTLED.items() if k not in ("strike_type", "floor_strike")}
+    return market_row({**payload, "ticker": ticker, "yes_sub_title": subtitle, "no_sub_title": subtitle},
+                      series="KXCPI", tier="historical", built_at=BUILT)
+
+
+def test_a_threshold_market_without_strike_fields_gets_its_strike_from_the_subtitle():
+    subtitles = {"CPI-21AUG-T0.4": ("Above 0.4%", 0.4), "PAYROLLS-22-TN100000": ("Above -100,000", -100000.0),
+                 "CPI-22-T0.0": ("Above 0.0%%", 0.0), "U3-22-T2.50": ("Above 2.50%", 2.5),
+                 "JOBLESS-22-C370000": ("Above 370,000", 370000.0)}
+    rows = [_untyped(ticker, subtitle) for ticker, (subtitle, _) in subtitles.items()]
+    assert all(r["strike_type"] is None and r["floor_strike"] is None and r["strike_source"] is None for r in rows)
+
+    df = derive_strikes(metadata_frame(rows)).set_index("market_ticker")
+
+    assert set(df["strike_type"]) == {"greater"} and set(df["strike_source"]) == {"subtitle"}
+    assert df["floor_strike"].to_dict() == {ticker: strike for ticker, (_, strike) in subtitles.items()}
+    assert str(df["floor_strike"].dtype) == "float64" and df["cap_strike"].isna().all()
+    assert df["custom_strike"].isna().all() and df["functional_strike"].isna().all()
+    # Idempotent: a second pass changes nothing, and a derived row never turns into an API row
+    pd.testing.assert_frame_equal(derive_strikes(df.reset_index()), df.reset_index())
+
+
+def test_api_strikes_are_never_overwritten_and_other_subtitles_stay_null():
+    typed = [
+        market_row({**SETTLED, "ticker": "CPICOREYOY-23-T4.1", "yes_sub_title": "Above 4.1%", "floor_strike": 4.099999},
+                   series="KXCPICOREYOY", tier="historical", built_at=BUILT),
+        market_row({**SETTLED, "ticker": "PCECORE-22NOV-TN0.1", "yes_sub_title": "Above -0.1%", "floor_strike": 0.1},
+                   series="KXPCECORE", tier="historical", built_at=BUILT),
+        market_row({**SETTLED, "ticker": "GDP-B1", "yes_sub_title": "Above 0.6%", "strike_type": "between",
+                    "floor_strike": 0.6, "cap_strike": 1}, series="KXGDPYEAR", tier="live", built_at=BUILT),
+        market_row({**{k: v for k, v in SETTLED.items() if k != "floor_strike"}, "ticker": "FEDDECISION-H0",
+                    "yes_sub_title": "Above 5%", "strike_type": "custom", "custom_strike": {"Hike": "0"}},
+                   series="KXFEDDECISION", tier="live", built_at=BUILT),
+    ]
+    silent = {"FEDMEET-1": "Before Jan 1, 2025", "FEDDECISION-24JAN-H0": "No change", "RECSSNBER-1": "Starts",
+              "CPI-OR": "3.0% or above", "CPI-BARE": "4.5", "CPI-NULL": None, "CPI-BELOW": "Below 3.0%",
+              "CPI-RANGE": "Above 3.0% and below 3.5%", "CPI-WORDS": "Above three"}
+    df = derive_strikes(metadata_frame(typed + [_untyped(t, sub) for t, sub in silent.items()])).set_index("market_ticker")
+
+    # A value the API sent stays as sent: not the 4.099999 and not the wrong sign
+    assert df.loc["CPICOREYOY-23-T4.1", "floor_strike"] == 4.099999 and df.loc["PCECORE-22NOV-TN0.1", "floor_strike"] == 0.1
+    assert (df.loc["GDP-B1", "strike_type"], df.loc["GDP-B1", "floor_strike"], df.loc["GDP-B1", "cap_strike"]) == ("between", 0.6, 1.0)
+    assert df.loc["FEDDECISION-H0", "strike_type"] == "custom" and pd.isna(df.loc["FEDDECISION-H0", "floor_strike"])
+    assert set(df.loc[[r["market_ticker"] for r in typed], "strike_source"]) == {"api"}
+    # Nothing but "Above N" is read: no strike, no source
+    rest = df.loc[list(silent)]
+    assert rest["strike_type"].isna().all() and rest["floor_strike"].isna().all() and rest["strike_source"].isna().all()
+
+    # A floor_strike without a strike_type is an API value too: it is left alone, and nothing is derived around it
+    odd = _untyped("CPI-ODD", "Above 0.4%")
+    odd["floor_strike"] = 0.5
+    out = derive_strikes(metadata_frame([odd])).iloc[0]
+    assert out["floor_strike"] == 0.5 and pd.isna(out["strike_type"]) and pd.isna(out["strike_source"])
+
+
+def test_the_first_upsert_after_the_upgrade_fills_rows_it_did_not_touch(data_dir):
+    # The store as 0.3.0 wrote it: 32 columns, a finalized threshold market without strike fields
+    old_rows = [_untyped("CPI-21AUG-T0.4", "Above 0.4%"),
+                market_row({**SETTLED, "ticker": "KXCPIYOY-26JUL-T3.5"}, series="KXCPIYOY", tier="live", built_at=BUILT)]
+    path = metadata.metadata_path()
+    path.parent.mkdir(parents=True)
+    metadata_frame(old_rows).drop(columns="strike_source").to_parquet(path, engine="pyarrow", compression="zstd", index=False)
+    assert len(pq.read_schema(path).names) == 32
+
+    unrelated = market_row({**SETTLED, "ticker": "Z-1"}, series="KXZ", tier="live", built_at=BUILT)
+    summary = upsert_market_metadata([unrelated])
+
+    assert (summary["rows"], summary["added"], summary["kept"]) == (3, 1, 2)
+    assert tuple(pq.read_schema(path).names) == METADATA_COLUMNS and len(METADATA_COLUMNS) == 33
+    stored = metadata.load_market_metadata().set_index("market_ticker")
+    old = stored.loc["CPI-21AUG-T0.4"]
+    assert (old["strike_type"], old["floor_strike"], old["strike_source"]) == ("greater", 0.4, "subtitle")
+    assert stored.loc["KXCPIYOY-26JUL-T3.5", "strike_source"] == "api" and stored.loc["Z-1", "strike_source"] == "api"
+    assert old["built_at"] == BUILT and old["result"] == "no"            # nothing else of the old row moved
+
+    upsert_market_metadata([unrelated])
+    pd.testing.assert_frame_equal(metadata.load_market_metadata().set_index("market_ticker"), stored)
+
+
+def test_rederive_rewrites_the_store_offline(fake_api, data_dir, capsys):
+    # Without a store: refuse, create nothing
+    assert metadata.main(["--rederive"]) == 1
+    assert "no metadata store" in capsys.readouterr().err and not data_dir.exists()
+
+    path = metadata.metadata_path()
+    path.parent.mkdir(parents=True)
+    rows = [_untyped("CPI-21AUG-T0.4", "Above 0.4%"), _untyped("CPI-21AUG-T0.5", "Above 0.5%"),
+            _untyped("FEDMEET-1", "Before Jan 1, 2025"),
+            market_row({**SETTLED, "ticker": "KXCPIYOY-26JUL-T3.5"}, series="KXCPIYOY", tier="live", built_at=BUILT)]
+    metadata_frame(rows).drop(columns="strike_source").to_parquet(path, engine="pyarrow", compression="zstd", index=False)
+
+    assert metadata.main(["--rederive"]) == 0
+
+    out = capsys.readouterr().out
+    assert "4 rows, 32 columns before, 33 after" in out
+    assert "strike_type null: 3 before, 1 after" in out
+    assert "strike_source: api 1, subtitle 2, null 1" in out
+    assert "derived from yes_sub_title by series: KXCPI 2" in out
+    assert fake_api.calls == []
+    stored = metadata.load_market_metadata().set_index("market_ticker")
+    assert stored["floor_strike"].to_dict()["CPI-21AUG-T0.5"] == 0.5 and pd.isna(stored.loc["FEDMEET-1", "strike_source"])
+    assert [p.name for p in path.parent.iterdir()] == ["markets.parquet"]
+
+    # Again: nothing left to derive, the file keeps its content
+    assert metadata.main(["--rederive"]) == 0
+    assert "strike_type null: 1 before, 1 after" in capsys.readouterr().out
+    pd.testing.assert_frame_equal(metadata.load_market_metadata().set_index("market_ticker"), stored)
+
+
+def test_the_command_runs_as_a_module_without_a_runpy_warning(tmp_path):
+    """The package imports kalshi_io.metadata before `-m` executes it; runpy's warning about that is silenced."""
+    import os
+    import subprocess
+    import sys
+    env = {**os.environ, "KALSHI_DATA_DIR": str(tmp_path / "empty_root")}
+    done = subprocess.run([sys.executable, "-m", "kalshi_io.metadata", "--rederive"], env=env, text=True,
+                          capture_output=True, cwd=str(metadata.config.PROJECT_ROOT), timeout=120)
+    assert done.returncode == 1 and "no metadata store" in done.stderr       # offline: no store, nothing to do
+    assert "RuntimeWarning" not in done.stderr and not (tmp_path / "empty_root").exists()
 
 
 # ------------------------------------------------------------------ store
@@ -144,12 +271,20 @@ def exchange(fake_api, catalog_dir):
 
 
 def test_refresh_reads_both_tiers_and_the_event_flag_without_touching_the_catalog(exchange, catalog_dir, data_dir):
-    tickers = ["KXTEST-26SEP-T1", "KXTEST-26SEP-T2", "KXDEC-26OCT-H0", "TEST-22DEC-T1", "KXNOPE-1"]
+    # Two tickers the `tickers=` list form cannot serve: one holds a space, one a comma
+    spaced, comma = "GDP-232022 Q4-T0.0", "JOBLESS-22JUL23-C250,000"
+    exchange.add_event(make_event("GDP-232022 Q4", "KXGDP"), [
+        make_market(spaced, "GDP-232022 Q4", status="finalized", tier="historical", floor_strike=0)])
+    exchange.add_event(make_event("JOBLESS-22JUL23", "KXJOBLESS"), [
+        make_market(comma, "JOBLESS-22JUL23", status="finalized", tier="historical", floor_strike=250000)])
+    tickers = ["KXTEST-26SEP-T1", "KXTEST-26SEP-T2", "KXDEC-26OCT-H0", "TEST-22DEC-T1", "KXNOPE-1", spaced, comma]
     summary = metadata.refresh_market_metadata(tickers, now=NOW)
 
-    assert (summary["requested"], summary["found"], summary["missing"]) == (5, 4, ["KXNOPE-1"])
-    assert summary["rows"] == 4 and list(catalog_dir.iterdir()) == []
+    assert (summary["requested"], summary["found"], summary["missing"]) == (7, 6, ["KXNOPE-1"])
+    assert summary["rows"] == 6 and list(catalog_dir.iterdir()) == []
     stored = metadata.load_market_metadata().set_index("market_ticker")
+    assert stored.loc[spaced, "tier"] == "historical" and stored.loc[spaced, "series_ticker"] == "KXGDP"
+    assert stored.loc[comma, "floor_strike"] == 250000 and stored.loc[comma, "event_ticker"] == "JOBLESS-22JUL23"
     assert stored.loc["TEST-22DEC-T1", "tier"] == "historical" and stored.loc["KXTEST-26SEP-T1", "tier"] == "live"
     assert stored.loc["TEST-22DEC-T1", "series_ticker"] == "KXTEST"            # the KX series owns the pre-KX event
     assert stored.loc["TEST-22DEC-T1", "result"] == "no" and stored.loc["TEST-22DEC-T1", "settlement_value"] == 0.0
@@ -158,7 +293,7 @@ def test_refresh_reads_both_tiers_and_the_event_flag_without_touching_the_catalo
     assert bool(stored.loc["KXTEST-26SEP-T1", "mutually_exclusive"]) is False
     assert json.loads(stored.loc["KXDEC-26OCT-H0", "custom_strike"]) == {"Hike": "0"}
     assert set(stored["built_at"]) == {BUILT}
-    # One batched lookup per tier, never one request per market
+    # One batched lookup per tier, never one request per market that the list form can name
     assert len(exchange.requests_to("/markets")) - len(exchange.requests_to("/markets/")) == 1
     assert len([c for c in exchange.calls if c[0] == "/historical/markets"]) == 1
 

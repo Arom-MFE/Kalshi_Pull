@@ -245,6 +245,34 @@ def test_lookup_markets_covers_both_tiers_and_omits_unknown_tickers(exchange):
     assert exchange.requests_to("/historical/markets")[0][1]["tickers"] == "CPIYOY-22DEC-T6.5,NOPE-99-T1"
 
 
+def test_lookup_of_a_ticker_with_a_space_or_a_comma_goes_one_by_one(exchange):
+    """The list form splits on commas and returns nothing for a ticker with a space (observed 2026-09-21)."""
+    spaced, comma, plain = "GDP-232022 Q4-T0.0", "JOBLESS-22JUL23-C250,000", "CPIYOY-22DEC-T6.5"
+    exchange.add_event(make_event("GDP-232022 Q4", "KXGDP"), [
+        make_market(spaced, "GDP-232022 Q4", status="finalized", tier="historical")])
+    exchange.add_event(make_event("JOBLESS-22JUL23", "KXJOBLESS"), [
+        make_market(comma, "JOBLESS-22JUL23", status="finalized", tier="historical")])
+
+    found = discovery.lookup_markets([spaced, plain, comma, "NOPE 99,T1"])
+
+    assert {t: m["tier"] for t, m in found.items()} == {plain: "historical", spaced: "historical", comma: "historical"}
+    assert found[comma]["ticker"] == comma and found[spaced]["event_ticker"] == "GDP-232022 Q4"
+    # The list requests name only the ticker the list form can serve
+    listed = [(path, params["tickers"]) for path, params, _ in exchange.calls if "tickers" in params]
+    assert listed == [("/markets", plain), ("/historical/markets", plain)]
+    # The others go through the single routes, live then historical, the ticker URL-quoted in the path
+    assert [path for path, params, _ in exchange.calls if "tickers" not in params] == [
+        "/markets/GDP-232022%20Q4-T0.0", "/historical/markets/GDP-232022%20Q4-T0.0",
+        "/markets/JOBLESS-22JUL23-C250%2C000", "/historical/markets/JOBLESS-22JUL23-C250%2C000",
+        "/markets/NOPE%2099%2CT1", "/historical/markets/NOPE%2099%2CT1",
+    ]
+
+    # Nothing but such tickers: no list request at all
+    exchange.calls.clear()
+    assert set(discovery.lookup_markets([comma])) == {comma}
+    assert all("tickers" not in params for _, params, _ in exchange.calls) and len(exchange.calls) == 2
+
+
 def test_resolve_market_meta_goes_market_to_event_to_series_and_caches(exchange):
     # Market payloads have no series_ticker, so the series comes from the event
     assert discovery.resolve_market_meta("KXCPIYOY-26SEP-T3.0") == ("KXCPIYOY", "KXCPIYOY-26SEP")

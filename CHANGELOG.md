@@ -1,5 +1,37 @@
 # Changelog
 
+## 0.3.1, 2026-09-21
+
+The first full daily download (5,027 tickers, 2026-09-19) ended with `Result: complete` and exit code 0 while 12 traded markets had never been requested: their tickers hold a space or a comma, and the pullers split the driver's list a second time. This release fixes the loader, makes the driver fail when a ticker is left without an outcome, fills the strike of 531 old threshold markets for which the exchange sends no strike fields, and corrects what the data-quality report says.
+
+### Upgrade notes
+
+- Run `python -m kalshi_io.metadata --rederive` once. It makes no request, rewrites only `metadata/markets.parquet`, and adds the column `strike_source`. Until the metadata store has been written once by 0.3.1, the schema pass of the data-quality checks rejects the 32-column file and the checks that need it are skipped.
+- Run the driver again with the same command. The 12 tickers are not in the journal, so every layer picks them up; everything final is skipped without a request.
+- `backfill` exits with code 1 when a ticker was left without an outcome. A caller that read exit code 0 as "complete" was right only by luck before.
+- No candle, trade or book file is touched by this release.
+
+### Fixed
+
+- **A list of tickers was split a second time.** `load_tickers` split every element on whitespace and commas, also the elements of a list that the driver or the poller had already resolved, so `GDP-232022 Q4-T0.0` reached the puller as `GDP-232022` and `Q4-T0.0`. A known ticker is now taken whole before anything is split; a file is one ticker per line and is never split further; only a typed argument is split. 12 cataloged tickers were affected (92,196 contracts). One limit remains: an explicit poller universe (`poll_focus --tickers`, `FOCUS_OVERRIDE`) is not registered, so a ticker with a space or a comma has to be cataloged there.
+- **The driver reported a run as complete with tickers not tried.** A ticker for which the puller returned no outcome now fails: it is retried at the end of the layer, written to the failure list, and the run exits with code 1. A finished run that still holds tickers not tried exits with code 1 as well and lists them (`NOT TRIED {layer} {ticker}`). `backfill_summary_{stamp}.json` gains `complete`, `unknown`, and per layer `not_attempted_tickers` and `unexpected`.
+- **The batch market lookup could not find a ticker with a space or a comma.** `GET /markets?tickers=` and its historical twin return nothing for such a ticker; `lookup_markets` asks the single-market routes for them, live then historical.
+- **The coverage table printed the UTC date of a daily bar's end**, one day after the day the bar covers. Daily bars are labelled with the day they cover everywhere in the report.
+- **The `mutex sum` count varied between runs over the same files**, by about ten event-days on the 2026-09-19 store. Mids sit on a half-cent grid, so many days sum to exactly 1.05 or 0.95, and the float sum landed on either side of the band with the order in which it was added. The sum is rounded to six decimals before it is compared, so a day on the edge of the inclusive band is inside on every run. Present in 0.3.0.
+
+### Added
+
+- **`strike_source` in the metadata store** (33 columns). The exchange sends no `strike_type`, `floor_strike` or `cap_strike` for 531 finalized threshold markets of 2021 to 2025, although `yes_sub_title` reads `Above 0.4%`. For a market without a `strike_type` whose subtitle has exactly that form, `strike_type` is `greater`, `floor_strike` the number and `strike_source` `subtitle`; everywhere else `strike_source` is `api` or null. A value the API sent is never changed. The ladder check covers 53 more events.
+- `python -m kalshi_io.metadata --rederive`.
+- 25 new offline tests (365 in total), with a ticker that holds a space and one that holds a comma in every layer. The fake exchange URL-decodes path segments and answers the `tickers=` list form like the live API.
+
+### Changed
+
+- `volume vs exchange` says how many of the flagged markets have no daily file at all. `mutex sum` counts the days above and below the band separately and leaves out, and lists, a flagged event whose markets are threshold strikes. Thresholds and tolerances are unchanged.
+- An element of the `tickers` key of a `.json` ticker file is stripped like a line of a `.txt` file.
+- Docs: what `--tickers` accepts; which command writes `audit_{date}.csv` and which `quality_{date}.csv`; the catalog of 2026-09-19 (570 events, 5,027 tickers); new observations in `KalshiAPI.md`.
+- Packaging: version 0.3.1.
+
 ## 0.3.0, 2026-09-17
 
 Version 0.2.0 fixed discovery but left the store with mixed conventions: historical no-trade bars carried the bid in the price columns, files written before the quote columns lacked them, minute history began on an arbitrary date, and a full-catalog minute pull would have scanned empty windows up to today. This release makes the schema uniform, adds a market metadata store, a resumable bulk driver, safe concurrent writers, a release-aware poller and data-quality checks, so that the whole catalog can be downloaded once, cleanly, and kept current.

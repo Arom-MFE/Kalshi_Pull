@@ -228,7 +228,8 @@ def main(argv: list[str] | None = None) -> int:
         nargs="+",
         default=str(TICKERS_DIR / "all_tickers.txt"),
         help="Ticker source(s): .txt/.json path, series name, 'focus', "
-             "or tickers separated by spaces or commas",
+             "or tickers separated by spaces or commas. "
+             "A ticker that holds a space or a comma: quote it on its own, or use a file",
     )
     parser.add_argument("--limit", type=int, default=None, help="Max tickers to audit")
     parser.add_argument("--no-checks", action="store_true",

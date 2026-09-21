@@ -23,7 +23,10 @@ Checks (the key is the `check` column of the CSV):
                   field by the exchange shows up as a month with nulls
     volume_exchange
                   finalized markets whose daily volume sum differs from the
-                  lifetime volume the exchange reports (metadata `volume`)
+                  lifetime volume the exchange reports (metadata `volume`),
+                  and how many of them have no daily file at all: that part
+                  is a gap in the store, the rest is the exchange's own
+                  daily aggregation
     ladder        per event and ET day: adjacent strikes of a threshold
                   ladder (greater* by floor_strike, less* by cap_strike)
                   whose mids are inverted, and pairs that are strictly
@@ -33,10 +36,18 @@ Checks (the key is the `check` column of the CSV):
                   ask 1) are ignored. Events without strike metadata are
                   counted as skipped, never parsed from the ticker text
     mutex         events flagged mutually_exclusive: days on which every
-                  listed market has a quote and the mids sum to less than
-                  0.95 or more than 1.05, plus days on which a listed market
-                  has no quote. The flag does not mean exhaustive: a sum
-                  below 1 can be right
+                  listed market has a quote and the mids sum to more than
+                  1.05 or to less than 0.95, counted separately, plus days on
+                  which a listed market has no quote. Only a sum above the
+                  band speaks against the flag: it does not promise that the
+                  outcomes are exhaustive, so a sum below 1 can be right.
+                  The band is inclusive and the sum is rounded to six
+                  decimals before it is compared, so a day that sums to
+                  exactly 1.05 is inside on every run. A
+                  flagged event whose markets are all threshold strikes
+                  (greater* or less*, two or more) is a ladder and cannot be
+                  mutually exclusive: it is left out of the sums and listed
+                  with period "flag". The stored flag is never touched
     stale         markets the metadata calls tradable (active, inactive,
                   initialized) whose newest candle in any layer is older
                   than a day, or that have none
@@ -45,7 +56,12 @@ Checks (the key is the `check` column of the CSV):
     history_start tickers whose minute or hourly history starts after their
                   first daily bar (a gap at the start of the finer layer)
     coverage      per series and layer: events, markets, files, rows, first
-                  and last ts_ms
+                  and last day
+
+Dates: a daily bar ends at midnight Eastern time (04:00Z or 05:00Z) and is
+labelled with the day it covers everywhere in the report, the coverage table
+included; hourly, minute, trade and book rows keep the UTC date of their
+instant.
 
 Output: the summary text (format_report) and DATA_DIR/logs/quality_{date}.csv
 with one row per finding: check, series, event, market, period, count, detail.
@@ -78,6 +94,10 @@ TRADABLE_STATUSES = tuple(s for s, bucket in STATUS_BUCKET.items() if bucket in 
 
 # A complete mutually exclusive event should have mids that sum to about one
 MUTEX_SUM_LOW, MUTEX_SUM_HIGH = 0.95, 1.05
+# Quotes have four decimals, so a sum of mids is a multiple of 0.00005 and rounding it to six decimals gives
+# back its exact value. Without that a day that sums to exactly 1.05 came out as 1.0500000000000003 or
+# 1.0499999999999998 with the order DuckDB happened to add in, and the count changed from run to run
+MUTEX_SUM_DECIMALS = 6
 # Contract counts have a granularity of 0.01: a smaller difference is float noise
 VOLUME_TOLERANCE = 0.005
 DAY_MS = 86_400_000
@@ -139,17 +159,21 @@ class Report:
         rows = [row for check in self.checks for row in check.rows]
         for cov in self.coverage:
             events = "-" if cov["events"] is None else cov["events"]
+            daily = cov["layer"] == "daily"
             rows.append({**dict.fromkeys(CSV_COLUMNS), "check": "coverage", "series": cov["series"],
                          "period": cov["layer"], "count": cov["rows"],
                          "detail": f"events {events}, markets {cov['markets']}, files {cov['files']}, "
-                                   f"{_date(cov['first_ts'])} to {_date(cov['last_ts'])}"})
+                                   f"{_date(cov['first_ts'], daily)} to {_date(cov['last_ts'], daily)}"})
         return rows
 
 
-def _date(ts_ms) -> str:
+def _date(ts_ms, daily: bool = False) -> str:
+    """The UTC date of an instant or, for a daily bar, the day the bar covers: ts_ms is the bar's end, midnight
+    Eastern time (04:00Z or 05:00Z), so twelve hours earlier is inside that day, as in _DAY below."""
     if ts_ms is None or pd.isna(ts_ms):
         return "-"
-    return datetime.fromtimestamp(int(ts_ms) / 1000, timezone.utc).strftime("%Y-%m-%d")
+    instant = int(ts_ms) - (DAY_MS // 2 if daily else 0)
+    return datetime.fromtimestamp(instant / 1000, timezone.utc).strftime("%Y-%m-%d")
 
 
 # ============================================================
@@ -382,17 +406,22 @@ def check_volume_exchange(con, present: set[str]) -> Check:
         return _skip(check, NO_META)
     rows = _rows(con, f"""
         WITH stored AS (SELECT market_ticker, sum(volume) AS stored FROM daily GROUP BY 1)
-        SELECT m.market_ticker, m.series_ticker, m.event_ticker, m.volume AS exchange, coalesce(s.stored, 0) AS stored
+        SELECT m.market_ticker, m.series_ticker, m.event_ticker, m.volume AS exchange, coalesce(s.stored, 0) AS stored,
+               s.market_ticker IS NULL AS no_file
         FROM meta m LEFT JOIN stored s USING (market_ticker)
         WHERE m.status = 'finalized' AND m.volume IS NOT NULL AND NOT isnan(m.volume)
         ORDER BY m.market_ticker""")
     differ = [r for r in rows if abs(float(r["stored"]) - float(r["exchange"])) > VOLUME_TOLERANCE]
+    # A market without a daily file is a gap in the store, not a difference in the exchange's aggregation
+    no_file = [r for r in differ if r["no_file"]]
     for r in differ:
+        detail = (f"no daily file; exchange lifetime volume {float(r['exchange']):.2f}" if r["no_file"] else
+                  f"daily volume sum {float(r['stored']):.2f}, exchange lifetime volume {float(r['exchange']):.2f}")
         check.row(series=r["series_ticker"], event=r["event_ticker"], market=r["market_ticker"],
-                  count=round(float(r["stored"]) - float(r["exchange"]), 2),
-                  detail=f"daily volume sum {float(r['stored']):.2f}, exchange lifetime volume {float(r['exchange']):.2f}")
+                  count=round(float(r["stored"]) - float(r["exchange"]), 2), detail=detail)
     check.text = (f"{len(differ):,} of {len(rows):,} finalized markets whose daily volume sum differs from the "
-                  f"exchange's lifetime volume (by more than {VOLUME_TOLERANCE:g} contracts)")
+                  f"exchange's lifetime volume by more than {VOLUME_TOLERANCE:g} contracts "
+                  f"({len(no_file):,} of them have no daily file at all)")
     return check
 
 
@@ -485,30 +514,49 @@ def check_mutex(con, present: set[str]) -> Check:
         return _skip(check, NO_DAILY)
     if "meta" not in present:
         return _skip(check, NO_META)
+    # A flagged event whose markets are all threshold strikes is a ladder: several of its markets resolve yes
+    # together, so it cannot be mutually exclusive whatever the flag says. Left out of the sums, listed on its own
+    flagged = _rows(con, """
+        SELECT event_ticker, any_value(series_ticker) AS series_ticker, count(*) AS markets,
+               count(*) FILTER (WHERE strike_type LIKE 'greater%' OR strike_type LIKE 'less%') AS thresholds
+        FROM meta GROUP BY 1 HAVING bool_or(mutually_exclusive) ORDER BY 1""")
+    ladders = [f for f in flagged if f["markets"] >= 2 and f["thresholds"] == f["markets"]]
+    names = ", ".join("'" + f["event_ticker"].replace("'", "''") + "'" for f in ladders)
+    left_out = f"AND event_ticker NOT IN ({names})" if ladders else ""
     days = _rows(con, f"""
-        WITH mx AS (SELECT event_ticker FROM meta GROUP BY 1 HAVING bool_or(mutually_exclusive)),
+        WITH mx AS (SELECT event_ticker FROM meta GROUP BY 1 HAVING bool_or(mutually_exclusive) {left_out}),
         {_listed_sql("coalesce(m.event_ticker, d.event_ticker) IN (SELECT event_ticker FROM mx)")}
         SELECT event_ticker, any_value(series_ticker) AS series_ticker, {_DAY} AS day, count(*) AS listed,
                count(*) FILTER (WHERE quoted) AS quoted, sum(mid) FILTER (WHERE quoted) AS mid_sum,
                count(*) FILTER (WHERE quoted AND two_sided) AS two_sided
         FROM joined GROUP BY event_ticker, ts_ms ORDER BY event_ticker, ts_ms""")
-    n_events = _one(con, "SELECT count(*) AS n FROM (SELECT event_ticker FROM meta GROUP BY 1 HAVING bool_or(mutually_exclusive))")["n"]
+    for d in days:                                          # the band is inclusive: a sum on its edge is inside
+        if d["mid_sum"] is not None:
+            d["mid_sum"] = round(float(d["mid_sum"]), MUTEX_SUM_DECIMALS)
     complete = [d for d in days if d["quoted"] == d["listed"]]
     incomplete = [d for d in days if d["quoted"] != d["listed"]]
-    outside = [d for d in complete if not (MUTEX_SUM_LOW <= float(d["mid_sum"]) <= MUTEX_SUM_HIGH)]
+    above = [d for d in complete if float(d["mid_sum"]) > MUTEX_SUM_HIGH]
+    below = [d for d in complete if float(d["mid_sum"]) < MUTEX_SUM_LOW]
     # A one-sided book (no bid, or no ask) puts its mid halfway to the empty side, which inflates a sum
-    outside_two_sided = [d for d in outside if d["two_sided"] == d["listed"]]
-    for d in outside:
+    above_two_sided = [d for d in above if d["two_sided"] == d["listed"]]
+    below_two_sided = [d for d in below if d["two_sided"] == d["listed"]]
+    for f in ladders:
+        check.row(series=f["series_ticker"], event=f["event_ticker"], period="flag", count=int(f["markets"]),
+                  detail=f"the event is flagged mutually exclusive but its {f['markets']} markets are threshold strikes")
+    for d in sorted(above + below, key=lambda d: (d["event_ticker"], d["day"])):
         books = "every book two-sided" if d["two_sided"] == d["listed"] else f"{d['listed'] - d['two_sided']} one-sided books"
+        side = "above" if float(d["mid_sum"]) > MUTEX_SUM_HIGH else "below"
         check.row(series=d["series_ticker"], event=d["event_ticker"], period=d["day"], count=round(float(d["mid_sum"]), 4),
-                  detail=f"mids of all {d['listed']} listed markets sum to {float(d['mid_sum']):.3f} ({books})")
+                  detail=f"mids of all {d['listed']} listed markets sum to {float(d['mid_sum']):.3f}, {side} the band ({books})")
     for d in incomplete:
         check.row(series=d["series_ticker"], event=d["event_ticker"], period=d["day"], count=int(d["listed"] - d["quoted"]),
                   detail=f"incomplete: {d['listed'] - d['quoted']} of {d['listed']} listed markets without a quote")
-    check.text = (f"{len(outside):,} of {len(complete):,} complete event-days with a mid sum outside "
-                  f"{MUTEX_SUM_LOW} to {MUTEX_SUM_HIGH} ({len(outside_two_sided):,} with every book two-sided); "
-                  f"{len(incomplete):,} incomplete event-days (a listed market without a quote); "
-                  f"{n_events:,} events carry the flag, which does not mean exhaustive")
+    check.text = (f"{len(above):,} above and {len(below):,} below {MUTEX_SUM_LOW} to {MUTEX_SUM_HIGH} among "
+                  f"{len(complete):,} complete event-days ({len(above_two_sided):,} and {len(below_two_sided):,} with "
+                  f"every book two-sided); only a sum above the band speaks against the flag, which does not promise "
+                  f"that the outcomes are exhaustive; {len(incomplete):,} incomplete event-days (a listed market "
+                  f"without a quote); {len(flagged):,} events carry the flag, {len(ladders):,} of them made of "
+                  f"threshold strikes and left out")
     return check
 
 
@@ -520,15 +568,18 @@ def check_stale(con, present: set[str], now_ms: int) -> Check:
         return _skip(check, NO_CANDLES)
     statuses = ", ".join(f"'{s}'" for s in TRADABLE_STATUSES)
     rows = _rows(con, f"""
-        WITH last AS (SELECT market_ticker, max(ts_ms) AS last_ts FROM candles GROUP BY 1)
-        SELECT m.market_ticker, m.series_ticker, m.event_ticker, m.status, l.last_ts
+        WITH last AS (SELECT market_ticker, max(ts_ms) AS last_ts,
+                             max(ts_ms) FILTER (WHERE layer <> 'daily') AS last_finer FROM candles GROUP BY 1)
+        SELECT m.market_ticker, m.series_ticker, m.event_ticker, m.status, l.last_ts, l.last_finer
         FROM meta m LEFT JOIN last l USING (market_ticker)
         WHERE m.status IN ({statuses}) AND (m.open_ts_ms IS NULL OR m.open_ts_ms <= {now_ms - DAY_MS})
         ORDER BY m.market_ticker""")
     stale = [r for r in rows if r["last_ts"] is None or int(r["last_ts"]) < now_ms - DAY_MS]
     none = [r for r in stale if r["last_ts"] is None]
     for r in stale:
-        age = "no candle in any layer" if r["last_ts"] is None else f"newest candle {_date(r['last_ts'])}"
+        # The newest candle is a daily bar when no finer layer reaches its ts_ms: label it with the day it covers
+        daily = r["last_finer"] is None or int(r["last_finer"]) < int(r["last_ts"] or 0)
+        age = "no candle in any layer" if r["last_ts"] is None else f"newest candle {_date(r['last_ts'], daily)}"
         check.row(series=r["series_ticker"], event=r["event_ticker"], market=r["market_ticker"], period=r["status"],
                   count=1, detail=age)
     by_status = [f"{s} {n:,}" for s in TRADABLE_STATUSES if (n := sum(1 for r in stale if r["status"] == s))]
@@ -579,7 +630,8 @@ def check_history_start(con, present: set[str]) -> Check:
             elif int(first) > int(r["first_daily"]):
                 late[layer].append(r)
                 check.row(series=r["series_ticker"], event=r["event_ticker"], market=r["market_ticker"], period=layer,
-                          count=1, detail=f"first {layer} bar {_date(first)}, first daily bar {_date(r['first_daily'])}")
+                          count=1, detail=f"first {layer} bar {_date(first)}, "
+                                          f"first daily bar {_date(r['first_daily'], daily=True)}")
     check.text = (f"of {len(rows):,} tickers with daily bars, {len(late['minute']):,} have minute bars that start "
                   f"after the first daily bar and {len(late['hourly']):,} hourly; {absent['minute']:,} have no minute "
                   f"bars and {absent['hourly']:,} no hourly bars at all")
@@ -697,11 +749,13 @@ def format_report(report: Report) -> str:
         lines.append(f"{check.label + ':':<20}{text}")
     if report.coverage:
         lines += ["", "Coverage per series and layer:",
-                  f"{'series':<16}{'layer':<10}{'events':>7}{'markets':>8}{'files':>7}{'rows':>12}{'first':>12}{'last':>12}"]
+                  f"{'series':<16}{'layer':<10}{'events':>7}{'markets':>8}{'files':>7}{'rows':>12}"
+                  f"{'first day':>12}{'last day':>12}"]
         for c in report.coverage:
             events = "-" if c["events"] is None else f"{int(c['events']):,}"
+            daily = c["layer"] == "daily"                   # a daily bar is labelled with the day it covers
             lines.append(f"{c['series']:<16}{c['layer']:<10}{events:>7}{int(c['markets']):>8,}{int(c['files']):>7,}"
-                         f"{int(c['rows']):>12,}{_date(c['first_ts']):>12}{_date(c['last_ts']):>12}")
+                         f"{int(c['rows']):>12,}{_date(c['first_ts'], daily):>12}{_date(c['last_ts'], daily):>12}")
     if report.csv_path is not None:
         lines.append(f"CSV:      {report.csv_path} ({sum(len(c.rows) for c in report.checks):,} finding rows)")
     return "\n".join(lines)

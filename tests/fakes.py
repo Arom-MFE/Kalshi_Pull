@@ -22,11 +22,20 @@ Its behavior mirrors what was verified against the live API on 2026-09-17:
 - /markets/orderbooks answers one book per requested ticker (repeated
   `tickers` parameters, at most 100), empty books for settled markets, and
   leaves unknown tickers out
+
+Observed on 2026-09-21:
+
+- a ticker may hold a space or a comma ("GDP-232022 Q4-T0.0",
+  "JOBLESS-22JUL23-C250,000"); the single-market, candle and event routes
+  serve it once the path segment is URL-quoted
+- the `tickers=` list form of /markets and /historical/markets splits on
+  commas and returns no market whose ticker holds whitespace or a comma
 """
 
 import json
 import re
 from datetime import datetime
+from urllib.parse import unquote
 
 BASE_URL = "https://api.elections.kalshi.com/trade-api/v2"
 
@@ -236,6 +245,7 @@ class FakeKalshi:
 
     # ---------------------------------------------------------- routing
     def _route(self, path: str, p: dict) -> FakeResponse:
+        path = unquote(path)                  # segments arrive URL-quoted; self.calls keeps them as sent
         if path == "/series":
             return self._series(p)
         if path == "/search/tags_by_categories":
@@ -371,8 +381,9 @@ class FakeKalshi:
             rows = [m for m in rows if self._series_of(m) == p["series_ticker"]
                     and m["ticker"] not in self.hidden_from_series_listing]
         if "tickers" in p:
+            # the list form cannot name a ticker with a comma and returns none with a space
             wanted = set(p["tickers"].split(","))
-            rows = [m for m in rows if m["ticker"] in wanted]
+            rows = [m for m in rows if m["ticker"] in wanted and not re.search(r"[\s,]", m["ticker"])]
         if tier == "live" and status is not None:
             rows = [m for m in rows if m["status"] in MARKET_FILTER_TO_STATUSES[status]]
         return self._page([_public(m) for m in rows], p, "markets", max_limit=1000)

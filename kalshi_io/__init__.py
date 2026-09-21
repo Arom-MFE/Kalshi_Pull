@@ -2,6 +2,14 @@
 kalshi_io — Shared library for the Kalshi macro market data pipeline.
 """
 
+import warnings
+
+# `python -m kalshi_io.metadata --rederive` executes a module this package has already imported, and runpy
+# warns about exactly that. The module holds no state of its own, so running it twice is harmless; the
+# message would only worry whoever runs the command. Nothing else is filtered.
+warnings.filterwarnings("ignore", category=RuntimeWarning,
+                        message=r"'kalshi_io\.metadata' found in sys\.modules after import of package")
+
 from kalshi_io.client import get_client, get_session, BASE_URL
 from kalshi_io.candles import CANDLE_COLUMNS, candles_frame, fetch_candles, resolve_ticker_meta
 from kalshi_io.trades import fetch_trades

@@ -4,12 +4,13 @@ import json
 import os
 import signal
 import time
+from urllib.parse import unquote
 
 import pandas as pd
 import pytest
 
 import pull_historical.backfill as backfill
-from kalshi_io import catalog, metadata
+from kalshi_io import candles, catalog, metadata
 from fakes import FakeResponse, iso_to_ts, make_candle, make_event, make_market, make_trade
 
 NOW = "2026-09-17T20:00:00Z"
@@ -26,6 +27,15 @@ MARKETS = {
 TRADABLE = ["KXA-26OCT-T1", "KXA-26OCT-T2"]
 SETTLED = [t for t in MARKETS if t not in TRADABLE]
 NEVER_TRADED = "KXA-26JUL-T1"
+
+# Two real tickers of the 2026-09-19 catalog, one with a space and one with a comma: ticker → (event, open, close).
+# Not part of the `exchange` fixture; a test adds them with _add_separator_markets
+SPACED, COMMA = "GDP-232022 Q4-T0.0", "JOBLESS-22JUL23-C250,000"
+SEPARATOR_MARKETS = {
+    SPACED: ("GDP-232022 Q4", "2022-10-27T14:00:00Z", "2023-01-26T13:25:00Z"),
+    COMMA: ("JOBLESS-22JUL23", "2022-07-21T14:00:00Z", "2022-07-28T12:25:00Z"),
+}
+FRAGMENTS = {"GDP-232022", "Q4-T0.0", "JOBLESS-22JUL23-C250", "000"}
 
 
 def _seed(api, ticker, open_iso, close_iso):
@@ -57,10 +67,21 @@ def exchange(fake_api, catalog_dir, monkeypatch):
     fake_api.cutoff = "2026-07-19T00:00:00Z"
     report = catalog.refresh_catalog(write_metadata=False)          # the committed catalog the driver reads
     assert report["combined"]["total_markets"] == 6
-    from kalshi_io import candles
     candles._reset_state()
     fake_api.calls.clear()
     return fake_api
+
+
+def _add_separator_markets(api) -> None:
+    """List the two separator tickers under series KXA (finalized, historical tier) and roll the catalog."""
+    for ticker, (event, open_iso, close_iso) in SEPARATOR_MARKETS.items():
+        api.add_event(make_event(event, "KXA"), [make_market(
+            ticker, event, status="finalized", tier="historical", open_time=open_iso, close_time=close_iso)])
+        _seed(api, ticker, open_iso, close_iso)
+    report = catalog.refresh_catalog(write_metadata=False)
+    assert report["combined"]["total_markets"] == 8 and {SPACED, COMMA} <= set(report["combined"]["tickers"])
+    candles._reset_state()
+    api.calls.clear()
 
 
 @pytest.fixture
@@ -73,7 +94,7 @@ def waits(monkeypatch):
 def _ticker_of(call) -> str | None:
     path, params, _ = call
     if path.endswith("/candlesticks"):
-        return path.split("/")[-2]
+        return unquote(path.split("/")[-2])               # the segment is URL-quoted on the wire
     if path.endswith("/trades"):
         return params.get("ticker")
     return None
@@ -192,6 +213,30 @@ def test_rerun_costs_nothing_for_settled_markets(exchange, data_dir, waits, caps
     assert "final, skipped" in out
 
 
+def test_metadata_layer_still_skips_final_rows_and_they_are_filled_anyway(exchange, data_dir, waits):
+    old = "A-24MAR-T1"                                    # the exchange sends no strike fields for it, only "Above 3.0%"
+    for key in ("strike_type", "floor_strike"):
+        exchange.markets[old].pop(key)
+    assert backfill.main(["--no-audit", "--layers", "metadata"]) == 0
+    # The store as 0.3.0 left it: 32 columns, the strike of the old market missing
+    path = metadata.metadata_path()
+    stored = metadata.load_market_metadata()
+    stored.loc[stored["market_ticker"] == old, ["strike_type", "floor_strike"]] = [None, None]
+    stored.drop(columns="strike_source").to_parquet(path, engine="pyarrow", compression="zstd", index=False)
+    exchange.calls.clear()
+
+    assert backfill.main(["--no-audit", "--layers", "metadata"]) == 0
+
+    # A finalized row with a result is still not read again ...
+    lookups = [params["tickers"].split(",") for path_, params, _ in exchange.calls if "tickers" in params]
+    assert sorted(t for chunk in lookups for t in chunk) == TRADABLE
+    assert not any(old in path_ for path_, _, _ in exchange.calls)
+    # ... and carries its strike all the same: the upsert of the tradable rows filled it
+    row = metadata.load_market_metadata().set_index("market_ticker").loc[old]
+    assert (row["strike_type"], row["floor_strike"], row["strike_source"]) == ("greater", 3.0, "subtitle")
+    assert len(pd.read_parquet(path).columns) == 33
+
+
 def test_files_that_went_missing_are_pulled_again_and_ignore_journal_pulls_everything(exchange, data_dir, waits):
     assert backfill.main(["--no-audit"]) == 0
     victim = data_dir / "candles" / "daily" / "KXA" / "KXA-26AUG-T1.parquet"
@@ -216,6 +261,43 @@ def test_ticker_list_with_an_uncataloged_and_an_unknown_ticker(exchange, data_di
     assert "Unknown tickers, left out: KXNOPE-9" in out
     assert (data_dir / "candles" / "daily" / "KXNEW" / "KXNEW-26NOV-T1.parquet").exists()
     assert set(metadata.load_market_metadata()["market_ticker"]) == {"KXA-26AUG-T1", "KXNEW-26NOV-T1"}
+
+
+def test_tickers_with_a_space_or_a_comma_go_through_every_layer(exchange, data_dir, waits, capsys):
+    _add_separator_markets(exchange)
+
+    assert backfill.main(["--no-audit"]) == 0
+
+    assert "Result: complete" in capsys.readouterr().out
+    (summary_path,) = (data_dir / "logs").glob("backfill_summary_*.json")
+    reports = {r["layer"]: r for r in json.loads(summary_path.read_text())["reports"]}
+    assert {layer: r["not_attempted"] for layer, r in reports.items()} == dict.fromkeys(backfill.LAYERS, 0)
+    assert all(r["failed"] == {} and r["other"] == {} and r["done"] == 8 for r in reports.values())
+    assert {SPACED, COMMA} <= set(metadata.load_market_metadata()["market_ticker"])     # looked up one by one
+
+    # Files in the four data layers, named after the whole ticker
+    items = {i.ticker: i for i in backfill.build_items([SPACED, COMMA])[0]}
+    for ticker in (SPACED, COMMA):
+        for layer in backfill.LAYERS[1:]:
+            files = backfill.stored_files(layer, items[ticker])
+            assert files and all(ticker in f.as_posix() for f in files), (ticker, layer)
+    assert (data_dir / "candles" / "daily" / "KXA" / f"{SPACED}.parquet").exists()
+    assert (data_dir / "candles" / "daily" / "KXA" / f"{COMMA}.parquet").exists()
+
+    journal = [json.loads(line) for line in (data_dir / "state" / "backfill_journal.jsonl").read_text().splitlines()]
+    final = {(r["ticker"], r["layer"]) for r in journal if r["type"] == "final"}
+    assert {(t, layer) for t in (SPACED, COMMA) for layer in backfill.LAYERS[1:]} <= final
+    assert not list((data_dir / "logs").glob("skip_*"))
+    # No fragment was ever asked for, by path or by parameter
+    asked = {_ticker_of(c) for c in exchange.calls} - {None}
+    assert asked == set(MARKETS) | {SPACED, COMMA} and not asked & FRAGMENTS
+    assert any("GDP-232022%20Q4-T0.0" in path for path, _, _ in exchange.calls)
+    assert any("JOBLESS-22JUL23-C250%2C000" in path for path, _, _ in exchange.calls)
+
+    # A rerun over the two, each typed as one quoted argument: final, nothing to pull
+    exchange.calls.clear()
+    assert backfill.main(["--no-audit", "--layers", "daily,hourly,trades,minute", "--tickers", SPACED, COMMA]) == 0
+    assert exchange.calls == []
 
 
 # ------------------------------------------------------------------ failures
@@ -291,6 +373,110 @@ def test_interrupt_finishes_the_current_ticker_and_the_next_run_resumes(exchange
     monkeypatch.setattr(backfill, "run_hourly", real)
     assert backfill.main(["--no-audit"]) == 0
     assert _stored_rows(data_dir, "candles/hourly") == 25 and _stored_rows(data_dir, "candles/minute") == 35
+
+
+def _summary(data_dir) -> dict:
+    """The run's summary JSON; removed after reading, because two runs within one second share a stamp."""
+    (path,) = (data_dir / "logs").glob("backfill_summary_*.json")
+    summary = json.loads(path.read_text())
+    path.unlink()
+    return summary
+
+
+def test_a_ticker_the_puller_returns_no_outcome_for_fails_the_run(exchange, data_dir, waits, monkeypatch, capsys):
+    victim, stray = "KXA-26AUG-T1", "KXA-26AUG"
+    real = backfill.run_daily
+
+    def lossy(tickers, *, results=None, **kw):
+        """A puller that loses one ticker of its list and reports a fragment instead (the 0.3.0 defect)."""
+        summary = real([t for t in tickers if t != victim], results=results, **kw)
+        if victim in tickers:
+            results[stray] = {"status": "unknown", "rows": 0, "error": None, "outage": False}
+        return summary
+
+    monkeypatch.setattr(backfill, "run_daily", lossy)
+    assert backfill.main(["--no-audit", "--layers", "daily"]) == 1
+
+    out = capsys.readouterr().out
+    assert "Result: some tickers failed; retry with --retry-failed" in out and "Result: complete" not in out
+    assert f"FAILED daily {victim}: no outcome from the puller (it returned results for: {stray})" in out
+    (failure_list,) = (data_dir / "logs").glob("backfill_failed_*_daily.txt")
+    assert [ln for ln in failure_list.read_text().splitlines() if not ln.startswith("#")] == [victim]
+    summary = _summary(data_dir)
+    (daily,) = summary["reports"]
+    assert summary["exit_code"] == 1 and summary["complete"] is False
+    assert list(daily["failed"]) == [victim] and daily["failed"][victim].startswith("no outcome")
+    assert daily["unexpected"] == [stray]                 # named once, although the end-of-layer retry saw it again
+    assert daily["done"] == 5 and daily["not_attempted"] == 0 and daily["not_attempted_tickers"] == []
+    # A lost ticker is not an outage: nothing waited
+    assert waits == []
+
+    monkeypatch.setattr(backfill, "run_daily", real)
+    exchange.calls.clear()
+    assert backfill.main(["--no-audit", "--retry-failed"]) == 0
+    assert {(_layer_of(c), _ticker_of(c)) for c in exchange.calls} == {("daily", victim)}
+    assert _summary(data_dir)["complete"] is True
+
+
+def test_a_ticker_left_untried_without_a_stop_fails_the_run(exchange, data_dir, waits, monkeypatch, capsys):
+    victim = "KXA-26AUG-T2"
+    real = backfill.run_daily
+
+    def gives_up(tickers, *, results=None, **kw):
+        summary = real([t for t in tickers if t != victim], results=results, **kw)
+        if victim in tickers:
+            results[victim] = {"status": "not_attempted", "rows": 0, "error": None, "outage": False}
+        return summary
+
+    monkeypatch.setattr(backfill, "run_daily", gives_up)
+    assert backfill.main(["--no-audit", "--layers", "daily"]) == 1
+
+    out = capsys.readouterr().out
+    assert f"  NOT TRIED daily {victim}" in out and "Result: complete" not in out
+    assert "Result: some tickers were not tried; run the same command again" in out
+    summary = _summary(data_dir)
+    assert summary["complete"] is False and summary["reports"][0]["not_attempted_tickers"] == [victim]
+    assert summary["reports"][0]["failed"] == {} and not list((data_dir / "logs").glob("backfill_failed_*"))
+
+
+def test_summary_json_names_the_tickers_not_attempted_and_the_unknown_ones(exchange, data_dir, waits, monkeypatch, capsys):
+    real = backfill.run_hourly
+
+    def interrupted(tickers, **kw):
+        os.kill(os.getpid(), signal.SIGINT)               # Ctrl+C while the hourly layer is running
+        return real(tickers, **kw)
+
+    monkeypatch.setattr(backfill, "run_hourly", interrupted)
+    assert backfill.main(["--no-audit"]) == 130
+    out = capsys.readouterr().out
+    assert "NOT TRIED" not in out                         # expected after an interrupt, not listed line by line
+    summary = _summary(data_dir)
+    assert summary["exit_code"] == 130 and summary["complete"] is False and summary["unknown"] == []
+    by_layer = {r["layer"]: r for r in summary["reports"]}
+    assert all(len(r["not_attempted_tickers"]) == r["not_attempted"] and r["unexpected"] == []
+               for r in by_layer.values())
+    assert sorted(by_layer["hourly"]["not_attempted_tickers"]) == sorted(MARKETS)
+    assert by_layer["daily"]["not_attempted_tickers"] == []
+
+    monkeypatch.setattr(backfill, "run_hourly", real)
+    assert backfill.main(["--no-audit", "--layers", "daily", "--tickers", "KXA-26AUG-T1", "KXNOPE-9"]) == 0
+    summary = _summary(data_dir)
+    assert summary["unknown"] == ["KXNOPE-9"] and summary["complete"] is True and summary["exit_code"] == 0
+
+
+def test_retry_failed_reads_a_ticker_with_a_space_whole(exchange, data_dir, waits):
+    _add_separator_markets(exchange)
+    logs = data_dir / "logs"
+    logs.mkdir(parents=True)
+    (logs / "backfill_failed_20260917_190000_daily.txt").write_text(
+        f"# 1 tickers that failed in the daily layer, 2026-09-17T19:00:00Z\n{SPACED}\n")
+
+    assert backfill.main(["--no-audit", "--retry-failed"]) == 0
+
+    assert {(_layer_of(c), _ticker_of(c)) for c in exchange.calls} == {("daily", SPACED)}
+    assert (data_dir / "candles" / "daily" / "KXA" / f"{SPACED}.parquet").exists()
+    (daily,) = _summary(data_dir)["reports"]
+    assert daily["done"] == 1 and daily["not_attempted_tickers"] == [] and daily["unexpected"] == []
 
 
 def test_carried_forward_ticker_is_reported_gone_and_never_requested(exchange, data_dir, waits, catalog_dir):

@@ -25,7 +25,9 @@ Resumable and idempotent:
 
 Failures: a ticker that fails is retried once at the end of its layer. What
 still fails is written to DATA_DIR/logs/backfill_failed_{stamp}_{layer}.txt,
-one ticker per line, and `--retry-failed` runs exactly those again. When the
+one ticker per line, and `--retry-failed` runs exactly those again. A ticker
+for which the puller returned no outcome at all is such a failure: a run is
+complete only when every ticker it was asked for has an outcome. When the
 API is down (three tickers in a row ran out of retries) the run waits 1, 2, 4,
 8 and 16 minutes, retrying in between, and then exits with code 2.
 
@@ -33,13 +35,22 @@ CLI:
     python -m pull_historical.backfill                      # the whole catalog
     python -m pull_historical.backfill --estimate-only
     python -m pull_historical.backfill --tickers KXCPIYOY-26SEP-T3.0 RECSSNBER-23
+    python -m pull_historical.backfill --tickers "GDP-232022 Q4-T0.0"   # a space or a comma: quote it on its own, or use a file
     python -m pull_historical.backfill --layers daily,hourly
     python -m pull_historical.backfill --retry-failed
 
-Exit codes: 0 complete · 1 some tickers failed (see the failure lists) ·
+Exit codes: 0 complete, every ticker of every layer has an outcome · 1 some
+tickers failed (see the failure lists), or a ticker was left without an
+outcome although the run was neither interrupted nor stopped by an outage ·
 2 stopped because the API was down · 75 another run holds the lock (a second
 full-catalog run, or --lock-name) · 130 interrupted (Ctrl+C finishes the
-current ticker, a second Ctrl+C stops at once)
+current ticker, a second Ctrl+C stops at once; tickers not tried are expected)
+
+DATA_DIR/logs/backfill_summary_{stamp}.json records the run: `complete` (true
+exactly when the exit code is 0), `unknown` (typed tickers that neither the
+catalog nor the API knows) and per layer the counts, `failed` and `other` by
+ticker, `not_attempted_tickers` and `unexpected` (result keys a puller
+returned although the driver did not ask for them).
 """
 
 import argparse
@@ -407,6 +418,7 @@ class LayerReport:
     failed: dict[str, str] = field(default_factory=dict)        # ticker → error
     other: dict[str, str] = field(default_factory=dict)         # ticker → unknown / skipped / gone_upstream
     not_attempted: list[str] = field(default_factory=list)
+    unexpected: list[str] = field(default_factory=list)         # result keys the puller returned unasked
     rows: int = 0
     requests: int = 0
     elapsed_sec: float = 0.0
@@ -449,6 +461,12 @@ def pull_batch(layer: str, tickers: list[str], state: State, report: LayerReport
     into the report. An outage (the streak of tickers that ran out of retries
     reaches MAX_CONSECUTIVE_OUTAGES, counted across batches) waits and retries
     what was not finished; ApiDown ends the run when the waits are used up.
+
+    A ticker the puller returned no outcome for is a failure, not "not tried":
+    the puller sets `not_attempted` itself when it stops early, so a missing
+    outcome means the ticker was lost on the way (in 0.3.0, a ticker with a
+    space or a comma that the puller split into fragments). It gets the
+    end-of-layer retry, the failure list and exit code 1 like any failure.
     """
     pending = list(tickers)
     waits = iter(OUTAGE_WAITS_S)
@@ -456,9 +474,20 @@ def pull_batch(layer: str, tickers: list[str], state: State, report: LayerReport
         results: dict = {}
         PULLERS[layer](pending, results=results, should_stop=state.should_stop)
 
+        stray = sorted(set(results) - set(pending))
+        if stray:
+            logger.error(f"[{layer}] the puller returned results for {len(stray)} tickers it was not asked for: "
+                         f"{', '.join(stray[:10])}{' ...' if len(stray) > 10 else ''}")
+            report.unexpected += [t for t in stray if t not in report.unexpected]
+
         unfinished: list[str] = []
         for ticker in pending:
-            outcome = results.get(ticker) or {"status": "not_attempted", "rows": 0, "error": None, "outage": False}
+            outcome = results.get(ticker)
+            if outcome is None:                             # lost on the way: neither an outage nor a stop
+                returned = f" (it returned results for: {', '.join(stray[:10])})" if stray else ""
+                report.failed[ticker] = f"no outcome from the puller{returned}"
+                logger.error(f"[{layer}] {ticker}: FAILED — {report.failed[ticker]}")
+                continue
             status = outcome["status"]
             report.rows += outcome.get("rows") or 0
             if status in _DONE:
@@ -671,7 +700,15 @@ def format_summary(reports: list[LayerReport], counts: dict, stats: dict, elapse
             lines.append(f"  FAILED {r.layer} {ticker}: {reason}")
         if len(r.failed) > 20:
             lines.append(f"  ... and {len(r.failed) - 20} more in the failure list")
-    lines.append({EXIT_OK: "Result: complete", EXIT_FAILED: "Result: some tickers failed; retry with --retry-failed",
+    if exit_code == EXIT_FAILED:                            # after an interrupt or an outage they are expected
+        for r in reports:
+            for ticker in r.not_attempted[:20]:
+                lines.append(f"  NOT TRIED {r.layer} {ticker}")
+            if len(r.not_attempted) > 20:
+                lines.append(f"  ... and {len(r.not_attempted) - 20} more in the summary JSON")
+    failed_text = ("Result: some tickers failed; retry with --retry-failed" if any(r.failed for r in reports)
+                   else "Result: some tickers were not tried; run the same command again")
+    lines.append({EXIT_OK: "Result: complete", EXIT_FAILED: failed_text,
                   EXIT_API_DOWN: "Result: stopped because the API was down; run the same command again to resume",
                   EXIT_INTERRUPTED: "Result: interrupted; run the same command again to resume"}[exit_code])
     return "\n".join(lines)
@@ -685,7 +722,8 @@ def _build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="Bulk backfill over the catalog: metadata, daily, hourly, trades, minute.")
     parser.add_argument("--tickers", nargs="+", default=None,
                         help="Ticker source(s): .txt/.json path, series name, 'focus', or tickers separated by spaces "
-                             "or commas. Default: every cataloged ticker")
+                             "or commas. A ticker that holds a space or a comma: quote it on its own, or use a file. "
+                             "Default: every cataloged ticker")
     parser.add_argument("--layers", default=",".join(LAYERS),
                         help=f"Comma-separated subset of {','.join(LAYERS)}; they always run in that order")
     parser.add_argument("--estimate-only", action="store_true", help="Print the estimate and stop; no request is made")
@@ -814,7 +852,7 @@ def _run(args, layers, items, uncataloged, journal, est, per_layer_tickers, log_
     if exit_code == EXIT_OK:
         if state.stop_requested:
             exit_code = EXIT_INTERRUPTED
-        elif any(r.failed for r in reports):
+        elif any(r.failed or r.not_attempted for r in reports):     # complete = every ticker has an outcome
             exit_code = EXIT_FAILED
 
     failure_paths = write_failure_lists(reports, stamp)
@@ -834,11 +872,14 @@ def _run(args, layers, items, uncataloged, journal, est, per_layer_tickers, log_
     for line in text.splitlines():
         logger.info(line)
     summary = {
-        "stamp": stamp, "exit_code": exit_code, "elapsed_sec": round(elapsed, 1), "layers": list(layers),
+        "stamp": stamp, "exit_code": exit_code, "complete": exit_code == EXIT_OK,
+        "elapsed_sec": round(elapsed, 1), "layers": list(layers),
         "requests": stats["requests"], "http_429": stats["http_429"], "retries": stats["retries"],
+        "unknown": list(unknown),
         "reports": [{"layer": r.layer, "done": len(r.done), "skipped_final": r.skipped_final, "failed": r.failed,
-                     "other": r.other, "not_attempted": len(r.not_attempted), "rows": r.rows,
-                     "requests": r.requests, "elapsed_sec": r.elapsed_sec} for r in reports],
+                     "other": r.other, "not_attempted": len(r.not_attempted),
+                     "not_attempted_tickers": list(r.not_attempted), "unexpected": list(r.unexpected),
+                     "rows": r.rows, "requests": r.requests, "elapsed_sec": r.elapsed_sec} for r in reports],
         "store": counts,
     }
     atomic_write_text(config.DATA_DIR / "logs" / f"backfill_summary_{stamp}.json", json.dumps(summary, indent=2) + "\n")

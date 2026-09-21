@@ -137,3 +137,26 @@ def test_since_is_pushed_into_the_request_and_still_filters(exchange, data_dir):
     assert summary["rows_written"] == 2
     assert exchange.requests_to("/markets/trades")[0][1]["min_ts"] == 1788220800    # 2026-09-01T00:00:00Z
     assert sorted(_stored(data_dir)["trade_id"]) == ["s-1", "s-2"]
+
+
+def test_trades_of_a_ticker_with_a_space_are_requested_and_stored(exchange, data_dir):
+    spaced = "GDP-232022 Q4-T0.0"
+    exchange.add_event(make_event("GDP-232022 Q4", "TEST"), [
+        make_market(spaced, "GDP-232022 Q4", status="finalized", tier="historical")])
+    register_ticker_meta({spaced: ("TEST", "GDP-232022 Q4")})
+    exchange.trades[spaced] = [make_trade("g-1", spaced, "2023-01-10T10:00:00.000000Z"),
+                               make_trade("g-2", spaced, "2023-01-11T10:00:00.000000Z")]
+    results: dict = {}
+
+    summary = pull_trades.run([spaced], results=results)             # a list, as the driver passes it
+
+    assert summary["rows_written"] == 2 and summary["unknown"] == [] and summary["failed"] == 0
+    assert list(results) == [spaced] and results[spaced]["status"] == "ok"
+    # The query parameter is the whole ticker, on both tiers
+    asked = [(path, params["ticker"]) for path, params, _ in exchange.calls if path.endswith("/trades")]
+    assert asked == [("/markets/trades", spaced), ("/historical/trades", spaced)]
+    # ... and so is the directory
+    files = sorted(p.name for p in (data_dir / "trades" / "TEST" / spaced).glob("*.parquet"))
+    assert files == ["2023-01.parquet"]
+    assert not list((data_dir / "logs").glob("skip_trades_*"))
+

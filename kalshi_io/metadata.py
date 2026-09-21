@@ -16,16 +16,34 @@ The store is refreshed from API market payloads, never from ticker text:
 A refresh replaces the rows of the markets it saw and keeps every other row,
 so a market the API stopped returning keeps its last known state.
 
-Columns (METADATA_COLUMNS, fixed order):
+One value in the store is derived, and it is flagged. The exchange sends no
+strike_type, floor_strike or cap_strike for several hundred finalized
+threshold markets of 2021 to 2025 (531 in the catalog of 2026-09-19), although
+their yes_sub_title reads "Above 0.4%". derive_strikes() fills exactly those:
+a row without a strike_type and without a floor or cap strike whose
+yes_sub_title is "Above N" and nothing else (N with an optional minus sign,
+thousands separators, decimals and trailing percent signs) gets strike_type
+"greater", floor_strike N and strike_source "subtitle". Nothing else is
+derived: no "less", no "between", no cap_strike, and never from the ticker
+text. A value the API sent is never changed, also where it disagrees with
+the subtitle. upsert_market_metadata() applies the function to the whole
+merged frame, so every write fills every row, including rows the refresh did
+not touch; `python -m kalshi_io.metadata --rederive` is that write without a
+request. `strike_source = 'api'` selects what the API sent as a number.
+
+Columns (METADATA_COLUMNS, fixed order, 33 names):
     market_ticker, event_ticker, series_ticker     identifiers
     title, yes_sub_title, no_sub_title, market_type
     strike_type          greater, greater_or_equal, less, less_or_equal,
-                         between, functional, custom, structured; null when
-                         the API sends none (single-outcome and some 2022
-                         markets)
+                         between, functional, custom, structured; null only
+                         when neither the API nor the subtitle gives one
+                         (single-outcome markets)
     floor_strike, cap_strike      float64; null when not applicable
     custom_strike        JSON text of the API object, e.g. {"Cut": "25"}
     functional_strike    text
+    strike_source        api when the API sent the strike_type, subtitle when
+                         strike_type and floor_strike were derived from
+                         yes_sub_title, null when there is neither
     mutually_exclusive   the event's flag: at most one market resolves yes
     open_ts_ms, close_ts_ms, expected_expiration_ts_ms, expiration_ts_ms,
     latest_expiration_ts_ms, settlement_ts_ms
@@ -49,8 +67,11 @@ Columns (METADATA_COLUMNS, fixed order):
                          catalog refresh it is the catalog's built_at
 """
 
+import argparse
 import json
 import os
+import re
+import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -66,7 +87,7 @@ logger = get_logger("metadata")
 METADATA_COLUMNS: tuple[str, ...] = (
     "market_ticker", "event_ticker", "series_ticker",
     "title", "yes_sub_title", "no_sub_title", "market_type",
-    "strike_type", "floor_strike", "cap_strike", "custom_strike", "functional_strike",
+    "strike_type", "floor_strike", "cap_strike", "custom_strike", "functional_strike", "strike_source",
     "mutually_exclusive",
     "open_ts_ms", "close_ts_ms", "expected_expiration_ts_ms", "expiration_ts_ms",
     "latest_expiration_ts_ms", "settlement_ts_ms",
@@ -92,6 +113,14 @@ _BOOL_COLUMNS = ("mutually_exclusive", "can_close_early")
 _STRING_COLUMNS = tuple(c for c in METADATA_COLUMNS if c not in _INT_COLUMNS + _FLOAT_COLUMNS + _BOOL_COLUMNS)
 
 _SORT_COLUMNS = ["series_ticker", "event_ticker", "market_ticker"]
+
+# The one subtitle that is read as a strike: "Above 0.4%", "Above -100,000", "Above 0.0%%", "Above 370,000".
+# Checked on 2026-09-21 against the 4,096 rows for which the exchange does send `greater`: it matches 4,004 of
+# them and no row of another strike type; 3,958 agree exactly with floor_strike, 45 differ by 0.000001 (the
+# exchange stores 4.099999 for a strike it displays as 4.1) and one differs in sign (PCECORE-22NOV-TN0.1, where
+# the subtitle and the ticker say minus 0.1). Other wordings ("3.0% or above", a bare number) are not read.
+_ABOVE = re.compile(r"Above (-?(?:\d{1,3}(?:,\d{3})+|\d+)(?:\.\d+)?)%*")
+STRIKE_FROM_API, STRIKE_FROM_SUBTITLE = "api", "subtitle"
 
 
 def metadata_path() -> Path:
@@ -164,6 +193,7 @@ def market_row(
         "cap_strike": _float(payload.get("cap_strike")),
         "custom_strike": json.dumps(custom, sort_keys=True) if custom else None,
         "functional_strike": _text(payload.get("functional_strike")),
+        "strike_source": None,                              # filled per frame by derive_strikes()
         "mutually_exclusive": None if mutually_exclusive is None else bool(mutually_exclusive),
         "status": _text(payload.get("status")),
         "result": _text(payload.get("result")),
@@ -226,6 +256,44 @@ def metadata_frame(rows: list[dict] | pd.DataFrame) -> pd.DataFrame:
     return df
 
 
+def _strike_from_subtitle(value) -> float | None:
+    """The N of a yes_sub_title that reads "Above N" and nothing else, or None."""
+    if not isinstance(value, str):
+        return None
+    match = _ABOVE.fullmatch(value.strip())
+    return float(match.group(1).replace(",", "")) if match else None
+
+
+def derive_strikes(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Fill strike_source, and the strike of threshold markets for which the
+    exchange sends no strike fields (see the module docstring). Pure and
+    idempotent; returns a new frame with the stored dtypes.
+
+        strike_type from the API                    → strike_source "api"
+        no strike_type, no floor or cap strike,
+        yes_sub_title "Above N"                     → "greater", floor_strike N,
+                                                      strike_source "subtitle"
+        anything else                               → left as it is, source null
+
+    A value the API sent is never changed. A row that already carries
+    strike_source "subtitle" stays as it is, so a second pass does not turn a
+    derived strike into an API one.
+    """
+    df = metadata_frame(df.copy())
+    derived_before = df["strike_source"] == STRIKE_FROM_SUBTITLE
+    from_api = df["strike_type"].notna() & ~derived_before.fillna(False)
+    df.loc[from_api, "strike_source"] = STRIKE_FROM_API
+
+    open_rows = df["strike_type"].isna() & df["floor_strike"].isna() & df["cap_strike"].isna()
+    strikes = df.loc[open_rows, "yes_sub_title"].map(_strike_from_subtitle).astype("float64").dropna()
+    if len(strikes):
+        df.loc[strikes.index, "strike_type"] = "greater"
+        df.loc[strikes.index, "floor_strike"] = strikes
+        df.loc[strikes.index, "strike_source"] = STRIKE_FROM_SUBTITLE
+    return metadata_frame(df)
+
+
 # ============================================================
 # Store
 # ============================================================
@@ -243,7 +311,10 @@ def upsert_market_metadata(rows: list[dict], *, keep_existing: list[dict] | None
     Merge rows into the metadata store and write it atomically.
 
     Rows replace the stored rows of the same market_ticker; every other stored
-    row is kept as it is.
+    row is kept as it is. derive_strikes() then runs over the whole merged
+    frame, so every write fills strike_source and the derived strikes of every
+    row, also of rows this call did not touch (and of a 32-column file written
+    before 0.3.1).
 
     Args:
         rows:          rows from market_row() for the markets just read from the API
@@ -273,6 +344,7 @@ def upsert_market_metadata(rows: list[dict], *, keep_existing: list[dict] | None
         parts = [part for part in parts if not part.empty]
 
         combined = metadata_frame(pd.concat(parts, ignore_index=True) if parts else [])
+        combined = derive_strikes(combined)
         combined = combined.sort_values(_SORT_COLUMNS, na_position="last").reset_index(drop=True)
 
         path.parent.mkdir(parents=True, exist_ok=True)
@@ -362,3 +434,50 @@ def refresh_market_metadata(
     summary = upsert_market_metadata(rows) if rows else {"path": metadata_path(), "rows": 0, "added": 0, "updated": 0, "kept": 0}
     return {"requested": len(wanted), "found": len(found), "missing": missing, "markets": found,
             "series": series_of, **summary}
+
+
+# ============================================================
+# CLI
+# ============================================================
+
+def main(argv: list[str] | None = None) -> int:
+    """
+    `python -m kalshi_io.metadata --rederive`: load the store, apply
+    derive_strikes() to every row and write it back through
+    upsert_market_metadata(). Offline: no request, and only
+    metadata/markets.parquet is written. Exit code 0 with the counts, 1 when
+    there is no store (nothing is created).
+    """
+    parser = argparse.ArgumentParser(description="The market metadata store (DATA_DIR/metadata/markets.parquet).")
+    parser.add_argument("--rederive", action="store_true", required=True,
+                        help="Fill strike_source and the strikes the exchange does not send (from yes_sub_title) "
+                             "in every stored row. Offline; rewrites only the metadata store")
+    parser.parse_args(argv)
+
+    path = metadata_path()
+    if not path.exists():
+        print(f"metadata: no metadata store at {path}; a roll or a backfill writes it. Nothing to rederive.",
+              file=sys.stderr)
+        return 1
+    columns_before = len(pd.read_parquet(path, engine="pyarrow").columns)
+    null_before = int(load_market_metadata()["strike_type"].isna().sum())
+
+    upsert_market_metadata([])
+
+    stored = load_market_metadata()
+    source = stored["strike_source"]
+    derived = stored[source == STRIKE_FROM_SUBTITLE]
+    by_series = derived.groupby("series_ticker", dropna=False).size()
+    print(f"Metadata store: {path}")
+    print(f"{len(stored):,} rows, {columns_before} columns before, {len(stored.columns)} after")
+    print(f"strike_type null: {null_before:,} before, {int(stored['strike_type'].isna().sum()):,} after")
+    print(f"strike_source: api {int((source == STRIKE_FROM_API).sum()):,}, subtitle {len(derived):,}, "
+          f"null {int(source.isna().sum()):,}")
+    print("derived from yes_sub_title by series: "
+          + (", ".join(f"{series} {n:,}" for series, n in by_series.items()) or "none"))
+    print("No request was made; candle, trade and book files are not touched.")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

@@ -72,7 +72,10 @@ def run(
 
     Args:
         tickers: source for load_tickers: path, series name, "focus", ticker(s)
-                 separated by whitespace or commas, or a list of those
+                 separated by whitespace or commas, or a list of those. A
+                 ticker that holds a space or a comma: quote it on its own,
+                 or use a file (one ticker per line, never split). A list
+                 element that is a known ticker is taken whole
         since:   optional "YYYY-MM-DD" — only request and keep trades from this date on
         limit:   optional max number of tickers to process
         results: optional dict, filled with the outcome per ticker
@@ -245,7 +248,8 @@ def main(argv: list[str] | None = None) -> int:
         nargs="+",
         required=True,
         help="Ticker source(s) (required): .txt/.json path, series name, 'focus', "
-             "or tickers separated by spaces or commas",
+             "or tickers separated by spaces or commas. "
+             "A ticker that holds a space or a comma: quote it on its own, or use a file",
     )
     parser.add_argument("--limit", type=int, default=None, help="Max tickers to process")
     parser.add_argument("--since", default=None, help="Start date override (YYYY-MM-DD)")

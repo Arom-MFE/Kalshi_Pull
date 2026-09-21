@@ -211,10 +211,10 @@ def test_daily_volume_is_compared_with_the_exchange_lifetime_volume_of_finalized
     write_candles("daily", s, "KXA-26JUL-T4", [bar(bar_ts(10), "KXA-26JUL-T4", e, s, close=0.5, volume=1.0)])
     check = run().check("volume_exchange")
     assert check.text == ("2 of 3 finalized markets whose daily volume sum differs from the exchange's lifetime "
-                          "volume (by more than 0.005 contracts)")
+                          "volume by more than 0.005 contracts (1 of them have no daily file at all)")
     assert [(r["market"], r["count"], r["detail"]) for r in check.rows] == [
         ("KXA-26JUL-T2", -40.0, "daily volume sum 10.00, exchange lifetime volume 50.00"),
-        ("KXA-26JUL-T3", -1.0, "daily volume sum 0.00, exchange lifetime volume 1.00"),
+        ("KXA-26JUL-T3", -1.0, "no daily file; exchange lifetime volume 1.00"),       # a store problem, not the exchange's
     ]
 
 
@@ -275,13 +275,34 @@ def test_events_without_strike_metadata_are_skipped_never_parsed_from_the_ticker
     }
 
 
+def test_ladder_covers_events_whose_strikes_came_from_the_subtitle(data_dir):
+    """The exchange sends no strike fields for 531 old threshold markets; the store derives them on write."""
+    e, s = "CPI-21AUG", "KXCPI"
+    rows = []
+    for k in (4, 5, 6):
+        row = meta(f"{e}-T0.{k}", e, s)                                  # strike_type, floor_strike: none, as sent
+        row["yes_sub_title"] = f"Above 0.{k}%"
+        rows.append(row)
+    upsert_market_metadata(rows)
+    quotes = {10: {4: (0.70, 0.72), 5: (0.50, 0.52), 6: (0.30, 0.32)},               # consistent
+              11: {4: (0.40, 0.56), 5: (0.50, 0.52), 6: (0.30, 0.32)}}               # T0.4's mid below T0.5's: inverted
+    for k in (4, 5, 6):
+        t = f"{e}-T0.{k}"
+        write_candles("daily", s, t, [bar(bar_ts(d), t, e, s, *q[k]) for d, q in quotes.items()])
+    check = run().check("ladder")
+    assert check.text == ("1 inverted mids (1 between two-sided books) and 0 strictly crossed pairs in 4 adjacent pairs "
+                          "over 2 ladder-days of 1 events; 0 events skipped (no strike metadata)")
+    assert [(r["event"], r["period"], r["count"]) for r in check.rows] == [(e, "2026-07-11", 1)]
+
+
 def test_mutually_exclusive_events_need_every_listed_market_quoted_before_the_sum_is_judged(data_dir):
     e, s = "KXM-26JUL", "KXM"
     upsert_market_metadata([meta(f"{e}-B{k}", e, s, strike_type="between", floor=float(k), cap=k + 1.0, mutex=True) for k in (1, 2, 3)]
                            + [meta(f"{e}-B4", e, s, strike_type="between", floor=4.0, cap=5.0, mutex=True,
                                    open_iso="2026-07-13T15:00:00Z")]                    # listed from day 13 only
                            + [meta("KXN-26JUL-T1", "KXN-26JUL", "KXN", mutex=False)])
-    mids = {10: (0.5, 0.3, 0.2), 11: (0.6, 0.4, 0.2), 12: (0.5, 0.3, None), 13: (0.5, 0.3, "empty"), 14: (0.4, 0.3, 0.2)}
+    mids = {10: (0.5, 0.3, 0.2), 11: (0.6, 0.4, 0.2), 12: (0.5, 0.3, None), 13: (0.5, 0.3, "empty"), 14: (0.4, 0.3, 0.2),
+            15: (0.3, 0.3, 0.2)}
     for k in (1, 2, 3):
         t = f"{e}-B{k}"
         rows = []
@@ -291,19 +312,90 @@ def test_mutually_exclusive_events_need_every_listed_market_quoted_before_the_su
             bid, ask = (0.0, 1.0) if m[k - 1] == "empty" else (m[k - 1] - 0.01, m[k - 1] + 0.01)
             rows.append(bar(bar_ts(d), t, e, s, bid, ask))
         write_candles("daily", s, t, rows)
-    write_candles("daily", s, f"{e}-B4", [bar(bar_ts(14), f"{e}-B4", e, s, 0.09, 0.11)])
+    write_candles("daily", s, f"{e}-B4", [bar(bar_ts(d), f"{e}-B4", e, s, 0.09, 0.11) for d in (14, 15)])
     write_candles("daily", "KXN", "KXN-26JUL-T1", [bar(bar_ts(10), "KXN-26JUL-T1", "KXN-26JUL", "KXN", 0.0, 0.1)])
     check = run().check("mutex")
-    # day 10 sums to 1.0, day 11 to 1.2, day 14 to 1.0 with the fourth market; days 12 and 13 are incomplete
-    # (B4 is listed from day 13, the day it opened, and has no bar until day 14)
-    assert check.text == ("1 of 3 complete event-days with a mid sum outside 0.95 to 1.05 (1 with every book two-sided); "
-                          "2 incomplete event-days (a listed market without a quote); 1 events carry the flag, "
-                          "which does not mean exhaustive")
+    # day 10 sums to 1.0, day 11 to 1.2, day 14 to 1.0 and day 15 to 0.9 with the fourth market; days 12 and 13 are
+    # incomplete (B4 is listed from day 13, the day it opened, and has no bar until day 14)
+    assert check.text == ("1 above and 1 below 0.95 to 1.05 among 4 complete event-days (1 and 1 with every book "
+                          "two-sided); only a sum above the band speaks against the flag, which does not promise that "
+                          "the outcomes are exhaustive; 2 incomplete event-days (a listed market without a quote); "
+                          "1 events carry the flag, 0 of them made of threshold strikes and left out")
     assert [(r["period"], r["count"], r["detail"]) for r in check.rows] == [
-        ("2026-07-11", 1.2, "mids of all 3 listed markets sum to 1.200 (every book two-sided)"),
+        ("2026-07-11", 1.2, "mids of all 3 listed markets sum to 1.200, above the band (every book two-sided)"),
+        ("2026-07-15", 0.9, "mids of all 4 listed markets sum to 0.900, below the band (every book two-sided)"),
         ("2026-07-12", 1, "incomplete: 1 of 3 listed markets without a quote"),
         ("2026-07-13", 2, "incomplete: 2 of 4 listed markets without a quote"),
     ]
+
+
+def test_a_sum_on_the_edge_of_the_band_is_inside_whatever_the_order_of_addition(data_dir, monkeypatch):
+    """In 0.3.0 the count moved by about ten between runs over the same files: mids sit on a half-cent grid, many
+    days sum to exactly 1.05 or 0.95, and the float sum landed on either side with the order DuckDB added in."""
+    e, s = "KXFEDDECISION-26JUN", "KXFEDDECISION"
+    # The closing quotes of 2026-01-21: mids 0.30, 0.07, 0.60, 0.055 and 0.025 sum to exactly 1.05
+    quotes = {"C25": (0.26, 0.34), "C26": (0.02, 0.12), "H0": (0.55, 0.65), "H25": (0.0, 0.11), "H26": (0.0, 0.05)}
+    low = {"C25": (0.26, 0.34), "C26": (0.02, 0.12), "H0": (0.45, 0.55), "H25": (0.0, 0.11), "H26": (0.0, 0.05)}   # 0.95
+    high = {**quotes, "H0": (0.56, 0.66)}                                                                          # 1.06
+    upsert_market_metadata([meta(f"{e}-{k}", e, s, strike_type="custom", mutex=True) for k in quotes])
+    for k in quotes:
+        t = f"{e}-{k}"
+        write_candles("daily", s, t, [bar(bar_ts(10), t, e, s, *quotes[k]), bar(bar_ts(11), t, e, s, *low[k]),
+                                      bar(bar_ts(12), t, e, s, *high[k])])
+
+    def with_noise(noise):
+        """The summed mids as another order of addition would have left them: off by a few ulps."""
+        real = quality._rows
+
+        def rows(con, sql):
+            out = real(con, sql)
+            for r in out:
+                if r.get("mid_sum") is not None:
+                    r["mid_sum"] = float(r["mid_sum"]) + noise
+            return out
+        monkeypatch.setattr(quality, "_rows", rows)
+        check = run().check("mutex")
+        monkeypatch.setattr(quality, "_rows", real)
+        return check
+
+    for noise in (0.0, 4e-16, -4e-16):
+        check = with_noise(noise)
+        assert check.text.startswith("1 above and 0 below 0.95 to 1.05 among 3 complete event-days (0 and 0 with"), noise
+        assert [(r["period"], r["count"]) for r in check.rows] == [("2026-07-12", 1.06)], noise
+
+
+def test_a_flagged_event_made_of_threshold_strikes_is_reported_and_left_out_of_the_sum(data_dir):
+    """KXCPICORE-25DEC carries mutually_exclusive although it is a ladder of `greater` strikes: its mids sum to 2.4."""
+    ladder, s = "KXL-26JUL", "KXL"
+    rows = [meta(f"{ladder}-T{k}", ladder, s, strike_type="greater", floor=float(k), mutex=True) for k in (1, 2, 3)]
+    # A flagged event with one bucket among its thresholds is not a pure ladder: it is judged like any other
+    mixed = "KXX-26JUL"
+    rows += [meta(f"{mixed}-T1", mixed, "KXX", strike_type="less", cap=1.0, mutex=True),
+             meta(f"{mixed}-B1", mixed, "KXX", strike_type="between", floor=1.0, cap=2.0, mutex=True)]
+    # ... and so is a flagged event with a single threshold market
+    rows += [meta("KXY-26JUL-T1", "KXY-26JUL", "KXY", strike_type="greater", floor=1.0, mutex=True)]
+    upsert_market_metadata(rows)
+    for k, mid in ((1, 0.9), (2, 0.8), (3, 0.7)):
+        t = f"{ladder}-T{k}"
+        write_candles("daily", s, t, [bar(bar_ts(10), t, ladder, s, mid - 0.01, mid + 0.01)])
+    for t, mid in ((f"{mixed}-T1", 0.4), (f"{mixed}-B1", 0.6)):
+        write_candles("daily", "KXX", t, [bar(bar_ts(10), t, mixed, "KXX", mid - 0.01, mid + 0.01)])
+    write_candles("daily", "KXY", "KXY-26JUL-T1", [bar(bar_ts(10), "KXY-26JUL-T1", "KXY-26JUL", "KXY", 0.49, 0.51)])
+
+    check = run().check("mutex")
+
+    # The ladder's 2.4 is not counted as a sum above the band; KXX sums to 1.0, KXY's single market to 0.5
+    assert check.text == ("0 above and 1 below 0.95 to 1.05 among 2 complete event-days (0 and 1 with every book "
+                          "two-sided); only a sum above the band speaks against the flag, which does not promise that "
+                          "the outcomes are exhaustive; 0 incomplete event-days (a listed market without a quote); "
+                          "3 events carry the flag, 1 of them made of threshold strikes and left out")
+    assert [(r["event"], r["period"], r["count"], r["detail"]) for r in check.rows] == [
+        (ladder, "flag", 3, "the event is flagged mutually exclusive but its 3 markets are threshold strikes"),
+        ("KXY-26JUL", "2026-07-10", 0.5, "mids of all 1 listed markets sum to 0.500, below the band (every book two-sided)"),
+    ]
+    # The stored flag is not touched
+    from kalshi_io.metadata import load_market_metadata
+    assert bool(load_market_metadata().set_index("market_ticker").loc[f"{ladder}-T1", "mutually_exclusive"]) is True
 
 
 def test_stale_tradable_markets_and_listed_strikes_without_a_bar(data_dir):
@@ -327,9 +419,9 @@ def test_stale_tradable_markets_and_listed_strikes_without_a_bar(data_dir):
     assert stale.text == ("3 of 4 tradable markets (open for more than a day) without a candle newer than a day, "
                           "1 of them without any candle (active 2, inactive 1)")
     assert [(r["market"], r["period"], r["detail"]) for r in stale.rows] == [
-        (f"{e}-T2", "active", "newest candle 2026-07-15"),
+        (f"{e}-T2", "active", "newest candle 2026-07-15"),                # an hourly bar: the UTC date of its instant
         (f"{e}-T3", "active", "no candle in any layer"),
-        (f"{e}-T6", "inactive", "newest candle 2026-07-11"),
+        (f"{e}-T6", "inactive", "newest candle 2026-07-10"),              # a daily bar: the day it covers
     ]
     missing = report.check("missing")
     # Listed on every day: T1, T2, T3, T5, T6; T4 from day 20, the ET day it opened in (07-21T00:00Z is inside its bar).
@@ -355,11 +447,38 @@ def test_history_start_flags_finer_layers_that_start_after_the_first_daily_bar(d
     assert check.text == ("of 2 tickers with daily bars, 0 have minute bars that start after the first daily bar and "
                           "1 hourly; 1 have no minute bars and 1 no hourly bars at all")
     assert [(r["market"], r["period"], r["detail"]) for r in check.rows] == [
-        (f"{e}-T1", "hourly", "first hourly bar 2026-07-12, first daily bar 2026-07-11")]
+        (f"{e}-T1", "hourly", "first hourly bar 2026-07-12, first daily bar 2026-07-10")]
     assert [(c["series"], c["layer"], c["events"], c["markets"], c["files"], c["rows"]) for c in report.coverage] == [
         ("KXH", "daily", 1, 2, 2, 3), ("KXH", "hourly", 1, 1, 1, 1), ("KXH", "minute", 1, 2, 2, 2)]
     text = quality.format_report(report)
-    assert "KXH             daily           1       2      2           3  2026-07-11  2026-07-12" in text
+    assert "KXH             daily           1       2      2           3  2026-07-10  2026-07-11" in text
+    assert "KXH             minute          1       2      2           2  2026-07-10  2026-07-10" in text
+    assert "   first day    last day" in text
+
+
+def test_daily_dates_are_the_day_the_bar_covers_on_both_sides_of_a_clock_change(data_dir):
+    e, s, t = "KXH-25DEC", "KXH", "KXH-25DEC-T1"
+    summer = ts("2025-07-11T04:00:00Z")            # midnight EDT: the bar covers 2025-07-10
+    fall_back = ts("2025-11-03T04:00:00Z")         # the night daylight saving ends the exchange keeps 04:00Z: 2025-11-02
+    winter = ts("2025-12-10T05:00:00Z")            # midnight EST: the bar covers 2025-12-09
+    assert [quality._date(x, daily=True) for x in (summer, fall_back, winter)] == ["2025-07-10", "2025-11-02", "2025-12-09"]
+    # Every other row keeps the UTC date of its instant
+    assert [quality._date(x) for x in (summer, fall_back, winter)] == ["2025-07-11", "2025-11-03", "2025-12-10"]
+    assert quality._date(None, daily=True) == "-"
+
+    upsert_market_metadata([meta(t, e, s, open_iso="2025-07-01T00:00:00Z", close_iso="2025-12-20T00:00:00Z"),
+                            meta(f"{e}-T2", e, s, open_iso="2025-07-01T00:00:00Z", close_iso="2025-12-20T00:00:00Z")])
+    write_candles("daily", s, t, [bar(x, t, e, s) for x in (summer, fall_back, winter)])
+    write_candles("hourly", s, t, [bar(ts("2025-12-10T02:00:00Z"), t, e, s)])       # 21:00 ET on the 9th
+    report = run(now="2025-12-11T12:00:00Z", write_csv=True)
+    text = quality.format_report(report)
+    assert "KXH             daily           1       1      1           3  2025-07-10  2025-12-09" in text
+    assert "KXH             hourly          1       1      1           1  2025-12-10  2025-12-10" in text
+    csv = pd.read_csv(report.csv_path)
+    details = dict(zip(csv.loc[csv["check"] == "coverage", "period"], csv.loc[csv["check"] == "coverage", "detail"]))
+    assert details["daily"].endswith("2025-07-10 to 2025-12-09") and details["hourly"].endswith("2025-12-10 to 2025-12-10")
+    # One convention in one report: the per-day checks label the same three bars with the same days
+    assert [r["period"] for r in report.check("missing").rows] == ["2025-07-10", "2025-11-02", "2025-12-09"]
 
 
 def test_coverage_takes_the_trades_series_from_the_path_and_the_books_from_the_metadata(data_dir):
