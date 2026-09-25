@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "derived_at": "2026-09-21T23:05:01Z",
+  "derived_at": "2026-09-25T19:25:19Z",
   "source": "derived",
   "rule": "nearest 1 open event(s) per series, ranked by the earliest close_time of their open markets",
   "series": [

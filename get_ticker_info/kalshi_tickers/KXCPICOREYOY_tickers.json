@@ -1,8 +1,8 @@
 {
   "schema_version": 2,
   "series": "KXCPICOREYOY",
-  "built_at": "2026-09-21T23:04:43Z",
-  "historical_cutoff": "2026-07-23T00:00:00Z",
+  "built_at": "2026-09-25T19:24:59Z",
+  "historical_cutoff": "2026-07-27T00:00:00Z",
   "status_counts": {
     "active": 46,
     "finalized": 641

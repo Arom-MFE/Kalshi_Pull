@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
-  "built_at": "2026-09-21T23:04:59Z",
-  "oldest_series_built_at": "2026-09-21T23:04:34Z",
+  "built_at": "2026-09-25T19:25:15Z",
+  "oldest_series_built_at": "2026-09-25T19:24:51Z",
   "series": [
     "KXACPI",
     "KXCPI",
@@ -5059,7 +5059,7 @@
     "KXACPI": {
       "events": 4,
       "markets": 40,
-      "built_at": "2026-09-21T23:04:37Z",
+      "built_at": "2026-09-25T19:24:55Z",
       "status_counts": {
         "finalized": 40
       },
@@ -5109,7 +5109,7 @@
     "KXCPI": {
       "events": 67,
       "markets": 552,
-      "built_at": "2026-09-21T23:04:34Z",
+      "built_at": "2026-09-25T19:24:51Z",
       "status_counts": {
         "active": 44,
         "finalized": 508
@@ -5672,7 +5672,7 @@
     "KXCPICORE": {
       "events": 56,
       "markets": 500,
-      "built_at": "2026-09-21T23:04:40Z",
+      "built_at": "2026-09-25T19:24:56Z",
       "status_counts": {
         "active": 44,
         "finalized": 456
@@ -6183,7 +6183,7 @@
     "KXCPICOREYOY": {
       "events": 48,
       "markets": 687,
-      "built_at": "2026-09-21T23:04:43Z",
+      "built_at": "2026-09-25T19:24:59Z",
       "status_counts": {
         "active": 46,
         "finalized": 641
@@ -6881,7 +6881,7 @@
     "KXCPIYOY": {
       "events": 49,
       "markets": 713,
-      "built_at": "2026-09-21T23:04:36Z",
+      "built_at": "2026-09-25T19:24:53Z",
       "status_counts": {
         "active": 63,
         "finalized": 650
@@ -7605,7 +7605,7 @@
     "KXFED": {
       "events": 52,
       "markets": 660,
-      "built_at": "2026-09-21T23:04:58Z",
+      "built_at": "2026-09-25T19:25:14Z",
       "status_counts": {
         "active": 247,
         "finalized": 413
@@ -8276,7 +8276,7 @@
     "KXFEDDECISION": {
       "events": 40,
       "markets": 200,
-      "built_at": "2026-09-21T23:04:56Z",
+      "built_at": "2026-09-25T19:25:12Z",
       "status_counts": {
         "active": 55,
         "finalized": 145
@@ -8487,7 +8487,7 @@
     "KXFEDMEET": {
       "events": 3,
       "markets": 4,
-      "built_at": "2026-09-21T23:04:59Z",
+      "built_at": "2026-09-25T19:25:15Z",
       "status_counts": {
         "active": 1,
         "finalized": 3
@@ -8502,7 +8502,7 @@
     "KXGDP": {
       "events": 26,
       "markets": 225,
-      "built_at": "2026-09-21T23:04:50Z",
+      "built_at": "2026-09-25T19:25:07Z",
       "status_counts": {
         "active": 36,
         "finalized": 183,
@@ -8739,7 +8739,7 @@
     "KXGDPYEAR": {
       "events": 12,
       "markets": 166,
-      "built_at": "2026-09-21T23:04:52Z",
+      "built_at": "2026-09-25T19:25:09Z",
       "status_counts": {
         "active": 154,
         "finalized": 12
@@ -8916,7 +8916,7 @@
     "KXJOBLESS": {
       "events": 69,
       "markets": 74,
-      "built_at": "2026-09-21T23:04:47Z",
+      "built_at": "2026-09-25T19:25:04Z",
       "status_counts": {
         "finalized": 74
       },
@@ -9000,7 +9000,7 @@
     "KXPAYROLLS": {
       "events": 45,
       "markets": 422,
-      "built_at": "2026-09-21T23:04:48Z",
+      "built_at": "2026-09-25T19:25:05Z",
       "status_counts": {
         "active": 39,
         "finalized": 383
@@ -9433,7 +9433,7 @@
     "KXPCECORE": {
       "events": 28,
       "markets": 151,
-      "built_at": "2026-09-21T23:04:42Z",
+      "built_at": "2026-09-25T19:24:58Z",
       "status_counts": {
         "active": 25,
         "finalized": 126
@@ -9595,7 +9595,7 @@
     "KXRECSSNBER": {
       "events": 6,
       "markets": 6,
-      "built_at": "2026-09-21T23:04:53Z",
+      "built_at": "2026-09-25T19:25:10Z",
       "status_counts": {
         "active": 2,
         "finalized": 4
@@ -9612,7 +9612,7 @@
     "KXU3": {
       "events": 65,
       "markets": 627,
-      "built_at": "2026-09-21T23:04:45Z",
+      "built_at": "2026-09-25T19:25:02Z",
       "status_counts": {
         "active": 42,
         "finalized": 585
